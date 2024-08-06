@@ -1,0 +1,194 @@
+[gd_scene load_steps=11 format=3 uid="uid://ldwxr8o7du7"]
+
+[ext_resource type="Texture2D" uid="uid://baqa84hay3l1x" path="res://Assets/ref/image.png" id="1_crfh0"]
+[ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdThemes/eos/eosIcon_M.png" id="2_ia35k"]
+[ext_resource type="Texture2D" uid="uid://8ocayen5spgw" path="res://Assets/Images/portraits/icon_386.png" id="3_2dy76"]
+[ext_resource type="Texture2D" uid="uid://dg6at41hquvec" path="res://PmdThemes/eos/eosBox_M.png" id="4_488rf"]
+[ext_resource type="Theme" uid="uid://dsorw808w1qst" path="res://Assets/Themes/PmdDark.tres" id="5_qi2yv"]
+[ext_resource type="PackedScene" uid="uid://bgtua870y440s" path="res://Scenes/Components/DebugTabButton.tscn" id="6_4mf72"]
+[ext_resource type="Shader" path="res://Assets/Shaders/blur.gdshader" id="6_q7upt"]
+[ext_resource type="Texture2D" uid="uid://bm3rt1xw07m17" path="res://Assets/Images/settings.png" id="8_y615r"]
+[ext_resource type="Script" path="res://Scenes/DialogueTab.gd" id="9_pthgd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
+shader = ExtResource("6_q7upt")
+shader_parameter/lod = 4.0
+
+[node name="EditorState" type="Node2D"]
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(384, 288)
+scale = Vector2(3, 3)
+texture = ExtResource("1_crfh0")
+
+[node name="PMD" type="Node2D" parent="."]
+
+[node name="Portrait" type="Sprite2D" parent="PMD"]
+position = Vector2(108, 276)
+scale = Vector2(3, 3)
+texture = ExtResource("2_ia35k")
+
+[node name="Icon" type="Sprite2D" parent="PMD/Portrait"]
+texture = ExtResource("3_2dy76")
+
+[node name="Textbox" type="Sprite2D" parent="PMD"]
+position = Vector2(384, 468)
+scale = Vector2(3, 3)
+texture = ExtResource("4_488rf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PMD/Textbox"]
+offset_left = -108.0
+offset_top = -19.0
+offset_right = 112.0
+offset_bottom = 20.0
+theme = ExtResource("5_qi2yv")
+bbcode_enabled = true
+text = "Dinsdale: Let's work hard as always, 
+Muttski!"
+scroll_active = false
+autowrap_mode = 1
+
+[node name="DebugMenu" type="Node2D" parent="."]
+
+[node name="Blur" type="ColorRect" parent="DebugMenu"]
+material = SubResource("ShaderMaterial_75fvv")
+offset_left = 295.0
+offset_top = 24.0
+offset_right = 721.0
+offset_bottom = 66.0
+
+[node name="Settings" type="TextureButton" parent="DebugMenu"]
+visible = false
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 43.0
+offset_bottom = 43.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("8_y615r")
+
+[node name="DialogueBTN" parent="DebugMenu" node_paths=PackedStringArray("tab") instance=ExtResource("6_4mf72")]
+offset_left = 295.0
+offset_top = 30.0
+offset_right = 421.0
+offset_bottom = 72.0
+text = "DIALOGUE"
+tab = NodePath("../DebugTab/Tabs/DialogueTab")
+
+[node name="ThemesBTN" parent="DebugMenu" node_paths=PackedStringArray("tab") instance=ExtResource("6_4mf72")]
+offset_left = 445.0
+offset_top = 30.0
+offset_right = 571.0
+offset_bottom = 72.0
+text = "THEMES"
+tab = NodePath("../DebugTab/Tabs/ThemesTab")
+
+[node name="PresetsBTN" parent="DebugMenu" instance=ExtResource("6_4mf72")]
+offset_left = 595.0
+offset_top = 30.0
+offset_right = 721.0
+offset_bottom = 72.0
+text = "PRESETS"
+
+[node name="DebugTab" type="NinePatchRect" parent="DebugMenu"]
+offset_left = 193.0
+offset_top = 66.0
+offset_right = 377.0
+offset_bottom = 171.0
+scale = Vector2(3, 3)
+texture = ExtResource("2_ia35k")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Blur" type="ColorRect" parent="DebugMenu/DebugTab"]
+material = SubResource("ShaderMaterial_75fvv")
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 180.0
+offset_bottom = 101.0
+
+[node name="Dark" type="ColorRect" parent="DebugMenu/DebugTab"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 180.0
+offset_bottom = 101.0
+color = Color(0.12549, 0.12549, 0.12549, 0.937255)
+
+[node name="Tabs" type="Control" parent="DebugMenu/DebugTab"]
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 180.0
+offset_bottom = 101.0
+
+[node name="DialogueTab" type="Control" parent="DebugMenu/DebugTab/Tabs" node_paths=PackedStringArray("textboxText")]
+anchors_preset = 0
+offset_right = 176.0
+offset_bottom = 97.0
+script = ExtResource("9_pthgd")
+textboxText = NodePath("../../../../PMD/Textbox/RichTextLabel")
+
+[node name="TextboxEdit" type="TextEdit" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+layout_mode = 2
+offset_left = 13.0
+offset_top = 5.66667
+offset_right = 163.0
+offset_bottom = 45.6667
+theme = ExtResource("5_qi2yv")
+placeholder_text = "Textbox text goes here..."
+
+[node name="PrefixEdit" type="LineEdit" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 50.6667
+offset_right = 125.0
+offset_bottom = 68.6667
+theme = ExtResource("5_qi2yv")
+placeholder_text = "Prefix..."
+
+[node name="PrefixColour" type="ColorPickerButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+layout_mode = 0
+offset_left = 131.333
+offset_top = 52.0
+offset_right = 163.333
+offset_bottom = 68.0
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "PREFIX"
+color = Color(0.972549, 0.972549, 0, 1)
+edit_alpha = false
+
+[node name="CheckBox" type="CheckBox" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 69.0
+offset_right = 195.0
+offset_bottom = 88.0
+scale = Vector2(0.5, 0.5)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "PREFIX"
+flat = true
+alignment = 1
+
+[node name="ThemesTab" type="Control" parent="DebugMenu/DebugTab/Tabs"]
+visible = false
+anchors_preset = 0
+offset_right = 176.0
+offset_bottom = 97.0
+
+[node name="LoadThemeBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 9.99999
+offset_right = 148.0
+offset_bottom = 23.0
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "LOAD THEME"
+
+[connection signal="text_changed" from="DebugMenu/DebugTab/Tabs/DialogueTab/TextboxEdit" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
+[connection signal="text_changed" from="DebugMenu/DebugTab/Tabs/DialogueTab/PrefixEdit" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onPrefixEditChanged"]

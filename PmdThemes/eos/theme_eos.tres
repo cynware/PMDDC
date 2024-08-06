@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PmdTheme" load_steps=6 format=3 uid="uid://oconqiflmbry"]
+
+[ext_resource type="Texture2D" uid="uid://v3tk0jxwtxlr" path="res://PmdThemes/eos/eosBox_F.png" id="1_uagpl"]
+[ext_resource type="Texture2D" uid="uid://dg6at41hquvec" path="res://PmdThemes/eos/eosBox_M.png" id="2_pwf61"]
+[ext_resource type="Texture2D" uid="uid://fyku5sd4svm" path="res://PmdThemes/eos/eosIcon_F.png" id="3_bksgd"]
+[ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdThemes/eos/eosIcon_M.png" id="4_dvb0c"]
+[ext_resource type="Script" path="res://PmdThemes/PmdTheme.gd" id="5_e16fw"]
+
+[resource]
+script = ExtResource("5_e16fw")
+themeName = "Explorers Of Sky"
+defaultType = 0
+icon_M = ExtResource("4_dvb0c")
+box_M = ExtResource("2_pwf61")
+icon_F = ExtResource("3_bksgd")
+box_F = ExtResource("1_uagpl")

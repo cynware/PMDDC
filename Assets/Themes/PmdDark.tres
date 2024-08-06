@@ -1,0 +1,43 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dsorw808w1qst"]
+
+[ext_resource type="FontFile" uid="uid://b18bcqecgsw5x" path="res://Assets/Fonts/Wondermail.ttf" id="1_3uc8h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdja5"]
+bg_color = Color(0.156863, 0.156863, 0.156863, 0.937255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y78k6"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 0.937255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xv2ht"]
+bg_color = Color(0.188235, 0.188235, 0.188235, 0.937255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58jpp"]
+bg_color = Color(0.160784, 0.160784, 0.160784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08s60"]
+bg_color = Color(0.160784, 0.160784, 0.160784, 1)
+border_width_left = 5
+border_width_top = 3
+border_color = Color(0.160784, 0.160784, 0.160784, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1ksfg"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_qhqse"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+
+[resource]
+default_font = ExtResource("1_3uc8h")
+default_font_size = 16
+Button/styles/hover = SubResource("StyleBoxFlat_kdja5")
+Button/styles/normal = SubResource("StyleBoxFlat_y78k6")
+Button/styles/pressed = SubResource("StyleBoxFlat_xv2ht")
+LineEdit/colors/selection_color = Color(0.501961, 0.501961, 0.501961, 0)
+LineEdit/fonts/font = ExtResource("1_3uc8h")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_58jpp")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_08s60")
+TextEdit/colors/background_color = Color(0.160784, 0.160784, 0.160784, 1)
+TextEdit/styles/focus = SubResource("StyleBoxLine_1ksfg")
+TextEdit/styles/normal = SubResource("StyleBoxLine_qhqse")

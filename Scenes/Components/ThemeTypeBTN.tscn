@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb3shqw006mu4"]
+
+[ext_resource type="Texture2D" uid="uid://c0lfecjkhwt1c" path="res://Assets/Images/icon_M.png" id="1_is4wk"]
+[ext_resource type="Script" path="res://Scenes/Components/ThemeTypeBTN.gd" id="2_0i5b6"]
+
+[node name="ThemeTypeBTN" type="TextureButton"]
+anchors_preset = -1
+anchor_right = 0.019
+anchor_bottom = 0.025
+offset_right = 21.408
+offset_bottom = 21.6
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("1_is4wk")
+script = ExtResource("2_0i5b6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 36.0
+offset_bottom = 36.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+color = Color(0, 0, 0, 0.862745)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

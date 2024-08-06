@@ -1,0 +1,633 @@
+[gd_scene load_steps=37 format=3 uid="uid://ldwxr8o7du7"]
+
+[ext_resource type="Script" path="res://Scenes/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
+[ext_resource type="Texture2D" uid="uid://baqa84hay3l1x" path="res://Assets/ref/image.png" id="1_crfh0"]
+[ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdThemes/eos/eosIcon_M.png" id="2_ia35k"]
+[ext_resource type="Texture2D" uid="uid://8ocayen5spgw" path="res://Assets/Images/portraits/icon_386.png" id="3_2dy76"]
+[ext_resource type="Texture2D" uid="uid://dg6at41hquvec" path="res://PmdThemes/eos/eosBox_M.png" id="4_488rf"]
+[ext_resource type="Theme" uid="uid://dsorw808w1qst" path="res://Assets/Themes/PmdDark.tres" id="5_qi2yv"]
+[ext_resource type="PackedScene" uid="uid://bgtua870y440s" path="res://Scenes/Components/DebugTabButton.tscn" id="6_4mf72"]
+[ext_resource type="Shader" path="res://Assets/Shaders/blur.gdshader" id="6_q7upt"]
+[ext_resource type="Texture2D" uid="uid://bm3rt1xw07m17" path="res://Assets/Images/settings.png" id="8_y615r"]
+[ext_resource type="Script" path="res://Scenes/DialogueTab.gd" id="9_pthgd"]
+[ext_resource type="PackedScene" uid="uid://cb3shqw006mu4" path="res://Scenes/Components/ThemeTypeBTN.tscn" id="10_naogw"]
+[ext_resource type="Texture2D" uid="uid://dgy8trjx8l6pt" path="res://Assets/Images/symbols/coin.png" id="11_1n151"]
+[ext_resource type="Texture2D" uid="uid://dcskbgqsta1r3" path="res://Assets/Images/symbols/heart.png" id="11_mo684"]
+[ext_resource type="Script" path="res://Scenes/InsertSymbolBTN.gd" id="11_ouwkk"]
+[ext_resource type="Texture2D" uid="uid://riac5l0rgksx" path="res://Assets/Images/symbols/star.png" id="12_vxgy4"]
+[ext_resource type="Texture2D" uid="uid://dmlppb1jvlf0q" path="res://Assets/Images/symbols/textbubble.png" id="13_t8tcm"]
+[ext_resource type="AudioStream" uid="uid://dopgwiieklh37" path="res://Assets/Sounds/pmdMenu_1.ogg" id="15_bl6l8"]
+[ext_resource type="Texture2D" uid="uid://bnriejy5kq618" path="res://Assets/Images/symbols/smirk.png" id="16_rp5cs"]
+[ext_resource type="Texture2D" uid="uid://brl01k6drroqp" path="res://Assets/Images/symbols/crazy.png" id="17_r8hl3"]
+[ext_resource type="Texture2D" uid="uid://cj557ykdx0jj2" path="res://Assets/Images/symbols/smile.png" id="18_37hf0"]
+[ext_resource type="Texture2D" uid="uid://b6mwarnlbkg4j" path="res://Assets/Images/symbols/sob.png" id="19_mhl4t"]
+[ext_resource type="Texture2D" uid="uid://bncd0cvvnkwy6" path="res://Assets/Images/symbols/thinking.png" id="20_i0cqj"]
+[ext_resource type="Texture2D" uid="uid://ofjrj8k0jb76" path="res://Assets/Images/symbols/happy.png" id="21_pa2tf"]
+[ext_resource type="Texture2D" uid="uid://b0qkkn1jioi4w" path="res://Assets/Images/symbols/evil_gang.png" id="22_ruxgj"]
+[ext_resource type="Texture2D" uid="uid://dfoinj66226d6" path="res://Assets/Images/symbols/face_holding_back_tears.png" id="23_2oyy6"]
+[ext_resource type="Texture2D" uid="uid://ccg4avukacymh" path="res://Assets/Images/symbols/pensive.png" id="24_t7fh0"]
+[ext_resource type="Texture2D" uid="uid://bx2lmiel2bdql" path="res://Assets/Images/symbols/face_hearts.png" id="25_ruyj5"]
+[ext_resource type="Texture2D" uid="uid://bpqxghytjwgbm" path="res://Assets/Images/symbols/flushed.png" id="26_ywre3"]
+[ext_resource type="Texture2D" uid="uid://cdmr3icjt0nx2" path="res://Assets/Images/symbols/face_with_monocle.png" id="27_yq5tl"]
+[ext_resource type="Texture2D" uid="uid://df38v2x0eu0jl" path="res://Assets/Images/symbols/nerd.png" id="28_6ychj"]
+[ext_resource type="Script" path="res://Scenes/ThemesTab.gd" id="30_q7nel"]
+[ext_resource type="Texture2D" uid="uid://c77t7i3pmg68b" path="res://Assets/Images/Untitled.png" id="32_t43mi"]
+[ext_resource type="FontFile" uid="uid://b18bcqecgsw5x" path="res://Assets/Fonts/Wondermail.ttf" id="33_x1l3a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
+shader = ExtResource("6_q7upt")
+shader_parameter/lod = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_l7fbr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ahui5"]
+font = ExtResource("33_x1l3a")
+
+[node name="EditorState" type="Node2D"]
+
+[node name="SCREENSHOT MANAGER" type="Node" parent="."]
+script = ExtResource("1_8ny4k")
+
+[node name="SaveWindow" type="FileDialog" parent="SCREENSHOT MANAGER"]
+initial_position = 4
+size = Vector2i(600, 500)
+ok_button_text = "Save Screenshot"
+dialog_autowrap = true
+access = 2
+filters = PackedStringArray("*.png")
+use_native_dialog = true
+
+[node name="Image" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(384, 288)
+scale = Vector2(3, 3)
+texture = ExtResource("1_crfh0")
+
+[node name="BgColour" type="ColorRect" parent="."]
+offset_right = 768.0
+offset_bottom = 576.0
+color = Color(0.298039, 0.298039, 0.298039, 1)
+
+[node name="PMD" type="Node2D" parent="."]
+
+[node name="Portrait" type="Sprite2D" parent="PMD"]
+position = Vector2(108, 276)
+scale = Vector2(3, 3)
+texture = ExtResource("2_ia35k")
+
+[node name="Icon" type="Sprite2D" parent="PMD/Portrait"]
+texture = ExtResource("3_2dy76")
+
+[node name="Textbox" type="Sprite2D" parent="PMD"]
+position = Vector2(384, 468)
+scale = Vector2(3, 3)
+texture = ExtResource("4_488rf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PMD/Textbox"]
+offset_left = -108.0
+offset_top = -19.0
+offset_right = 112.0
+offset_bottom = 20.0
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "Lopunny: Oh! Wigglytuff, darling! It's
+been a long time, sweetie! [img=10]res://Assets/Images/symbols/heart.png[/img]"
+scroll_active = false
+autowrap_mode = 1
+
+[node name="DebugMenu" type="Node2D" parent="."]
+
+[node name="Blur" type="ColorRect" parent="DebugMenu"]
+material = SubResource("ShaderMaterial_75fvv")
+offset_left = 295.0
+offset_top = 24.0
+offset_right = 721.0
+offset_bottom = 66.0
+
+[node name="Settings" type="TextureButton" parent="DebugMenu"]
+visible = false
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 43.0
+offset_bottom = 43.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("8_y615r")
+
+[node name="DialogueBTN" parent="DebugMenu" node_paths=PackedStringArray("tab") instance=ExtResource("6_4mf72")]
+offset_left = 295.0
+offset_top = 30.0
+offset_right = 421.0
+offset_bottom = 72.0
+text = "DIALOGUE"
+tab = NodePath("../DebugTab/Tabs/DialogueTab")
+
+[node name="ThemesBTN" parent="DebugMenu" node_paths=PackedStringArray("tab") instance=ExtResource("6_4mf72")]
+offset_left = 445.0
+offset_top = 30.0
+offset_right = 571.0
+offset_bottom = 72.0
+text = "THEMES"
+tab = NodePath("../DebugTab/Tabs/ThemesTab")
+
+[node name="PresetsBTN" parent="DebugMenu" instance=ExtResource("6_4mf72")]
+offset_left = 595.0
+offset_top = 30.0
+offset_right = 721.0
+offset_bottom = 72.0
+text = "PRESETS"
+
+[node name="DebugTab" type="NinePatchRect" parent="DebugMenu"]
+offset_left = 193.0
+offset_top = 66.0
+offset_right = 377.0
+offset_bottom = 171.0
+scale = Vector2(3, 3)
+texture = ExtResource("2_ia35k")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Blur" type="ColorRect" parent="DebugMenu/DebugTab"]
+material = SubResource("ShaderMaterial_75fvv")
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 180.0
+offset_bottom = 101.0
+
+[node name="Dark" type="ColorRect" parent="DebugMenu/DebugTab"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 180.0
+offset_bottom = 101.0
+color = Color(0.12549, 0.12549, 0.12549, 0.937255)
+
+[node name="Tabs" type="Control" parent="DebugMenu/DebugTab"]
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 180.0
+offset_bottom = 101.0
+
+[node name="DialogueTab" type="Control" parent="DebugMenu/DebugTab/Tabs" node_paths=PackedStringArray("textboxText")]
+anchors_preset = 0
+offset_right = 176.0
+offset_bottom = 97.0
+script = ExtResource("9_pthgd")
+textboxText = NodePath("../../../../PMD/Textbox/RichTextLabel")
+
+[node name="TextboxEdit" type="TextEdit" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+layout_mode = 2
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 227.0
+offset_bottom = 81.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_qi2yv")
+placeholder_text = "Textbox text goes here..."
+wrap_mode = 1
+
+[node name="InsertColourBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+layout_mode = 0
+offset_left = 39.6667
+offset_top = 2.0
+offset_right = 123.667
+offset_bottom = 15.0
+scale = Vector2(0.7, 0.7)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "INSERT COLOUR"
+
+[node name="InsertSymbolBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 2.0
+offset_right = 182.0
+offset_bottom = 15.0
+scale = Vector2(0.7, 0.7)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "INSERT SYMBOL"
+
+[node name="InsertColour" type="ColorPickerButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+layout_mode = 0
+offset_left = 15.0001
+offset_top = 2.0
+offset_right = 36.0001
+offset_bottom = 11.0
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+color = Color(0.972549, 0.972549, 0, 1)
+edit_alpha = false
+
+[node name="PrefixEdit" type="LineEdit" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 64.0
+offset_right = 125.0
+offset_bottom = 82.0
+theme = ExtResource("5_qi2yv")
+placeholder_text = "Prefix..."
+
+[node name="PrefixColour" type="ColorPickerButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+layout_mode = 0
+offset_left = 131.333
+offset_top = 65.3333
+offset_right = 163.333
+offset_bottom = 81.3333
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "PREFIX"
+color = Color(0.972549, 0.972549, 0, 1)
+edit_alpha = false
+
+[node name="PrefixEnabled" type="CheckBox" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 82.3333
+offset_right = 195.0
+offset_bottom = 101.333
+scale = Vector2(0.5, 0.5)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+button_pressed = true
+text = "PREFIX"
+flat = true
+alignment = 1
+
+[node name="SymbolWindow" type="Control" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+visible = false
+anchors_preset = 0
+offset_right = 176.0
+offset_bottom = 97.0
+
+[node name="Blur" type="ColorRect" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow"]
+material = SubResource("ShaderMaterial_75fvv")
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 97.0
+
+[node name="Dark" type="ColorRect" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow"]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 97.0
+color = Color(0.12549, 0.12549, 0.12549, 0.937255)
+
+[node name="Header" type="Label" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow"]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 19.0
+theme = ExtResource("5_qi2yv")
+text = "CHOOSE SYMBOL"
+label_settings = SubResource("LabelSettings_l7fbr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HeartSymbol" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 6.00001
+offset_top = 21.6667
+offset_right = 16.0
+offset_bottom = 31.6667
+texture_normal = ExtResource("11_mo684")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="CoinSymbol" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 17.9999
+offset_top = 21.6667
+offset_right = 27.9999
+offset_bottom = 31.6667
+texture_normal = ExtResource("11_1n151")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="StarSymbol" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 29.9998
+offset_top = 21.6667
+offset_right = 39.9998
+offset_bottom = 31.6667
+texture_normal = ExtResource("12_vxgy4")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="SpeechSymbol" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 21.6667
+offset_right = 52.0
+offset_bottom = 31.6667
+texture_normal = ExtResource("13_t8tcm")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="Smirk" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 54.0001
+offset_top = 22.0
+offset_right = 64.0001
+offset_bottom = 32.0
+texture_normal = ExtResource("16_rp5cs")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="Crazy" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 66.0001
+offset_top = 22.0
+offset_right = 76.0001
+offset_bottom = 32.0
+texture_normal = ExtResource("17_r8hl3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="Smile" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 22.0
+offset_right = 88.0
+offset_bottom = 32.0
+texture_normal = ExtResource("18_37hf0")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="Sob" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 22.0
+offset_right = 100.0
+offset_bottom = 32.0
+texture_normal = ExtResource("19_mhl4t")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="Smirk2" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 54.0001
+offset_top = 35.0
+offset_right = 64.0001
+offset_bottom = 45.0
+texture_normal = ExtResource("20_i0cqj")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="Crazy2" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 66.0001
+offset_top = 35.0
+offset_right = 76.0001
+offset_bottom = 45.0
+texture_normal = ExtResource("21_pa2tf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="Smile2" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 35.0
+offset_right = 88.0
+offset_bottom = 45.0
+texture_normal = ExtResource("22_ruxgj")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="HoldingBackTears" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 22.0
+offset_right = 112.0
+offset_bottom = 32.0
+texture_normal = ExtResource("23_2oyy6")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="Pensive" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 22.0
+offset_right = 124.0
+offset_bottom = 32.0
+texture_normal = ExtResource("24_t7fh0")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="Loveee" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 22.0
+offset_right = 136.0
+offset_bottom = 32.0
+texture_normal = ExtResource("25_ruyj5")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="Flushed" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 22.0
+offset_right = 148.0
+offset_bottom = 32.0
+texture_normal = ExtResource("26_ywre3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="Loveee2" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 21.6667
+offset_right = 160.0
+offset_bottom = 31.6667
+texture_normal = ExtResource("27_yq5tl")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="Sob3" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 21.6667
+offset_right = 172.0
+offset_bottom = 31.6667
+texture_normal = ExtResource("28_6ychj")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="CloseBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow"]
+layout_mode = 0
+offset_left = 74.3333
+offset_top = 86.6667
+offset_right = 110.333
+offset_bottom = 99.6667
+scale = Vector2(0.7, 0.7)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "CLOSE"
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+stream = ExtResource("15_bl6l8")
+volume_db = -25.0
+
+[node name="ThemesTab" type="Control" parent="DebugMenu/DebugTab/Tabs"]
+visible = false
+anchors_preset = 0
+offset_right = 176.0
+offset_bottom = 97.0
+script = ExtResource("30_q7nel")
+
+[node name="LoadThemeBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 215.0
+offset_bottom = 20.0
+scale = Vector2(0.8, 0.8)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "LOAD THEME"
+
+[node name="ChangeBlue" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 51.0
+offset_right = 82.0
+offset_bottom = 68.0
+scale = Vector2(0.8, 0.8)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "evil gang blue"
+icon = ExtResource("22_ruxgj")
+
+[node name="ChangePink" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+layout_mode = 0
+offset_left = 71.6667
+offset_top = 51.0
+offset_right = 148.667
+offset_bottom = 68.0
+scale = Vector2(0.8, 0.8)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "evil gang PINK"
+icon = ExtResource("22_ruxgj")
+
+[node name="ChangeGreen" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+layout_mode = 0
+offset_left = 104.667
+offset_top = 63.3333
+offset_right = 191.667
+offset_bottom = 76.3333
+scale = Vector2(0.8, 0.8)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "evil gang GREEN"
+icon = ExtResource("22_ruxgj")
+
+[node name="ThemeTypeBTN" parent="DebugMenu/DebugTab/Tabs/ThemesTab" instance=ExtResource("10_naogw")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 65.3334
+offset_top = 80.3333
+offset_right = 101.333
+offset_bottom = 116.333
+
+[node name="ThemeTypeBTN2" parent="DebugMenu/DebugTab/Tabs/ThemesTab" instance=ExtResource("10_naogw")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 82.6668
+offset_top = 80.3333
+offset_right = 118.667
+offset_bottom = 116.333
+
+[node name="ThemeTypeBTN3" parent="DebugMenu/DebugTab/Tabs/ThemesTab" instance=ExtResource("10_naogw")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 100.667
+offset_top = 80.3333
+offset_right = 136.667
+offset_bottom = 116.333
+
+[node name="TextureRect" type="TextureRect" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+modulate = Color(0.25098, 0.25098, 0.25098, 1)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 75.0
+offset_right = 172.0
+offset_bottom = 95.0
+texture = ExtResource("32_t43mi")
+expand_mode = 1
+
+[node name="BgColour" type="ColorPickerButton" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+layout_mode = 0
+offset_left = 119.667
+offset_top = 19.6667
+offset_right = 152.667
+offset_bottom = 31.6667
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+color = Color(0.298039, 0.298039, 0.298039, 1)
+edit_alpha = false
+
+[node name="Label" type="Label" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+layout_mode = 0
+offset_left = 25.6667
+offset_top = 18.6667
+offset_right = 114.667
+offset_bottom = 31.6667
+text = ":evilgang: bg colour"
+label_settings = SubResource("LabelSettings_ahui5")
+
+[connection signal="file_selected" from="SCREENSHOT MANAGER/SaveWindow" to="SCREENSHOT MANAGER" method="_on_save_window_file_selected"]
+[connection signal="text_changed" from="DebugMenu/DebugTab/Tabs/DialogueTab/TextboxEdit" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
+[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/DialogueTab/InsertColourBTN" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onColourInsert"]
+[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/DialogueTab/InsertSymbolBTN" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onSymbolWindowOpen"]
+[connection signal="text_changed" from="DebugMenu/DebugTab/Tabs/DialogueTab/PrefixEdit" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onPrefixEditChanged"]
+[connection signal="color_changed" from="DebugMenu/DebugTab/Tabs/DialogueTab/PrefixColour" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onPrefixColourChanged"]
+[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/DialogueTab/PrefixEnabled" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="_on_prefix_enabled_pressed"]
+[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow/CloseBTN" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onSymbolWindowClose"]
+[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/ChangeBlue" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="_on_change_blue_pressed"]
+[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/ChangePink" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="_on_change_pink_pressed"]
+[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/ChangeGreen" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="_on_change_green_pressed"]
+[connection signal="color_changed" from="DebugMenu/DebugTab/Tabs/ThemesTab/BgColour" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="onBgColourInputChanged"]

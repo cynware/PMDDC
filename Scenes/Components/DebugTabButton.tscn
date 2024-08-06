@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgtua870y440s"]
+
+[ext_resource type="Theme" uid="uid://dsorw808w1qst" path="res://Assets/Themes/PmdDark.tres" id="1_lu1ue"]
+[ext_resource type="Script" path="res://Scenes/Components/DebugTabButton.gd" id="2_e7p28"]
+[ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdThemes/eos/eosIcon_M.png" id="2_t2nvq"]
+[ext_resource type="AudioStream" uid="uid://r32yop1dwqy1" path="res://Assets/Sounds/pmdMenu_2.ogg" id="3_nole5"]
+
+[node name="Button" type="Button"]
+offset_right = 126.0
+offset_bottom = 42.0
+focus_mode = 0
+theme = ExtResource("1_lu1ue")
+theme_override_font_sizes/font_size = 32
+text = "TEXT"
+clip_text = true
+script = ExtResource("2_e7p28")
+
+[node name="Border" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 38.0
+offset_bottom = 10.0
+scale = Vector2(3, 3)
+texture = ExtResource("2_t2nvq")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nole5")
+volume_db = -25.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
