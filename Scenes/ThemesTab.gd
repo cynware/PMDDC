@@ -30,3 +30,11 @@ func _on_change_pink_pressed():
 func _on_change_green_pressed():
 	$"../../../../PMD/Textbox".texture = load("res://PmdThemes/eos/eosBox_NB.png");
 	$"../../../../PMD/Portrait".texture = load("res://PmdThemes/eos/eosIcon_NB.png");
+
+func onPortraitWindowClose():
+	$PortraitWindow.visible = false;
+	$ClickSFX.play();
+
+func onPortraitWindowOpen():
+	$PortraitWindow.visible = true;
+	$ClickSFX.play();

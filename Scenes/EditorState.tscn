@@ -1,10 +1,11 @@
-[gd_scene load_steps=37 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=38 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scenes/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
 [ext_resource type="Texture2D" uid="uid://baqa84hay3l1x" path="res://Assets/ref/image.png" id="1_crfh0"]
 [ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdThemes/eos/eosIcon_M.png" id="2_ia35k"]
 [ext_resource type="Texture2D" uid="uid://8ocayen5spgw" path="res://Assets/Images/portraits/icon_386.png" id="3_2dy76"]
 [ext_resource type="Texture2D" uid="uid://dg6at41hquvec" path="res://PmdThemes/eos/eosBox_M.png" id="4_488rf"]
+[ext_resource type="Texture2D" uid="uid://beikwn8chfkpn" path="res://Assets/Images/portraits/ERRORPORTRAIT.png" id="4_yqe1g"]
 [ext_resource type="Theme" uid="uid://dsorw808w1qst" path="res://Assets/Themes/PmdDark.tres" id="5_qi2yv"]
 [ext_resource type="PackedScene" uid="uid://bgtua870y440s" path="res://Scenes/Components/DebugTabButton.tscn" id="6_4mf72"]
 [ext_resource type="Shader" path="res://Assets/Shaders/blur.gdshader" id="6_q7upt"]
@@ -31,7 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://cdmr3icjt0nx2" path="res://Assets/Images/symbols/face_with_monocle.png" id="27_yq5tl"]
 [ext_resource type="Texture2D" uid="uid://df38v2x0eu0jl" path="res://Assets/Images/symbols/nerd.png" id="28_6ychj"]
 [ext_resource type="Script" path="res://Scenes/ThemesTab.gd" id="30_q7nel"]
-[ext_resource type="Texture2D" uid="uid://c77t7i3pmg68b" path="res://Assets/Images/Untitled.png" id="32_t43mi"]
+[ext_resource type="Script" path="res://Scenes/PortraitMenu.gd" id="33_ovcmm"]
 [ext_resource type="FontFile" uid="uid://b18bcqecgsw5x" path="res://Assets/Fonts/Wondermail.ttf" id="33_x1l3a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
@@ -74,6 +75,9 @@ color = Color(0.298039, 0.298039, 0.298039, 1)
 position = Vector2(108, 276)
 scale = Vector2(3, 3)
 texture = ExtResource("2_ia35k")
+
+[node name="ERRORICON" type="Sprite2D" parent="PMD/Portrait"]
+texture = ExtResource("4_yqe1g")
 
 [node name="Icon" type="Sprite2D" parent="PMD/Portrait"]
 texture = ExtResource("3_2dy76")
@@ -173,6 +177,7 @@ offset_right = 180.0
 offset_bottom = 101.0
 
 [node name="DialogueTab" type="Control" parent="DebugMenu/DebugTab/Tabs" node_paths=PackedStringArray("textboxText")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -506,11 +511,20 @@ stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 
 [node name="ThemesTab" type="Control" parent="DebugMenu/DebugTab/Tabs"]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
 script = ExtResource("30_q7nel")
+
+[node name="LoadPortraitBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+offset_left = 5.33333
+offset_top = 18.0667
+offset_right = 215.333
+offset_bottom = 35.0667
+scale = Vector2(0.8, 0.8)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "LOAD PORTRAIT"
 
 [node name="LoadThemeBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
@@ -589,22 +603,12 @@ offset_top = 80.3333
 offset_right = 136.667
 offset_bottom = 116.333
 
-[node name="TextureRect" type="TextureRect" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
-modulate = Color(0.25098, 0.25098, 0.25098, 1)
-layout_mode = 0
-offset_left = 6.0
-offset_top = 75.0
-offset_right = 172.0
-offset_bottom = 95.0
-texture = ExtResource("32_t43mi")
-expand_mode = 1
-
 [node name="BgColour" type="ColorPickerButton" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
-offset_left = 119.667
-offset_top = 19.6667
-offset_right = 152.667
-offset_bottom = 31.6667
+offset_left = 90.667
+offset_top = 35.6667
+offset_right = 123.667
+offset_bottom = 47.6667
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
 color = Color(0.298039, 0.298039, 0.298039, 1)
@@ -612,12 +616,128 @@ edit_alpha = false
 
 [node name="Label" type="Label" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
-offset_left = 25.6667
-offset_top = 18.6667
-offset_right = 114.667
-offset_bottom = 31.6667
-text = ":evilgang: bg colour"
+offset_left = 5.33337
+offset_top = 34.6667
+offset_right = 94.3337
+offset_bottom = 47.6667
+text = "Background Color:"
 label_settings = SubResource("LabelSettings_ahui5")
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+stream = ExtResource("15_bl6l8")
+volume_db = -25.0
+
+[node name="PortraitWindow" type="Control" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -0.266657
+offset_right = 176.0
+offset_bottom = 96.7333
+script = ExtResource("33_ovcmm")
+
+[node name="Blur" type="ColorRect" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+material = SubResource("ShaderMaterial_75fvv")
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 97.0
+
+[node name="Dark" type="ColorRect" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 97.0
+color = Color(0.12549, 0.12549, 0.12549, 0.937255)
+
+[node name="Emotion" type="OptionButton" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 23.0
+offset_right = 205.0
+offset_bottom = 48.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_qi2yv")
+alignment = 1
+item_count = 20
+selected = 0
+popup/item_0/text = "Normal"
+popup/item_0/id = 0
+popup/item_1/text = "Angry"
+popup/item_1/id = 1
+popup/item_2/text = "Crying"
+popup/item_2/id = 2
+popup/item_3/text = "Determined"
+popup/item_3/id = 3
+popup/item_4/text = "Dizzy"
+popup/item_4/id = 4
+popup/item_5/text = "Happy"
+popup/item_5/id = 5
+popup/item_6/text = "Inspired"
+popup/item_6/id = 6
+popup/item_7/text = "Joyous"
+popup/item_7/id = 7
+popup/item_8/text = "Pain"
+popup/item_8/id = 8
+popup/item_9/text = "Sad"
+popup/item_9/id = 9
+popup/item_10/text = "Shouting"
+popup/item_10/id = 10
+popup/item_11/text = "Sigh"
+popup/item_11/id = 11
+popup/item_12/text = "Special0"
+popup/item_12/id = 12
+popup/item_13/text = "Special1"
+popup/item_13/id = 13
+popup/item_14/text = "Special2"
+popup/item_14/id = 14
+popup/item_15/text = "Special3"
+popup/item_15/id = 15
+popup/item_16/text = "Stunned"
+popup/item_16/id = 16
+popup/item_17/text = "Surprised"
+popup/item_17/id = 17
+popup/item_18/text = "Teary-Eyed"
+popup/item_18/id = 18
+popup/item_19/text = "Worried"
+popup/item_19/id = 19
+
+[node name="DexNum" type="TextEdit" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+offset_left = 4.0
+offset_top = 23.0
+offset_right = 116.0
+offset_bottom = 48.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_qi2yv")
+placeholder_text = "Pokédex # (ex: 0025)"
+
+[node name="Header" type="Label" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 19.0
+theme = ExtResource("5_qi2yv")
+text = "CHOOSE PORTRAIT"
+label_settings = SubResource("LabelSettings_l7fbr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoadThemeBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+offset_left = 5.0
+offset_top = 45.6667
+offset_right = 215.0
+offset_bottom = 62.6667
+scale = Vector2(0.8, 0.8)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "LOAD PORTRAIT FROM PMDCOLLAB"
+
+[node name="CloseBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+layout_mode = 0
+offset_left = 74.3333
+offset_top = 86.6667
+offset_right = 110.333
+offset_bottom = 99.6667
+scale = Vector2(0.7, 0.7)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "CLOSE"
 
 [connection signal="file_selected" from="SCREENSHOT MANAGER/SaveWindow" to="SCREENSHOT MANAGER" method="_on_save_window_file_selected"]
 [connection signal="text_changed" from="DebugMenu/DebugTab/Tabs/DialogueTab/TextboxEdit" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
@@ -627,7 +747,10 @@ label_settings = SubResource("LabelSettings_ahui5")
 [connection signal="color_changed" from="DebugMenu/DebugTab/Tabs/DialogueTab/PrefixColour" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onPrefixColourChanged"]
 [connection signal="pressed" from="DebugMenu/DebugTab/Tabs/DialogueTab/PrefixEnabled" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="_on_prefix_enabled_pressed"]
 [connection signal="pressed" from="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow/CloseBTN" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onSymbolWindowClose"]
+[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/LoadPortraitBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="onPortraitWindowOpen"]
 [connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/ChangeBlue" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="_on_change_blue_pressed"]
 [connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/ChangePink" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="_on_change_pink_pressed"]
 [connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/ChangeGreen" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="_on_change_green_pressed"]
 [connection signal="color_changed" from="DebugMenu/DebugTab/Tabs/ThemesTab/BgColour" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="onBgColourInputChanged"]
+[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/LoadThemeBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow" method="onTestLoad"]
+[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/CloseBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="onPortraitWindowClose"]
