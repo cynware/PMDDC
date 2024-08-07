@@ -177,7 +177,6 @@ offset_right = 180.0
 offset_bottom = 101.0
 
 [node name="DialogueTab" type="Control" parent="DebugMenu/DebugTab/Tabs" node_paths=PackedStringArray("textboxText")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -511,12 +510,14 @@ stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 
 [node name="ThemesTab" type="Control" parent="DebugMenu/DebugTab/Tabs"]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
 script = ExtResource("30_q7nel")
 
 [node name="LoadPortraitBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+layout_mode = 0
 offset_left = 5.33333
 offset_top = 18.0667
 offset_right = 215.333
@@ -628,6 +629,7 @@ stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 
 [node name="PortraitWindow" type="Control" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.266657
@@ -700,6 +702,7 @@ popup/item_19/text = "Worried"
 popup/item_19/id = 19
 
 [node name="DexNum" type="TextEdit" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 23.0
 offset_right = 116.0
@@ -719,6 +722,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LoadThemeBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 45.6667
 offset_right = 215.0
