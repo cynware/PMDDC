@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=39 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scenes/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
 [ext_resource type="Texture2D" uid="uid://baqa84hay3l1x" path="res://Assets/ref/image.png" id="1_crfh0"]
@@ -34,6 +34,7 @@
 [ext_resource type="Script" path="res://Scenes/ThemesTab.gd" id="30_q7nel"]
 [ext_resource type="Script" path="res://Scenes/PortraitMenu.gd" id="33_ovcmm"]
 [ext_resource type="FontFile" uid="uid://b18bcqecgsw5x" path="res://Assets/Fonts/Wondermail.ttf" id="33_x1l3a"]
+[ext_resource type="Texture2D" uid="uid://b7lm4pfb4ejl3" path="res://Assets/Images/folder.png" id="35_at0t2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
 shader = ExtResource("6_q7upt")
@@ -177,6 +178,7 @@ offset_right = 180.0
 offset_bottom = 101.0
 
 [node name="DialogueTab" type="Control" parent="DebugMenu/DebugTab/Tabs" node_paths=PackedStringArray("textboxText")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -510,7 +512,6 @@ stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 
 [node name="ThemesTab" type="Control" parent="DebugMenu/DebugTab/Tabs"]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -629,7 +630,6 @@ stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 
 [node name="PortraitWindow" type="Control" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.266657
@@ -731,6 +731,13 @@ scale = Vector2(0.8, 0.8)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "LOAD PORTRAIT FROM PMDCOLLAB"
+
+[node name="folderBTN" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+offset_left = 6.33334
+offset_top = 4.26666
+offset_right = 18.3333
+offset_bottom = 14.2667
+texture_normal = ExtResource("35_at0t2")
 
 [node name="CloseBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
