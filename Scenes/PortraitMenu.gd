@@ -1,7 +1,21 @@
 extends Control
 
+@export var icon:Sprite2D;
 
-func onTestLoad():
+@export var presetImages:Array[Texture2D];
+
+func _ready():
+	if (!DirAccess.dir_exists_absolute("user://Portraits")):
+		DirAccess.make_dir_absolute("user://Portraits")
+		DirAccess.make_dir_absolute("user://Portraits/Template")
+		
+		for img in presetImages:
+			img.get_image().save_png(ProjectSettings.globalize_path("user://Portraits/Template/" + img.resource_path.get_file()));
+		print("MADE PORTRAITS FOLDER + TEMPLATES")
+	else:
+		print("PORTRAITS FOLDER ALREADY EXISTS")
+		
+func loadIcon():
 	# Create an HTTP request node and connect its completion signal.
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
@@ -23,4 +37,8 @@ func _http_request_completed(result, response_code, headers, body):
 		push_error("Couldn't load the image.")
 
 	var texture = ImageTexture.create_from_image(image)
-	$"../../../../../PMD/Portrait/Icon".texture = texture
+	icon.texture = texture
+
+
+func openCustomIconFolder():
+	OS.shell_open(ProjectSettings.globalize_path("user://"))

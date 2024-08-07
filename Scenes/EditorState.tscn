@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=59 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scenes/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
 [ext_resource type="Texture2D" uid="uid://baqa84hay3l1x" path="res://Assets/ref/image.png" id="1_crfh0"]
@@ -34,7 +34,27 @@
 [ext_resource type="Script" path="res://Scenes/ThemesTab.gd" id="30_q7nel"]
 [ext_resource type="Script" path="res://Scenes/PortraitMenu.gd" id="33_ovcmm"]
 [ext_resource type="FontFile" uid="uid://b18bcqecgsw5x" path="res://Assets/Fonts/Wondermail.ttf" id="33_x1l3a"]
+[ext_resource type="Texture2D" uid="uid://dnbwjdisfavh8" path="res://Assets/Images/Template/Angry.png" id="35_8xq2p"]
 [ext_resource type="Texture2D" uid="uid://b7lm4pfb4ejl3" path="res://Assets/Images/folder.png" id="35_at0t2"]
+[ext_resource type="Texture2D" uid="uid://ch6y6a64t0i72" path="res://Assets/Images/Template/Crying.png" id="36_ed0lm"]
+[ext_resource type="Texture2D" uid="uid://dw7tjlfxukq1t" path="res://Assets/Images/Template/Determined.png" id="37_7opjh"]
+[ext_resource type="Texture2D" uid="uid://7tvnj3b6jdd5" path="res://Assets/Images/Template/Dizzy.png" id="38_nn25p"]
+[ext_resource type="Texture2D" uid="uid://u46lq8qonb4n" path="res://Assets/Images/Template/Happy.png" id="39_kk32g"]
+[ext_resource type="Texture2D" uid="uid://gpg6o6mv2nhb" path="res://Assets/Images/Template/Inspired.png" id="40_jnqv7"]
+[ext_resource type="Texture2D" uid="uid://dtag1tmr7slas" path="res://Assets/Images/Template/Joyous.png" id="41_wmx46"]
+[ext_resource type="Texture2D" uid="uid://juw7nfcehoe5" path="res://Assets/Images/Template/Normal.png" id="42_xxpgf"]
+[ext_resource type="Texture2D" uid="uid://dhdushi4l06tc" path="res://Assets/Images/Template/Pain.png" id="43_qqkqu"]
+[ext_resource type="Texture2D" uid="uid://c6cqe3x1rbhu4" path="res://Assets/Images/Template/Sad.png" id="44_ot21h"]
+[ext_resource type="Texture2D" uid="uid://bewad4ai343at" path="res://Assets/Images/Template/Shouting.png" id="45_c04ku"]
+[ext_resource type="Texture2D" uid="uid://5t1n7mrmrkpi" path="res://Assets/Images/Template/Sigh.png" id="46_lfj07"]
+[ext_resource type="Texture2D" uid="uid://1qskq0wfvhc1" path="res://Assets/Images/Template/Special0.png" id="47_vwl7f"]
+[ext_resource type="Texture2D" uid="uid://cngfdx66y708a" path="res://Assets/Images/Template/Special1.png" id="48_gt2bu"]
+[ext_resource type="Texture2D" uid="uid://doqy0rnforfr3" path="res://Assets/Images/Template/Special2.png" id="49_d1k3h"]
+[ext_resource type="Texture2D" uid="uid://c5gharqeuudkn" path="res://Assets/Images/Template/Special3.png" id="50_ld6pt"]
+[ext_resource type="Texture2D" uid="uid://bbj886a1xi2f5" path="res://Assets/Images/Template/Stunned.png" id="51_vsdx0"]
+[ext_resource type="Texture2D" uid="uid://bfvqawf5rt21j" path="res://Assets/Images/Template/Surprised.png" id="52_ttctp"]
+[ext_resource type="Texture2D" uid="uid://bh67i0kl5rqoo" path="res://Assets/Images/Template/Teary-Eyed.png" id="53_34vbu"]
+[ext_resource type="Texture2D" uid="uid://bgye8e2e0iqxr" path="res://Assets/Images/Template/Worried.png" id="54_kgwja"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
 shader = ExtResource("6_q7upt")
@@ -629,25 +649,41 @@ label_settings = SubResource("LabelSettings_ahui5")
 stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 
-[node name="PortraitWindow" type="Control" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+[node name="PortraitWindow" type="Control" parent="DebugMenu/DebugTab/Tabs/ThemesTab" node_paths=PackedStringArray("icon")]
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.266657
 offset_right = 176.0
 offset_bottom = 96.7333
 script = ExtResource("33_ovcmm")
+icon = NodePath("../../../../../PMD/Portrait/Icon")
+presetImages = Array[Texture2D]([ExtResource("35_8xq2p"), ExtResource("36_ed0lm"), ExtResource("37_7opjh"), ExtResource("38_nn25p"), ExtResource("39_kk32g"), ExtResource("40_jnqv7"), ExtResource("41_wmx46"), ExtResource("42_xxpgf"), ExtResource("43_qqkqu"), ExtResource("44_ot21h"), ExtResource("45_c04ku"), ExtResource("46_lfj07"), ExtResource("47_vwl7f"), ExtResource("48_gt2bu"), ExtResource("49_d1k3h"), ExtResource("50_ld6pt"), ExtResource("51_vsdx0"), ExtResource("52_ttctp"), ExtResource("53_34vbu"), ExtResource("54_kgwja")])
 
-[node name="Blur" type="ColorRect" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
-material = SubResource("ShaderMaterial_75fvv")
+[node name="Bg" type="ColorRect" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
 offset_right = 176.0
 offset_bottom = 97.0
+color = Color(0.156863, 0.156863, 0.156863, 1)
 
-[node name="Dark" type="ColorRect" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="Header" type="Label" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
 offset_right = 176.0
-offset_bottom = 97.0
-color = Color(0.12549, 0.12549, 0.12549, 0.937255)
+offset_bottom = 19.0
+theme = ExtResource("5_qi2yv")
+text = "CHOOSE PORTRAIT"
+label_settings = SubResource("LabelSettings_l7fbr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DexNum" type="TextEdit" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 23.0
+offset_right = 116.0
+offset_bottom = 48.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_qi2yv")
+placeholder_text = "Pokédex # (ex: 0025)"
 
 [node name="Emotion" type="OptionButton" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
@@ -701,26 +737,6 @@ popup/item_18/id = 18
 popup/item_19/text = "Worried"
 popup/item_19/id = 19
 
-[node name="DexNum" type="TextEdit" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 23.0
-offset_right = 116.0
-offset_bottom = 48.0
-scale = Vector2(0.7, 0.7)
-theme = ExtResource("5_qi2yv")
-placeholder_text = "Pokédex # (ex: 0025)"
-
-[node name="Header" type="Label" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
-layout_mode = 0
-offset_right = 176.0
-offset_bottom = 19.0
-theme = ExtResource("5_qi2yv")
-text = "CHOOSE PORTRAIT"
-label_settings = SubResource("LabelSettings_l7fbr")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="LoadThemeBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
 offset_left = 5.0
@@ -732,19 +748,28 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "LOAD PORTRAIT FROM PMDCOLLAB"
 
-[node name="folderBTN" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
-offset_left = 6.33334
-offset_top = 4.26666
-offset_right = 18.3333
-offset_bottom = 14.2667
+[node name="FolderBTN" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 2.59999
+offset_right = 170.0
+offset_bottom = 12.6
 texture_normal = ExtResource("35_at0t2")
+
+[node name="FileDialog" type="FileDialog" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/FolderBTN"]
+title = "Open a File or Directory"
+size = Vector2i(454, 159)
+ok_button_text = "Open"
+file_mode = 3
+access = 2
+use_native_dialog = true
 
 [node name="CloseBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
-offset_left = 74.3333
-offset_top = 86.6667
-offset_right = 110.333
-offset_bottom = 99.6667
+offset_left = 71.0
+offset_top = 83.9333
+offset_right = 117.0
+offset_bottom = 98.9333
 scale = Vector2(0.7, 0.7)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
@@ -763,5 +788,6 @@ text = "CLOSE"
 [connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/ChangePink" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="_on_change_pink_pressed"]
 [connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/ChangeGreen" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="_on_change_green_pressed"]
 [connection signal="color_changed" from="DebugMenu/DebugTab/Tabs/ThemesTab/BgColour" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="onBgColourInputChanged"]
-[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/LoadThemeBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow" method="onTestLoad"]
+[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/LoadThemeBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow" method="loadIcon"]
+[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/FolderBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow" method="openCustomIconFolder"]
 [connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/CloseBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="onPortraitWindowClose"]
