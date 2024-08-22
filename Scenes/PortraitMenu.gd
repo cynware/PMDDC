@@ -22,7 +22,7 @@ func loadIcon():
 	http_request.request_completed.connect(self._http_request_completed)
 
 	# Perform the HTTP request. The URL below returns a PNG image as of writing.
-	var error = http_request.request("https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/"+ $DexNum.text + "/" + $Emotion.text + ".png")
+	var error = http_request.request("https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/"+ $DexNum.text + "/" + $Emotion_Collab.text + ".png")
 	if error != OK:
 		push_error("An error occurred in the HTTP request.")
 

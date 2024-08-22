@@ -38,3 +38,12 @@ func onPortraitWindowClose():
 func onPortraitWindowOpen():
 	$PortraitWindow.visible = true;
 	$ClickSFX.play();
+
+
+
+func on_portrait_flip():
+	if $PortraitFlip.button_pressed:
+		$"../../../../PMD/Portrait/Icon".scale.x = -1;
+	else:
+		$"../../../../PMD/Portrait/Icon".scale.x = 1;
+
