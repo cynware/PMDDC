@@ -1,5 +1,6 @@
-[gd_scene load_steps=61 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=62 format=3 uid="uid://ldwxr8o7du7"]
 
+[ext_resource type="Script" path="res://Scenes/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scenes/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
 [ext_resource type="Texture2D" uid="uid://baqa84hay3l1x" path="res://Assets/ref/image.png" id="1_crfh0"]
 [ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdThemes/eos/eosIcon_M.png" id="2_ia35k"]
@@ -69,6 +70,9 @@ font = ExtResource("33_x1l3a")
 
 [node name="EditorState" type="Node2D"]
 
+[node name="Cursor" type="Node2D" parent="."]
+script = ExtResource("1_3o4bd")
+
 [node name="SCREENSHOT MANAGER" type="Node" parent="."]
 script = ExtResource("1_8ny4k")
 
@@ -132,15 +136,6 @@ offset_top = 24.0
 offset_right = 721.0
 offset_bottom = 66.0
 
-[node name="Settings" type="TextureButton" parent="DebugMenu"]
-visible = false
-offset_left = 9.0
-offset_top = 9.0
-offset_right = 43.0
-offset_bottom = 43.0
-scale = Vector2(2, 2)
-texture_normal = ExtResource("8_y615r")
-
 [node name="DialogueBTN" parent="DebugMenu" node_paths=PackedStringArray("tab") instance=ExtResource("6_4mf72")]
 offset_left = 295.0
 offset_top = 30.0
@@ -200,7 +195,6 @@ offset_right = 180.0
 offset_bottom = 101.0
 
 [node name="DialogueTab" type="Control" parent="DebugMenu/DebugTab/Tabs" node_paths=PackedStringArray("textboxText")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -534,6 +528,7 @@ stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 
 [node name="ThemesTab" type="Control" parent="DebugMenu/DebugTab/Tabs"]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -650,6 +645,7 @@ stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 
 [node name="PortraitWindow" type="Control" parent="DebugMenu/DebugTab/Tabs/ThemesTab" node_paths=PackedStringArray("icon")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.266657
@@ -837,6 +833,66 @@ scale = Vector2(0.7, 0.7)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "CLOSE"
+
+[node name="Settings" type="TextureButton" parent="DebugMenu"]
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 43.0
+offset_bottom = 43.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("8_y615r")
+
+[node name="Settingstab" type="NinePatchRect" parent="DebugMenu"]
+visible = false
+offset_left = 100.0
+offset_top = 31.0
+offset_right = 284.0
+offset_bottom = 203.0
+scale = Vector2(3, 3)
+texture = ExtResource("2_ia35k")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Dark2" type="ColorRect" parent="DebugMenu/Settingstab"]
+offset_left = -39.0
+offset_top = -14.0
+offset_right = 228.0
+offset_bottom = 185.0
+color = Color(0.12549, 0.12549, 0.12549, 0.937255)
+
+[node name="Blur" type="ColorRect" parent="DebugMenu/Settingstab"]
+material = SubResource("ShaderMaterial_75fvv")
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 180.0
+offset_bottom = 168.0
+
+[node name="Dark" type="ColorRect" parent="DebugMenu/Settingstab"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 180.0
+offset_bottom = 168.0
+color = Color(0.12549, 0.12549, 0.12549, 0.937255)
+
+[node name="Tabs" type="Control" parent="DebugMenu/Settingstab"]
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 180.0
+offset_bottom = 167.0
+
+[node name="Header" type="Label" parent="DebugMenu/Settingstab/Tabs"]
+offset_right = 176.0
+offset_bottom = 19.0
+theme = ExtResource("5_qi2yv")
+text = " SETTINGS"
+label_settings = SubResource("LabelSettings_l7fbr")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="file_selected" from="SCREENSHOT MANAGER/SaveWindow" to="SCREENSHOT MANAGER" method="_on_save_window_file_selected"]
 [connection signal="text_changed" from="DebugMenu/DebugTab/Tabs/DialogueTab/TextboxEdit" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
