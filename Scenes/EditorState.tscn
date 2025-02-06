@@ -622,6 +622,7 @@ text = "Flip Portrait"
 alignment = 1
 
 [node name="GenderLabel" type="Label" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+layout_mode = 0
 offset_left = 4.66672
 offset_top = 55.0
 offset_right = 41.6667
@@ -649,7 +650,6 @@ stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 
 [node name="PortraitWindow" type="Control" parent="DebugMenu/DebugTab/Tabs/ThemesTab" node_paths=PackedStringArray("icon")]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.266657
@@ -709,6 +709,15 @@ text = "LOAD FROM LOCAL FILES"
 label_settings = SubResource("LabelSettings_l7fbr")
 vertical_alignment = 1
 
+[node name="LocalName" type="TextEdit" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+offset_left = 4.99993
+offset_top = 63.2667
+offset_right = 117.0
+offset_bottom = 88.2667
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_qi2yv")
+placeholder_text = "Folder Name"
+
 [node name="DexNum" type="TextEdit" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
 offset_left = 4.0
@@ -719,71 +728,14 @@ scale = Vector2(0.7, 0.7)
 theme = ExtResource("5_qi2yv")
 placeholder_text = "Pokédex # (ex: 0025)"
 
-[node name="Emotion_Local" type="OptionButton" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
-layout_mode = 0
+[node name="Emotion_Local" type="TextEdit" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 offset_left = 86.0
-offset_top = 63.3334
+offset_top = 63.6667
 offset_right = 153.0
-offset_bottom = 88.3334
+offset_bottom = 88.6667
 scale = Vector2(0.7, 0.7)
 theme = ExtResource("5_qi2yv")
-alignment = 1
-item_count = 20
-selected = 0
-popup/item_0/text = "Normal"
-popup/item_0/id = 0
-popup/item_1/text = "Angry"
-popup/item_1/id = 1
-popup/item_2/text = "Crying"
-popup/item_2/id = 2
-popup/item_3/text = "Determined"
-popup/item_3/id = 3
-popup/item_4/text = "Dizzy"
-popup/item_4/id = 4
-popup/item_5/text = "Happy"
-popup/item_5/id = 5
-popup/item_6/text = "Inspired"
-popup/item_6/id = 6
-popup/item_7/text = "Joyous"
-popup/item_7/id = 7
-popup/item_8/text = "Pain"
-popup/item_8/id = 8
-popup/item_9/text = "Sad"
-popup/item_9/id = 9
-popup/item_10/text = "Shouting"
-popup/item_10/id = 10
-popup/item_11/text = "Sigh"
-popup/item_11/id = 11
-popup/item_12/text = "Special0"
-popup/item_12/id = 12
-popup/item_13/text = "Special1"
-popup/item_13/id = 13
-popup/item_14/text = "Special2"
-popup/item_14/id = 14
-popup/item_15/text = "Special3"
-popup/item_15/id = 15
-popup/item_16/text = "Stunned"
-popup/item_16/id = 16
-popup/item_17/text = "Surprised"
-popup/item_17/id = 17
-popup/item_18/text = "Teary-Eyed"
-popup/item_18/id = 18
-popup/item_19/text = "Worried"
-popup/item_19/id = 19
-
-[node name="Emotion_Local2" type="OptionButton" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
-layout_mode = 0
-offset_left = 4.73331
-offset_top = 63.1
-offset_right = 117.733
-offset_bottom = 88.1
-scale = Vector2(0.7, 0.7)
-theme = ExtResource("5_qi2yv")
-alignment = 1
-item_count = 1
-selected = 0
-popup/item_0/text = "TEMPORARY"
-popup/item_0/id = 0
+placeholder_text = "Image Name"
 
 [node name="Emotion_Collab" type="OptionButton" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
@@ -900,6 +852,7 @@ text = "CLOSE"
 [connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/ThemeTypeBTN3" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="_on_change_green_pressed"]
 [connection signal="color_changed" from="DebugMenu/DebugTab/Tabs/ThemesTab/BgColour" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="onBgColourInputChanged"]
 [connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitFlip" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="on_portrait_flip"]
-[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/Portrait_COLLABBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow" method="loadIcon"]
+[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/Portrait_COLLABBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow" method="loadIconCollab"]
+[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/Portrait_LOCALBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow" method="loadIconLocal"]
 [connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/FolderBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow" method="openCustomIconFolder"]
 [connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/CloseBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="onPortraitWindowClose"]

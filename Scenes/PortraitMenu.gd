@@ -15,7 +15,7 @@ func _ready():
 	else:
 		print("PORTRAITS FOLDER ALREADY EXISTS")
 		
-func loadIcon():
+func loadIconCollab():
 	# Create an HTTP request node and connect its completion signal.
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
@@ -39,6 +39,16 @@ func _http_request_completed(result, response_code, headers, body):
 	var texture = ImageTexture.create_from_image(image)
 	icon.texture = texture
 
+func loadIconLocal():
+	var imagepath = "user://Portraits/"+$LocalName.text+"/"+$Emotion_Local.text+".png"
+	var image = Image.load_from_file(imagepath)
+	
+	if image.load(imagepath) == OK:
+		if image.get_width() > 40 or image.get_height() > 40:
+			image.resize(40, 40, Image.INTERPOLATE_NEAREST)
+	
+		var texture = ImageTexture.create_from_image(image)
+		icon.texture = texture
 
 func openCustomIconFolder():
-	OS.shell_open(ProjectSettings.globalize_path("user://"))
+	OS.shell_open(ProjectSettings.globalize_path("user://Portraits"))
