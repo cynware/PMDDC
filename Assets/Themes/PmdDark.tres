@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dsorw808w1qst"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://dsorw808w1qst"]
 
 [ext_resource type="FontFile" uid="uid://b18bcqecgsw5x" path="res://Assets/Fonts/Wondermail.ttf" id="1_3uc8h"]
 
@@ -10,6 +10,12 @@ bg_color = Color(0.12549, 0.12549, 0.12549, 0.937255)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xv2ht"]
 bg_color = Color(0.188235, 0.188235, 0.188235, 0.937255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xe3gm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5w7f1"]
+bg_color = Color(0.754667, 0.498634, 0.725128, 0)
+corner_detail = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58jpp"]
 bg_color = Color(0.160784, 0.160784, 0.160784, 1)
@@ -34,6 +40,8 @@ default_font_size = 16
 Button/styles/hover = SubResource("StyleBoxFlat_kdja5")
 Button/styles/normal = SubResource("StyleBoxFlat_y78k6")
 Button/styles/pressed = SubResource("StyleBoxFlat_xv2ht")
+CheckBox/styles/focus = SubResource("StyleBoxFlat_xe3gm")
+CheckButton/styles/focus = SubResource("StyleBoxFlat_5w7f1")
 LineEdit/colors/selection_color = Color(0.501961, 0.501961, 0.501961, 0)
 LineEdit/fonts/font = ExtResource("1_3uc8h")
 LineEdit/styles/focus = SubResource("StyleBoxFlat_58jpp")

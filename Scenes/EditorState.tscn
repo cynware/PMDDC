@@ -61,7 +61,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
 shader = ExtResource("6_q7upt")
-shader_parameter/lod = 4.0
+shader_parameter/lod = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_l7fbr"]
 
@@ -69,9 +69,6 @@ shader_parameter/lod = 4.0
 font = ExtResource("33_x1l3a")
 
 [node name="EditorState" type="Node2D"]
-
-[node name="Cursor" type="Node2D" parent="."]
-script = ExtResource("1_3o4bd")
 
 [node name="SCREENSHOT MANAGER" type="Node" parent="."]
 script = ExtResource("1_8ny4k")
@@ -85,36 +82,39 @@ access = 2
 filters = PackedStringArray("*.png")
 use_native_dialog = true
 
-[node name="Image" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(384, 288)
-scale = Vector2(3, 3)
-texture = ExtResource("1_crfh0")
+[node name="Cursor" type="Node2D" parent="."]
+script = ExtResource("1_3o4bd")
 
 [node name="BgColour" type="ColorRect" parent="."]
 offset_right = 768.0
 offset_bottom = 576.0
 color = Color(0.298039, 0.298039, 0.298039, 1)
 
-[node name="PMD" type="Node2D" parent="."]
+[node name="ImageBg" type="Sprite2D" parent="BgColour"]
+visible = false
+position = Vector2(384, 288)
+scale = Vector2(3, 3)
+texture = ExtResource("1_crfh0")
 
-[node name="Portrait" type="Sprite2D" parent="PMD"]
+[node name="PMD_Main" type="Node2D" parent="."]
+
+[node name="Portrait" type="Sprite2D" parent="PMD_Main"]
 position = Vector2(108, 276)
 scale = Vector2(3, 3)
 texture = ExtResource("2_ia35k")
 
-[node name="ERRORICON" type="Sprite2D" parent="PMD/Portrait"]
+[node name="ERRORICON" type="Sprite2D" parent="PMD_Main/Portrait"]
 texture = ExtResource("4_yqe1g")
 
-[node name="Icon" type="Sprite2D" parent="PMD/Portrait"]
+[node name="Icon" type="Sprite2D" parent="PMD_Main/Portrait"]
 texture = ExtResource("3_2dy76")
 
-[node name="Textbox" type="Sprite2D" parent="PMD"]
+[node name="Textbox" type="Sprite2D" parent="PMD_Main"]
 position = Vector2(384, 468)
 scale = Vector2(3, 3)
 texture = ExtResource("4_488rf")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PMD/Textbox"]
+[node name="RichTextLabel" type="RichTextLabel" parent="PMD_Main/Textbox"]
 offset_left = -108.0
 offset_top = -19.0
 offset_right = 112.0
@@ -127,16 +127,17 @@ been a long time, sweetie! [img=10]res://Assets/Images/symbols/heart.png[/img]"
 scroll_active = false
 autowrap_mode = 1
 
-[node name="DebugMenu" type="Node2D" parent="."]
+[node name="PMD_Debug" type="Node2D" parent="."]
 
-[node name="Blur" type="ColorRect" parent="DebugMenu"]
+[node name="Blur" type="ColorRect" parent="PMD_Debug"]
+visible = false
 material = SubResource("ShaderMaterial_75fvv")
 offset_left = 295.0
 offset_top = 24.0
 offset_right = 721.0
 offset_bottom = 66.0
 
-[node name="DialogueBTN" parent="DebugMenu" node_paths=PackedStringArray("tab") instance=ExtResource("6_4mf72")]
+[node name="DialogueBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") instance=ExtResource("6_4mf72")]
 offset_left = 295.0
 offset_top = 30.0
 offset_right = 421.0
@@ -144,7 +145,7 @@ offset_bottom = 72.0
 text = "DIALOGUE"
 tab = NodePath("../DebugTab/Tabs/DialogueTab")
 
-[node name="ThemesBTN" parent="DebugMenu" node_paths=PackedStringArray("tab") instance=ExtResource("6_4mf72")]
+[node name="ThemesBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") instance=ExtResource("6_4mf72")]
 offset_left = 445.0
 offset_top = 30.0
 offset_right = 571.0
@@ -152,14 +153,14 @@ offset_bottom = 72.0
 text = "THEMES"
 tab = NodePath("../DebugTab/Tabs/ThemesTab")
 
-[node name="PresetsBTN" parent="DebugMenu" instance=ExtResource("6_4mf72")]
+[node name="PresetsBTN" parent="PMD_Debug" instance=ExtResource("6_4mf72")]
 offset_left = 595.0
 offset_top = 30.0
 offset_right = 721.0
 offset_bottom = 72.0
 text = "PRESETS"
 
-[node name="DebugTab" type="NinePatchRect" parent="DebugMenu"]
+[node name="DebugTab" type="NinePatchRect" parent="PMD_Debug"]
 offset_left = 193.0
 offset_top = 66.0
 offset_right = 377.0
@@ -171,7 +172,8 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="Blur" type="ColorRect" parent="DebugMenu/DebugTab"]
+[node name="Blur" type="ColorRect" parent="PMD_Debug/DebugTab"]
+visible = false
 material = SubResource("ShaderMaterial_75fvv")
 layout_mode = 0
 offset_left = 4.0
@@ -179,7 +181,7 @@ offset_top = 4.0
 offset_right = 180.0
 offset_bottom = 101.0
 
-[node name="Dark" type="ColorRect" parent="DebugMenu/DebugTab"]
+[node name="Dark" type="ColorRect" parent="PMD_Debug/DebugTab"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -187,21 +189,21 @@ offset_right = 180.0
 offset_bottom = 101.0
 color = Color(0.12549, 0.12549, 0.12549, 0.937255)
 
-[node name="Tabs" type="Control" parent="DebugMenu/DebugTab"]
+[node name="Tabs" type="Control" parent="PMD_Debug/DebugTab"]
 anchors_preset = 0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 180.0
 offset_bottom = 101.0
 
-[node name="DialogueTab" type="Control" parent="DebugMenu/DebugTab/Tabs" node_paths=PackedStringArray("textboxText")]
+[node name="DialogueTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("textboxText")]
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
 script = ExtResource("9_pthgd")
-textboxText = NodePath("../../../../PMD/Textbox/RichTextLabel")
+textboxText = NodePath("../../../../PMD_Main/Textbox/RichTextLabel")
 
-[node name="TextboxEdit" type="TextEdit" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+[node name="TextboxEdit" type="TextEdit" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
 layout_mode = 2
 offset_left = 13.0
 offset_top = 14.0
@@ -212,7 +214,7 @@ theme = ExtResource("5_qi2yv")
 placeholder_text = "Textbox text goes here..."
 wrap_mode = 1
 
-[node name="InsertColourBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+[node name="InsertColourBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
 layout_mode = 0
 offset_left = 39.6667
 offset_top = 2.0
@@ -223,7 +225,7 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "INSERT COLOUR"
 
-[node name="InsertSymbolBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+[node name="InsertSymbolBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
 layout_mode = 0
 offset_left = 102.0
 offset_top = 2.0
@@ -234,7 +236,7 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "INSERT SYMBOL"
 
-[node name="InsertColour" type="ColorPickerButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+[node name="InsertColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
 layout_mode = 0
 offset_left = 15.0001
 offset_top = 2.0
@@ -245,7 +247,7 @@ theme = ExtResource("5_qi2yv")
 color = Color(0.972549, 0.972549, 0, 1)
 edit_alpha = false
 
-[node name="PrefixEdit" type="LineEdit" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+[node name="PrefixEdit" type="LineEdit" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 64.0
@@ -254,7 +256,7 @@ offset_bottom = 82.0
 theme = ExtResource("5_qi2yv")
 placeholder_text = "Prefix..."
 
-[node name="PrefixColour" type="ColorPickerButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+[node name="PrefixColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
 layout_mode = 0
 offset_left = 131.333
 offset_top = 65.3333
@@ -266,7 +268,7 @@ text = "PREFIX"
 color = Color(0.972549, 0.972549, 0, 1)
 edit_alpha = false
 
-[node name="PrefixEnabled" type="CheckBox" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+[node name="PrefixEnabled" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
 layout_mode = 0
 offset_left = 131.0
 offset_top = 82.3333
@@ -280,25 +282,25 @@ text = "PREFIX"
 flat = true
 alignment = 1
 
-[node name="SymbolWindow" type="Control" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+[node name="SymbolWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
 visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
 
-[node name="Blur" type="ColorRect" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow"]
+[node name="Blur" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow"]
 material = SubResource("ShaderMaterial_75fvv")
 layout_mode = 0
 offset_right = 176.0
 offset_bottom = 97.0
 
-[node name="Dark" type="ColorRect" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow"]
+[node name="Dark" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow"]
 layout_mode = 0
 offset_right = 176.0
 offset_bottom = 97.0
 color = Color(0.12549, 0.12549, 0.12549, 0.937255)
 
-[node name="Header" type="Label" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow"]
+[node name="Header" type="Label" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow"]
 layout_mode = 0
 offset_right = 176.0
 offset_bottom = 19.0
@@ -308,7 +310,7 @@ label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HeartSymbol" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="HeartSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 6.00001
 offset_top = 21.6667
@@ -320,7 +322,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="CoinSymbol" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="CoinSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 17.9999
 offset_top = 21.6667
@@ -332,7 +334,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="StarSymbol" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="StarSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 29.9998
 offset_top = 21.6667
@@ -344,7 +346,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="SpeechSymbol" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="SpeechSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 42.0
 offset_top = 21.6667
@@ -356,7 +358,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Smirk" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Smirk" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 54.0001
 offset_top = 22.0
@@ -368,7 +370,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Crazy" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Crazy" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 66.0001
 offset_top = 22.0
@@ -380,7 +382,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Smile" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Smile" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 78.0
 offset_top = 22.0
@@ -392,7 +394,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Sob" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Sob" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 90.0
 offset_top = 22.0
@@ -404,7 +406,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Smirk2" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Smirk2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 54.0001
 offset_top = 35.0
@@ -416,7 +418,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Crazy2" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Crazy2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 66.0001
 offset_top = 35.0
@@ -428,7 +430,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Smile2" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Smile2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 78.0
 offset_top = 35.0
@@ -440,7 +442,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="HoldingBackTears" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="HoldingBackTears" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 102.0
 offset_top = 22.0
@@ -452,7 +454,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Pensive" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Pensive" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 114.0
 offset_top = 22.0
@@ -464,7 +466,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Loveee" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Loveee" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 126.0
 offset_top = 22.0
@@ -476,7 +478,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Flushed" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Flushed" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 138.0
 offset_top = 22.0
@@ -488,7 +490,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Loveee2" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Loveee2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 150.0
 offset_top = 21.6667
@@ -500,7 +502,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Sob3" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Sob3" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
 layout_mode = 0
 offset_left = 162.0
 offset_top = 21.6667
@@ -512,7 +514,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="CloseBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow"]
+[node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow"]
 layout_mode = 0
 offset_left = 74.3333
 offset_top = 86.6667
@@ -523,18 +525,18 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "CLOSE"
 
-[node name="ClickSFX" type="AudioStreamPlayer" parent="DebugMenu/DebugTab/Tabs/DialogueTab"]
+[node name="ClickSFX" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
 stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 
-[node name="ThemesTab" type="Control" parent="DebugMenu/DebugTab/Tabs"]
+[node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs"]
 visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
 script = ExtResource("30_q7nel")
 
-[node name="LoadPortraitBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+[node name="LoadPortraitBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 18.0
@@ -545,7 +547,7 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "LOAD PORTRAIT"
 
-[node name="ThemeTypeBTN" parent="DebugMenu/DebugTab/Tabs/ThemesTab" instance=ExtResource("10_naogw")]
+[node name="ThemeTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" instance=ExtResource("10_naogw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -557,7 +559,7 @@ offset_bottom = 108.0
 scale = Vector2(0.6, 0.6)
 stretch_mode = 0
 
-[node name="ThemeTypeBTN2" parent="DebugMenu/DebugTab/Tabs/ThemesTab" instance=ExtResource("10_naogw")]
+[node name="ThemeTypeBTN2" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" instance=ExtResource("10_naogw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -570,7 +572,7 @@ scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("33_87j8f")
 stretch_mode = 0
 
-[node name="ThemeTypeBTN3" parent="DebugMenu/DebugTab/Tabs/ThemesTab" instance=ExtResource("10_naogw")]
+[node name="ThemeTypeBTN3" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" instance=ExtResource("10_naogw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -583,7 +585,7 @@ scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("34_tw0f3")
 stretch_mode = 0
 
-[node name="BgColour" type="ColorPickerButton" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+[node name="BgColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
 offset_left = 90.667
 offset_top = 36.6667
@@ -594,7 +596,7 @@ theme = ExtResource("5_qi2yv")
 color = Color(0.298039, 0.298039, 0.298039, 1)
 edit_alpha = false
 
-[node name="LoadThemeBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+[node name="LoadThemeBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 3.0
@@ -605,7 +607,7 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "LOAD THEME"
 
-[node name="PortraitFlip" type="CheckBox" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+[node name="PortraitFlip" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
 offset_left = 105.0
 offset_top = 18.0
@@ -616,7 +618,7 @@ theme = ExtResource("5_qi2yv")
 text = "Flip Portrait"
 alignment = 1
 
-[node name="GenderLabel" type="Label" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+[node name="GenderLabel" type="Label" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
 offset_left = 4.66672
 offset_top = 55.0
@@ -625,13 +627,13 @@ offset_bottom = 68.0
 text = "Gender"
 label_settings = SubResource("LabelSettings_ahui5")
 
-[node name="Underline" type="ColorRect" parent="DebugMenu/DebugTab/Tabs/ThemesTab/GenderLabel"]
+[node name="Underline" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/GenderLabel"]
 layout_mode = 0
 offset_top = 12.0
 offset_right = 40.0
 offset_bottom = 13.0
 
-[node name="Label" type="Label" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+[node name="Label" type="Label" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
 offset_left = 5.33337
 offset_top = 35.6667
@@ -640,11 +642,11 @@ offset_bottom = 48.6667
 text = "Background Color:"
 label_settings = SubResource("LabelSettings_ahui5")
 
-[node name="ClickSFX" type="AudioStreamPlayer" parent="DebugMenu/DebugTab/Tabs/ThemesTab"]
+[node name="ClickSFX" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 
-[node name="PortraitWindow" type="Control" parent="DebugMenu/DebugTab/Tabs/ThemesTab" node_paths=PackedStringArray("icon")]
+[node name="PortraitWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" node_paths=PackedStringArray("icon")]
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -652,16 +654,16 @@ offset_top = -0.266657
 offset_right = 176.0
 offset_bottom = 96.7333
 script = ExtResource("33_ovcmm")
-icon = NodePath("../../../../../PMD/Portrait/Icon")
+icon = NodePath("../../../../../PMD_Main/Portrait/Icon")
 presetImages = Array[Texture2D]([ExtResource("35_8xq2p"), ExtResource("36_ed0lm"), ExtResource("37_7opjh"), ExtResource("38_nn25p"), ExtResource("39_kk32g"), ExtResource("40_jnqv7"), ExtResource("41_wmx46"), ExtResource("42_xxpgf"), ExtResource("43_qqkqu"), ExtResource("44_ot21h"), ExtResource("45_c04ku"), ExtResource("46_lfj07"), ExtResource("47_vwl7f"), ExtResource("48_gt2bu"), ExtResource("49_d1k3h"), ExtResource("50_ld6pt"), ExtResource("51_vsdx0"), ExtResource("52_ttctp"), ExtResource("53_34vbu"), ExtResource("54_kgwja")])
 
-[node name="Bg" type="ColorRect" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="Bg" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
 offset_right = 176.0
 offset_bottom = 97.0
 color = Color(0.156863, 0.156863, 0.156863, 1)
 
-[node name="Header" type="Label" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="Header" type="Label" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
 offset_right = 176.0
 offset_bottom = 19.0
@@ -671,7 +673,7 @@ label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Header" type="Label" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/Header"]
+[node name="Header" type="Label" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Header"]
 layout_mode = 0
 offset_right = 176.0
 offset_bottom = 19.0
@@ -681,7 +683,7 @@ label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SubHeader1" type="Label" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/Header"]
+[node name="SubHeader1" type="Label" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Header"]
 layout_mode = 0
 offset_left = 4.66666
 offset_top = 17.6667
@@ -693,7 +695,7 @@ text = "LOAD FROM PMDCOLLAB"
 label_settings = SubResource("LabelSettings_l7fbr")
 vertical_alignment = 1
 
-[node name="SubHeader2" type="Label" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/Header"]
+[node name="SubHeader2" type="Label" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Header"]
 layout_mode = 0
 offset_left = 4.66666
 offset_top = 49.0
@@ -705,7 +707,8 @@ text = "LOAD FROM LOCAL FILES"
 label_settings = SubResource("LabelSettings_l7fbr")
 vertical_alignment = 1
 
-[node name="LocalName" type="TextEdit" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="LocalName" type="TextEdit" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+layout_mode = 0
 offset_left = 4.99993
 offset_top = 63.2667
 offset_right = 117.0
@@ -714,7 +717,7 @@ scale = Vector2(0.7, 0.7)
 theme = ExtResource("5_qi2yv")
 placeholder_text = "Folder Name"
 
-[node name="DexNum" type="TextEdit" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="DexNum" type="TextEdit" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 31.0
@@ -724,7 +727,8 @@ scale = Vector2(0.7, 0.7)
 theme = ExtResource("5_qi2yv")
 placeholder_text = "Pokédex # (ex: 0025)"
 
-[node name="Emotion_Local" type="TextEdit" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="Emotion_Local" type="TextEdit" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+layout_mode = 0
 offset_left = 86.0
 offset_top = 63.6667
 offset_right = 153.0
@@ -733,7 +737,7 @@ scale = Vector2(0.7, 0.7)
 theme = ExtResource("5_qi2yv")
 placeholder_text = "Image Name"
 
-[node name="Emotion_Collab" type="OptionButton" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="Emotion_Collab" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
 offset_left = 86.3333
 offset_top = 30.6667
@@ -785,7 +789,7 @@ popup/item_18/id = 18
 popup/item_19/text = "Worried"
 popup/item_19/id = 19
 
-[node name="Portrait_COLLABBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="Portrait_COLLABBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
 offset_left = 135.333
 offset_top = 30.6667
@@ -796,7 +800,7 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "LOAD"
 
-[node name="Portrait_LOCALBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="Portrait_LOCALBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
 offset_left = 135.333
 offset_top = 63.0
@@ -807,7 +811,7 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "LOAD"
 
-[node name="FolderBTN" type="TextureButton" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="FolderBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
 offset_left = 158.0
 offset_top = 2.59999
@@ -815,7 +819,7 @@ offset_right = 170.0
 offset_bottom = 12.6
 texture_normal = ExtResource("35_at0t2")
 
-[node name="FileDialog" type="FileDialog" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/FolderBTN"]
+[node name="FileDialog" type="FileDialog" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/FolderBTN"]
 title = "Open a File or Directory"
 size = Vector2i(454, 159)
 ok_button_text = "Open"
@@ -823,7 +827,7 @@ file_mode = 3
 access = 2
 use_native_dialog = true
 
-[node name="CloseBTN" type="Button" parent="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
 offset_left = 71.3333
 offset_top = 83.9333
@@ -834,7 +838,7 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "CLOSE"
 
-[node name="Settings" type="TextureButton" parent="DebugMenu"]
+[node name="Settings" type="TextureButton" parent="."]
 offset_left = 9.0
 offset_top = 9.0
 offset_right = 43.0
@@ -842,7 +846,7 @@ offset_bottom = 43.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("8_y615r")
 
-[node name="Settingstab" type="NinePatchRect" parent="DebugMenu"]
+[node name="Settingstab" type="NinePatchRect" parent="."]
 visible = false
 offset_left = 100.0
 offset_top = 31.0
@@ -855,60 +859,81 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="Dark2" type="ColorRect" parent="DebugMenu/Settingstab"]
-offset_left = -39.0
-offset_top = -14.0
-offset_right = 228.0
-offset_bottom = 185.0
-color = Color(0.12549, 0.12549, 0.12549, 0.937255)
-
-[node name="Blur" type="ColorRect" parent="DebugMenu/Settingstab"]
-material = SubResource("ShaderMaterial_75fvv")
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 180.0
-offset_bottom = 168.0
-
-[node name="Dark" type="ColorRect" parent="DebugMenu/Settingstab"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 180.0
-offset_bottom = 168.0
-color = Color(0.12549, 0.12549, 0.12549, 0.937255)
-
-[node name="Tabs" type="Control" parent="DebugMenu/Settingstab"]
+[node name="SettingsMenu" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Blur" type="ColorRect" parent="SettingsMenu"]
+visible = false
+material = SubResource("ShaderMaterial_75fvv")
+offset_left = -1.0
+offset_top = -2.0
+offset_right = 766.0
+offset_bottom = 581.0
+
+[node name="Dark" type="ColorRect" parent="SettingsMenu"]
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 576.0
+color = Color(0, 0, 0, 0.631373)
+
+[node name="SettingsPanel" type="NinePatchRect" parent="SettingsMenu"]
+offset_left = 191.0
+offset_top = 92.0
+offset_right = 319.0
+offset_bottom = 225.0
+scale = Vector2(3, 3)
+texture = ExtResource("2_ia35k")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Dark" type="ColorRect" parent="SettingsMenu/SettingsPanel"]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 180.0
-offset_bottom = 167.0
+offset_right = 124.0
+offset_bottom = 129.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
 
-[node name="Header" type="Label" parent="DebugMenu/Settingstab/Tabs"]
-offset_right = 176.0
-offset_bottom = 19.0
+[node name="Header" type="Label" parent="SettingsMenu/SettingsPanel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 124.0
+offset_bottom = 24.0
 theme = ExtResource("5_qi2yv")
 text = " SETTINGS"
 label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="CheckBox" type="CheckBox" parent="SettingsMenu"]
+layout_mode = 0
+offset_left = 335.0
+offset_top = 227.0
+offset_right = 359.0
+offset_bottom = 251.0
+theme = ExtResource("5_qi2yv")
+
 [connection signal="file_selected" from="SCREENSHOT MANAGER/SaveWindow" to="SCREENSHOT MANAGER" method="_on_save_window_file_selected"]
-[connection signal="text_changed" from="DebugMenu/DebugTab/Tabs/DialogueTab/TextboxEdit" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
-[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/DialogueTab/InsertColourBTN" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onColourInsert"]
-[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/DialogueTab/InsertSymbolBTN" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onSymbolWindowOpen"]
-[connection signal="text_changed" from="DebugMenu/DebugTab/Tabs/DialogueTab/PrefixEdit" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onPrefixEditChanged"]
-[connection signal="color_changed" from="DebugMenu/DebugTab/Tabs/DialogueTab/PrefixColour" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onPrefixColourChanged"]
-[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/DialogueTab/PrefixEnabled" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="_on_prefix_enabled_pressed"]
-[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/DialogueTab/SymbolWindow/CloseBTN" to="DebugMenu/DebugTab/Tabs/DialogueTab" method="onSymbolWindowClose"]
-[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/LoadPortraitBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="onPortraitWindowOpen"]
-[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/ThemeTypeBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="_on_change_blue_pressed"]
-[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/ThemeTypeBTN2" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="_on_change_pink_pressed"]
-[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/ThemeTypeBTN3" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="_on_change_green_pressed"]
-[connection signal="color_changed" from="DebugMenu/DebugTab/Tabs/ThemesTab/BgColour" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="onBgColourInputChanged"]
-[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitFlip" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="on_portrait_flip"]
-[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/Portrait_COLLABBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow" method="loadIconCollab"]
-[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/Portrait_LOCALBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow" method="loadIconLocal"]
-[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/FolderBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow" method="openCustomIconFolder"]
-[connection signal="pressed" from="DebugMenu/DebugTab/Tabs/ThemesTab/PortraitWindow/CloseBTN" to="DebugMenu/DebugTab/Tabs/ThemesTab" method="onPortraitWindowClose"]
+[connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColourBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onColourInsert"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertSymbolBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowOpen"]
+[connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onPrefixEditChanged"]
+[connection signal="color_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixColour" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onPrefixColourChanged"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixEnabled" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="_on_prefix_enabled_pressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowClose"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/LoadPortraitBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onPortraitWindowOpen"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/ThemeTypeBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_change_blue_pressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/ThemeTypeBTN2" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_change_pink_pressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/ThemeTypeBTN3" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_change_green_pressed"]
+[connection signal="color_changed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BgColour" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onBgColourInputChanged"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitFlip" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="on_portrait_flip"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Portrait_COLLABBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="loadIconCollab"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Portrait_LOCALBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="loadIconLocal"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/FolderBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="openCustomIconFolder"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onPortraitWindowClose"]
