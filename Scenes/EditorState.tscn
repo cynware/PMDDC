@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=63 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scenes/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scenes/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -58,6 +58,7 @@
 [ext_resource type="Texture2D" uid="uid://bfvqawf5rt21j" path="res://Assets/Images/Template/Surprised.png" id="52_ttctp"]
 [ext_resource type="Texture2D" uid="uid://bh67i0kl5rqoo" path="res://Assets/Images/Template/Teary-Eyed.png" id="53_34vbu"]
 [ext_resource type="Texture2D" uid="uid://bgye8e2e0iqxr" path="res://Assets/Images/Template/Worried.png" id="54_kgwja"]
+[ext_resource type="Script" path="res://Scenes/SettingsMenu.gd" id="59_ibx88"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
 shader = ExtResource("6_q7upt")
@@ -838,36 +839,17 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "CLOSE"
 
-[node name="Settings" type="TextureButton" parent="."]
-offset_left = 9.0
-offset_top = 9.0
-offset_right = 43.0
-offset_bottom = 43.0
-scale = Vector2(2, 2)
-texture_normal = ExtResource("8_y615r")
-
-[node name="Settingstab" type="NinePatchRect" parent="."]
-visible = false
-offset_left = 100.0
-offset_top = 31.0
-offset_right = 284.0
-offset_bottom = 203.0
-scale = Vector2(3, 3)
-texture = ExtResource("2_ia35k")
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
-
 [node name="SettingsMenu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("59_ibx88")
 
 [node name="Blur" type="ColorRect" parent="SettingsMenu"]
 visible = false
 material = SubResource("ShaderMaterial_75fvv")
+layout_mode = 0
 offset_left = -1.0
 offset_top = -2.0
 offset_right = 766.0
@@ -880,6 +862,7 @@ offset_bottom = 576.0
 color = Color(0, 0, 0, 0.631373)
 
 [node name="SettingsPanel" type="NinePatchRect" parent="SettingsMenu"]
+layout_mode = 0
 offset_left = 191.0
 offset_top = 92.0
 offset_right = 319.0
@@ -899,6 +882,21 @@ offset_right = 124.0
 offset_bottom = 129.0
 color = Color(0.12549, 0.12549, 0.12549, 1)
 
+[node name="WindowSize" type="OptionButton" parent="SettingsMenu/SettingsPanel"]
+offset_left = 8.0
+offset_top = 38.0
+offset_right = 231.0
+offset_bottom = 66.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("5_qi2yv")
+item_count = 3
+popup/item_0/text = "768 x 576"
+popup/item_0/id = 0
+popup/item_1/text = "1024 x 768"
+popup/item_1/id = 1
+popup/item_2/text = "1280 x 960"
+popup/item_2/id = 2
+
 [node name="Header" type="Label" parent="SettingsMenu/SettingsPanel"]
 layout_mode = 0
 offset_left = 4.0
@@ -911,13 +909,24 @@ label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CheckBox" type="CheckBox" parent="SettingsMenu"]
-layout_mode = 0
-offset_left = 335.0
-offset_top = 227.0
-offset_right = 359.0
-offset_bottom = 251.0
+[node name="Header" type="Label" parent="SettingsMenu/SettingsPanel/Header"]
+offset_left = 2.33332
+offset_top = 18.0
+offset_right = 122.333
+offset_bottom = 37.0
+scale = Vector2(0.75, 0.75)
 theme = ExtResource("5_qi2yv")
+text = " WINDOW SIZE"
+label_settings = SubResource("LabelSettings_l7fbr")
+vertical_alignment = 1
+
+[node name="Settings" type="TextureButton" parent="SettingsMenu"]
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 43.0
+offset_bottom = 43.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("8_y615r")
 
 [connection signal="file_selected" from="SCREENSHOT MANAGER/SaveWindow" to="SCREENSHOT MANAGER" method="_on_save_window_file_selected"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
@@ -937,3 +946,5 @@ theme = ExtResource("5_qi2yv")
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Portrait_LOCALBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="loadIconLocal"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/FolderBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="openCustomIconFolder"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onPortraitWindowClose"]
+[connection signal="item_selected" from="SettingsMenu/SettingsPanel/WindowSize" to="SettingsMenu" method="_on_window_size_item_selected"]
+[connection signal="pressed" from="SettingsMenu/Settings" to="SettingsMenu" method="_on_settings_pressed"]
