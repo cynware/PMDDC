@@ -47,3 +47,10 @@ func on_portrait_flip():
 	else:
 		$"../../../../PMD_Main/Portrait/Icon".scale.x = 1;
 
+
+
+func _on_portrait_hide_pressed():
+	if $PortraitHide.button_pressed:
+		$"../../../../PMD_Main/Portrait".visible = false
+	else:
+		$"../../../../PMD_Main/Portrait".visible = true

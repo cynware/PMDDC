@@ -595,10 +595,10 @@ stretch_mode = 0
 
 [node name="BgColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
-offset_left = 90.667
-offset_top = 36.6667
-offset_right = 123.667
-offset_bottom = 48.6667
+offset_left = 89.0
+offset_top = 72.0
+offset_right = 171.0
+offset_bottom = 93.0
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
 color = Color(0.298039, 0.298039, 0.298039, 1)
@@ -614,6 +614,16 @@ scale = Vector2(0.8, 0.8)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "LOAD THEME"
+
+[node name="PortraitHide" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+offset_left = 105.0
+offset_top = 34.0
+offset_right = 195.0
+offset_bottom = 52.0
+scale = Vector2(0.75, 0.75)
+theme = ExtResource("5_qi2yv")
+text = "Hide Portrait"
+alignment = 1
 
 [node name="PortraitFlip" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
@@ -641,20 +651,28 @@ offset_top = 12.0
 offset_right = 40.0
 offset_bottom = 13.0
 
+[node name="Underline2" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/GenderLabel"]
+offset_left = 84.0
+offset_top = 12.0
+offset_right = 166.0
+offset_bottom = 13.0
+
 [node name="Label" type="Label" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
-offset_left = 5.33337
-offset_top = 35.6667
-offset_right = 94.3337
-offset_bottom = 48.6667
-text = "Background Color:"
+offset_left = 82.6667
+offset_top = 55.3333
+offset_right = 171.667
+offset_bottom = 68.3333
+text = "Background Color"
 label_settings = SubResource("LabelSettings_ahui5")
+horizontal_alignment = 2
 
 [node name="ClickSFX" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 
 [node name="PortraitWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" node_paths=PackedStringArray("icon", "localFolderDropdownLocal", "localEmotionDropdownLocal")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333333
@@ -1062,6 +1080,7 @@ text = "CLOSE"
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/ThemeTypeBTN2" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_change_pink_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/ThemeTypeBTN3" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_change_green_pressed"]
 [connection signal="color_changed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BgColour" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onBgColourInputChanged"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitHide" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_portrait_hide_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitFlip" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="on_portrait_flip"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Emotion_LocalDir" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="OnFolderSelectedChanged"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Emotion_LocalEmotion" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="OnEmotionSelected"]
