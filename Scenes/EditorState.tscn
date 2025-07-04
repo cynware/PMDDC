@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=64 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scenes/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scenes/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -59,6 +59,7 @@
 [ext_resource type="Texture2D" uid="uid://bh67i0kl5rqoo" path="res://Assets/Images/Template/Teary-Eyed.png" id="53_34vbu"]
 [ext_resource type="Texture2D" uid="uid://bgye8e2e0iqxr" path="res://Assets/Images/Template/Worried.png" id="54_kgwja"]
 [ext_resource type="Script" path="res://Scenes/SettingsMenu.gd" id="59_ibx88"]
+[ext_resource type="Script" path="res://Scenes/SettingsButton.gd" id="60_isgay"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
 shader = ExtResource("6_q7upt")
@@ -839,29 +840,31 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "CLOSE"
 
-[node name="SettingsMenu" type="Control" parent="."]
+[node name="Settings" type="TextureButton" parent="."]
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 43.0
+offset_bottom = 43.0
+texture_normal = ExtResource("8_y615r")
+script = ExtResource("60_isgay")
+
+[node name="SettingsMenu" type="Control" parent="Settings"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 31.0
+offset_bottom = 31.0
 script = ExtResource("59_ibx88")
 
-[node name="Blur" type="ColorRect" parent="SettingsMenu"]
-visible = false
-material = SubResource("ShaderMaterial_75fvv")
-layout_mode = 0
-offset_left = -1.0
-offset_top = -2.0
-offset_right = 766.0
-offset_bottom = 581.0
-
-[node name="Dark" type="ColorRect" parent="SettingsMenu"]
+[node name="Dark" type="ColorRect" parent="Settings/SettingsMenu"]
 layout_mode = 0
 offset_right = 768.0
 offset_bottom = 576.0
 color = Color(0, 0, 0, 0.631373)
 
-[node name="SettingsPanel" type="NinePatchRect" parent="SettingsMenu"]
+[node name="SettingsPanel" type="NinePatchRect" parent="Settings/SettingsMenu"]
 layout_mode = 0
 offset_left = 191.0
 offset_top = 92.0
@@ -874,7 +877,7 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="Dark" type="ColorRect" parent="SettingsMenu/SettingsPanel"]
+[node name="Dark" type="ColorRect" parent="Settings/SettingsMenu/SettingsPanel"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -882,7 +885,8 @@ offset_right = 124.0
 offset_bottom = 129.0
 color = Color(0.12549, 0.12549, 0.12549, 1)
 
-[node name="WindowSize" type="OptionButton" parent="SettingsMenu/SettingsPanel"]
+[node name="WindowSize" type="OptionButton" parent="Settings/SettingsMenu/SettingsPanel"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 38.0
 offset_right = 231.0
@@ -897,7 +901,7 @@ popup/item_1/id = 1
 popup/item_2/text = "1280 x 960"
 popup/item_2/id = 2
 
-[node name="Header" type="Label" parent="SettingsMenu/SettingsPanel"]
+[node name="Header" type="Label" parent="Settings/SettingsMenu/SettingsPanel"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 5.0
@@ -909,7 +913,8 @@ label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Header" type="Label" parent="SettingsMenu/SettingsPanel/Header"]
+[node name="Header" type="Label" parent="Settings/SettingsMenu/SettingsPanel/Header"]
+layout_mode = 0
 offset_left = 2.33332
 offset_top = 18.0
 offset_right = 122.333
@@ -920,13 +925,15 @@ text = " WINDOW SIZE"
 label_settings = SubResource("LabelSettings_l7fbr")
 vertical_alignment = 1
 
-[node name="Settings" type="TextureButton" parent="SettingsMenu"]
-offset_left = 9.0
-offset_top = 9.0
-offset_right = 43.0
-offset_bottom = 43.0
+[node name="CloseBTN" type="Button" parent="Settings/SettingsMenu"]
+offset_left = 203.0
+offset_top = 445.0
+offset_right = 383.0
+offset_bottom = 462.0
 scale = Vector2(2, 2)
-texture_normal = ExtResource("8_y615r")
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "CLOSE"
 
 [connection signal="file_selected" from="SCREENSHOT MANAGER/SaveWindow" to="SCREENSHOT MANAGER" method="_on_save_window_file_selected"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
@@ -946,5 +953,6 @@ texture_normal = ExtResource("8_y615r")
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Portrait_LOCALBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="loadIconLocal"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/FolderBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="openCustomIconFolder"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onPortraitWindowClose"]
-[connection signal="item_selected" from="SettingsMenu/SettingsPanel/WindowSize" to="SettingsMenu" method="_on_window_size_item_selected"]
-[connection signal="pressed" from="SettingsMenu/Settings" to="SettingsMenu" method="_on_settings_pressed"]
+[connection signal="pressed" from="Settings" to="Settings" method="_on_settings_pressed"]
+[connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/WindowSize" to="Settings/SettingsMenu" method="_on_window_size_item_selected"]
+[connection signal="pressed" from="Settings/SettingsMenu/CloseBTN" to="Settings" method="_on_close_btn_pressed"]
