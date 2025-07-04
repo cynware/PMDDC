@@ -750,21 +750,31 @@ popup/item_0/text = "[NULL]"
 popup/item_0/icon = ExtResource("22_ruxgj")
 popup/item_0/id = 0
 
+[node name="ShinyCheck" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+offset_left = 97.0
+offset_top = 31.0
+offset_right = 143.0
+offset_bottom = 53.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("5_qi2yv")
+text = "Shiny"
+alignment = 1
+
 [node name="DexNum" type="TextEdit" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 31.0
-offset_right = 116.0
+offset_right = 63.0
 offset_bottom = 56.0
 scale = Vector2(0.7, 0.7)
 theme = ExtResource("5_qi2yv")
-placeholder_text = "Pokédex # (ex: 0025)"
+placeholder_text = "Pokédex #"
 
 [node name="Emotion_Collab" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
-offset_left = 86.3333
+offset_left = 49.3333
 offset_top = 31.3333
-offset_right = 153.333
+offset_right = 116.333
 offset_bottom = 56.3333
 scale = Vector2(0.7, 0.7)
 theme = ExtResource("5_qi2yv")
@@ -814,10 +824,10 @@ popup/item_19/id = 19
 
 [node name="Portrait_COLLABBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
-offset_left = 135.333
-offset_top = 30.6667
-offset_right = 180.333
-offset_bottom = 52.6667
+offset_left = 135.0
+offset_top = 31.0
+offset_right = 180.0
+offset_bottom = 53.0
 scale = Vector2(0.8, 0.8)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
@@ -867,6 +877,7 @@ texture_normal = ExtResource("8_y615r")
 script = ExtResource("60_isgay")
 
 [node name="SettingsMenu" type="Control" parent="Settings"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -9.0

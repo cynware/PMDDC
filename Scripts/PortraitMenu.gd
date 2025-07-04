@@ -6,6 +6,7 @@ extends Control
 @export var localFolderDropdownLocal:OptionButton;
 @export var localEmotionDropdownLocal:OptionButton;
 
+
 func _ready():
 	CheckAndCreatePortraitFolder()
 	RetrievePortraitsInDirectory()
@@ -69,15 +70,24 @@ func loadIconLocal():
 		var texture = ImageTexture.create_from_image(image)
 		icon.texture = texture
 		
+
+
 func loadIconCollab():
 	# Create an HTTP request node and connect its completion signal.
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.request_completed.connect(self._http_request_completed)
 
+	# Shiny Check
+	var IfShiny = ""
+	if $ShinyCheck.button_pressed == true:
+		IfShiny = "0000/0001/"
+	else:
+		IfShiny = ""
+
 	# Perform the HTTP request. The URL below returns a PNG image as of writing.
 	var formattedPokemonNumber = "%04d" % int($DexNum.text)
-	var error = http_request.request("https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/"+ formattedPokemonNumber + "/" + $Emotion_Collab.text + ".png")
+	var error = http_request.request("https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/"+ formattedPokemonNumber + "/" + IfShiny + $Emotion_Collab.text + ".png")
 	if error != OK:
 		push_error("An error occurred in the HTTP request.")
 # Called when the HTTP request is completed.
@@ -107,3 +117,4 @@ func OnRefresh():
 
 func OnEmotionSelected(index):
 	loadIconLocal()
+
