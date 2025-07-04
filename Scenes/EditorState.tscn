@@ -196,6 +196,7 @@ offset_right = 180.0
 offset_bottom = 101.0
 
 [node name="DialogueTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("textboxText")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -529,7 +530,6 @@ stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs"]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -646,7 +646,6 @@ stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 
 [node name="PortraitWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" node_paths=PackedStringArray("icon", "localFolderDropdownLocal", "localEmotionDropdownLocal")]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333333
@@ -726,13 +725,15 @@ popup/item_0/id = 0
 
 [node name="Emotion_LocalEmotion" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
-offset_left = 86.3333
+offset_left = 88.0
 offset_top = 63.0
-offset_right = 153.333
+offset_right = 207.0
 offset_bottom = 88.0
 scale = Vector2(0.7, 0.681632)
 theme = ExtResource("5_qi2yv")
+alignment = 2
 clip_text = true
+icon_alignment = 2
 item_count = 1
 selected = 0
 fit_to_longest_item = false
@@ -808,17 +809,6 @@ offset_left = 135.333
 offset_top = 30.6667
 offset_right = 180.333
 offset_bottom = 52.6667
-scale = Vector2(0.8, 0.8)
-focus_mode = 0
-theme = ExtResource("5_qi2yv")
-text = "LOAD"
-
-[node name="Portrait_LOCALBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
-layout_mode = 0
-offset_left = 135.333
-offset_top = 63.0
-offset_right = 180.333
-offset_bottom = 85.0
 scale = Vector2(0.8, 0.8)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
@@ -970,8 +960,8 @@ text = "CLOSE"
 [connection signal="color_changed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BgColour" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onBgColourInputChanged"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitFlip" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="on_portrait_flip"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Emotion_LocalDir" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="OnFolderSelectedChanged"]
+[connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Emotion_LocalEmotion" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="OnEmotionSelected"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Portrait_COLLABBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="loadIconCollab"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Portrait_LOCALBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="loadIconLocal"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/FolderBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="openCustomIconFolder"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/RefreshBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="OnRefresh"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onPortraitWindowClose"]

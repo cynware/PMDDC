@@ -104,3 +104,6 @@ func OnFolderSelectedChanged(index):
 
 func OnRefresh():
 	RetrievePortraitsInDirectory()
+
+func OnEmotionSelected(index):
+	loadIconLocal()
