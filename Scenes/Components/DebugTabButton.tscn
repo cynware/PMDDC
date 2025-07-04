@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bgtua870y440s"]
 
 [ext_resource type="Theme" uid="uid://dsorw808w1qst" path="res://Assets/Themes/PmdDark.tres" id="1_lu1ue"]
-[ext_resource type="Script" path="res://Scenes/Components/DebugTabButton.gd" id="2_e7p28"]
+[ext_resource type="Script" path="res://Scripts/DebugTabButton.gd" id="2_e7p28"]
 [ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdThemes/eos/eosIcon_M.png" id="2_t2nvq"]
 [ext_resource type="AudioStream" uid="uid://r32yop1dwqy1" path="res://Assets/Sounds/pmdMenu_2.ogg" id="3_nole5"]
 

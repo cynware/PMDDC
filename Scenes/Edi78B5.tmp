@@ -1,23 +1,21 @@
-[gd_scene load_steps=66 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=64 format=3 uid="uid://ldwxr8o7du7"]
 
-[ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
-[ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
+[ext_resource type="Script" path="res://Scenes/Cursor.gd" id="1_3o4bd"]
+[ext_resource type="Script" path="res://Scenes/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
 [ext_resource type="Texture2D" uid="uid://baqa84hay3l1x" path="res://Assets/ref/image.png" id="1_crfh0"]
 [ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdThemes/eos/eosIcon_M.png" id="2_ia35k"]
 [ext_resource type="Texture2D" uid="uid://8ocayen5spgw" path="res://Assets/Images/portraits/icon_386.png" id="3_2dy76"]
-[ext_resource type="Texture2D" uid="uid://doac5ohu3jn4v" path="res://Assets/Images/cursor.png" id="3_nfn67"]
 [ext_resource type="Texture2D" uid="uid://dg6at41hquvec" path="res://PmdThemes/eos/eosBox_M.png" id="4_488rf"]
-[ext_resource type="Texture2D" uid="uid://le4qsvqsmcmm" path="res://Assets/Images/cursor_beam.png" id="4_bi7jb"]
 [ext_resource type="Texture2D" uid="uid://beikwn8chfkpn" path="res://Assets/Images/portraits/ERRORPORTRAIT.png" id="4_yqe1g"]
 [ext_resource type="Theme" uid="uid://dsorw808w1qst" path="res://Assets/Themes/PmdDark.tres" id="5_qi2yv"]
 [ext_resource type="PackedScene" uid="uid://bgtua870y440s" path="res://Scenes/Components/DebugTabButton.tscn" id="6_4mf72"]
 [ext_resource type="Shader" path="res://Assets/Shaders/blur.gdshader" id="6_q7upt"]
 [ext_resource type="Texture2D" uid="uid://bm3rt1xw07m17" path="res://Assets/Images/settings.png" id="8_y615r"]
-[ext_resource type="Script" path="res://Scripts/DialogueTab.gd" id="9_pthgd"]
+[ext_resource type="Script" path="res://Scenes/DialogueTab.gd" id="9_pthgd"]
 [ext_resource type="PackedScene" uid="uid://cb3shqw006mu4" path="res://Scenes/Components/ThemeTypeBTN.tscn" id="10_naogw"]
 [ext_resource type="Texture2D" uid="uid://dgy8trjx8l6pt" path="res://Assets/Images/symbols/coin.png" id="11_1n151"]
 [ext_resource type="Texture2D" uid="uid://dcskbgqsta1r3" path="res://Assets/Images/symbols/heart.png" id="11_mo684"]
-[ext_resource type="Script" path="res://Scripts/InsertSymbolBTN.gd" id="11_ouwkk"]
+[ext_resource type="Script" path="res://Scenes/InsertSymbolBTN.gd" id="11_ouwkk"]
 [ext_resource type="Texture2D" uid="uid://riac5l0rgksx" path="res://Assets/Images/symbols/star.png" id="12_vxgy4"]
 [ext_resource type="Texture2D" uid="uid://dmlppb1jvlf0q" path="res://Assets/Images/symbols/textbubble.png" id="13_t8tcm"]
 [ext_resource type="AudioStream" uid="uid://dopgwiieklh37" path="res://Assets/Sounds/pmdMenu_1.ogg" id="15_bl6l8"]
@@ -34,9 +32,9 @@
 [ext_resource type="Texture2D" uid="uid://bpqxghytjwgbm" path="res://Assets/Images/symbols/flushed.png" id="26_ywre3"]
 [ext_resource type="Texture2D" uid="uid://cdmr3icjt0nx2" path="res://Assets/Images/symbols/face_with_monocle.png" id="27_yq5tl"]
 [ext_resource type="Texture2D" uid="uid://df38v2x0eu0jl" path="res://Assets/Images/symbols/nerd.png" id="28_6ychj"]
-[ext_resource type="Script" path="res://Scripts/ThemesTab.gd" id="30_q7nel"]
+[ext_resource type="Script" path="res://Scenes/ThemesTab.gd" id="30_q7nel"]
 [ext_resource type="Texture2D" uid="uid://cu4qsbkuar1md" path="res://Assets/Images/icon_F.png" id="33_87j8f"]
-[ext_resource type="Script" path="res://Scripts/PortraitMenu.gd" id="33_ovcmm"]
+[ext_resource type="Script" path="res://Scenes/PortraitMenu.gd" id="33_ovcmm"]
 [ext_resource type="FontFile" uid="uid://b18bcqecgsw5x" path="res://Assets/Fonts/Wondermail.ttf" id="33_x1l3a"]
 [ext_resource type="Texture2D" uid="uid://c5hmrqcah5dde" path="res://Assets/Images/icon_NB.png" id="34_tw0f3"]
 [ext_resource type="Texture2D" uid="uid://dnbwjdisfavh8" path="res://Assets/Images/Template/Angry.png" id="35_8xq2p"]
@@ -60,8 +58,8 @@
 [ext_resource type="Texture2D" uid="uid://bfvqawf5rt21j" path="res://Assets/Images/Template/Surprised.png" id="52_ttctp"]
 [ext_resource type="Texture2D" uid="uid://bh67i0kl5rqoo" path="res://Assets/Images/Template/Teary-Eyed.png" id="53_34vbu"]
 [ext_resource type="Texture2D" uid="uid://bgye8e2e0iqxr" path="res://Assets/Images/Template/Worried.png" id="54_kgwja"]
-[ext_resource type="Script" path="res://Scripts/SettingsMenu.gd" id="59_ibx88"]
-[ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="60_isgay"]
+[ext_resource type="Script" path="res://Scenes/SettingsMenu.gd" id="59_ibx88"]
+[ext_resource type="Script" path="res://Scenes/SettingsButton.gd" id="60_isgay"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
 shader = ExtResource("6_q7upt")
@@ -87,10 +85,7 @@ filters = PackedStringArray("*.png")
 use_native_dialog = true
 
 [node name="Cursor" type="Node2D" parent="."]
-scale = Vector2(1.29218, 1.45174)
 script = ExtResource("1_3o4bd")
-cursorTexture = ExtResource("3_nfn67")
-cursorBeam = ExtResource("4_bi7jb")
 
 [node name="BgColour" type="ColorRect" parent="."]
 offset_right = 768.0
@@ -98,7 +93,6 @@ offset_bottom = 576.0
 color = Color(0.298039, 0.298039, 0.298039, 1)
 
 [node name="ImageBg" type="Sprite2D" parent="BgColour"]
-visible = false
 position = Vector2(384, 288)
 scale = Vector2(3, 3)
 texture = ExtResource("1_crfh0")
