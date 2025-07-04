@@ -10,7 +10,7 @@ func _ready():
 	CheckAndCreatePortraitFolder()
 	RetrievePortraitsInDirectory()
 	# get_window().connect("focus_entered", self, "RetrievePortraitsInDirectory");
-	get_window().connect("focus_entered",  RetrievePortraitsInDirectory)
+	#get_window().connect("focus_entered",  RetrievePortraitsInDirectory)
 	
 
 func CheckAndCreatePortraitFolder():
@@ -100,3 +100,7 @@ func openCustomIconFolder():
 
 func OnFolderSelectedChanged(index):
 	RetrievePortraitsInDirectory(false)
+
+
+func OnRefresh():
+	RetrievePortraitsInDirectory()

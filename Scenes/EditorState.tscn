@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=67 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -62,6 +62,7 @@
 [ext_resource type="Texture2D" uid="uid://bgye8e2e0iqxr" path="res://Assets/Images/Template/Worried.png" id="54_kgwja"]
 [ext_resource type="Script" path="res://Scripts/SettingsMenu.gd" id="59_ibx88"]
 [ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="60_isgay"]
+[ext_resource type="Texture2D" uid="uid://c210dg38ryi6o" path="res://Assets/Images/refresh.png" id="60_j7wfn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
 shader = ExtResource("6_q7upt")
@@ -826,9 +827,9 @@ text = "LOAD"
 [node name="FolderBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
 offset_left = 158.0
-offset_top = 2.59999
+offset_top = 3.33333
 offset_right = 170.0
-offset_bottom = 12.6
+offset_bottom = 13.3333
 texture_normal = ExtResource("35_at0t2")
 
 [node name="FileDialog" type="FileDialog" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/FolderBTN"]
@@ -838,6 +839,14 @@ ok_button_text = "Open"
 file_mode = 3
 access = 2
 use_native_dialog = true
+
+[node name="RefreshBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+layout_mode = 0
+offset_left = 142.667
+offset_top = 3.0
+offset_right = 154.667
+offset_bottom = 14.0
+texture_normal = ExtResource("60_j7wfn")
 
 [node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
@@ -964,6 +973,7 @@ text = "CLOSE"
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Portrait_COLLABBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="loadIconCollab"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Portrait_LOCALBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="loadIconLocal"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/FolderBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="openCustomIconFolder"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/RefreshBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="OnRefresh"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onPortraitWindowClose"]
 [connection signal="pressed" from="Settings" to="Settings" method="_on_settings_pressed"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/WindowSize" to="Settings/SettingsMenu" method="_on_window_size_item_selected"]
