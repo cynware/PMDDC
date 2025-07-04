@@ -3,8 +3,17 @@ extends Control
 @export var icon:Sprite2D;
 @export var presetImages:Array[Texture2D];
 
+@export var localFolderDropdownLocal:OptionButton;
+@export var localEmotionDropdownLocal:OptionButton;
 
 func _ready():
+	CheckAndCreatePortraitFolder()
+	RetrievePortraitsInDirectory()
+	# get_window().connect("focus_entered", self, "RetrievePortraitsInDirectory");
+	get_window().connect("focus_entered",  RetrievePortraitsInDirectory)
+	
+
+func CheckAndCreatePortraitFolder():
 	if (!DirAccess.dir_exists_absolute("user://Portraits")):
 		DirAccess.make_dir_absolute("user://Portraits")
 		DirAccess.make_dir_absolute("user://Portraits/Template")
@@ -14,6 +23,51 @@ func _ready():
 		print("MADE PORTRAITS FOLDER + TEMPLATES")
 	else:
 		print("PORTRAITS FOLDER ALREADY EXISTS")
+
+func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
+
+	localEmotionDropdownLocal.clear()
+	localEmotionDropdownLocal.icon = null;
+	icon.texture = null;
+	
+	if(refreshFolderDropdown):
+		localFolderDropdownLocal.clear()
+		for dir in DirAccess.get_directories_at("user://Portraits/"):
+			localFolderDropdownLocal.add_item(dir);
+		
+	if(!DirAccess.dir_exists_absolute("user://Portraits/" + localFolderDropdownLocal.text)):
+		return;
+		
+	var portraits = DirAccess.get_files_at("user://Portraits/" + localFolderDropdownLocal.text + "/");
+	print(portraits);
+		
+	for i in portraits.size():
+		var img := Image.new()
+		var error = img.load("user://Portraits/" + localFolderDropdownLocal.text + "/" + portraits[i])
+
+		if error == OK:
+			if(icon.texture == null):
+				img.resize(40, 40, Image.INTERPOLATE_NEAREST);
+				icon.texture = ImageTexture.create_from_image(img);
+				
+			img.resize(20, 20, Image.INTERPOLATE_NEAREST);
+			var portraitTexture := ImageTexture.create_from_image(img);
+			localEmotionDropdownLocal.add_icon_item(portraitTexture, portraits[i], i);
+		
+func loadIconLocal():
+	var imagepath = "user://Portraits/" + localFolderDropdownLocal.text + "/"+localEmotionDropdownLocal.text;
+	
+	if(!FileAccess.file_exists(imagepath)):
+		return;
+		
+	var image = Image.load_from_file(imagepath)
+	
+	if image.load(imagepath) == OK:
+		if image.get_width() > 40 or image.get_height() > 40:
+			image.resize(40, 40, Image.INTERPOLATE_NEAREST)
+	
+		var texture = ImageTexture.create_from_image(image)
+		icon.texture = texture
 		
 func loadIconCollab():
 	# Create an HTTP request node and connect its completion signal.
@@ -26,7 +80,6 @@ func loadIconCollab():
 	var error = http_request.request("https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/"+ formattedPokemonNumber + "/" + $Emotion_Collab.text + ".png")
 	if error != OK:
 		push_error("An error occurred in the HTTP request.")
-
 # Called when the HTTP request is completed.
 func _http_request_completed(result, response_code, headers, body):
 	if result != HTTPRequest.RESULT_SUCCESS:
@@ -40,16 +93,10 @@ func _http_request_completed(result, response_code, headers, body):
 	var texture = ImageTexture.create_from_image(image)
 	icon.texture = texture
 
-func loadIconLocal():
-	var imagepath = "user://Portraits/"+$LocalName.text+"/"+$Emotion_Local.text+".png"
-	var image = Image.load_from_file(imagepath)
-	
-	if image.load(imagepath) == OK:
-		if image.get_width() > 40 or image.get_height() > 40:
-			image.resize(40, 40, Image.INTERPOLATE_NEAREST)
-	
-		var texture = ImageTexture.create_from_image(image)
-		icon.texture = texture
-
 func openCustomIconFolder():
 	OS.shell_open(ProjectSettings.globalize_path("user://Portraits"))
+
+
+
+func OnFolderSelectedChanged(index):
+	RetrievePortraitsInDirectory(false)
