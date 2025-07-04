@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=68 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -74,17 +74,11 @@ shader_parameter/lod = 1.0
 [sub_resource type="LabelSettings" id="LabelSettings_ahui5"]
 font = ExtResource("33_x1l3a")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_43upc"]
-
 [node name="EditorState" type="Node2D"]
 
-[node name="SCREENSHOT MANAGER" type="Node" parent="." node_paths=PackedStringArray("transparentBackgroundToggle", "resolutionMultiplierDropdown", "background", "debugMenu", "settingsButton")]
+[node name="SCREENSHOT MANAGER" type="Node" parent="." node_paths=PackedStringArray("background")]
 script = ExtResource("1_8ny4k")
-transparentBackgroundToggle = NodePath("../Settings/SettingsMenu/SettingsPanel/TransparentBackground")
-resolutionMultiplierDropdown = NodePath("../Settings/SettingsMenu/SettingsPanel/ExportResolutionMultiplier")
 background = NodePath("../BgColour")
-debugMenu = NodePath("../PMD_Debug")
-settingsButton = NodePath("../Settings")
 
 [node name="SaveWindow" type="FileDialog" parent="SCREENSHOT MANAGER"]
 initial_position = 4
@@ -867,6 +861,7 @@ texture_normal = ExtResource("8_y615r")
 script = ExtResource("60_isgay")
 
 [node name="SettingsMenu" type="Control" parent="Settings"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -9.0
@@ -894,7 +889,7 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="BG" type="ColorRect" parent="Settings/SettingsMenu/SettingsPanel"]
+[node name="Dark" type="ColorRect" parent="Settings/SettingsMenu/SettingsPanel"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -902,20 +897,7 @@ offset_right = 124.0
 offset_bottom = 129.0
 color = Color(0.12549, 0.12549, 0.12549, 1)
 
-[node name="WindowSizeHeader" type="Label" parent="Settings/SettingsMenu/SettingsPanel"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 23.0
-offset_right = 163.0
-offset_bottom = 42.0
-scale = Vector2(0.75, 0.75)
-theme = ExtResource("5_qi2yv")
-text = "WINDOW SIZE"
-label_settings = SubResource("LabelSettings_l7fbr")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="WindowSizeDropdown" type="OptionButton" parent="Settings/SettingsMenu/SettingsPanel"]
+[node name="WindowSize" type="OptionButton" parent="Settings/SettingsMenu/SettingsPanel"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 38.0
@@ -931,90 +913,6 @@ popup/item_1/id = 1
 popup/item_2/text = "1280 x 960"
 popup/item_2/id = 2
 
-[node name="ScreenshotOptionsHeader" type="Label" parent="Settings/SettingsMenu/SettingsPanel"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 58.0
-offset_right = 164.0
-offset_bottom = 77.0
-scale = Vector2(0.75, 0.75)
-theme = ExtResource("5_qi2yv")
-text = "SCREENSHOT OPTIONS"
-label_settings = SubResource("LabelSettings_l7fbr")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ExportResMultHeader" type="Label" parent="Settings/SettingsMenu/SettingsPanel"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 70.0
-offset_right = 216.0
-offset_bottom = 89.0
-scale = Vector2(0.563333, 0.563333)
-theme = ExtResource("5_qi2yv")
-text = "Export Resolution Multiplier"
-label_settings = SubResource("LabelSettings_l7fbr")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ExportResolutionMultiplier" type="OptionButton" parent="Settings/SettingsMenu/SettingsPanel"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 80.0
-offset_right = 231.0
-offset_bottom = 108.0
-scale = Vector2(0.5, 0.5)
-theme = ExtResource("5_qi2yv")
-alignment = 1
-item_count = 10
-selected = 0
-popup/item_0/text = "1x"
-popup/item_0/id = 0
-popup/item_1/text = "2x"
-popup/item_1/id = 1
-popup/item_2/text = "3x"
-popup/item_2/id = 2
-popup/item_3/text = "4x"
-popup/item_3/id = 3
-popup/item_4/text = "5x"
-popup/item_4/id = 5
-popup/item_5/text = "6x"
-popup/item_5/id = 6
-popup/item_6/text = "7x"
-popup/item_6/id = 7
-popup/item_7/text = "8x"
-popup/item_7/id = 8
-popup/item_8/text = "9x"
-popup/item_8/id = 9
-popup/item_9/text = "10x"
-popup/item_9/id = 10
-
-[node name="TransparentBackgroundHeader" type="Label" parent="Settings/SettingsMenu/SettingsPanel"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 91.0
-offset_right = 215.0
-offset_bottom = 110.0
-scale = Vector2(0.569821, 0.569821)
-theme = ExtResource("5_qi2yv")
-text = "Transparent Background"
-label_settings = SubResource("LabelSettings_l7fbr")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TransparentBackground" type="CheckBox" parent="Settings/SettingsMenu/SettingsPanel"]
-layout_mode = 0
-offset_left = 54.6667
-offset_top = 99.3333
-offset_right = 78.6667
-offset_bottom = 123.333
-scale = Vector2(0.76, 0.76)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_43upc")
-button_pressed = true
-flat = true
-alignment = 1
-icon_alignment = 1
-
 [node name="Header" type="Label" parent="Settings/SettingsMenu/SettingsPanel"]
 layout_mode = 0
 offset_left = 4.0
@@ -1025,6 +923,18 @@ theme = ExtResource("5_qi2yv")
 text = " SETTINGS"
 label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Header" type="Label" parent="Settings/SettingsMenu/SettingsPanel/Header"]
+layout_mode = 0
+offset_left = 2.33332
+offset_top = 18.0
+offset_right = 122.333
+offset_bottom = 37.0
+scale = Vector2(0.75, 0.75)
+theme = ExtResource("5_qi2yv")
+text = " WINDOW SIZE"
+label_settings = SubResource("LabelSettings_l7fbr")
 vertical_alignment = 1
 
 [node name="CloseBTN" type="Button" parent="Settings/SettingsMenu"]
@@ -1059,5 +969,5 @@ text = "CLOSE"
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/RefreshBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="OnRefresh"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onPortraitWindowClose"]
 [connection signal="pressed" from="Settings" to="Settings" method="_on_settings_pressed"]
-[connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/WindowSizeDropdown" to="Settings/SettingsMenu" method="_on_window_size_item_selected"]
+[connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/WindowSize" to="Settings/SettingsMenu" method="_on_window_size_item_selected"]
 [connection signal="pressed" from="Settings/SettingsMenu/CloseBTN" to="Settings" method="_on_close_btn_pressed"]
