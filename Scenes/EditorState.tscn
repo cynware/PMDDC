@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=71 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -44,6 +44,8 @@
 [ext_resource type="Texture2D" uid="uid://b7lm4pfb4ejl3" path="res://Assets/Images/folder.png" id="35_at0t2"]
 [ext_resource type="Texture2D" uid="uid://ch6y6a64t0i72" path="res://Assets/Images/Template/Crying.png" id="36_ed0lm"]
 [ext_resource type="Texture2D" uid="uid://dw7tjlfxukq1t" path="res://Assets/Images/Template/Determined.png" id="37_7opjh"]
+[ext_resource type="Texture2D" uid="uid://c7j043oc48n72" path="res://Assets/Images/image.png" id="38_64q62"]
+[ext_resource type="Texture2D" uid="uid://bxv25ubbgt3se" path="res://Assets/Images/brush.png" id="38_ij81t"]
 [ext_resource type="Texture2D" uid="uid://7tvnj3b6jdd5" path="res://Assets/Images/Template/Dizzy.png" id="38_nn25p"]
 [ext_resource type="Texture2D" uid="uid://u46lq8qonb4n" path="res://Assets/Images/Template/Happy.png" id="39_kk32g"]
 [ext_resource type="Texture2D" uid="uid://gpg6o6mv2nhb" path="res://Assets/Images/Template/Inspired.png" id="40_jnqv7"]
@@ -593,16 +595,42 @@ scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("34_tw0f3")
 stretch_mode = 0
 
-[node name="BgColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
-layout_mode = 0
+[node name="CustomBackgroundBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 offset_left = 89.0
 offset_top = 72.0
-offset_right = 171.0
-offset_bottom = 93.0
+offset_right = 123.0
+offset_bottom = 90.0
+scale = Vector2(1.2, 1.2)
+theme = ExtResource("5_qi2yv")
+text = "
+"
+icon = ExtResource("38_64q62")
+icon_alignment = 1
+
+[node name="BgColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 44.0
+offset_top = 23.5
+offset_right = 76.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
+icon_alignment = 1
 color = Color(0.298039, 0.298039, 0.298039, 1)
 edit_alpha = false
+
+[node name="Sprite2D" type="Sprite2D" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+position = Vector2(151.333, 82.782)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("38_ij81t")
 
 [node name="LoadThemeBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
@@ -665,7 +693,7 @@ offset_left = 82.6667
 offset_top = 55.3333
 offset_right = 171.667
 offset_bottom = 68.3333
-text = "Background Color"
+text = "Background"
 label_settings = SubResource("LabelSettings_ahui5")
 horizontal_alignment = 2
 
@@ -890,6 +918,7 @@ theme = ExtResource("5_qi2yv")
 text = "CLOSE"
 
 [node name="Settings" type="TextureButton" parent="."]
+visible = false
 offset_left = 9.0
 offset_top = 9.0
 offset_right = 43.0
