@@ -10,7 +10,7 @@ extends Control
 @onready var prefixEnabled:CheckBox = $PrefixEnabled;
 
 var sentence:String = "Blah blah blah...";
-var prefix:String = "Riolu";
+var prefix:String = "???";
 var prefixColour:Color = Color("F8F800");
 
 var colorSwatches:Array[Color] = [
