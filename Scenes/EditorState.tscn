@@ -616,6 +616,7 @@ theme = ExtResource("5_qi2yv")
 text = "LOAD THEME"
 
 [node name="PortraitHide" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+layout_mode = 0
 offset_left = 105.0
 offset_top = 34.0
 offset_right = 195.0
@@ -652,6 +653,7 @@ offset_right = 40.0
 offset_bottom = 13.0
 
 [node name="Underline2" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/GenderLabel"]
+layout_mode = 0
 offset_left = 84.0
 offset_top = 12.0
 offset_right = 166.0
@@ -769,6 +771,7 @@ popup/item_0/icon = ExtResource("22_ruxgj")
 popup/item_0/id = 0
 
 [node name="ShinyCheck" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+layout_mode = 0
 offset_left = 97.0
 offset_top = 31.0
 offset_right = 143.0
