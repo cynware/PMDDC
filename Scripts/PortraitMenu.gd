@@ -10,6 +10,7 @@ extends Control
 func _ready():
 	CheckAndCreatePortraitFolder()
 	RetrievePortraitsInDirectory()
+	
 	# get_window().connect("focus_entered", self, "RetrievePortraitsInDirectory");
 	#get_window().connect("focus_entered",  RetrievePortraitsInDirectory)
 	
@@ -50,6 +51,7 @@ func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 			if(icon.texture == null):
 				img.resize(40, 40, Image.INTERPOLATE_NEAREST);
 				icon.texture = ImageTexture.create_from_image(img);
+				icon_texture_changed()
 				
 			img.resize(20, 20, Image.INTERPOLATE_NEAREST);
 			var portraitTexture := ImageTexture.create_from_image(img);
@@ -69,8 +71,8 @@ func loadIconLocal():
 	
 		var texture = ImageTexture.create_from_image(image)
 		icon.texture = texture
+		icon_texture_changed()
 		
-
 
 func loadIconCollab():
 	# Create an HTTP request node and connect its completion signal.
@@ -91,6 +93,7 @@ func loadIconCollab():
 	if error != OK:
 		push_error("An error occurred in the HTTP request.")
 # Called when the HTTP request is completed.
+
 func _http_request_completed(result, response_code, headers, body):
 	if result != HTTPRequest.RESULT_SUCCESS:
 		push_error("Image couldn't be downloaded. Try a different image.")
@@ -102,19 +105,25 @@ func _http_request_completed(result, response_code, headers, body):
 
 	var texture = ImageTexture.create_from_image(image)
 	icon.texture = texture
+	icon_texture_changed()
+
+
+func icon_texture_changed():
+	var tempimg = icon.texture.get_image()
+	tempimg.resize(15, 15, Image.INTERPOLATE_NEAREST)
+	var resized_img = ImageTexture.create_from_image(tempimg)
+	$"../PortraitLeft/PortraitLeftTEXTURE".texture = resized_img
+	$"../PortraitRight/PortraitRightTEXTURE".texture = resized_img
 
 func openCustomIconFolder():
 	OS.shell_open(ProjectSettings.globalize_path("user://Portraits"))
 
-
-
 func OnFolderSelectedChanged(index):
 	RetrievePortraitsInDirectory(false)
-
 
 func OnRefresh():
 	RetrievePortraitsInDirectory()
 
 func OnEmotionSelected(index):
 	loadIconLocal()
-
+	

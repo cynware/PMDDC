@@ -54,3 +54,10 @@ func _on_portrait_hide_pressed():
 		$"../../../../PMD_Main/Portrait".visible = false
 	else:
 		$"../../../../PMD_Main/Portrait".visible = true
+
+
+func _on_portrait_left_pressed():
+	$"../../../../PMD_Main/Portrait".set_position(Vector2(108,276))
+
+func _on_portrait_right_pressed():
+	$"../../../../PMD_Main/Portrait".set_position(Vector2(660,276))

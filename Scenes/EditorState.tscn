@@ -546,6 +546,40 @@ offset_right = 176.0
 offset_bottom = 97.0
 script = ExtResource("30_q7nel")
 
+[node name="PortraitRight" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+offset_left = 59.3333
+offset_top = 34.0
+offset_right = 109.333
+offset_bottom = 51.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("5_qi2yv")
+text = "Right "
+alignment = 2
+
+[node name="PortraitRightTEXTURE" type="TextureRect" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitRight"]
+offset_left = 5.16666
+offset_top = 1.0
+offset_right = 20.1667
+offset_bottom = 16.0
+
+[node name="PortraitLeft" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 34.0
+offset_right = 55.0
+offset_bottom = 51.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("5_qi2yv")
+text = "Left "
+alignment = 2
+
+[node name="PortraitLeftTEXTURE" type="TextureRect" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitLeft"]
+layout_mode = 0
+offset_left = 5.16666
+offset_top = 1.0
+offset_right = 20.1667
+offset_bottom = 16.0
+
 [node name="LoadPortraitBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
 offset_left = 5.0
@@ -596,6 +630,7 @@ texture_normal = ExtResource("34_tw0f3")
 stretch_mode = 0
 
 [node name="CustomBackgroundBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+layout_mode = 0
 offset_left = 89.0
 offset_top = 72.0
 offset_right = 123.0
@@ -627,9 +662,8 @@ icon_alignment = 1
 color = Color(0.298039, 0.298039, 0.298039, 1)
 edit_alpha = false
 
-[node name="Sprite2D" type="Sprite2D" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
-position = Vector2(151.333, 82.782)
-scale = Vector2(1.2, 1.2)
+[node name="BgColourSprite" type="Sprite2D" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BgColour"]
+position = Vector2(16.1108, 8.985)
 texture = ExtResource("38_ij81t")
 
 [node name="LoadThemeBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
@@ -1107,6 +1141,8 @@ text = "CLOSE"
 [connection signal="color_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixColour" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onPrefixColourChanged"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixEnabled" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="_on_prefix_enabled_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowClose"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitRight" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_portrait_right_pressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitLeft" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_portrait_left_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/LoadPortraitBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onPortraitWindowOpen"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/ThemeTypeBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_change_blue_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/ThemeTypeBTN2" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_change_pink_pressed"]
