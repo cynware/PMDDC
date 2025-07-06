@@ -1,8 +1,7 @@
-[gd_scene load_steps=72 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=71 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
-[ext_resource type="Texture2D" uid="uid://baqa84hay3l1x" path="res://Assets/ref/image.png" id="1_crfh0"]
 [ext_resource type="Texture2D" uid="uid://8ocayen5spgw" path="res://Assets/Images/portraits/icon_386.png" id="3_2dy76"]
 [ext_resource type="Texture2D" uid="uid://doac5ohu3jn4v" path="res://Assets/Images/cursor.png" id="3_nfn67"]
 [ext_resource type="Texture2D" uid="uid://le4qsvqsmcmm" path="res://Assets/Images/cursor_beam.png" id="4_bi7jb"]
@@ -109,11 +108,11 @@ offset_right = 768.0
 offset_bottom = 576.0
 color = Color(0.298039, 0.298039, 0.298039, 1)
 
-[node name="ImageBg" type="Sprite2D" parent="BgColour"]
-visible = false
-position = Vector2(384, 288)
+[node name="ImageBg" type="TextureRect" parent="BgColour"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 192.0
 scale = Vector2(3, 3)
-texture = ExtResource("1_crfh0")
 
 [node name="PMD_Main" type="Node2D" parent="."]
 
@@ -600,6 +599,14 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "LOAD PORTRAIT"
 
+[node name="BGImageOpener" type="FileDialog" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+title = "Select an Image"
+size = Vector2i(335, 159)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+use_native_dialog = true
+
 [node name="CustomBackgroundBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
 offset_left = 49.3334
@@ -903,6 +910,7 @@ theme = ExtResource("5_qi2yv")
 text = "CLOSE"
 
 [node name="BoxSkinWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332
@@ -1264,6 +1272,8 @@ text = "CLOSE"
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitRight" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_portrait_right_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitLeft" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_portrait_left_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/LoadPortraitBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onPortraitWindowOpen"]
+[connection signal="file_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BGImageOpener" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_upload_image_file_selected"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/CustomBackgroundBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_custom_background_btn_pressed"]
 [connection signal="color_changed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BgColour" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onBgColourInputChanged"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/LoadBoxSkinBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onBoxSkinWindowOpen"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitHide" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_portrait_hide_pressed"]
