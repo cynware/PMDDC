@@ -547,6 +547,7 @@ offset_bottom = 97.0
 script = ExtResource("30_q7nel")
 
 [node name="PortraitRight" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+layout_mode = 0
 offset_left = 59.3333
 offset_top = 34.0
 offset_right = 109.333
@@ -557,6 +558,7 @@ text = " Right"
 alignment = 0
 
 [node name="PortraitRightTEXTURE" type="TextureRect" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitRight"]
+layout_mode = 0
 offset_left = 29.3333
 offset_top = 1.0
 offset_right = 44.3333
