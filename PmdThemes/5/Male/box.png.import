@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du5q2pe6h3pup"
-path="res://.godot/imported/eosIcon_NB.png-f9095573be75e37fc572e2413f6b44d6.ctex"
+uid="uid://dir5j4o5kep1"
+path="res://.godot/imported/box.png-3673990f0196275fd7592a80214013aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PmdThemes/eos/eosIcon_NB.png"
-dest_files=["res://.godot/imported/eosIcon_NB.png-f9095573be75e37fc572e2413f6b44d6.ctex"]
+source_file="res://PmdThemes/5/Male/box.png"
+dest_files=["res://.godot/imported/box.png-3673990f0196275fd7592a80214013aa.ctex"]
 
 [params]
 

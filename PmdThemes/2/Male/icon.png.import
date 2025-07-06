@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dokenoaellcdy"
-path="res://.godot/imported/eosBox_NB.png-1cb79e7c913f1e5daed3727afa4685ca.ctex"
+uid="uid://c8rq0kntepi1n"
+path="res://.godot/imported/icon.png-6995f4034a0c52a0169e7a0cf31de315.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PmdThemes/eos/eosBox_NB.png"
-dest_files=["res://.godot/imported/eosBox_NB.png-1cb79e7c913f1e5daed3727afa4685ca.ctex"]
+source_file="res://PmdThemes/2/Male/icon.png"
+dest_files=["res://.godot/imported/icon.png-6995f4034a0c52a0169e7a0cf31de315.ctex"]
 
 [params]
 

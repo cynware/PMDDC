@@ -3,22 +3,22 @@
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
 [ext_resource type="Texture2D" uid="uid://baqa84hay3l1x" path="res://Assets/ref/image.png" id="1_crfh0"]
-[ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdThemes/eos/eosIcon_M.png" id="2_ia35k"]
 [ext_resource type="Texture2D" uid="uid://8ocayen5spgw" path="res://Assets/Images/portraits/icon_386.png" id="3_2dy76"]
 [ext_resource type="Texture2D" uid="uid://doac5ohu3jn4v" path="res://Assets/Images/cursor.png" id="3_nfn67"]
-[ext_resource type="Texture2D" uid="uid://dg6at41hquvec" path="res://PmdThemes/eos/eosBox_M.png" id="4_488rf"]
 [ext_resource type="Texture2D" uid="uid://le4qsvqsmcmm" path="res://Assets/Images/cursor_beam.png" id="4_bi7jb"]
 [ext_resource type="Texture2D" uid="uid://beikwn8chfkpn" path="res://Assets/Images/portraits/ERRORPORTRAIT.png" id="4_yqe1g"]
 [ext_resource type="Theme" uid="uid://dsorw808w1qst" path="res://Assets/Themes/PmdDark.tres" id="5_qi2yv"]
 [ext_resource type="PackedScene" uid="uid://bgtua870y440s" path="res://Scenes/Components/DebugTabButton.tscn" id="6_4mf72"]
 [ext_resource type="Shader" path="res://Assets/Shaders/blur.gdshader" id="6_q7upt"]
 [ext_resource type="Texture2D" uid="uid://bm3rt1xw07m17" path="res://Assets/Images/settings.png" id="8_y615r"]
+[ext_resource type="Texture2D" uid="uid://dg6at41hquvec" path="res://PmdThemes/ExplorersOfSky/Male/box.png" id="9_ebeq2"]
 [ext_resource type="Script" path="res://Scripts/DialogueTab.gd" id="9_pthgd"]
 [ext_resource type="PackedScene" uid="uid://cb3shqw006mu4" path="res://Scenes/Components/ThemeTypeBTN.tscn" id="10_naogw"]
 [ext_resource type="Texture2D" uid="uid://dgy8trjx8l6pt" path="res://Assets/Images/symbols/coin.png" id="11_1n151"]
 [ext_resource type="Script" path="res://Scripts/PMD_Debug.gd" id="11_8cckt"]
 [ext_resource type="Texture2D" uid="uid://dcskbgqsta1r3" path="res://Assets/Images/symbols/heart.png" id="11_mo684"]
 [ext_resource type="Script" path="res://Scripts/InsertSymbolBTN.gd" id="11_ouwkk"]
+[ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdThemes/ExplorersOfSky/Male/icon.png" id="12_t8jjw"]
 [ext_resource type="Texture2D" uid="uid://riac5l0rgksx" path="res://Assets/Images/symbols/star.png" id="12_vxgy4"]
 [ext_resource type="Texture2D" uid="uid://dmlppb1jvlf0q" path="res://Assets/Images/symbols/textbubble.png" id="13_t8tcm"]
 [ext_resource type="AudioStream" uid="uid://dopgwiieklh37" path="res://Assets/Sounds/pmdMenu_1.ogg" id="15_bl6l8"]
@@ -120,7 +120,7 @@ texture = ExtResource("1_crfh0")
 [node name="Portrait" type="Sprite2D" parent="PMD_Main"]
 position = Vector2(108, 276)
 scale = Vector2(3, 3)
-texture = ExtResource("2_ia35k")
+texture = ExtResource("12_t8jjw")
 
 [node name="ERRORICON" type="Sprite2D" parent="PMD_Main/Portrait"]
 texture = ExtResource("4_yqe1g")
@@ -131,7 +131,7 @@ texture = ExtResource("3_2dy76")
 [node name="Textbox" type="Sprite2D" parent="PMD_Main"]
 position = Vector2(384, 468)
 scale = Vector2(3, 3)
-texture = ExtResource("4_488rf")
+texture = ExtResource("9_ebeq2")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PMD_Main/Textbox"]
 offset_left = -108.0
@@ -186,7 +186,7 @@ offset_top = 66.0
 offset_right = 377.0
 offset_bottom = 171.0
 scale = Vector2(3, 3)
-texture = ExtResource("2_ia35k")
+texture = ExtResource("12_t8jjw")
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5
@@ -1104,7 +1104,6 @@ offset_top = 92.0
 offset_right = 319.0
 offset_bottom = 225.0
 scale = Vector2(3, 3)
-texture = ExtResource("2_ia35k")
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5

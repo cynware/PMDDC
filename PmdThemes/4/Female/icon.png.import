@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fyku5sd4svm"
-path="res://.godot/imported/eosIcon_F.png-a767a201252b636ee88b0ffeac265fd3.ctex"
+uid="uid://dlg2whomdvr2x"
+path="res://.godot/imported/icon.png-2a1fdf0ceebc9c780b82c5d7c916aa25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PmdThemes/eos/eosIcon_F.png"
-dest_files=["res://.godot/imported/eosIcon_F.png-a767a201252b636ee88b0ffeac265fd3.ctex"]
+source_file="res://PmdThemes/4/Female/icon.png"
+dest_files=["res://.godot/imported/icon.png-2a1fdf0ceebc9c780b82c5d7c916aa25.ctex"]
 
 [params]
 
