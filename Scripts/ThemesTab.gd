@@ -1,16 +1,8 @@
 extends Control
 
-
 var toggled:bool = true;
-func _on_quick_swap_pressed():
-	toggled = !toggled;
-	
-	if toggled:
-		$"../../../../PMD_Main/Textbox".texture = load("res://PmdThemes/eos/eosBox_M.png");
-		$"../../../../PMD_Main/Portrait".texture = load("res://PmdThemes/eos/eosIcon_M.png");
-	else:
-		$"../../../../PMD_Main/Textbox".texture = load("res://PmdThemes/eos/eosBox_F.png");
-		$"../../../../PMD_Main/Portrait".texture = load("res://PmdThemes/eos/eosIcon_F.png");
+@export var portrait:Sprite2D;
+@export var textbox:Sprite2D;
 
 
 func onBgColourInputChanged(color):
@@ -18,18 +10,18 @@ func onBgColourInputChanged(color):
 
 
 func _on_change_blue_pressed():
-	$"../../../../PMD_Main/Textbox".texture = load("res://PmdThemes/eos/eosBox_M.png");
-	$"../../../../PMD_Main/Portrait".texture = load("res://PmdThemes/eos/eosIcon_M.png");
+	textbox.texture = load("res://PmdThemes/eos/eosBox_M.png");
+	portrait.texture = load("res://PmdThemes/eos/eosIcon_M.png");
 
 
 func _on_change_pink_pressed():
-	$"../../../../PMD_Main/Textbox".texture = load("res://PmdThemes/eos/eosBox_F.png");
-	$"../../../../PMD_Main/Portrait".texture = load("res://PmdThemes/eos/eosIcon_F.png");
+	textbox.texture = load("res://PmdThemes/eos/eosBox_F.png");
+	portrait.texture = load("res://PmdThemes/eos/eosIcon_F.png");
 
 
 func _on_change_green_pressed():
-	$"../../../../PMD_Main/Textbox".texture = load("res://PmdThemes/eos/eosBox_NB.png");
-	$"../../../../PMD_Main/Portrait".texture = load("res://PmdThemes/eos/eosIcon_NB.png");
+	textbox.texture = load("res://PmdThemes/eos/eosBox_NB.png");
+	portrait.texture = load("res://PmdThemes/eos/eosIcon_NB.png");
 
 func onPortraitWindowClose():
 	$PortraitWindow.visible = false;
@@ -38,8 +30,14 @@ func onPortraitWindowClose():
 func onPortraitWindowOpen():
 	$PortraitWindow.visible = true;
 	$ClickSFX.play();
+	
+func onBoxSkinWindowClose():
+	$BoxSkinWindow.visible = false;
+	$ClickSFX.play()
 
-
+func onBoxSkinWindowOpen():
+	$BoxSkinWindow.visible = true;
+	$ClickSFX.play();
 
 func on_portrait_flip():
 	if $PortraitFlip.button_pressed:
@@ -50,14 +48,11 @@ func on_portrait_flip():
 
 
 func _on_portrait_hide_pressed():
-	if $PortraitHide.button_pressed:
-		$"../../../../PMD_Main/Portrait".visible = false
-	else:
-		$"../../../../PMD_Main/Portrait".visible = true
+	portrait.visible = !$PortraitHide.button_pressed;
 
 
 func _on_portrait_left_pressed():
-	$"../../../../PMD_Main/Portrait".set_position(Vector2(108,276))
+	portrait.set_position(Vector2(108,276))
 
 func _on_portrait_right_pressed():
-	$"../../../../PMD_Main/Portrait".set_position(Vector2(660,276))
+	portrait.set_position(Vector2(660,276))

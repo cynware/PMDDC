@@ -109,6 +109,9 @@ func _http_request_completed(result, response_code, headers, body):
 
 
 func icon_texture_changed():
+	if(icon.texture == null):
+		return;
+		
 	var tempimg = icon.texture.get_image()
 	tempimg.resize(15, 15, Image.INTERPOLATE_NEAREST)
 	var resized_img = ImageTexture.create_from_image(tempimg)
