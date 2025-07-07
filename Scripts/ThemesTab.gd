@@ -46,8 +46,9 @@ func on_portrait_flip():
 		$"../../../../PMD_Main/Portrait/Icon".scale.x = 1;
 
 func _on_custom_background_btn_pressed():
+	$PortraitWindow/FolderBTN/FolderBTNSound.play()
 	$BGImageOpener.popup_centered()  # Opens the dialog
-
+	
 
 func _on_upload_image_file_selected(path):
 	var image_path = path
@@ -59,6 +60,7 @@ func _on_upload_image_file_selected(path):
 	image_texture.set_image(image)
 	
 	$"../../../../BgColour/ImageBg".texture = image_texture
+	$CustomBackgroundBTN/BGImport.play()
 
 func _on_portrait_hide_pressed():
 	portrait.visible = !$PortraitHide.button_pressed;

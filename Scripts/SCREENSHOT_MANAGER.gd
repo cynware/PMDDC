@@ -31,7 +31,7 @@ func _process(delta):
 		
 
 func takeTransparentScreenshot():
-	background.visible = !transparentBackgroundToggle.button_pressed;
+	background.visible = !$"../Settings/SettingsMenu/SettingsPanel/Page2/TransparentBackground".button_pressed;
 	debugMenu.visible = false;
 	settingsButton.visible = false;
 	

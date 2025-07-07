@@ -120,12 +120,18 @@ func icon_texture_changed():
 
 func openCustomIconFolder():
 	OS.shell_open(ProjectSettings.globalize_path("user://Portraits"))
+	var sound_player = $FolderBTN/FolderBTNSound
+	sound_player.pitch_scale = randf_range(0.95, 1.05)
+	sound_player.play()
 
 func OnFolderSelectedChanged(index):
 	RetrievePortraitsInDirectory(false)
 
 func OnRefresh():
 	RetrievePortraitsInDirectory()
+	var sound_player = $RefreshBTN/RefreshBTNSound
+	sound_player.pitch_scale = randf_range(0.95, 1.05)
+	sound_player.play()
 
 func OnEmotionSelected(index):
 	loadIconLocal()

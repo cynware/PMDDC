@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=85 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -40,6 +40,7 @@
 [ext_resource type="FontFile" uid="uid://b18bcqecgsw5x" path="res://Assets/Fonts/Wondermail.ttf" id="33_x1l3a"]
 [ext_resource type="Texture2D" uid="uid://c5hmrqcah5dde" path="res://Assets/Images/icon_NB.png" id="34_tw0f3"]
 [ext_resource type="Texture2D" uid="uid://dnbwjdisfavh8" path="res://Assets/Images/Template/Angry.png" id="35_8xq2p"]
+[ext_resource type="AudioStream" uid="uid://bdjcink0rebih" path="res://Assets/Sounds/bgimport.ogg" id="35_82sui"]
 [ext_resource type="Texture2D" uid="uid://b7lm4pfb4ejl3" path="res://Assets/Images/folder.png" id="35_at0t2"]
 [ext_resource type="Texture2D" uid="uid://ch6y6a64t0i72" path="res://Assets/Images/Template/Crying.png" id="36_ed0lm"]
 [ext_resource type="Texture2D" uid="uid://dw7tjlfxukq1t" path="res://Assets/Images/Template/Determined.png" id="37_7opjh"]
@@ -62,10 +63,17 @@
 [ext_resource type="Texture2D" uid="uid://bfvqawf5rt21j" path="res://Assets/Images/Template/Surprised.png" id="52_ttctp"]
 [ext_resource type="Texture2D" uid="uid://bh67i0kl5rqoo" path="res://Assets/Images/Template/Teary-Eyed.png" id="53_34vbu"]
 [ext_resource type="Texture2D" uid="uid://bgye8e2e0iqxr" path="res://Assets/Images/Template/Worried.png" id="54_kgwja"]
+[ext_resource type="Texture2D" uid="uid://cvfbxcxp8idf7" path="res://Assets/Images/folder_pressed.png" id="59_1fss6"]
 [ext_resource type="Script" path="res://Scripts/SettingsMenu.gd" id="59_ibx88"]
+[ext_resource type="AudioStream" uid="uid://dkrpsd37k8f8c" path="res://Assets/Sounds/folder.ogg" id="60_eptc2"]
 [ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="60_isgay"]
 [ext_resource type="Texture2D" uid="uid://c210dg38ryi6o" path="res://Assets/Images/refresh.png" id="60_j7wfn"]
+[ext_resource type="Texture2D" uid="uid://3qws3redcwhw" path="res://Assets/Images/refresh_pressed.png" id="61_f1ugg"]
+[ext_resource type="AudioStream" uid="uid://u31hb2xm3nhy" path="res://Assets/Sounds/refresh.ogg" id="63_cc2q7"]
 [ext_resource type="Script" path="res://Scripts/BoxSkinWindow.gd" id="64_3ecio"]
+[ext_resource type="AudioStream" uid="uid://b0tua6ecgivqk" path="res://Assets/Sounds/placeholder_ost.mp3" id="67_s4c4m"]
+[ext_resource type="Texture2D" uid="uid://cewxijhl3fb4b" path="res://Assets/Images/arrow.png" id="67_uwkq2"]
+[ext_resource type="AudioStream" uid="uid://celljk4a0y23y" path="res://Assets/Sounds/settings.ogg" id="71_1u5km"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
 shader = ExtResource("6_q7upt")
@@ -76,14 +84,57 @@ shader_parameter/lod = 1.0
 [sub_resource type="LabelSettings" id="LabelSettings_ahui5"]
 font = ExtResource("33_x1l3a")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n64qr"]
+atlas = ExtResource("8_y615r")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iip5"]
+atlas = ExtResource("8_y615r")
+region = Rect2(72, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inubt"]
+atlas = ExtResource("8_y615r")
+region = Rect2(144, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x08ue"]
+atlas = ExtResource("8_y615r")
+region = Rect2(216, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yefc"]
+atlas = ExtResource("8_y615r")
+region = Rect2(288, 0, 72, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xivcx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n64qr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iip5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inubt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x08ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yefc")
+}],
+"loop": false,
+"name": &"Spin",
+"speed": 12.0
+}]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_43upc"]
 
 [node name="EditorState" type="Node2D"]
 
 [node name="SCREENSHOT MANAGER" type="Node" parent="." node_paths=PackedStringArray("transparentBackgroundToggle", "resolutionMultiplierDropdown", "background", "debugMenu", "settingsButton")]
 script = ExtResource("1_8ny4k")
-transparentBackgroundToggle = NodePath("../Settings/SettingsMenu/SettingsPanel/TransparentBackground")
-resolutionMultiplierDropdown = NodePath("../Settings/SettingsMenu/SettingsPanel/ExportResolutionMultiplier")
+transparentBackgroundToggle = NodePath("../Settings/SettingsMenu/SettingsPanel/Page2/TransparentBackground")
+resolutionMultiplierDropdown = NodePath("../Settings/SettingsMenu/SettingsPanel/Page2/ExportResolutionMultiplier")
 background = NodePath("../BgColour")
 debugMenu = NodePath("../PMD_Debug")
 settingsButton = NodePath("../Settings")
@@ -559,6 +610,7 @@ offset_top = 34.0
 offset_right = 109.333
 offset_bottom = 51.0
 scale = Vector2(0.8, 0.8)
+tooltip_text = "Snaps the portrait to the right side of the screen."
 theme = ExtResource("5_qi2yv")
 text = " Right"
 alignment = 0
@@ -577,6 +629,7 @@ offset_top = 34.0
 offset_right = 55.0
 offset_bottom = 51.0
 scale = Vector2(0.8, 0.8)
+tooltip_text = "Snaps the portrait to the left side of the screen."
 theme = ExtResource("5_qi2yv")
 text = "Left "
 alignment = 2
@@ -600,7 +653,7 @@ theme = ExtResource("5_qi2yv")
 text = "LOAD PORTRAIT"
 
 [node name="BGImageOpener" type="FileDialog" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
-title = "Select an Image"
+title = "Open a File"
 size = Vector2i(335, 159)
 ok_button_text = "Open"
 file_mode = 0
@@ -614,11 +667,16 @@ offset_top = 72.0
 offset_right = 83.3334
 offset_bottom = 90.0
 scale = Vector2(1.2, 1.2)
+tooltip_text = "Load a background image from your local files."
 theme = ExtResource("5_qi2yv")
 text = "
 "
 icon = ExtResource("38_64q62")
 icon_alignment = 1
+
+[node name="BGImport" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/CustomBackgroundBTN"]
+stream = ExtResource("35_82sui")
+volume_db = -10.0
 
 [node name="BgColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 layout_mode = 1
@@ -763,6 +821,8 @@ offset_top = 63.0
 offset_right = 111.0
 offset_bottom = 88.0
 scale = Vector2(0.7, 0.681632)
+tooltip_text = "Loads locally saved portraits from \\Pokemon Mystery Dungeon- Dialog Creator\\Portraits.
+Make a folder, and place your images inside."
 theme = ExtResource("5_qi2yv")
 clip_text = true
 item_count = 1
@@ -808,6 +868,9 @@ offset_top = 31.0
 offset_right = 63.0
 offset_bottom = 56.0
 scale = Vector2(0.7, 0.7)
+tooltip_text = "Write the Pokédex number of the Pokémon you want.
+Not all Pokémon are included, as it pulls from PMDCollab.
+See https://sprites.pmdcollab.org/ to look at their catalogue of Pokémon portraits."
 theme = ExtResource("5_qi2yv")
 placeholder_text = "Pokédex #"
 
@@ -881,6 +944,7 @@ offset_top = 3.33333
 offset_right = 170.0
 offset_bottom = 13.3333
 texture_normal = ExtResource("35_at0t2")
+texture_pressed = ExtResource("59_1fss6")
 
 [node name="FileDialog" type="FileDialog" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/FolderBTN"]
 title = "Open a File or Directory"
@@ -890,6 +954,10 @@ file_mode = 3
 access = 2
 use_native_dialog = true
 
+[node name="FolderBTNSound" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/FolderBTN"]
+stream = ExtResource("60_eptc2")
+volume_db = -10.0
+
 [node name="RefreshBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
 offset_left = 142.667
@@ -897,6 +965,11 @@ offset_top = 3.0
 offset_right = 154.667
 offset_bottom = 14.0
 texture_normal = ExtResource("60_j7wfn")
+texture_pressed = ExtResource("61_f1ugg")
+
+[node name="RefreshBTNSound" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/RefreshBTN"]
+stream = ExtResource("63_cc2q7")
+volume_db = -10.0
 
 [node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
 layout_mode = 0
@@ -1084,10 +1157,23 @@ stretch_mode = 0
 [node name="Settings" type="TextureButton" parent="."]
 offset_left = 9.0
 offset_top = 9.0
-offset_right = 43.0
-offset_bottom = 43.0
-texture_normal = ExtResource("8_y615r")
+offset_right = 81.0
+offset_bottom = 81.0
+tooltip_text = "Opens the settings menu."
+theme = ExtResource("5_qi2yv")
 script = ExtResource("60_isgay")
+
+[node name="GearSprite" type="AnimatedSprite2D" parent="Settings"]
+position = Vector2(36, 36)
+sprite_frames = SubResource("SpriteFrames_xivcx")
+animation = &"Spin"
+frame = 4
+frame_progress = 0.869618
+
+[node name="SettingSound" type="AudioStreamPlayer" parent="Settings/GearSprite"]
+stream = ExtResource("71_1u5km")
+volume_db = -10.0
+pitch_scale = 0.9
 
 [node name="SettingsMenu" type="Control" parent="Settings"]
 visible = false
@@ -1112,12 +1198,13 @@ offset_top = 92.0
 offset_right = 319.0
 offset_bottom = 225.0
 scale = Vector2(3, 3)
+texture = ExtResource("12_t8jjw")
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="BG" type="ColorRect" parent="Settings/SettingsMenu/SettingsPanel"]
+[node name="Page1" type="ColorRect" parent="Settings/SettingsMenu/SettingsPanel"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -1125,12 +1212,11 @@ offset_right = 124.0
 offset_bottom = 129.0
 color = Color(0.12549, 0.12549, 0.12549, 1)
 
-[node name="WindowSizeHeader" type="Label" parent="Settings/SettingsMenu/SettingsPanel"]
+[node name="WindowSizeHeader" type="Label" parent="Settings/SettingsMenu/SettingsPanel/Page1"]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 23.0
-offset_right = 163.0
-offset_bottom = 42.0
+offset_top = 19.0
+offset_right = 159.0
+offset_bottom = 38.0
 scale = Vector2(0.75, 0.75)
 theme = ExtResource("5_qi2yv")
 text = "WINDOW SIZE"
@@ -1138,12 +1224,12 @@ label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="WindowSizeDropdown" type="OptionButton" parent="Settings/SettingsMenu/SettingsPanel"]
+[node name="WindowSizeDropdown" type="OptionButton" parent="Settings/SettingsMenu/SettingsPanel/Page1"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 38.0
-offset_right = 231.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 34.0
+offset_right = 227.0
+offset_bottom = 62.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("5_qi2yv")
 item_count = 3
@@ -1154,12 +1240,33 @@ popup/item_1/id = 1
 popup/item_2/text = "1280 x 960"
 popup/item_2/id = 2
 
-[node name="ScreenshotOptionsHeader" type="Label" parent="Settings/SettingsMenu/SettingsPanel"]
+[node name="FullscreenButt" type="CheckBox" parent="Settings/SettingsMenu/SettingsPanel/Page1"]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 58.0
-offset_right = 164.0
-offset_bottom = 77.0
+offset_left = 3.99997
+offset_top = 50.0
+offset_right = 70.0
+offset_bottom = 66.0
+scale = Vector2(0.8, 0.8)
+tooltip_text = "Make sure to be in Windowed mode for this! It may break in Maximized mode."
+theme = ExtResource("5_qi2yv")
+text = "Fullscreen"
+alignment = 1
+
+[node name="Page2" type="ColorRect" parent="Settings/SettingsMenu/SettingsPanel"]
+visible = false
+layout_mode = 0
+offset_left = 4.00007
+offset_top = 4.0
+offset_right = 124.0
+offset_bottom = 129.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="ScreenshotOptionsHeader" type="Label" parent="Settings/SettingsMenu/SettingsPanel/Page2"]
+layout_mode = 0
+offset_left = -6.86646e-05
+offset_top = 19.0
+offset_right = 160.0
+offset_bottom = 38.0
 scale = Vector2(0.75, 0.75)
 theme = ExtResource("5_qi2yv")
 text = "SCREENSHOT OPTIONS"
@@ -1167,12 +1274,12 @@ label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ExportResMultHeader" type="Label" parent="Settings/SettingsMenu/SettingsPanel"]
+[node name="ExportResMultHeader" type="Label" parent="Settings/SettingsMenu/SettingsPanel/Page2"]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 70.0
-offset_right = 216.0
-offset_bottom = 89.0
+offset_left = -6.86646e-05
+offset_top = 31.0
+offset_right = 212.0
+offset_bottom = 50.0
 scale = Vector2(0.563333, 0.563333)
 theme = ExtResource("5_qi2yv")
 text = "Export Resolution Multiplier"
@@ -1180,12 +1287,12 @@ label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ExportResolutionMultiplier" type="OptionButton" parent="Settings/SettingsMenu/SettingsPanel"]
+[node name="ExportResolutionMultiplier" type="OptionButton" parent="Settings/SettingsMenu/SettingsPanel/Page2"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 80.0
-offset_right = 231.0
-offset_bottom = 108.0
+offset_left = 4.99993
+offset_top = 41.0
+offset_right = 227.0
+offset_bottom = 69.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("5_qi2yv")
 alignment = 1
@@ -1212,12 +1319,12 @@ popup/item_8/id = 9
 popup/item_9/text = "10x"
 popup/item_9/id = 10
 
-[node name="TransparentBackgroundHeader" type="Label" parent="Settings/SettingsMenu/SettingsPanel"]
+[node name="TransparentBackgroundHeader" type="Label" parent="Settings/SettingsMenu/SettingsPanel/Page2"]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 91.0
-offset_right = 215.0
-offset_bottom = 110.0
+offset_left = -6.86646e-05
+offset_top = 52.0
+offset_right = 211.0
+offset_bottom = 71.0
 scale = Vector2(0.569821, 0.569821)
 theme = ExtResource("5_qi2yv")
 text = "Transparent Background"
@@ -1225,12 +1332,12 @@ label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TransparentBackground" type="CheckBox" parent="Settings/SettingsMenu/SettingsPanel"]
+[node name="TransparentBackground" type="CheckBox" parent="Settings/SettingsMenu/SettingsPanel/Page2"]
 layout_mode = 0
-offset_left = 54.6667
-offset_top = 99.3333
-offset_right = 78.6667
-offset_bottom = 123.333
+offset_left = 50.6666
+offset_top = 60.3333
+offset_right = 74.6666
+offset_bottom = 84.3333
 scale = Vector2(0.76, 0.76)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_43upc")
 button_pressed = true
@@ -1238,14 +1345,15 @@ flat = true
 alignment = 1
 icon_alignment = 1
 
-[node name="Header" type="Label" parent="Settings/SettingsMenu/SettingsPanel"]
+[node name="Header" type="Label" parent="Settings/SettingsMenu"]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 5.0
-offset_right = 124.0
-offset_bottom = 24.0
+offset_left = 203.0
+offset_top = 107.0
+offset_right = 323.0
+offset_bottom = 126.0
+scale = Vector2(3, 3)
 theme = ExtResource("5_qi2yv")
-text = " SETTINGS"
+text = "WINDOW"
 label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1260,6 +1368,30 @@ scale = Vector2(2, 2)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "CLOSE"
+
+[node name="SettingsLeftNav" type="TextureButton" parent="Settings/SettingsMenu"]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 118.0
+offset_right = 288.0
+offset_bottom = 129.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("67_uwkq2")
+flip_h = true
+
+[node name="SettingsRightNav" type="TextureButton" parent="Settings/SettingsMenu"]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 118.0
+offset_right = 473.0
+offset_bottom = 129.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("67_uwkq2")
+
+[node name="MUSIC" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("67_s4c4m")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="file_selected" from="SCREENSHOT MANAGER/SaveWindow" to="SCREENSHOT MANAGER" method="_on_save_window_file_selected"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
@@ -1291,5 +1423,8 @@ text = "CLOSE"
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/ThemeTypeBTN2" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_change_pink_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/ThemeTypeBTN3" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_change_green_pressed"]
 [connection signal="pressed" from="Settings" to="Settings" method="_on_settings_pressed"]
-[connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/WindowSizeDropdown" to="Settings/SettingsMenu" method="_on_window_size_item_selected"]
+[connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page1/WindowSizeDropdown" to="Settings/SettingsMenu" method="_on_window_size_item_selected"]
+[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
 [connection signal="pressed" from="Settings/SettingsMenu/CloseBTN" to="Settings" method="_on_close_btn_pressed"]
+[connection signal="pressed" from="Settings/SettingsMenu/SettingsLeftNav" to="Settings/SettingsMenu" method="on_left_pressed"]
+[connection signal="pressed" from="Settings/SettingsMenu/SettingsRightNav" to="Settings/SettingsMenu" method="on_right_pressed"]
