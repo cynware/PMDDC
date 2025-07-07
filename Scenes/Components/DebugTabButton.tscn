@@ -31,6 +31,7 @@ patch_margin_bottom = 5
 [node name="ClickSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_nole5")
 volume_db = -25.0
+bus = &"Sound"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

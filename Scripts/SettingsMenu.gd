@@ -9,6 +9,51 @@ var initialArrowRightPos:Vector2;
 func _ready():
 	initialArrowLeftPos = arrowLeft.position;
 	initialArrowRightPos = arrowRight.position;
+	
+	$SettingsPanel/Page3/Vol_MASTER/Master_Slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
+	$SettingsPanel/Page3/Vol_MUSIC/Music_Slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
+	$SettingsPanel/Page3/Vol_SFX/SFX_Slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound"))
+
+func _on_master_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+	print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
+	if AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")) <= 0 and AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")) >= -6:
+		$SettingsPanel/Page3/Vol_MASTER.texture_normal = load("res://Assets/Images/speaker_3.png")
+	else: if AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")) <= -6 and AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")) >= -20:
+		$SettingsPanel/Page3/Vol_MASTER.texture_normal = load("res://Assets/Images/speaker_2.png")
+	else: if AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")) <= -20 and AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")) >= -30:
+		$SettingsPanel/Page3/Vol_MASTER.texture_normal = load("res://Assets/Images/speaker_1.png")
+	if AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")) == -30:
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -80)
+		print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
+		
+func _on_MusicSlider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), value)
+	print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
+	if AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")) <= 0 and AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")) >= -6:
+		$SettingsPanel/Page3/Vol_MUSIC.texture_normal = load("res://Assets/Images/speaker_3.png")
+	else: if AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")) <= -6 and AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")) >= -20:
+		$SettingsPanel/Page3/Vol_MUSIC.texture_normal = load("res://Assets/Images/speaker_2.png")
+	else: if AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")) <= -20 and AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")) >= -30:
+		$SettingsPanel/Page3/Vol_MUSIC.texture_normal = load("res://Assets/Images/speaker_1.png")
+	if AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")) == -30:
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), -80)
+		print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
+
+func _on_SFXSlider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sound"), value)
+	print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound")))
+	if AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound")) <= 0 and AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound")) >= -6:
+		$SettingsPanel/Page3/Vol_SFX.texture_normal = load("res://Assets/Images/speaker_3.png")
+	else: if AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound")) <= -6 and AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound")) >= -20:
+		$SettingsPanel/Page3/Vol_SFX.texture_normal = load("res://Assets/Images/speaker_2.png")
+	else: if AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound")) <= -20 and AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound")) >= -30:
+		$SettingsPanel/Page3/Vol_SFX.texture_normal = load("res://Assets/Images/speaker_1.png")
+	if AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound")) == -30:
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sound"), -80)
+		print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound")))
+
+# stop audio changeing
 
 func resize_window(new_width: int, new_height: int):
 	DisplayServer.window_set_size(Vector2i(new_width, new_height))

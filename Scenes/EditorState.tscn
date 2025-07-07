@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=90 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -7,8 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://le4qsvqsmcmm" path="res://Assets/Images/cursor_beam.png" id="4_bi7jb"]
 [ext_resource type="Texture2D" uid="uid://beikwn8chfkpn" path="res://Assets/Images/portraits/ERRORPORTRAIT.png" id="4_yqe1g"]
 [ext_resource type="Theme" uid="uid://dsorw808w1qst" path="res://Assets/Themes/PmdDark.tres" id="5_qi2yv"]
+[ext_resource type="Texture2D" uid="uid://qsa6ad01bahp" path="res://Assets/Images/cursor_hand.png" id="5_xlvjr"]
 [ext_resource type="PackedScene" uid="uid://bgtua870y440s" path="res://Scenes/Components/DebugTabButton.tscn" id="6_4mf72"]
+[ext_resource type="Texture2D" uid="uid://ddukth4vrqoyi" path="res://Assets/Images/cursor_pointer.png" id="6_7n837"]
 [ext_resource type="Shader" path="res://Assets/Shaders/blur.gdshader" id="6_q7upt"]
+[ext_resource type="Texture2D" uid="uid://n7h3uxp83t63" path="res://Assets/Images/cursor_hand_grab.png" id="7_scbut"]
+[ext_resource type="Script" path="res://Scenes/Portrait.gd" id="8_iisxg"]
 [ext_resource type="Texture2D" uid="uid://bm3rt1xw07m17" path="res://Assets/Images/settings.png" id="8_y615r"]
 [ext_resource type="Texture2D" uid="uid://dg6at41hquvec" path="res://PmdSkins/ExplorersOfSky/Male/box.png" id="9_ebeq2"]
 [ext_resource type="Script" path="res://Scripts/DialogueTab.gd" id="9_pthgd"]
@@ -74,7 +78,7 @@
 [ext_resource type="AudioStream" uid="uid://b0tua6ecgivqk" path="res://Assets/Sounds/placeholder_ost.mp3" id="67_s4c4m"]
 [ext_resource type="Texture2D" uid="uid://cewxijhl3fb4b" path="res://Assets/Images/arrow.png" id="67_uwkq2"]
 [ext_resource type="AudioStream" uid="uid://celljk4a0y23y" path="res://Assets/Sounds/settings.ogg" id="71_1u5km"]
-[ext_resource type="Texture2D" uid="uid://km6ievn4qon3" path="res://Assets/Images/speaker_1.png" id="73_e7hxk"]
+[ext_resource type="Texture2D" uid="uid://blnbx8qbd5fl6" path="res://Assets/Images/speaker_3.png" id="73_xf746"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
 shader = ExtResource("6_q7upt")
@@ -154,6 +158,9 @@ scale = Vector2(1.29218, 1.45174)
 script = ExtResource("1_3o4bd")
 cursorTexture = ExtResource("3_nfn67")
 cursorBeam = ExtResource("4_bi7jb")
+cursorHand = ExtResource("5_xlvjr")
+cursorPointer = ExtResource("6_7n837")
+cursorGrab = ExtResource("7_scbut")
 
 [node name="BgColour" type="ColorRect" parent="."]
 offset_right = 768.0
@@ -172,12 +179,20 @@ scale = Vector2(3, 3)
 position = Vector2(108, 276)
 scale = Vector2(3, 3)
 texture = ExtResource("12_t8jjw")
+script = ExtResource("8_iisxg")
 
 [node name="ERRORICON" type="Sprite2D" parent="PMD_Main/Portrait"]
 texture = ExtResource("4_yqe1g")
 
 [node name="Icon" type="Sprite2D" parent="PMD_Main/Portrait"]
 texture = ExtResource("3_2dy76")
+
+[node name="PortraitHoverButton" type="Button" parent="PMD_Main/Portrait"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
 
 [node name="Textbox" type="Sprite2D" parent="PMD_Main"]
 position = Vector2(384, 468)
@@ -208,7 +223,7 @@ offset_top = 24.0
 offset_right = 721.0
 offset_bottom = 66.0
 
-[node name="DialogueBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") instance=ExtResource("6_4mf72")]
+[node name="DialogueBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
 offset_left = 295.0
 offset_top = 30.0
 offset_right = 421.0
@@ -216,7 +231,7 @@ offset_bottom = 72.0
 text = "DIALOGUE"
 tab = NodePath("../DebugTab/Tabs/DialogueTab")
 
-[node name="ThemesBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") instance=ExtResource("6_4mf72")]
+[node name="ThemesBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
 offset_left = 445.0
 offset_top = 30.0
 offset_right = 571.0
@@ -224,7 +239,7 @@ offset_bottom = 72.0
 text = "THEMES"
 tab = NodePath("../DebugTab/Tabs/ThemesTab")
 
-[node name="PresetsBTN" parent="PMD_Debug" instance=ExtResource("6_4mf72")]
+[node name="PresetsBTN" parent="PMD_Debug" groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
 offset_left = 595.0
 offset_top = 30.0
 offset_right = 721.0
@@ -276,7 +291,7 @@ theme = ExtResource("5_qi2yv")
 placeholder_text = "Textbox text goes here..."
 wrap_mode = 1
 
-[node name="InsertColourBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
+[node name="InsertColourBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 39.6667
 offset_top = 2.0
@@ -287,18 +302,29 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "INSERT COLOUR"
 
-[node name="InsertSymbolBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
+[node name="InsertSymbolBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 102.0
+offset_left = 118.333
 offset_top = 2.0
-offset_right = 182.0
+offset_right = 148.333
 offset_bottom = 15.0
 scale = Vector2(0.7, 0.7)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
-text = "INSERT SYMBOL"
+icon = ExtResource("18_37hf0")
+icon_alignment = 1
 
-[node name="InsertColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
+[node name="InsertGlyphBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 141.667
+offset_top = 2.0
+offset_right = 171.667
+offset_bottom = 15.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_qi2yv")
+text = "Ⓨ"
+
+[node name="InsertColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 15.0001
 offset_top = 2.0
@@ -318,7 +344,7 @@ offset_bottom = 82.0
 theme = ExtResource("5_qi2yv")
 placeholder_text = "Prefix..."
 
-[node name="PrefixColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
+[node name="PrefixColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 131.333
 offset_top = 65.3333
@@ -330,7 +356,7 @@ text = "PREFIX"
 color = Color(0.972549, 0.972549, 0, 1)
 edit_alpha = false
 
-[node name="PrefixEnabled" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
+[node name="PrefixEnabled" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 131.0
 offset_top = 82.3333
@@ -372,7 +398,7 @@ label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HeartSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="HeartSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 6.00001
 offset_top = 21.6667
@@ -384,7 +410,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="CoinSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="CoinSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 17.9999
 offset_top = 21.6667
@@ -396,7 +422,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="StarSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="StarSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 29.9998
 offset_top = 21.6667
@@ -408,7 +434,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="SpeechSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="SpeechSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 42.0
 offset_top = 21.6667
@@ -420,7 +446,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Smirk" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Smirk" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 54.0001
 offset_top = 22.0
@@ -432,7 +458,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Crazy" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Crazy" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 66.0001
 offset_top = 22.0
@@ -444,7 +470,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Smile" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Smile" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 78.0
 offset_top = 22.0
@@ -456,7 +482,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Sob" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Sob" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 90.0
 offset_top = 22.0
@@ -468,7 +494,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Smirk2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Smirk2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 54.0001
 offset_top = 35.0
@@ -480,7 +506,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Crazy2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Crazy2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 66.0001
 offset_top = 35.0
@@ -492,7 +518,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Smile2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Smile2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 78.0
 offset_top = 35.0
@@ -504,7 +530,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="HoldingBackTears" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="HoldingBackTears" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 102.0
 offset_top = 22.0
@@ -516,7 +542,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Pensive" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Pensive" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 114.0
 offset_top = 22.0
@@ -528,7 +554,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Loveee" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Loveee" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 126.0
 offset_top = 22.0
@@ -540,7 +566,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Flushed" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Flushed" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 138.0
 offset_top = 22.0
@@ -552,7 +578,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Loveee2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Loveee2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 150.0
 offset_top = 21.6667
@@ -564,7 +590,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="Sob3" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit")]
+[node name="Sob3" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 162.0
 offset_top = 21.6667
@@ -576,7 +602,7 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow"]
+[node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 74.3333
 offset_top = 86.6667
@@ -590,6 +616,7 @@ text = "CLOSE"
 [node name="ClickSFX" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
 stream = ExtResource("15_bl6l8")
 volume_db = -25.0
+bus = &"Sound"
 
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
 visible = false
@@ -603,8 +630,9 @@ textbox = NodePath("../../../../PMD_Main/Textbox")
 [node name="ClickSFX" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 stream = ExtResource("15_bl6l8")
 volume_db = -25.0
+bus = &"Sound"
 
-[node name="PortraitRight" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+[node name="PortraitRight" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 59.3333
 offset_top = 34.0
@@ -623,7 +651,7 @@ offset_top = 1.0
 offset_right = 44.3333
 offset_bottom = 16.0
 
-[node name="PortraitLeft" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+[node name="PortraitLeft" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 34.0
@@ -642,7 +670,7 @@ offset_top = 1.0
 offset_right = 20.1667
 offset_bottom = 16.0
 
-[node name="LoadPortraitBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+[node name="LoadPortraitBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 18.0
@@ -661,7 +689,7 @@ file_mode = 0
 access = 2
 use_native_dialog = true
 
-[node name="CustomBackgroundBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+[node name="CustomBackgroundBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 49.3334
 offset_top = 72.0
@@ -678,8 +706,9 @@ icon_alignment = 1
 [node name="BGImport" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/CustomBackgroundBTN"]
 stream = ExtResource("35_82sui")
 volume_db = -10.0
+bus = &"Sound"
 
-[node name="BgColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+[node name="BgColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -703,7 +732,7 @@ edit_alpha = false
 position = Vector2(16.1108, 8.985)
 texture = ExtResource("38_ij81t")
 
-[node name="LoadBoxSkinBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+[node name="LoadBoxSkinBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 3.0
@@ -714,7 +743,7 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "LOAD BOX SKIN"
 
-[node name="PortraitHide" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+[node name="PortraitHide" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 105.0
 offset_top = 34.0
@@ -725,7 +754,7 @@ theme = ExtResource("5_qi2yv")
 text = "Hide Portrait"
 alignment = 1
 
-[node name="PortraitFlip" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+[node name="PortraitFlip" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 105.0
 offset_top = 18.0
@@ -815,7 +844,7 @@ text = "LOAD FROM LOCAL FILES"
 label_settings = SubResource("LabelSettings_l7fbr")
 vertical_alignment = 1
 
-[node name="Emotion_LocalDir" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="Emotion_LocalDir" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 63.0
@@ -833,7 +862,7 @@ popup/item_0/text = "[NULL]"
 popup/item_0/icon = ExtResource("22_ruxgj")
 popup/item_0/id = 0
 
-[node name="Emotion_LocalEmotion" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="Emotion_LocalEmotion" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 88.0
 offset_top = 63.0
@@ -851,7 +880,7 @@ popup/item_0/text = "[NULL]"
 popup/item_0/icon = ExtResource("22_ruxgj")
 popup/item_0/id = 0
 
-[node name="ShinyCheck" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="ShinyCheck" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 97.0
 offset_top = 31.0
@@ -875,7 +904,7 @@ See https://sprites.pmdcollab.org/ to look at their catalogue of Pokémon portra
 theme = ExtResource("5_qi2yv")
 placeholder_text = "Pokédex #"
 
-[node name="Emotion_Collab" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="Emotion_Collab" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 49.3333
 offset_top = 31.3333
@@ -927,7 +956,7 @@ popup/item_18/id = 18
 popup/item_19/text = "Worried"
 popup/item_19/id = 19
 
-[node name="Portrait_COLLABBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="Portrait_COLLABBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 135.0
 offset_top = 31.0
@@ -938,7 +967,7 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "LOAD"
 
-[node name="FolderBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="FolderBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 158.0
 offset_top = 3.33333
@@ -958,8 +987,9 @@ use_native_dialog = true
 [node name="FolderBTNSound" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/FolderBTN"]
 stream = ExtResource("60_eptc2")
 volume_db = -10.0
+bus = &"Sound"
 
-[node name="RefreshBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="RefreshBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 142.667
 offset_top = 3.0
@@ -971,8 +1001,9 @@ texture_pressed = ExtResource("61_f1ugg")
 [node name="RefreshBTNSound" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/RefreshBTN"]
 stream = ExtResource("63_cc2q7")
 volume_db = -10.0
+bus = &"Sound"
 
-[node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow"]
+[node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 71.3333
 offset_top = 83.9333
@@ -1011,7 +1042,7 @@ label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FolderBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow"]
+[node name="FolderBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 158.0
 offset_top = 3.33333
@@ -1027,7 +1058,7 @@ file_mode = 3
 access = 2
 use_native_dialog = true
 
-[node name="RefreshBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow"]
+[node name="RefreshBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 142.667
 offset_top = 3.0
@@ -1035,7 +1066,7 @@ offset_right = 154.667
 offset_bottom = 14.0
 texture_normal = ExtResource("60_j7wfn")
 
-[node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow"]
+[node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 142.333
 offset_top = 84.3333
@@ -1046,7 +1077,7 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "CLOSE"
 
-[node name="SkinDropdown" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow"]
+[node name="SkinDropdown" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 6.66667
 offset_top = 24.0
@@ -1077,7 +1108,7 @@ offset_top = 12.0
 offset_right = 40.0
 offset_bottom = 13.0
 
-[node name="MaleTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" instance=ExtResource("10_naogw")]
+[node name="MaleTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"] instance=ExtResource("10_naogw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -1089,7 +1120,7 @@ offset_bottom = 108.0
 scale = Vector2(0.6, 0.6)
 stretch_mode = 0
 
-[node name="FemaleTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" instance=ExtResource("10_naogw")]
+[node name="FemaleTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"] instance=ExtResource("10_naogw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -1102,7 +1133,7 @@ scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("33_87j8f")
 stretch_mode = 0
 
-[node name="NonBinaryTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" instance=ExtResource("10_naogw")]
+[node name="NonBinaryTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"] instance=ExtResource("10_naogw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -1115,7 +1146,7 @@ scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("34_tw0f3")
 stretch_mode = 0
 
-[node name="Settings" type="TextureButton" parent="."]
+[node name="Settings" type="TextureButton" parent="." groups=["UI_BUTTONS"]]
 offset_left = 9.0
 offset_top = 9.0
 offset_right = 81.0
@@ -1135,6 +1166,7 @@ frame_progress = 0.869618
 stream = ExtResource("71_1u5km")
 volume_db = -10.0
 pitch_scale = 0.9
+bus = &"Sound"
 
 [node name="SettingsMenu" type="Control" parent="Settings" node_paths=PackedStringArray("arrowLeft", "arrowRight")]
 visible = false
@@ -1187,7 +1219,7 @@ label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="WindowSizeDropdown" type="OptionButton" parent="Settings/SettingsMenu/SettingsPanel/Page1"]
+[node name="WindowSizeDropdown" type="OptionButton" parent="Settings/SettingsMenu/SettingsPanel/Page1" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 34.0
@@ -1203,7 +1235,7 @@ popup/item_1/id = 1
 popup/item_2/text = "1280 x 960"
 popup/item_2/id = 2
 
-[node name="FullscreenButt" type="CheckBox" parent="Settings/SettingsMenu/SettingsPanel/Page1"]
+[node name="FullscreenButt" type="CheckBox" parent="Settings/SettingsMenu/SettingsPanel/Page1" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 3.99997
 offset_top = 50.0
@@ -1250,7 +1282,7 @@ label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ExportResolutionMultiplier" type="OptionButton" parent="Settings/SettingsMenu/SettingsPanel/Page2"]
+[node name="ExportResolutionMultiplier" type="OptionButton" parent="Settings/SettingsMenu/SettingsPanel/Page2" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 4.99993
 offset_top = 41.0
@@ -1295,7 +1327,7 @@ label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TransparentBackground" type="CheckBox" parent="Settings/SettingsMenu/SettingsPanel/Page2"]
+[node name="TransparentBackground" type="CheckBox" parent="Settings/SettingsMenu/SettingsPanel/Page2" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 50.6666
 offset_top = 60.3333
@@ -1317,12 +1349,13 @@ offset_right = 124.0
 offset_bottom = 129.0
 color = Color(0.12549, 0.12549, 0.12549, 1)
 
-[node name="Vol_MASTER" type="TextureButton" parent="Settings/SettingsMenu/SettingsPanel/Page3"]
+[node name="Vol_MASTER" type="TextureButton" parent="Settings/SettingsMenu/SettingsPanel/Page3" groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 4.99998
 offset_top = 34.0
 offset_right = 21.0
 offset_bottom = 48.0
-texture_normal = ExtResource("73_e7hxk")
+texture_normal = ExtResource("73_xf746")
 
 [node name="Master_Slider" type="HSlider" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER"]
 layout_mode = 0
@@ -1330,6 +1363,8 @@ offset_left = 18.0
 offset_right = 105.0
 offset_bottom = 18.0
 scale = Vector2(0.8, 0.8)
+min_value = -30.0
+max_value = 10.0
 
 [node name="Vol_MASTER_NUM" type="TextEdit" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER"]
 layout_mode = 0
@@ -1351,19 +1386,22 @@ theme = ExtResource("5_qi2yv")
 text = "Master Volume"
 horizontal_alignment = 1
 
-[node name="Vol_MUSIC" type="TextureButton" parent="Settings/SettingsMenu/SettingsPanel/Page3"]
+[node name="Vol_MUSIC" type="TextureButton" parent="Settings/SettingsMenu/SettingsPanel/Page3" groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 4.99998
 offset_top = 66.0
 offset_right = 21.0
 offset_bottom = 80.0
-texture_normal = ExtResource("73_e7hxk")
+texture_normal = ExtResource("73_xf746")
 
-[node name="Master_Slider" type="HSlider" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC"]
+[node name="Music_Slider" type="HSlider" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC"]
 layout_mode = 0
 offset_left = 18.0
 offset_right = 105.0
 offset_bottom = 18.0
 scale = Vector2(0.8, 0.8)
+min_value = -30.0
+max_value = 10.0
 
 [node name="Vol_MUSIC_NUM" type="TextEdit" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC"]
 layout_mode = 0
@@ -1385,12 +1423,13 @@ theme = ExtResource("5_qi2yv")
 text = "Music Volume"
 horizontal_alignment = 1
 
-[node name="Vol_SFX" type="TextureButton" parent="Settings/SettingsMenu/SettingsPanel/Page3"]
+[node name="Vol_SFX" type="TextureButton" parent="Settings/SettingsMenu/SettingsPanel/Page3" groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 4.99998
 offset_top = 98.0
 offset_right = 21.0
 offset_bottom = 112.0
-texture_normal = ExtResource("73_e7hxk")
+texture_normal = ExtResource("73_xf746")
 
 [node name="SFX_Slider" type="HSlider" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_SFX"]
 layout_mode = 0
@@ -1398,6 +1437,8 @@ offset_left = 18.0
 offset_right = 105.0
 offset_bottom = 18.0
 scale = Vector2(0.8, 0.8)
+min_value = -30.0
+max_value = 10.0
 
 [node name="Vol_SFX_NUM" type="TextEdit" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_SFX"]
 layout_mode = 0
@@ -1432,7 +1473,7 @@ label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CloseBTN" type="Button" parent="Settings/SettingsMenu"]
+[node name="CloseBTN" type="Button" parent="Settings/SettingsMenu" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 203.0
 offset_top = 445.0
@@ -1443,7 +1484,7 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "CLOSE"
 
-[node name="SettingsLeftNav" type="TextureButton" parent="Settings/SettingsMenu"]
+[node name="SettingsLeftNav" type="TextureButton" parent="Settings/SettingsMenu" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 283.0
 offset_top = 118.0
@@ -1453,7 +1494,7 @@ scale = Vector2(3, 3)
 texture_normal = ExtResource("67_uwkq2")
 flip_h = true
 
-[node name="SettingsRightNav" type="TextureButton" parent="Settings/SettingsMenu"]
+[node name="SettingsRightNav" type="TextureButton" parent="Settings/SettingsMenu" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 468.0
 offset_top = 118.0
@@ -1466,8 +1507,11 @@ texture_normal = ExtResource("67_uwkq2")
 stream = ExtResource("67_s4c4m")
 volume_db = -20.0
 autoplay = true
+bus = &"Music"
 
 [connection signal="file_selected" from="SCREENSHOT MANAGER/SaveWindow" to="SCREENSHOT MANAGER" method="_on_save_window_file_selected"]
+[connection signal="button_down" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_button_button_down"]
+[connection signal="button_up" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_button_button_up"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColourBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onColourInsert"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertSymbolBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowOpen"]
@@ -1500,6 +1544,9 @@ autoplay = true
 [connection signal="pressed" from="Settings" to="Settings" method="_on_settings_pressed"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page1/WindowSizeDropdown" to="Settings/SettingsMenu" method="_on_window_size_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
+[connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_Slider" to="Settings/SettingsMenu" method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC/Music_Slider" to="Settings/SettingsMenu" method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_SFX/SFX_Slider" to="Settings/SettingsMenu" method="_on_SFXSlider_value_changed"]
 [connection signal="pressed" from="Settings/SettingsMenu/CloseBTN" to="Settings" method="_on_close_btn_pressed"]
 [connection signal="pressed" from="Settings/SettingsMenu/SettingsLeftNav" to="Settings/SettingsMenu" method="on_left_pressed"]
 [connection signal="pressed" from="Settings/SettingsMenu/SettingsRightNav" to="Settings/SettingsMenu" method="on_right_pressed"]
