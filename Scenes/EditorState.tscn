@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=86 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -74,6 +74,7 @@
 [ext_resource type="AudioStream" uid="uid://b0tua6ecgivqk" path="res://Assets/Sounds/placeholder_ost.mp3" id="67_s4c4m"]
 [ext_resource type="Texture2D" uid="uid://cewxijhl3fb4b" path="res://Assets/Images/arrow.png" id="67_uwkq2"]
 [ext_resource type="AudioStream" uid="uid://celljk4a0y23y" path="res://Assets/Sounds/settings.ogg" id="71_1u5km"]
+[ext_resource type="Texture2D" uid="uid://km6ievn4qon3" path="res://Assets/Images/speaker_1.png" id="73_e7hxk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
 shader = ExtResource("6_q7upt")
@@ -1306,6 +1307,117 @@ button_pressed = true
 flat = true
 alignment = 1
 icon_alignment = 1
+
+[node name="Page3" type="ColorRect" parent="Settings/SettingsMenu/SettingsPanel"]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 124.0
+offset_bottom = 129.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="Vol_MASTER" type="TextureButton" parent="Settings/SettingsMenu/SettingsPanel/Page3"]
+offset_left = 4.99998
+offset_top = 34.0
+offset_right = 21.0
+offset_bottom = 48.0
+texture_normal = ExtResource("73_e7hxk")
+
+[node name="Master_Slider" type="HSlider" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER"]
+layout_mode = 0
+offset_left = 18.0
+offset_right = 105.0
+offset_bottom = 18.0
+scale = Vector2(0.8, 0.8)
+
+[node name="Vol_MASTER_NUM" type="TextEdit" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER"]
+layout_mode = 0
+offset_left = 91.3333
+offset_top = -0.333332
+offset_right = 121.333
+offset_bottom = 22.6667
+scale = Vector2(0.6, 0.6)
+theme = ExtResource("5_qi2yv")
+placeholder_text = "00%"
+
+[node name="MASTERVOL_LABEL" type="Label" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER"]
+layout_mode = 0
+offset_left = -4.99998
+offset_top = -13.0
+offset_right = 145.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("5_qi2yv")
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="Vol_MUSIC" type="TextureButton" parent="Settings/SettingsMenu/SettingsPanel/Page3"]
+offset_left = 4.99998
+offset_top = 66.0
+offset_right = 21.0
+offset_bottom = 80.0
+texture_normal = ExtResource("73_e7hxk")
+
+[node name="Master_Slider" type="HSlider" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC"]
+layout_mode = 0
+offset_left = 18.0
+offset_right = 105.0
+offset_bottom = 18.0
+scale = Vector2(0.8, 0.8)
+
+[node name="Vol_MUSIC_NUM" type="TextEdit" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC"]
+layout_mode = 0
+offset_left = 91.3333
+offset_top = -0.333332
+offset_right = 121.333
+offset_bottom = 22.6667
+scale = Vector2(0.6, 0.6)
+theme = ExtResource("5_qi2yv")
+placeholder_text = "00%"
+
+[node name="MUSVOL_LABEL" type="Label" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC"]
+layout_mode = 0
+offset_left = -4.99998
+offset_top = -13.0
+offset_right = 145.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("5_qi2yv")
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="Vol_SFX" type="TextureButton" parent="Settings/SettingsMenu/SettingsPanel/Page3"]
+offset_left = 4.99998
+offset_top = 98.0
+offset_right = 21.0
+offset_bottom = 112.0
+texture_normal = ExtResource("73_e7hxk")
+
+[node name="SFX_Slider" type="HSlider" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_SFX"]
+layout_mode = 0
+offset_left = 18.0
+offset_right = 105.0
+offset_bottom = 18.0
+scale = Vector2(0.8, 0.8)
+
+[node name="Vol_SFX_NUM" type="TextEdit" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_SFX"]
+layout_mode = 0
+offset_left = 91.3333
+offset_top = -0.333332
+offset_right = 121.333
+offset_bottom = 22.6667
+scale = Vector2(0.6, 0.6)
+theme = ExtResource("5_qi2yv")
+placeholder_text = "00%"
+
+[node name="SFXVOL_LABEL" type="Label" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_SFX"]
+layout_mode = 0
+offset_left = -4.99998
+offset_top = -13.0
+offset_right = 145.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("5_qi2yv")
+text = "SFX Volume"
+horizontal_alignment = 1
 
 [node name="Header" type="Label" parent="Settings/SettingsMenu"]
 layout_mode = 0

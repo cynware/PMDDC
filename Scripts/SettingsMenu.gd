@@ -39,6 +39,7 @@ func UpdatePage():
 	# set pages visible depending on page
 	$SettingsPanel/Page1.set_visible(CurPage == 1);
 	$SettingsPanel/Page2.set_visible(CurPage == 2);
+	$SettingsPanel/Page3.set_visible(CurPage == 3);
 	
 	# switch / match function :D
 	match (CurPage):
@@ -46,6 +47,8 @@ func UpdatePage():
 				$Header.text = "WINDOW";
 			2:
 				$Header.text = "EXPORT";
+			3:
+				$Header.text = "AUDIO";
 
 func on_left_pressed():
 	
