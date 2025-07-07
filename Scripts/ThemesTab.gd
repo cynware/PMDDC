@@ -8,21 +8,6 @@ var toggled:bool = true;
 func onBgColourInputChanged(color):
 	$"../../../../BgColour".color = color;
 
-
-func _on_change_blue_pressed():
-	textbox.texture = load("res://PmdThemes/eos/eosBox_M.png");
-	portrait.texture = load("res://PmdThemes/eos/eosIcon_M.png");
-
-
-func _on_change_pink_pressed():
-	textbox.texture = load("res://PmdThemes/eos/eosBox_F.png");
-	portrait.texture = load("res://PmdThemes/eos/eosIcon_F.png");
-
-
-func _on_change_green_pressed():
-	textbox.texture = load("res://PmdThemes/eos/eosBox_NB.png");
-	portrait.texture = load("res://PmdThemes/eos/eosIcon_NB.png");
-
 func onPortraitWindowClose():
 	$PortraitWindow.visible = false;
 	$ClickSFX.play();

@@ -13,13 +13,5 @@ scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("1_is4wk")
 script = ExtResource("2_0i5b6")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 36.0
-offset_bottom = 36.0
-mouse_filter = 1
-mouse_default_cursor_shape = 2
-color = Color(0, 0, 0, 0)
-
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

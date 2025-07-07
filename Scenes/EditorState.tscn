@@ -10,14 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://bgtua870y440s" path="res://Scenes/Components/DebugTabButton.tscn" id="6_4mf72"]
 [ext_resource type="Shader" path="res://Assets/Shaders/blur.gdshader" id="6_q7upt"]
 [ext_resource type="Texture2D" uid="uid://bm3rt1xw07m17" path="res://Assets/Images/settings.png" id="8_y615r"]
-[ext_resource type="Texture2D" uid="uid://dg6at41hquvec" path="res://PmdThemes/ExplorersOfSky/Male/box.png" id="9_ebeq2"]
+[ext_resource type="Texture2D" uid="uid://dg6at41hquvec" path="res://PmdSkins/ExplorersOfSky/Male/box.png" id="9_ebeq2"]
 [ext_resource type="Script" path="res://Scripts/DialogueTab.gd" id="9_pthgd"]
 [ext_resource type="PackedScene" uid="uid://cb3shqw006mu4" path="res://Scenes/Components/ThemeTypeBTN.tscn" id="10_naogw"]
 [ext_resource type="Texture2D" uid="uid://dgy8trjx8l6pt" path="res://Assets/Images/symbols/coin.png" id="11_1n151"]
 [ext_resource type="Script" path="res://Scripts/PMD_Debug.gd" id="11_8cckt"]
 [ext_resource type="Texture2D" uid="uid://dcskbgqsta1r3" path="res://Assets/Images/symbols/heart.png" id="11_mo684"]
 [ext_resource type="Script" path="res://Scripts/InsertSymbolBTN.gd" id="11_ouwkk"]
-[ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdThemes/ExplorersOfSky/Male/icon.png" id="12_t8jjw"]
+[ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdSkins/ExplorersOfSky/Male/icon.png" id="12_t8jjw"]
 [ext_resource type="Texture2D" uid="uid://riac5l0rgksx" path="res://Assets/Images/symbols/star.png" id="12_vxgy4"]
 [ext_resource type="Texture2D" uid="uid://dmlppb1jvlf0q" path="res://Assets/Images/symbols/textbubble.png" id="13_t8tcm"]
 [ext_resource type="AudioStream" uid="uid://dopgwiieklh37" path="res://Assets/Sounds/pmdMenu_1.ogg" id="15_bl6l8"]
@@ -258,7 +258,6 @@ offset_right = 180.0
 offset_bottom = 101.0
 
 [node name="DialogueTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("textboxText")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -592,6 +591,7 @@ stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -982,7 +982,7 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "CLOSE"
 
-[node name="BoxSkinWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+[node name="BoxSkinWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" node_paths=PackedStringArray("skinDropdown", "icon", "box")]
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -990,6 +990,9 @@ offset_top = -0.333332
 offset_right = 176.0
 offset_bottom = 96.6666
 script = ExtResource("64_3ecio")
+skinDropdown = NodePath("SkinDropdown")
+icon = NodePath("../../../../../PMD_Main/Portrait")
+box = NodePath("../../../../../PMD_Main/Textbox")
 
 [node name="Bg" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow"]
 layout_mode = 0
@@ -1005,31 +1008,6 @@ theme = ExtResource("5_qi2yv")
 text = "CHOOSE A SKIN"
 label_settings = SubResource("LabelSettings_l7fbr")
 horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PortraitSkin" type="Label" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/Header"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 18.0
-offset_right = 121.0
-offset_bottom = 37.0
-scale = Vector2(0.634536, 0.634536)
-theme = ExtResource("5_qi2yv")
-text = "CHOOSE PORTRAIT SKIN"
-label_settings = SubResource("LabelSettings_l7fbr")
-vertical_alignment = 1
-
-[node name="BoxSkin" type="Label" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/Header"]
-layout_mode = 0
-offset_left = 89.0
-offset_top = 19.0
-offset_right = 219.0
-offset_bottom = 38.0
-scale = Vector2(0.634536, 0.634536)
-theme = ExtResource("5_qi2yv")
-text = "CHOOSE TEXTBOX SKIN"
-label_settings = SubResource("LabelSettings_l7fbr")
-horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="FolderBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow"]
@@ -1067,33 +1045,15 @@ focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "CLOSE"
 
-[node name="PortraitSkin" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow"]
+[node name="SkinDropdown" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow"]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 31.0
-offset_right = 111.0
-offset_bottom = 56.0
+offset_left = 6.66667
+offset_top = 24.0
+offset_right = 240.667
+offset_bottom = 49.0
 scale = Vector2(0.7, 0.681632)
 theme = ExtResource("5_qi2yv")
 clip_text = true
-item_count = 1
-selected = 0
-fit_to_longest_item = false
-popup/item_0/text = "[NULL]"
-popup/item_0/icon = ExtResource("22_ruxgj")
-popup/item_0/id = 0
-
-[node name="BoxSkin" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow"]
-layout_mode = 0
-offset_left = 88.0
-offset_top = 31.0
-offset_right = 207.0
-offset_bottom = 56.0
-scale = Vector2(0.7, 0.681632)
-theme = ExtResource("5_qi2yv")
-alignment = 2
-clip_text = true
-icon_alignment = 2
 item_count = 1
 selected = 0
 fit_to_longest_item = false
@@ -1116,7 +1076,7 @@ offset_top = 12.0
 offset_right = 40.0
 offset_bottom = 13.0
 
-[node name="ThemeTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" instance=ExtResource("10_naogw")]
+[node name="MaleTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" instance=ExtResource("10_naogw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -1128,7 +1088,7 @@ offset_bottom = 108.0
 scale = Vector2(0.6, 0.6)
 stretch_mode = 0
 
-[node name="ThemeTypeBTN2" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" instance=ExtResource("10_naogw")]
+[node name="FemaleTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" instance=ExtResource("10_naogw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -1141,7 +1101,7 @@ scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("33_87j8f")
 stretch_mode = 0
 
-[node name="ThemeTypeBTN3" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" instance=ExtResource("10_naogw")]
+[node name="NonBinaryTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" instance=ExtResource("10_naogw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -1176,6 +1136,7 @@ volume_db = -10.0
 pitch_scale = 0.9
 
 [node name="SettingsMenu" type="Control" parent="Settings" node_paths=PackedStringArray("arrowLeft", "arrowRight")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -9.0
@@ -1420,9 +1381,10 @@ autoplay = true
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/FolderBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" method="openCustomIconFolder"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/RefreshBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" method="OnRefresh"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onBoxSkinWindowClose"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/ThemeTypeBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_change_blue_pressed"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/ThemeTypeBTN2" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_change_pink_pressed"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/ThemeTypeBTN3" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_change_green_pressed"]
+[connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/SkinDropdown" to="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" method="OnSkinDropdownItemSelected"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/MaleTypeBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" method="OnMaleTypePressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/FemaleTypeBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" method="OnFemaleTypePressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/NonBinaryTypeBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" method="OnNonBinaryTypePressed"]
 [connection signal="pressed" from="Settings" to="Settings" method="_on_settings_pressed"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page1/WindowSizeDropdown" to="Settings/SettingsMenu" method="_on_window_size_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
