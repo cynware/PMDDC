@@ -1,6 +1,7 @@
 extends Control
 
 @export var textboxText:RichTextLabel
+@export var textboxText2:RichTextLabel
 
 @onready var textboxEdit:TextEdit = $TextboxEdit
 @onready var textboxInsertColourPicker:ColorPickerButton = $InsertColour;
@@ -47,8 +48,10 @@ func updateHUD() -> void:
 	
 	if prefixEnabled.button_pressed:
 		textboxText.text = "[color=" + str(prefixColour.to_html(false)) + "]" + prefix + "[/color]: " + sentence;
+		textboxText2.text = "[color=" + str(prefixColour.to_html(false)) + "]" + prefix + "[/color]: " + sentence;
 	else:
 		textboxText.text = sentence;
+		textboxText2.text = sentence;
 	
 func onColourInsert():
 	$TextboxEdit.text += "[color=" + str(textboxInsertColourPicker.get_picker().color.to_html(false)) + "]TEXT[/color]"; 

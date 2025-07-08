@@ -14,6 +14,18 @@ func _ready():
 	$SettingsPanel/Page3/Vol_MUSIC/Music_Slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
 	$SettingsPanel/Page3/Vol_SFX/SFX_Slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound"))
 
+func _on_master_sbox_value_changed(value):
+	_on_master_slider_value_changed(value)
+	$SettingsPanel/Page3/Vol_MASTER/Master_Slider.value = $SettingsPanel/Page3/Vol_MASTER/Master_SBOX.value
+
+func _on_music_sbox_value_changed(value):
+	_on_MusicSlider_value_changed(value)
+	$SettingsPanel/Page3/Vol_MUSIC/Music_Slider.value = $SettingsPanel/Page3/Vol_MUSIC/Music_SBOX.value
+
+func _on_sfx_sbox_value_changed(value):
+	_on_SFXSlider_value_changed(value)
+	$SettingsPanel/Page3/Vol_SFX/SFX_Slider.value = $SettingsPanel/Page3/Vol_SFX/SFX_SBOX.value
+
 func _on_master_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
 	print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
@@ -27,6 +39,13 @@ func _on_master_slider_value_changed(value):
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -80)
 		print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
 		
+	$SettingsPanel/Page3/Vol_MASTER/Master_SBOX.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
+	
+
+func on_mute_master(toggled_on):
+	$SettingsPanel/Page3/Vol_MASTER.texture_normal = load("res://Assets/Images/speaker_0.png")
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -80)
+
 func _on_MusicSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), value)
 	print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
@@ -39,6 +58,13 @@ func _on_MusicSlider_value_changed(value):
 	if AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")) == -30:
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), -80)
 		print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
+		
+	$SettingsPanel/Page3/Vol_MUSIC/Music_SBOX.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
+
+func on_mute_music(toggled_on):
+	$SettingsPanel/Page3/MUTE.play()
+	$SettingsPanel/Page3/Vol_MUSIC.texture_normal = load("res://Assets/Images/speaker_0.png")
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), -80)
 
 func _on_SFXSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sound"), value)
@@ -52,6 +78,13 @@ func _on_SFXSlider_value_changed(value):
 	if AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound")) == -30:
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sound"), -80)
 		print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound")))
+		
+	$SettingsPanel/Page3/Vol_SFX/SFX_SBOX.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound"))
+
+func on_mute_SFX(toggled_on):
+	$SettingsPanel/Page3/MUTE.play()
+	$SettingsPanel/Page3/Vol_SFX.texture_normal = load("res://Assets/Images/speaker_0.png")
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sound"), -80)
 
 # stop audio changeing
 
@@ -134,4 +167,5 @@ func _process(delta):
 		on_right_pressed()
 	elif (Input.is_action_just_pressed("UI_LEFT") && $".".visible):
 		on_left_pressed()
+
 

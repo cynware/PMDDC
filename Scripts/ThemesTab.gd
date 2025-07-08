@@ -57,3 +57,10 @@ func _on_portrait_left_pressed():
 func _on_portrait_right_pressed():
 	portrait.set_position(Vector2(660,276))
 
+
+
+func _on_bg_reload_pressed():
+	$"../../../../BgColour/ImageBg".texture = null
+	$PortraitWindow/RefreshBTN/RefreshBTNSound.play()
+	$"../../../../BgColour".color = Color.html("#4c4c4c");
+	$BgColour.color = Color.html("#4c4c4c");
