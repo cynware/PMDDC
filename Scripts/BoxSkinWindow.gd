@@ -7,18 +7,36 @@ var currentlySelectedSkin:PmdSkinData;
 @export var icon:Sprite2D;
 @export var box:Sprite2D;
 
+@export_category("TEMPLATE STUFF")
+@export var template_boxM:Texture2D;
+@export var template_iconM:Texture2D;
+@export var template_boxF:Texture2D;
+@export var template_iconF:Texture2D;
+@export var template_boxNB:Texture2D;
+@export var template_iconNB:Texture2D;
+
 func _ready():
 	CheckAndCreateBoxSkinFolder();
-	AddInternalSkins()
+	RefreshDropdown()
+	OnSkinDropdownItemSelected(0);
 	
 func CheckAndCreateBoxSkinFolder():
 	if (!DirAccess.dir_exists_absolute("user://BoxSkins")):
 		DirAccess.make_dir_absolute("user://BoxSkins")
 		DirAccess.make_dir_absolute("user://BoxSkins/Template")
 		
-		#for img in presetImages:
-		#	img.get_image().save_png(ProjectSettings.globalize_path("user://Portraits/Template/" + img.resource_path.get_file()));
-		print("MADE BOX SKINS FOLDER")
+		DirAccess.make_dir_absolute("user://BoxSkins/Template/Male")
+		template_boxM.get_image().save_png(ProjectSettings.globalize_path("user://BoxSkins/Template/Male/box.png"));
+		template_iconM.get_image().save_png(ProjectSettings.globalize_path("user://BoxSkins/Template/Male/icon.png"));
+		
+		DirAccess.make_dir_absolute("user://BoxSkins/Template/Female")
+		template_boxF.get_image().save_png(ProjectSettings.globalize_path("user://BoxSkins/Template/Female/box.png"));
+		template_iconF.get_image().save_png(ProjectSettings.globalize_path("user://BoxSkins/Template/Female/icon.png"));
+		
+		DirAccess.make_dir_absolute("user://BoxSkins/Template/NonBinary")
+		template_boxNB.get_image().save_png(ProjectSettings.globalize_path("user://BoxSkins/Template/NonBinary/box.png"));
+		template_iconNB.get_image().save_png(ProjectSettings.globalize_path("user://BoxSkins/Template/NonBinary/icon.png"));
+		
 	else:
 		print("BOX SKIN FOLDER ALREADY EXISTS")
 		
@@ -28,7 +46,6 @@ func AddInternalSkins():
 	var InternalThemeDirectories = DirAccess.get_directories_at("res://PmdSkins")
 	print("...........INTERNAL SKINS............")
 	print(InternalThemeDirectories)
-	var i = 0;
 	for skin in InternalThemeDirectories:
 		var path = "res://PmdSkins/" + skin;
 		
@@ -46,11 +63,42 @@ func AddInternalSkins():
 			skinData.nonbinary_icon = load(path + "/NonBinary/icon.png");
 			skinData.nonbinary_box = load(path + "/NonBinary/box.png");
 		
-		loadedSkins.insert(i, skinData);
-		skinDropdown.add_item(skin)
-		i += 1;
+		loadedSkins.push_back(skinData);
+		skinDropdown.add_item(skin);
 
+func AddCustomSkins():
+	for dir in DirAccess.get_directories_at("user://BoxSkins/"):
+		var path = "user://BoxSkins/" + dir;
+		
+		var skinData:PmdSkinData = PmdSkinData.new()
+		if(DirAccess.dir_exists_absolute(path + "/Male")):
+			skinData.male_icon = CreateImageFromLocal(path + "/Male/icon.png");
+			skinData.male_box = CreateImageFromLocal(path + "/Male/box.png");
+				
+		if(DirAccess.dir_exists_absolute(path + "/Female")):
+			skinData.female_icon = CreateImageFromLocal(path + "/Female/icon.png");
+			skinData.female_box = CreateImageFromLocal(path + "/Female/box.png");
+				
+		if(DirAccess.dir_exists_absolute(path + "/NonBinary")):	
+			skinData.nonbinary_icon = CreateImageFromLocal(path + "/NonBinary/icon.png");
+			skinData.nonbinary_box = CreateImageFromLocal(path + "/NonBinary/box.png");
+		
+		loadedSkins.push_back(skinData);
+		skinDropdown.add_item(dir);
+		
 
+func CreateImageFromLocal(imagepath:String):
+	var image = Image.load_from_file(imagepath)
+	
+	if image.load(imagepath) == OK:	
+		var texture = ImageTexture.create_from_image(image);
+		return texture;
+		
+func RefreshDropdown():
+	AddInternalSkins()
+	AddCustomSkins()
+	print(loadedSkins)
+	
 func OnSkinDropdownItemSelected(index):
 	currentlySelectedSkin = loadedSkins[index];
 	
