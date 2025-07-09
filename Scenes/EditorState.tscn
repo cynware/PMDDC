@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=104 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -82,6 +82,10 @@
 [ext_resource type="Texture2D" uid="uid://cewxijhl3fb4b" path="res://Assets/Images/arrow.png" id="67_uwkq2"]
 [ext_resource type="AudioStream" uid="uid://celljk4a0y23y" path="res://Assets/Sounds/settings.ogg" id="71_1u5km"]
 [ext_resource type="Texture2D" uid="uid://blnbx8qbd5fl6" path="res://Assets/Images/speaker_3.png" id="73_xf746"]
+[ext_resource type="Texture2D" uid="uid://v3tk0jxwtxlr" path="res://PmdSkins/ExplorersOfSky/Female/box.png" id="74_oh7sq"]
+[ext_resource type="Texture2D" uid="uid://fyku5sd4svm" path="res://PmdSkins/ExplorersOfSky/Female/icon.png" id="75_uxeqa"]
+[ext_resource type="Texture2D" uid="uid://dokenoaellcdy" path="res://PmdSkins/ExplorersOfSky/NonBinary/box.png" id="76_60ftn"]
+[ext_resource type="Texture2D" uid="uid://du5q2pe6h3pup" path="res://PmdSkins/ExplorersOfSky/NonBinary/icon.png" id="77_a3swu"]
 [ext_resource type="AudioStream" uid="uid://djx70svi8ey3s" path="res://Assets/Sounds/mute.ogg" id="78_hn1y3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_el3sg"]
@@ -1169,6 +1173,12 @@ script = ExtResource("64_3ecio")
 skinDropdown = NodePath("SkinDropdown")
 icon = NodePath("../../../../../PMD_Main/Portrait")
 box = NodePath("../../../../../PMD_Main/Textbox")
+template_boxM = ExtResource("9_ebeq2")
+template_iconM = ExtResource("12_t8jjw")
+template_boxF = ExtResource("74_oh7sq")
+template_iconF = ExtResource("75_uxeqa")
+template_boxNB = ExtResource("76_60ftn")
+template_iconNB = ExtResource("77_a3swu")
 
 [node name="Bg" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow"]
 layout_mode = 0
@@ -1715,8 +1725,8 @@ bus = &"Music"
 [connection signal="pressed" from="Settings" to="Settings" method="_on_settings_pressed"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page1/WindowSizeDropdown" to="Settings/SettingsMenu" method="_on_window_size_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
-[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
+[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_Slider" to="Settings/SettingsMenu" method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_SBOX" to="Settings/SettingsMenu" method="_on_master_sbox_value_changed"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC" to="Settings/SettingsMenu" method="on_mute_music"]
