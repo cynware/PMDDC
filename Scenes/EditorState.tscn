@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=100 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -21,9 +21,12 @@
 [ext_resource type="Script" path="res://Scripts/PMD_Debug.gd" id="11_8cckt"]
 [ext_resource type="Texture2D" uid="uid://dcskbgqsta1r3" path="res://Assets/Images/symbols/heart.png" id="11_mo684"]
 [ext_resource type="Script" path="res://Scripts/InsertSymbolBTN.gd" id="11_ouwkk"]
+[ext_resource type="Texture2D" uid="uid://2tcah6xehd0i" path="res://Assets/Images/Portrait_Selection.png" id="12_k0q7g"]
 [ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdSkins/ExplorersOfSky/Male/icon.png" id="12_t8jjw"]
 [ext_resource type="Texture2D" uid="uid://riac5l0rgksx" path="res://Assets/Images/symbols/star.png" id="12_vxgy4"]
 [ext_resource type="Texture2D" uid="uid://dmlppb1jvlf0q" path="res://Assets/Images/symbols/textbubble.png" id="13_t8tcm"]
+[ext_resource type="Texture2D" uid="uid://rxffw7bc5pqx" path="res://Assets/Images/SecretFanfare.png" id="14_i3641"]
+[ext_resource type="AudioStream" uid="uid://btlxqqv75tadk" path="res://Assets/Sounds/fanfare.ogg" id="14_xmjlf"]
 [ext_resource type="AudioStream" uid="uid://dopgwiieklh37" path="res://Assets/Sounds/pmdMenu_1.ogg" id="15_bl6l8"]
 [ext_resource type="Texture2D" uid="uid://bnriejy5kq618" path="res://Assets/Images/symbols/smirk.png" id="16_rp5cs"]
 [ext_resource type="Texture2D" uid="uid://brl01k6drroqp" path="res://Assets/Images/symbols/crazy.png" id="17_r8hl3"]
@@ -80,6 +83,50 @@
 [ext_resource type="AudioStream" uid="uid://celljk4a0y23y" path="res://Assets/Sounds/settings.ogg" id="71_1u5km"]
 [ext_resource type="Texture2D" uid="uid://blnbx8qbd5fl6" path="res://Assets/Images/speaker_3.png" id="73_xf746"]
 [ext_resource type="AudioStream" uid="uid://djx70svi8ey3s" path="res://Assets/Sounds/mute.ogg" id="78_hn1y3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el3sg"]
+atlas = ExtResource("12_k0q7g")
+region = Rect2(0, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptujq"]
+atlas = ExtResource("12_k0q7g")
+region = Rect2(44, 0, 44, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cxb3y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el3sg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptujq")
+}],
+"loop": true,
+"name": &"Selection",
+"speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76j7g"]
+atlas = ExtResource("14_i3641")
+region = Rect2(0, 0, 69, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nowq"]
+atlas = ExtResource("14_i3641")
+region = Rect2(69, 0, 69, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v82kg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76j7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nowq")
+}],
+"loop": true,
+"name": &"SECRET",
+"speed": 5.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
 shader = ExtResource("6_q7upt")
@@ -194,7 +241,50 @@ offset_left = -24.0
 offset_top = -24.0
 offset_right = 24.0
 offset_bottom = 24.0
+toggle_mode = true
+action_mode = 0
 metadata/_edit_use_anchors_ = true
+
+[node name="PortraitSelection" type="AnimatedSprite2D" parent="PMD_Main/Portrait/PortraitHoverButton"]
+visible = false
+position = Vector2(24, 24)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_cxb3y")
+animation = &"Selection"
+frame_progress = 0.199972
+
+[node name="ARROWLEFT" type="Sprite2D" parent="PMD_Main/Portrait/PortraitHoverButton"]
+visible = false
+position = Vector2(-4.66666, 24)
+texture = ExtResource("67_uwkq2")
+flip_h = true
+
+[node name="ARROWRIGHT" type="Sprite2D" parent="PMD_Main/Portrait/PortraitHoverButton"]
+visible = false
+position = Vector2(52.6667, 24)
+texture = ExtResource("67_uwkq2")
+
+[node name="ARROWUP" type="Sprite2D" parent="PMD_Main/Portrait/PortraitHoverButton"]
+visible = false
+position = Vector2(24.0001, -4.66665)
+rotation = -1.5708
+texture = ExtResource("67_uwkq2")
+
+[node name="ARROWDOWN" type="Sprite2D" parent="PMD_Main/Portrait/PortraitHoverButton"]
+visible = false
+position = Vector2(24.0001, 52.6667)
+rotation = -1.5708
+texture = ExtResource("67_uwkq2")
+flip_h = true
+
+[node name="MOVESFX" type="AudioStreamPlayer" parent="PMD_Main/Portrait"]
+volume_db = -15.0
+bus = &"Sound"
+
+[node name="FANFARE" type="AudioStreamPlayer" parent="PMD_Main/Portrait/MOVESFX"]
+stream = ExtResource("14_xmjlf")
+volume_db = -15.0
+bus = &"Sound"
 
 [node name="Textbox" type="Sprite2D" parent="PMD_Main"]
 position = Vector2(384, 468)
@@ -232,6 +322,15 @@ text = "Lopunny: Oh! Wigglytuff, darling! It's
 been a long time, sweetie! [img=10]res://Assets/Images/symbols/heart.png[/img]"
 scroll_active = false
 autowrap_mode = 1
+
+[node name="SECRET" type="AnimatedSprite2D" parent="PMD_Main"]
+visible = false
+z_index = 3
+position = Vector2(384, 57)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_v82kg")
+animation = &"SECRET"
+frame_progress = 0.893053
 
 [node name="PMD_Debug" type="Node2D" parent="."]
 script = ExtResource("11_8cckt")
@@ -1460,6 +1559,7 @@ text = "Music Volume"
 horizontal_alignment = 1
 
 [node name="Music_Slider" type="HSlider" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC"]
+layout_mode = 0
 offset_left = 27.0
 offset_top = 4.0
 offset_right = 204.0
@@ -1469,6 +1569,7 @@ min_value = -30.0
 max_value = 10.0
 
 [node name="Music_SBOX" type="SpinBox" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC"]
+layout_mode = 0
 offset_left = 81.6667
 offset_top = 2.0
 offset_right = 134.667
@@ -1500,6 +1601,7 @@ text = "SFX Volume"
 horizontal_alignment = 1
 
 [node name="SFX_Slider" type="HSlider" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_SFX"]
+layout_mode = 0
 offset_left = 27.0
 offset_top = 4.0
 offset_right = 204.0
@@ -1509,6 +1611,7 @@ min_value = -30.0
 max_value = 10.0
 
 [node name="SFX_SBOX" type="SpinBox" parent="Settings/SettingsMenu/SettingsPanel/Page3/Vol_SFX"]
+layout_mode = 0
 offset_left = 81.6667
 offset_top = 2.0
 offset_right = 134.667
@@ -1577,6 +1680,9 @@ bus = &"Music"
 [connection signal="file_selected" from="SCREENSHOT MANAGER/SaveWindow" to="SCREENSHOT MANAGER" method="_on_save_window_file_selected"]
 [connection signal="button_down" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_button_button_down"]
 [connection signal="button_up" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_button_button_up"]
+[connection signal="focus_entered" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_portrait_hover_button_focus_entered"]
+[connection signal="focus_exited" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_portrait_hover_button_focus_exited"]
+[connection signal="finished" from="PMD_Main/Portrait/MOVESFX/FANFARE" to="PMD_Main/Portrait" method="_on_fanfare_finished"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColourBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onColourInsert"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertSymbolBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowOpen"]

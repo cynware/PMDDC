@@ -21,10 +21,11 @@ func _process(delta):
 			new_cursor = cursorPointer
 	
 	if new_cursor == cursorTexture:
-		if $"../PMD_Main/Portrait/PortraitHoverButton".is_pressed():
-			new_cursor = cursorGrab
-		else: if $"../PMD_Main/Portrait/PortraitHoverButton".is_hovered():
-			new_cursor = cursorHand
+		if $"../PMD_Main/Portrait/PortraitHoverButton".is_hovered():
+			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+				new_cursor = cursorGrab
+			else:
+				new_cursor = cursorHand
 	
 	if new_cursor != current_cursor:
 		Input.set_custom_mouse_cursor(new_cursor)
