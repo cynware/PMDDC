@@ -248,7 +248,6 @@ metadata/_edit_use_anchors_ = true
 [node name="PortraitSelection" type="AnimatedSprite2D" parent="PMD_Main/Portrait/PortraitHoverButton"]
 visible = false
 position = Vector2(24, 24)
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_cxb3y")
 animation = &"Selection"
 frame_progress = 0.199972
