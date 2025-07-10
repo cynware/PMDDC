@@ -15,10 +15,20 @@ var currentlySelectedSkin:PmdSkinData;
 @export var template_boxNB:Texture2D;
 @export var template_iconNB:Texture2D;
 
+var BoxChangeTargets = [
+	"../../..",
+	"../../../../DialogueBTN/Border",
+	"../../../../ThemesBTN/Border",
+	"../../../../PresetsBTN/Border",
+	"../../../../../Settings/SettingsMenu/SettingsPanel",
+]
+
 func _ready():
 	CheckAndCreateBoxSkinFolder();
 	RefreshDropdown()
 	OnSkinDropdownItemSelected(0);
+	$"../../..".texture = currentlySelectedSkin.male_icon;
+
 	
 func CheckAndCreateBoxSkinFolder():
 	if (!DirAccess.dir_exists_absolute("user://BoxSkins")):
@@ -107,6 +117,13 @@ func OnSkinDropdownItemSelected(index):
 		box.texture = currentlySelectedSkin.male_box;
 	if(currentlySelectedSkin.male_icon != null):
 		icon.texture = currentlySelectedSkin.male_icon;
+		for path in BoxChangeTargets:
+			var node = get_node_or_null(path)
+			if node:
+				if currentlySelectedSkin in loadedSkins.slice(0,5):
+					node.texture = currentlySelectedSkin.male_icon
+				else:
+					node.texture = load("res://PmdSkins/ExplorersOfSky/Male/icon.png")
 	
 	if(icon.texture == currentlySelectedSkin.male_icon && box.texture == currentlySelectedSkin.male_box):
 		return;
@@ -116,6 +133,13 @@ func OnSkinDropdownItemSelected(index):
 		box.texture = currentlySelectedSkin.female_box;
 	if(currentlySelectedSkin.female_icon != null):
 		icon.texture = currentlySelectedSkin.female_icon;
+		for path in BoxChangeTargets:
+			var node = get_node_or_null(path)
+			if node:
+				if currentlySelectedSkin in loadedSkins.slice(0,5):
+					node.texture = currentlySelectedSkin.female_icon
+				else:
+					node.texture = load("res://PmdSkins/ExplorersOfSky/Female/icon.png")
 	
 	if(icon.texture == currentlySelectedSkin.female_icon && box.texture == currentlySelectedSkin.female_box):
 		return;
@@ -126,6 +150,13 @@ func OnSkinDropdownItemSelected(index):
 	
 	if(currentlySelectedSkin.nonbinary_icon != null):
 		icon.texture = currentlySelectedSkin.nonbinary_icon;
+		for path in BoxChangeTargets:
+			var node = get_node_or_null(path)
+			if node:
+				if currentlySelectedSkin in loadedSkins.slice(0,5):
+					node.texture = currentlySelectedSkin.nonbinary_icon
+				else:
+					node.texture = load("res://PmdSkins/ExplorersOfSky/Nonbinary/icon.png")
 
 
 
@@ -133,12 +164,34 @@ func OnMaleTypePressed():
 	icon.texture = currentlySelectedSkin.male_icon;
 	box.texture = currentlySelectedSkin.male_box;
 	
+	for path in BoxChangeTargets:
+		var node = get_node_or_null(path)
+		if node:
+			if currentlySelectedSkin in loadedSkins.slice(0,5):
+				node.texture = currentlySelectedSkin.male_icon
+			else:
+				node.texture = load("res://PmdSkins/ExplorersOfSky/Male/icon.png")
 
 func OnFemaleTypePressed():
 	icon.texture = currentlySelectedSkin.female_icon;
 	box.texture = currentlySelectedSkin.female_box;
 
+	for path in BoxChangeTargets:
+		var node = get_node_or_null(path)
+		if node:
+			if currentlySelectedSkin in loadedSkins.slice(0,5):
+				node.texture = currentlySelectedSkin.female_icon
+			else:
+				node.texture = load("res://PmdSkins/ExplorersOfSky/Female/icon.png")
+
 func OnNonBinaryTypePressed():
 	icon.texture = currentlySelectedSkin.nonbinary_icon;
 	box.texture = currentlySelectedSkin.nonbinary_box;
-
+	
+	for path in BoxChangeTargets:
+		var node = get_node_or_null(path)
+		if node:
+			if currentlySelectedSkin in loadedSkins.slice(0,5):
+				node.texture = currentlySelectedSkin.nonbinary_icon
+			else:
+				node.texture = load("res://PmdSkins/ExplorersOfSky/Nonbinary/icon.png")

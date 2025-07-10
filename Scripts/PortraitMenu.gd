@@ -115,8 +115,7 @@ func icon_texture_changed():
 	var tempimg = icon.texture.get_image()
 	tempimg.resize(15, 15, Image.INTERPOLATE_NEAREST)
 	var resized_img = ImageTexture.create_from_image(tempimg)
-	$"../PortraitLeft/PortraitLeftTEXTURE".texture = resized_img
-	$"../PortraitRight/PortraitRightTEXTURE".texture = resized_img
+	$"../PORTRAITALIGNMENT/Alignment_Preview".texture = resized_img
 
 func openCustomIconFolder():
 	OS.shell_open(ProjectSettings.globalize_path("user://Portraits"))

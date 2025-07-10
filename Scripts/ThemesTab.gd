@@ -64,3 +64,13 @@ func _on_bg_reload_pressed():
 	$PortraitWindow/RefreshBTN/RefreshBTNSound.play()
 	$"../../../../BgColour".color = Color.html("#4c4c4c");
 	$BgColour.color = Color.html("#4c4c4c");
+
+
+func _on_alignment_selected(index):
+	match  index:
+		0:
+			portrait.set_position(Vector2(108,276))
+		1:
+			portrait.set_position(Vector2(660,276))
+		2:
+			portrait.set_position(Vector2(384,276))

@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=105 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cj557ykdx0jj2" path="res://Assets/Images/symbols/smile.png" id="18_37hf0"]
 [ext_resource type="Texture2D" uid="uid://b6mwarnlbkg4j" path="res://Assets/Images/symbols/sob.png" id="19_mhl4t"]
 [ext_resource type="Texture2D" uid="uid://bncd0cvvnkwy6" path="res://Assets/Images/symbols/thinking.png" id="20_i0cqj"]
+[ext_resource type="Texture2D" uid="uid://b56ay8kc1irey" path="res://Assets/Images/GENDERLESS_BORDER.png" id="21_a8dco"]
 [ext_resource type="Texture2D" uid="uid://ofjrj8k0jb76" path="res://Assets/Images/symbols/happy.png" id="21_pa2tf"]
 [ext_resource type="Texture2D" uid="uid://b0qkkn1jioi4w" path="res://Assets/Images/symbols/evil_gang.png" id="22_ruxgj"]
 [ext_resource type="Texture2D" uid="uid://dfoinj66226d6" path="res://Assets/Images/symbols/face_holding_back_tears.png" id="23_2oyy6"]
@@ -258,24 +259,24 @@ frame_progress = 0.199972
 
 [node name="ARROWLEFT" type="Sprite2D" parent="PMD_Main/Portrait/PortraitHoverButton"]
 visible = false
-position = Vector2(-4.66666, 24)
+position = Vector2(-4.5, 24)
 texture = ExtResource("67_uwkq2")
 flip_h = true
 
 [node name="ARROWRIGHT" type="Sprite2D" parent="PMD_Main/Portrait/PortraitHoverButton"]
 visible = false
-position = Vector2(52.6667, 24)
+position = Vector2(52.5, 24)
 texture = ExtResource("67_uwkq2")
 
 [node name="ARROWUP" type="Sprite2D" parent="PMD_Main/Portrait/PortraitHoverButton"]
 visible = false
-position = Vector2(24.0001, -4.66665)
+position = Vector2(24, -4.49998)
 rotation = -1.5708
 texture = ExtResource("67_uwkq2")
 
 [node name="ARROWDOWN" type="Sprite2D" parent="PMD_Main/Portrait/PortraitHoverButton"]
 visible = false
-position = Vector2(24.0001, 52.6667)
+position = Vector2(24, 52.5)
 rotation = -1.5708
 texture = ExtResource("67_uwkq2")
 flip_h = true
@@ -297,8 +298,8 @@ texture = ExtResource("9_ebeq2")
 [node name="Text1" type="RichTextLabel" parent="PMD_Main/Textbox"]
 offset_left = -108.0
 offset_top = -19.0
-offset_right = 112.0
-offset_bottom = 20.0
+offset_right = 107.0
+offset_bottom = 19.0
 theme = ExtResource("5_qi2yv")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
@@ -313,8 +314,8 @@ autowrap_mode = 1
 [node name="Text2" type="RichTextLabel" parent="PMD_Main/Textbox"]
 offset_left = -108.0
 offset_top = -19.0
-offset_right = 112.0
-offset_bottom = 20.0
+offset_right = 107.0
+offset_bottom = 19.0
 theme = ExtResource("5_qi2yv")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 0
@@ -378,7 +379,7 @@ offset_top = 66.0
 offset_right = 377.0
 offset_bottom = 171.0
 scale = Vector2(3, 3)
-texture = ExtResource("12_t8jjw")
+texture = ExtResource("21_a8dco")
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5
@@ -771,43 +772,31 @@ stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 bus = &"Sound"
 
-[node name="PortraitRight" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
-layout_mode = 0
-offset_left = 59.3333
-offset_top = 34.0
-offset_right = 109.333
-offset_bottom = 51.0
-scale = Vector2(0.8, 0.8)
-tooltip_text = "Snaps the portrait to the right side of the screen."
-theme = ExtResource("5_qi2yv")
-text = " Right"
-alignment = 0
-
-[node name="PortraitRightTEXTURE" type="TextureRect" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitRight"]
-layout_mode = 0
-offset_left = 29.3333
-offset_top = 1.0
-offset_right = 44.3333
-offset_bottom = 16.0
-
-[node name="PortraitLeft" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
+[node name="PORTRAITALIGNMENT" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 34.0
-offset_right = 55.0
+offset_right = 123.0
 offset_bottom = 51.0
 scale = Vector2(0.8, 0.8)
-tooltip_text = "Snaps the portrait to the left side of the screen."
 theme = ExtResource("5_qi2yv")
-text = "Left "
-alignment = 2
+alignment = 1
+item_count = 3
+selected = 0
+allow_reselect = true
+popup/item_0/text = "Left"
+popup/item_0/id = 0
+popup/item_1/text = "Right"
+popup/item_1/id = 1
+popup/item_2/text = "Center"
+popup/item_2/id = 2
 
-[node name="PortraitLeftTEXTURE" type="TextureRect" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitLeft"]
+[node name="Alignment_Preview" type="TextureRect" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PORTRAITALIGNMENT"]
 layout_mode = 0
-offset_left = 5.16666
-offset_top = 1.0
-offset_right = 20.1667
-offset_bottom = 16.0
+offset_left = 5.0
+offset_top = 1.25
+offset_right = 20.0
+offset_bottom = 16.25
 
 [node name="LoadPortraitBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -1006,6 +995,7 @@ clip_text = true
 item_count = 1
 selected = 0
 fit_to_longest_item = false
+allow_reselect = true
 popup/item_0/text = "[NULL]"
 popup/item_0/icon = ExtResource("22_ruxgj")
 popup/item_0/id = 0
@@ -1024,6 +1014,7 @@ icon_alignment = 2
 item_count = 1
 selected = 0
 fit_to_longest_item = false
+allow_reselect = true
 popup/item_0/text = "[NULL]"
 popup/item_0/icon = ExtResource("22_ruxgj")
 popup/item_0/id = 0
@@ -1245,6 +1236,7 @@ clip_text = true
 item_count = 1
 selected = 0
 fit_to_longest_item = false
+allow_reselect = true
 popup/item_0/text = "[NULL]"
 popup/item_0/icon = ExtResource("22_ruxgj")
 popup/item_0/id = 0
@@ -1350,7 +1342,7 @@ offset_top = 92.0
 offset_right = 319.0
 offset_bottom = 225.0
 scale = Vector2(3, 3)
-texture = ExtResource("12_t8jjw")
+texture = ExtResource("21_a8dco")
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5
@@ -1385,6 +1377,7 @@ offset_bottom = 62.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("5_qi2yv")
 item_count = 3
+allow_reselect = true
 popup/item_0/text = "768 x 576"
 popup/item_0/id = 0
 popup/item_1/text = "1024 x 768"
@@ -1699,8 +1692,7 @@ bus = &"Music"
 [connection signal="color_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixColour" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onPrefixColourChanged"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixEnabled" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="_on_prefix_enabled_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowClose"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitRight" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_portrait_right_pressed"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitLeft" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_portrait_left_pressed"]
+[connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PORTRAITALIGNMENT" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_alignment_selected"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/LoadPortraitBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onPortraitWindowOpen"]
 [connection signal="file_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BGImageOpener" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_upload_image_file_selected"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/CustomBackgroundBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_custom_background_btn_pressed"]
@@ -1725,8 +1717,8 @@ bus = &"Music"
 [connection signal="pressed" from="Settings" to="Settings" method="_on_settings_pressed"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page1/WindowSizeDropdown" to="Settings/SettingsMenu" method="_on_window_size_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
-[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
+[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_Slider" to="Settings/SettingsMenu" method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_SBOX" to="Settings/SettingsMenu" method="_on_master_sbox_value_changed"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC" to="Settings/SettingsMenu" method="on_mute_music"]
@@ -1738,3 +1730,7 @@ bus = &"Music"
 [connection signal="pressed" from="Settings/SettingsMenu/CloseBTN" to="Settings" method="_on_close_btn_pressed"]
 [connection signal="pressed" from="Settings/SettingsMenu/SettingsLeftNav" to="Settings/SettingsMenu" method="on_left_pressed"]
 [connection signal="pressed" from="Settings/SettingsMenu/SettingsRightNav" to="Settings/SettingsMenu" method="on_right_pressed"]
+
+[editable path="PMD_Debug/DialogueBTN"]
+[editable path="PMD_Debug/ThemesBTN"]
+[editable path="PMD_Debug/PresetsBTN"]
