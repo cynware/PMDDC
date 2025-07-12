@@ -315,7 +315,6 @@ scroll_active = false
 autowrap_mode = 1
 
 [node name="Text2" type="RichTextLabel" parent="PMD_Main/Textbox"]
-visible = false
 offset_left = -108.0
 offset_top = -19.0
 offset_right = 107.0
