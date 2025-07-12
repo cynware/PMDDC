@@ -225,10 +225,8 @@ color = Color(0.298039, 0.298039, 0.298039, 1)
 
 [node name="ImageBg" type="TextureRect" parent="BgColour"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = -24.0
-offset_right = 265.0
-offset_bottom = 168.0
+offset_right = 256.0
+offset_bottom = 192.0
 scale = Vector2(3, 3)
 
 [node name="PMD_Main" type="Node2D" parent="."]
