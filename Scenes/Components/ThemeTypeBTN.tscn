@@ -1,17 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://cb3shqw006mu4"]
+[gd_scene load_steps=5 format=3 uid="uid://cb3shqw006mu4"]
 
 [ext_resource type="Texture2D" uid="uid://c0lfecjkhwt1c" path="res://Assets/Images/icon_M.png" id="1_is4wk"]
 [ext_resource type="Script" path="res://Scripts/ThemeTypeBTN.gd" id="2_0i5b6"]
+[ext_resource type="Texture2D" uid="uid://djd3yskvf8xt7" path="res://Assets/Images/symbols/cross.png" id="3_itdeu"]
+[ext_resource type="Theme" uid="uid://dsorw808w1qst" path="res://Assets/Themes/PmdDark.tres" id="3_w7yhu"]
 
-[node name="ThemeTypeBTN" type="TextureButton"]
+[node name="ThemeTypeBTN" type="TextureButton" node_paths=PackedStringArray("unavailableMark")]
 anchors_preset = -1
-anchor_right = 0.019
-anchor_bottom = 0.025
-offset_right = 21.408
-offset_bottom = 21.6
-scale = Vector2(0.4, 0.4)
+anchor_right = 0.009
+anchor_bottom = 0.012
+offset_right = 10.088
+offset_bottom = 10.088
 texture_normal = ExtResource("1_is4wk")
 script = ExtResource("2_0i5b6")
+unavailableMark = NodePath("UnavailableMark")
+
+[node name="UnavailableMark" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 10.0
+offset_bottom = 15.0
+theme = ExtResource("3_w7yhu")
+texture = ExtResource("3_itdeu")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

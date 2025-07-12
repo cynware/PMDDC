@@ -1485,11 +1485,6 @@ file_mode = 3
 access = 2
 use_native_dialog = true
 
-[node name="FolderBTNSound" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/FolderBTN"]
-stream = ExtResource("60_eptc2")
-volume_db = -10.0
-bus = &"Sound"
-
 [node name="RefreshBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 142.667
@@ -1498,11 +1493,6 @@ offset_right = 154.667
 offset_bottom = 14.0
 texture_normal = ExtResource("60_j7wfn")
 texture_pressed = ExtResource("61_f1ugg")
-
-[node name="RefreshBTNSound" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/RefreshBTN"]
-stream = ExtResource("63_cc2q7")
-volume_db = -10.0
-bus = &"Sound"
 
 [node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -1554,7 +1544,6 @@ offset_top = 70.6667
 offset_right = 20.0827
 offset_bottom = 86.5027
 scale = Vector2(1.25, 1.25)
-theme = ExtResource("5_qi2yv")
 
 [node name="FemaleTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" instance=ExtResource("10_naogw")]
 layout_mode = 1
@@ -1563,7 +1552,6 @@ offset_top = 70.6667
 offset_right = 43.0827
 offset_bottom = 86.5027
 scale = Vector2(1.25, 1.25)
-theme = ExtResource("5_qi2yv")
 texture_normal = ExtResource("33_87j8f")
 
 [node name="NonbinaryTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" instance=ExtResource("10_naogw")]
@@ -1573,7 +1561,6 @@ offset_top = 70.6667
 offset_right = 66.0827
 offset_bottom = 86.5027
 scale = Vector2(1.25, 1.25)
-theme = ExtResource("5_qi2yv")
 texture_normal = ExtResource("34_tw0f3")
 
 [node name="Settings" type="TextureButton" parent="." groups=["UI_BUTTONS"]]

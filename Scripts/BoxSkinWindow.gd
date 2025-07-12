@@ -7,6 +7,11 @@ var currentlySelectedSkin:PmdSkinData;
 @export var icon:Sprite2D;
 @export var box:Sprite2D;
 
+@export var maleTypeBTN:TextureButton;
+@export var femaleTypeBTN:TextureButton;
+@export var nonBinaryTypeBTN:TextureButton;
+
+
 @export_category("TEMPLATE STUFF")
 @export var template_boxM:Texture2D;
 @export var template_iconM:Texture2D;
@@ -98,6 +103,9 @@ func AddCustomSkins():
 		
 
 func CreateImageFromLocal(imagepath:String):
+	if(!FileAccess.file_exists(imagepath)):
+		return null;
+		
 	var image = Image.load_from_file(imagepath)
 	
 	if image.load(imagepath) == OK:	
@@ -112,6 +120,20 @@ func RefreshDropdown():
 func OnSkinDropdownItemSelected(index):
 	currentlySelectedSkin = loadedSkins[index];
 	
+	maleTypeBTN.MarkAsAvailable()
+	femaleTypeBTN.MarkAsAvailable()
+	nonBinaryTypeBTN.MarkAsAvailable()
+	
+	# DISABLING IN CASE FILES DONT EXIST
+	if(currentlySelectedSkin.male_box == null || currentlySelectedSkin.male_icon == null):
+		maleTypeBTN.MarkAsUnavailable();
+		
+	if(currentlySelectedSkin.female_box == null || currentlySelectedSkin.female_icon == null):
+		femaleTypeBTN.MarkAsUnavailable();
+		
+	if(currentlySelectedSkin.nonbinary_box == null || currentlySelectedSkin.nonbinary_icon == null):
+		nonBinaryTypeBTN.MarkAsUnavailable();
+		
 	# MALE STUFF
 	if(currentlySelectedSkin.male_box != null):
 		box.texture = currentlySelectedSkin.male_box;
@@ -161,37 +183,35 @@ func OnSkinDropdownItemSelected(index):
 
 
 func OnMaleTypePressed():
-	icon.texture = currentlySelectedSkin.male_icon;
-	box.texture = currentlySelectedSkin.male_box;
-	
-	for path in BoxChangeTargets:
-		var node = get_node_or_null(path)
-		if node:
-			if currentlySelectedSkin in loadedSkins.slice(0,5):
-				node.texture = currentlySelectedSkin.male_icon
-			else:
-				node.texture = load("res://PmdSkins/ExplorersOfSky/Male/icon.png")
+	SelectGender(currentlySelectedSkin.male_icon, currentlySelectedSkin.male_box, load("res://PmdSkins/ExplorersOfSky/Male/icon.png"));
 
 func OnFemaleTypePressed():
-	icon.texture = currentlySelectedSkin.female_icon;
-	box.texture = currentlySelectedSkin.female_box;
-
-	for path in BoxChangeTargets:
-		var node = get_node_or_null(path)
-		if node:
-			if currentlySelectedSkin in loadedSkins.slice(0,5):
-				node.texture = currentlySelectedSkin.female_icon
-			else:
-				node.texture = load("res://PmdSkins/ExplorersOfSky/Female/icon.png")
+	SelectGender(currentlySelectedSkin.female_icon, currentlySelectedSkin.female_box, load("res://PmdSkins/ExplorersOfSky/Female/icon.png"));
 
 func OnNonBinaryTypePressed():
-	icon.texture = currentlySelectedSkin.nonbinary_icon;
-	box.texture = currentlySelectedSkin.nonbinary_box;
+	SelectGender(currentlySelectedSkin.nonbinary_icon, currentlySelectedSkin.nonbinary_box, load("res://PmdSkins/ExplorersOfSky/Nonbinary/icon.png"));
+	
+func SelectGender(newIcon:Texture2D, newBox:Texture2D, defaultSkin:Texture2D):
+	icon.texture = newIcon;
+	box.texture = newBox;
 	
 	for path in BoxChangeTargets:
 		var node = get_node_or_null(path)
 		if node:
 			if currentlySelectedSkin in loadedSkins.slice(0,5):
-				node.texture = currentlySelectedSkin.nonbinary_icon
+				node.texture = newIcon
 			else:
-				node.texture = load("res://PmdSkins/ExplorersOfSky/Nonbinary/icon.png")
+				node.texture = defaultSkin;
+				
+func openCustomIconFolder():
+	OS.shell_open(ProjectSettings.globalize_path("user://BoxSkins"))
+	var sound_player = $FolderBTN/FolderBTNSound
+	sound_player.pitch_scale = randf_range(0.95, 1.05)
+	sound_player.play()
+
+func OnRefresh():
+	RefreshDropdown()
+	var sound_player = $RefreshBTN/RefreshBTNSound
+	sound_player.pitch_scale = randf_range(0.95, 1.05)
+	sound_player.play()
+	

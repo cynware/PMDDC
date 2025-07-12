@@ -49,8 +49,8 @@ func onPrefixEditChanged(new_text):
 func updateHUD() -> void:
 	
 	if prefixEnabled.button_pressed:
-		textboxText.text = "[" + Alignment + "]" + "[color=" + str(prefixColour.to_html(false)) + "]" + prefix + "[/color]: " + sentence  + "[/" + Alignment + "]";
-		textboxText2.text = "[" + Alignment + "]" + "[color=" + str(prefixColour.to_html(false)) + "]" + prefix + "[/color]: " + sentence  + "[/" + Alignment + "]";
+		textboxText.text = "[" + Alignment + "]" + "[color=" + str(prefixColour.to_html(false)) + "]" + prefix + "[/color][img=3]res://Assets/Images/prefixcolon.png[/img] " + sentence  + "[/" + Alignment + "]";
+		textboxText2.text = "[" + Alignment + "]" + "[color=" + str(prefixColour.to_html(false)) + "]" + prefix + "[/color][img=3]res://Assets/Images/prefixcolon.png[/img] " + sentence  + "[/" + Alignment + "]";
 	else:
 		textboxText.text = "[" + Alignment + "]" + sentence + "[/" + Alignment + "]"
 		textboxText2.text = "[" + Alignment + "]" + sentence + "[/" + Alignment + "]"
