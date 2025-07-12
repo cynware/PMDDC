@@ -75,10 +75,15 @@ func onPrefixColourChanged(colour):
 
 func onSymbolWindowClose():
 	$SymbolWindow.visible = false;
+	$UnicodeWindow.visible = false;
 	$ClickSFX.play();
 
 func onSymbolWindowOpen():
 	$SymbolWindow.visible = true;
+	$ClickSFX.play();
+	
+func onGlyphWindowOpen():
+	$UnicodeWindow.visible = true
 	$ClickSFX.play();
 
 func _on_alignment_button_item_selected(index):
@@ -91,3 +96,4 @@ func _on_alignment_button_item_selected(index):
 			Alignment = "right"
 	updateHUD();
 	print(Alignment)
+

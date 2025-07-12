@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=23 format=3 uid="uid://dsorw808w1qst"]
+[gd_resource type="Theme" load_steps=21 format=3 uid="uid://dsorw808w1qst"]
 
 [ext_resource type="FontFile" uid="uid://b18bcqecgsw5x" path="res://Assets/Fonts/Wondermail.ttf" id="1_3uc8h"]
 [ext_resource type="Texture2D" uid="uid://cohkcapmu2cqk" path="res://Assets/Images/PMD_Dark/checkbox_ticked.png" id="1_u75dl"]
@@ -18,11 +18,7 @@ bg_color = Color(0.12549, 0.12549, 0.12549, 0.937255)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xv2ht"]
 bg_color = Color(0.188235, 0.188235, 0.188235, 0.937255)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0vn6t"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h76sn"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eydmb"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gy74i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5w7f1"]
 bg_color = Color(0.754667, 0.498634, 0.725128, 0)
@@ -68,9 +64,7 @@ CheckBox/icons/radio_unchecked = null
 CheckBox/icons/radio_unchecked_disabled = null
 CheckBox/icons/unchecked = ExtResource("2_n4xpp")
 CheckBox/icons/unchecked_disabled = ExtResource("2_n4xpp")
-CheckBox/styles/disabled = SubResource("StyleBoxEmpty_0vn6t")
-CheckBox/styles/focus = SubResource("StyleBoxEmpty_h76sn")
-CheckBox/styles/hover = SubResource("StyleBoxEmpty_eydmb")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_gy74i")
 CheckButton/styles/focus = SubResource("StyleBoxFlat_5w7f1")
 CheckButton/styles/hover = SubResource("StyleBoxEmpty_oigyu")
 ColorPickerButton/styles/focus = SubResource("StyleBoxEmpty_l23hv")

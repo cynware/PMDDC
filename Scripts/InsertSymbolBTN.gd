@@ -6,6 +6,7 @@ extends TextureButton
 func _ready():
 	pressed.connect(onPressed)
 	
+	
 func onPressed() -> void:
 	match texture_normal.resource_path:
 		"res://Assets/Images/symbols/star.png":

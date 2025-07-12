@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=110 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -62,8 +62,10 @@
 [ext_resource type="Texture2D" uid="uid://juw7nfcehoe5" path="res://Assets/Images/Template/Normal.png" id="42_xxpgf"]
 [ext_resource type="Texture2D" uid="uid://cypp2ju6ped17" path="res://Assets/Images/center_align.png" id="43_otqlq"]
 [ext_resource type="Texture2D" uid="uid://dhdushi4l06tc" path="res://Assets/Images/Template/Pain.png" id="43_qqkqu"]
+[ext_resource type="Script" path="res://Scenes/InsertUnicodeBTN.gd" id="44_cmomk"]
 [ext_resource type="Texture2D" uid="uid://0iqgooliert0" path="res://Assets/Images/right_align.png" id="44_jo553"]
 [ext_resource type="Texture2D" uid="uid://c6cqe3x1rbhu4" path="res://Assets/Images/Template/Sad.png" id="44_ot21h"]
+[ext_resource type="Script" path="res://Scenes/UnownTyper.gd" id="44_re0y6"]
 [ext_resource type="Texture2D" uid="uid://bewad4ai343at" path="res://Assets/Images/Template/Shouting.png" id="45_c04ku"]
 [ext_resource type="Texture2D" uid="uid://5t1n7mrmrkpi" path="res://Assets/Images/Template/Sigh.png" id="46_lfj07"]
 [ext_resource type="Texture2D" uid="uid://1qskq0wfvhc1" path="res://Assets/Images/Template/Special0.png" id="47_vwl7f"]
@@ -429,10 +431,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AlignmentButton" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 105.0
-offset_top = 2.66667
-offset_right = 166.0
-offset_bottom = 26.6667
+offset_left = 103.333
+offset_top = 2.33334
+offset_right = 164.333
+offset_bottom = 26.3333
 scale = Vector2(0.33, 0.33)
 theme = ExtResource("5_qi2yv")
 expand_icon = true
@@ -453,7 +455,7 @@ popup/item_2/id = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.00946988
-anchor_right = -0.0094699
+anchor_right = 0.00189374
 offset_left = 39.6667
 offset_top = 2.0
 offset_right = 111.667
@@ -467,9 +469,9 @@ metadata/_edit_use_anchors_ = true
 [node name="InsertSymbolBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0435625
+anchor_left = 0.0378807
 anchor_top = -0.0206186
-anchor_right = 0.0435625
+anchor_right = 0.0378807
 offset_left = 118.333
 offset_top = 4.0
 offset_right = 144.333
@@ -492,7 +494,7 @@ offset_right = 167.656
 offset_bottom = 15.0
 scale = Vector2(0.7, 0.7)
 theme = ExtResource("5_qi2yv")
-text = "Ⓨ"
+text = "❤"
 metadata/_edit_use_anchors_ = true
 
 [node name="InsertColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
@@ -787,6 +789,236 @@ scale = Vector2(0.7, 0.7)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "CLOSE"
+
+[node name="UnicodeWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
+visible = false
+anchors_preset = 0
+offset_right = 176.0
+offset_bottom = 97.0
+script = ExtResource("44_re0y6")
+
+[node name="Blur" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow"]
+material = SubResource("ShaderMaterial_75fvv")
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 97.0
+
+[node name="Dark" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow"]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 97.0
+color = Color(0.12549, 0.12549, 0.12549, 0.937255)
+
+[node name="Header" type="Label" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 176.0
+offset_bottom = 19.0
+theme = ExtResource("5_qi2yv")
+text = "CHOOSE GLYPH"
+label_settings = SubResource("LabelSettings_l7fbr")
+vertical_alignment = 1
+
+[node name="MusicalnoteSymbol" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 22.0
+offset_right = 17.0
+offset_bottom = 35.0
+theme = ExtResource("5_qi2yv")
+text = "♪"
+icon_alignment = 1
+script = ExtResource("44_cmomk")
+textEdit = NodePath("../../TextboxEdit")
+Unicode = "♪"
+
+[node name="PokéBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+offset_left = 19.0
+offset_top = 22.0
+offset_right = 34.0
+offset_bottom = 35.0
+theme = ExtResource("5_qi2yv")
+keep_pressed_outside = true
+text = ""
+icon_alignment = 1
+script = ExtResource("44_cmomk")
+textEdit = NodePath("../../TextboxEdit")
+Unicode = ""
+
+[node name="FemaleUniBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+offset_left = 37.6667
+offset_top = 22.0
+offset_right = 44.6667
+offset_bottom = 35.0
+theme = ExtResource("5_qi2yv")
+keep_pressed_outside = true
+text = "♀"
+icon_alignment = 1
+script = ExtResource("44_cmomk")
+textEdit = NodePath("../../TextboxEdit")
+Unicode = "♀"
+
+[node name="MaleUniBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+offset_left = 48.6667
+offset_top = 22.0
+offset_right = 56.6667
+offset_bottom = 35.0
+theme = ExtResource("5_qi2yv")
+keep_pressed_outside = true
+text = "♂"
+icon_alignment = 1
+script = ExtResource("44_cmomk")
+textEdit = NodePath("../../TextboxEdit")
+Unicode = "♂"
+
+[node name="CopyrightBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+offset_left = 60.0
+offset_top = 22.0
+offset_right = 68.0
+offset_bottom = 35.0
+theme = ExtResource("5_qi2yv")
+keep_pressed_outside = true
+text = "©"
+icon_alignment = 1
+script = ExtResource("44_cmomk")
+textEdit = NodePath("../../TextboxEdit")
+Unicode = "©"
+
+[node name="RegisteredBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+offset_left = 71.6668
+offset_top = 22.0
+offset_right = 79.6668
+offset_bottom = 35.0
+theme = ExtResource("5_qi2yv")
+keep_pressed_outside = true
+text = "®"
+icon_alignment = 1
+script = ExtResource("44_cmomk")
+textEdit = NodePath("../../TextboxEdit")
+Unicode = "®"
+
+[node name="TrademarkBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+offset_left = 83.0004
+offset_top = 22.0
+offset_right = 91.0004
+offset_bottom = 35.0
+theme = ExtResource("5_qi2yv")
+keep_pressed_outside = true
+text = "™"
+icon_alignment = 1
+script = ExtResource("44_cmomk")
+textEdit = NodePath("../../TextboxEdit")
+Unicode = "™"
+
+[node name="LArrowBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+offset_left = 94.6672
+offset_top = 22.0
+offset_right = 104.667
+offset_bottom = 35.0
+theme = ExtResource("5_qi2yv")
+keep_pressed_outside = true
+text = "←"
+icon_alignment = 1
+script = ExtResource("44_cmomk")
+textEdit = NodePath("../../TextboxEdit")
+Unicode = "←"
+
+[node name="UArrowBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+offset_left = 108.001
+offset_top = 22.0
+offset_right = 118.001
+offset_bottom = 35.0
+theme = ExtResource("5_qi2yv")
+keep_pressed_outside = true
+text = "↑"
+icon_alignment = 1
+script = ExtResource("44_cmomk")
+textEdit = NodePath("../../TextboxEdit")
+Unicode = "↑"
+
+[node name="RArrowBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+offset_left = 121.667
+offset_top = 22.0
+offset_right = 131.667
+offset_bottom = 35.0
+theme = ExtResource("5_qi2yv")
+keep_pressed_outside = true
+text = "→"
+icon_alignment = 1
+script = ExtResource("44_cmomk")
+textEdit = NodePath("../../TextboxEdit")
+Unicode = "→"
+
+[node name="DArrowBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+offset_left = 135.001
+offset_top = 22.0
+offset_right = 145.001
+offset_bottom = 35.0
+theme = ExtResource("5_qi2yv")
+keep_pressed_outside = true
+text = "↓"
+icon_alignment = 1
+script = ExtResource("44_cmomk")
+textEdit = NodePath("../../TextboxEdit")
+Unicode = "↓"
+
+[node name="InfinityBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+offset_left = 148.667
+offset_top = 22.0
+offset_right = 158.667
+offset_bottom = 35.0
+theme = ExtResource("5_qi2yv")
+keep_pressed_outside = true
+text = "∞"
+icon_alignment = 1
+script = ExtResource("44_cmomk")
+textEdit = NodePath("../../TextboxEdit")
+Unicode = "∞"
+
+[node name="TripleDotBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+offset_left = 162.001
+offset_top = 22.0
+offset_right = 172.001
+offset_bottom = 35.0
+theme = ExtResource("5_qi2yv")
+keep_pressed_outside = true
+text = "⋯"
+icon_alignment = 1
+script = ExtResource("44_cmomk")
+textEdit = NodePath("../../TextboxEdit")
+Unicode = "⋯"
+
+[node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 74.3333
+offset_top = 86.6667
+offset_right = 110.333
+offset_bottom = 99.6667
+scale = Vector2(0.7, 0.7)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "CLOSE"
+
+[node name="SHINX_HIJINX_APPRECIATION" type="LinkButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 73.3333
+offset_right = 184.0
+offset_bottom = 86.3333
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("5_qi2yv")
+text = "Full character map on DaFont here."
+underline = 1
+uri = "https://www.dafont.com/wonder-mail.charmap"
+
+[node name="UnownModeToggleBTN" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 100.667
+offset_top = 1.0
+offset_right = 170.667
+offset_bottom = 17.0
+theme = ExtResource("5_qi2yv")
+text = "Unown Keys"
 
 [node name="ClickSFX" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
 stream = ExtResource("15_bl6l8")
@@ -1720,14 +1952,31 @@ bus = &"Music"
 [connection signal="focus_entered" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_portrait_hover_button_focus_entered"]
 [connection signal="focus_exited" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_portrait_hover_button_focus_exited"]
 [connection signal="finished" from="PMD_Main/Portrait/MOVESFX/FANFARE" to="PMD_Main/Portrait" method="_on_fanfare_finished"]
+[connection signal="gui_input" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_textbox_edit_gui_input"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/DialogueTab/AlignmentButton" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="_on_alignment_button_item_selected"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColourBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onColourInsert"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertSymbolBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowOpen"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertGlyphBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onGlyphWindowOpen"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onPrefixEditChanged"]
 [connection signal="color_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixColour" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onPrefixColourChanged"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixEnabled" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="_on_prefix_enabled_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowClose"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/MusicalnoteSymbol" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/MusicalnoteSymbol" method="OnUnicodePressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/PokéBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/PokéBTN" method="OnUnicodePressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/FemaleUniBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/FemaleUniBTN" method="OnUnicodePressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/MaleUniBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/MaleUniBTN" method="OnUnicodePressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/CopyrightBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/CopyrightBTN" method="OnUnicodePressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/RegisteredBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/RegisteredBTN" method="OnUnicodePressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/TrademarkBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/TrademarkBTN" method="OnUnicodePressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/LArrowBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/LArrowBTN" method="OnUnicodePressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/UArrowBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/UArrowBTN" method="OnUnicodePressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/RArrowBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/RArrowBTN" method="OnUnicodePressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/DArrowBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/DArrowBTN" method="OnUnicodePressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/InfinityBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/InfinityBTN" method="OnUnicodePressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/TripleDotBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/TripleDotBTN" method="OnUnicodePressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowClose"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/UnownModeToggleBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_unown_mode_toggle_pressed"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PORTRAITALIGNMENT" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_alignment_selected"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/LoadPortraitBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onPortraitWindowOpen"]
 [connection signal="file_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BGImageOpener" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_upload_image_file_selected"]
