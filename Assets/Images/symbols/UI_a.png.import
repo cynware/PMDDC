@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://00d2juqc4v5t"
-path="res://.godot/imported/radiotick.png-982004b4768fc3c5f61b546c0440fe66.ctex"
+uid="uid://wj66p841o0ff"
+path="res://.godot/imported/UI_a.png-62c2422490349691e1a5be8420f2d64e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/PMD_Dark/radiotick.png"
-dest_files=["res://.godot/imported/radiotick.png-982004b4768fc3c5f61b546c0440fe66.ctex"]
+source_file="res://Assets/Images/symbols/UI_a.png"
+dest_files=["res://.godot/imported/UI_a.png-62c2422490349691e1a5be8420f2d64e.ctex"]
 
 [params]
 

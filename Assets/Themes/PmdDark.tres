@@ -1,8 +1,7 @@
-[gd_resource type="Theme" load_steps=21 format=3 uid="uid://dsorw808w1qst"]
+[gd_resource type="Theme" load_steps=20 format=3 uid="uid://dsorw808w1qst"]
 
 [ext_resource type="FontFile" uid="uid://b18bcqecgsw5x" path="res://Assets/Fonts/Wondermail.ttf" id="1_3uc8h"]
 [ext_resource type="Texture2D" uid="uid://cohkcapmu2cqk" path="res://Assets/Images/PMD_Dark/checkbox_ticked.png" id="1_u75dl"]
-[ext_resource type="Texture2D" uid="uid://00d2juqc4v5t" path="res://Assets/Images/PMD_Dark/radiotick.png" id="2_5r8i4"]
 [ext_resource type="Texture2D" uid="uid://dfvh71rd8fkft" path="res://Assets/Images/PMD_Dark/checkbox_unticked.png" id="2_n4xpp"]
 [ext_resource type="Texture2D" uid="uid://dp4s2sqfwj0x2" path="res://Assets/Images/PMD_Dark/empty_box.png" id="4_in1mf"]
 [ext_resource type="Texture2D" uid="uid://bn81fgma51c58" path="res://Assets/Images/PMD_Dark/dropdown.png" id="5_61avt"]
@@ -58,8 +57,8 @@ CheckBox/constants/check_v_offset = 2
 CheckBox/constants/h_separation = 0
 CheckBox/icons/checked = ExtResource("1_u75dl")
 CheckBox/icons/checked_disabled = ExtResource("1_u75dl")
-CheckBox/icons/radio_checked = ExtResource("2_5r8i4")
-CheckBox/icons/radio_checked_disabled = ExtResource("2_5r8i4")
+CheckBox/icons/radio_checked = null
+CheckBox/icons/radio_checked_disabled = null
 CheckBox/icons/radio_unchecked = null
 CheckBox/icons/radio_unchecked_disabled = null
 CheckBox/icons/unchecked = ExtResource("2_n4xpp")

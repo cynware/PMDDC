@@ -833,6 +833,7 @@ textEdit = NodePath("../../TextboxEdit")
 Unicode = "♪"
 
 [node name="PokéBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 19.0
 offset_top = 22.0
 offset_right = 34.0
@@ -846,6 +847,7 @@ textEdit = NodePath("../../TextboxEdit")
 Unicode = ""
 
 [node name="FemaleUniBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 37.6667
 offset_top = 22.0
 offset_right = 44.6667
@@ -859,6 +861,7 @@ textEdit = NodePath("../../TextboxEdit")
 Unicode = "♀"
 
 [node name="MaleUniBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 48.6667
 offset_top = 22.0
 offset_right = 56.6667
@@ -872,6 +875,7 @@ textEdit = NodePath("../../TextboxEdit")
 Unicode = "♂"
 
 [node name="CopyrightBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 60.0
 offset_top = 22.0
 offset_right = 68.0
@@ -885,6 +889,7 @@ textEdit = NodePath("../../TextboxEdit")
 Unicode = "©"
 
 [node name="RegisteredBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 71.6668
 offset_top = 22.0
 offset_right = 79.6668
@@ -898,6 +903,7 @@ textEdit = NodePath("../../TextboxEdit")
 Unicode = "®"
 
 [node name="TrademarkBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 83.0004
 offset_top = 22.0
 offset_right = 91.0004
@@ -911,6 +917,7 @@ textEdit = NodePath("../../TextboxEdit")
 Unicode = "™"
 
 [node name="LArrowBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 94.6672
 offset_top = 22.0
 offset_right = 104.667
@@ -924,6 +931,7 @@ textEdit = NodePath("../../TextboxEdit")
 Unicode = "←"
 
 [node name="UArrowBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 108.001
 offset_top = 22.0
 offset_right = 118.001
@@ -937,6 +945,7 @@ textEdit = NodePath("../../TextboxEdit")
 Unicode = "↑"
 
 [node name="RArrowBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 121.667
 offset_top = 22.0
 offset_right = 131.667
@@ -950,6 +959,7 @@ textEdit = NodePath("../../TextboxEdit")
 Unicode = "→"
 
 [node name="DArrowBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 135.001
 offset_top = 22.0
 offset_right = 145.001
@@ -963,6 +973,7 @@ textEdit = NodePath("../../TextboxEdit")
 Unicode = "↓"
 
 [node name="InfinityBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 148.667
 offset_top = 22.0
 offset_right = 158.667
@@ -976,6 +987,7 @@ textEdit = NodePath("../../TextboxEdit")
 Unicode = "∞"
 
 [node name="TripleDotBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 162.001
 offset_top = 22.0
 offset_right = 172.001
