@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=108 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -58,8 +58,11 @@
 [ext_resource type="Texture2D" uid="uid://u46lq8qonb4n" path="res://Assets/Images/Template/Happy.png" id="39_kk32g"]
 [ext_resource type="Texture2D" uid="uid://gpg6o6mv2nhb" path="res://Assets/Images/Template/Inspired.png" id="40_jnqv7"]
 [ext_resource type="Texture2D" uid="uid://dtag1tmr7slas" path="res://Assets/Images/Template/Joyous.png" id="41_wmx46"]
+[ext_resource type="Texture2D" uid="uid://lqejclgs5c1h" path="res://Assets/Images/left_align.png" id="42_w6bt0"]
 [ext_resource type="Texture2D" uid="uid://juw7nfcehoe5" path="res://Assets/Images/Template/Normal.png" id="42_xxpgf"]
+[ext_resource type="Texture2D" uid="uid://cypp2ju6ped17" path="res://Assets/Images/center_align.png" id="43_otqlq"]
 [ext_resource type="Texture2D" uid="uid://dhdushi4l06tc" path="res://Assets/Images/Template/Pain.png" id="43_qqkqu"]
+[ext_resource type="Texture2D" uid="uid://0iqgooliert0" path="res://Assets/Images/right_align.png" id="44_jo553"]
 [ext_resource type="Texture2D" uid="uid://c6cqe3x1rbhu4" path="res://Assets/Images/Template/Sad.png" id="44_ot21h"]
 [ext_resource type="Texture2D" uid="uid://bewad4ai343at" path="res://Assets/Images/Template/Shouting.png" id="45_c04ku"]
 [ext_resource type="Texture2D" uid="uid://5t1n7mrmrkpi" path="res://Assets/Images/Template/Sigh.png" id="46_lfj07"]
@@ -222,8 +225,10 @@ color = Color(0.298039, 0.298039, 0.298039, 1)
 
 [node name="ImageBg" type="TextureRect" parent="BgColour"]
 layout_mode = 0
-offset_right = 256.0
-offset_bottom = 192.0
+offset_left = 9.0
+offset_top = -24.0
+offset_right = 265.0
+offset_bottom = 168.0
 scale = Vector2(3, 3)
 
 [node name="PMD_Main" type="Node2D" parent="."]
@@ -312,6 +317,7 @@ scroll_active = false
 autowrap_mode = 1
 
 [node name="Text2" type="RichTextLabel" parent="PMD_Main/Textbox"]
+visible = false
 offset_left = -108.0
 offset_top = -19.0
 offset_right = 107.0
@@ -404,7 +410,6 @@ offset_bottom = 101.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogueTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("textboxText", "textboxText2")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -425,11 +430,36 @@ placeholder_text = "Textbox text goes here..."
 wrap_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="InsertColourBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
+[node name="AlignmentButton" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
+offset_left = 105.0
+offset_top = 2.66667
+offset_right = 166.0
+offset_bottom = 26.6667
+scale = Vector2(0.33, 0.33)
+theme = ExtResource("5_qi2yv")
+expand_icon = true
+item_count = 3
+selected = 0
+allow_reselect = true
+popup/item_0/text = ""
+popup/item_0/icon = ExtResource("42_w6bt0")
+popup/item_0/id = 0
+popup/item_1/text = ""
+popup/item_1/icon = ExtResource("43_otqlq")
+popup/item_1/id = 1
+popup/item_2/text = ""
+popup/item_2/icon = ExtResource("44_jo553")
+popup/item_2/id = 2
+
+[node name="InsertColourBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00946988
+anchor_right = -0.0094699
 offset_left = 39.6667
 offset_top = 2.0
-offset_right = 123.667
+offset_right = 111.667
 offset_bottom = 15.0
 scale = Vector2(0.7, 0.7)
 focus_mode = 0
@@ -438,10 +468,14 @@ text = "INSERT COLOUR"
 metadata/_edit_use_anchors_ = true
 
 [node name="InsertSymbolBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0435625
+anchor_top = -0.0206186
+anchor_right = 0.0435625
 offset_left = 118.333
-offset_top = 2.0
-offset_right = 148.333
+offset_top = 4.0
+offset_right = 144.333
 offset_bottom = 15.0
 scale = Vector2(0.7, 0.7)
 focus_mode = 0
@@ -451,10 +485,13 @@ icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="InsertGlyphBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0189375
+anchor_right = 0.019
 offset_left = 141.667
 offset_top = 2.0
-offset_right = 171.667
+offset_right = 167.656
 offset_bottom = 15.0
 scale = Vector2(0.7, 0.7)
 theme = ExtResource("5_qi2yv")
@@ -760,6 +797,7 @@ volume_db = -25.0
 bus = &"Sound"
 
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -1686,6 +1724,7 @@ bus = &"Music"
 [connection signal="focus_exited" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_portrait_hover_button_focus_exited"]
 [connection signal="finished" from="PMD_Main/Portrait/MOVESFX/FANFARE" to="PMD_Main/Portrait" method="_on_fanfare_finished"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
+[connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/DialogueTab/AlignmentButton" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="_on_alignment_button_item_selected"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColourBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onColourInsert"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertSymbolBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowOpen"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onPrefixEditChanged"]

@@ -14,6 +14,8 @@ var sentence:String = "Blah blah blah...";
 var prefix:String = "???";
 var prefixColour:Color = Color("F8F800");
 
+var Alignment = "left"
+
 var colorSwatches:Array[Color] = [
 	Color("F8F800"),
 	Color("0098F8"),
@@ -47,11 +49,11 @@ func onPrefixEditChanged(new_text):
 func updateHUD() -> void:
 	
 	if prefixEnabled.button_pressed:
-		textboxText.text = "[color=" + str(prefixColour.to_html(false)) + "]" + prefix + "[/color]: " + sentence;
-		textboxText2.text = "[color=" + str(prefixColour.to_html(false)) + "]" + prefix + "[/color]: " + sentence;
+		textboxText.text = "[" + Alignment + "]" + "[color=" + str(prefixColour.to_html(false)) + "]" + prefix + "[/color]: " + sentence  + "[/" + Alignment + "]";
+		textboxText2.text = "[" + Alignment + "]" + "[color=" + str(prefixColour.to_html(false)) + "]" + prefix + "[/color]: " + sentence  + "[/" + Alignment + "]";
 	else:
-		textboxText.text = sentence;
-		textboxText2.text = sentence;
+		textboxText.text = "[" + Alignment + "]" + sentence + "[/" + Alignment + "]"
+		textboxText2.text = "[" + Alignment + "]" + sentence + "[/" + Alignment + "]"
 	
 func onColourInsert():
 	$TextboxEdit.text += "[color=" + str(textboxInsertColourPicker.get_picker().color.to_html(false)) + "]TEXT[/color]"; 
@@ -78,3 +80,14 @@ func onSymbolWindowClose():
 func onSymbolWindowOpen():
 	$SymbolWindow.visible = true;
 	$ClickSFX.play();
+
+func _on_alignment_button_item_selected(index):
+	match index:
+		0:
+			Alignment = "left"
+		1:
+			Alignment = "center"
+		2:
+			Alignment = "right"
+	updateHUD();
+	print(Alignment)
