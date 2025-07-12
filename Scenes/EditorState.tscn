@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=123 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -43,25 +43,38 @@
 [ext_resource type="Texture2D" uid="uid://cdmr3icjt0nx2" path="res://Assets/Images/symbols/face_with_monocle.png" id="27_yq5tl"]
 [ext_resource type="Texture2D" uid="uid://df38v2x0eu0jl" path="res://Assets/Images/symbols/nerd.png" id="28_6ychj"]
 [ext_resource type="Script" path="res://Scripts/ThemesTab.gd" id="30_q7nel"]
+[ext_resource type="Texture2D" uid="uid://cy6c4ctgd1wx2" path="res://Assets/Images/symbols/tm.png" id="32_d4ejl"]
 [ext_resource type="Texture2D" uid="uid://cu4qsbkuar1md" path="res://Assets/Images/icon_F.png" id="33_87j8f"]
+[ext_resource type="Texture2D" uid="uid://b0lwif4de21c7" path="res://Assets/Images/symbols/orb.png" id="33_onf7c"]
 [ext_resource type="Script" path="res://Scripts/PortraitMenu.gd" id="33_ovcmm"]
 [ext_resource type="FontFile" uid="uid://b18bcqecgsw5x" path="res://Assets/Fonts/Wondermail.ttf" id="33_x1l3a"]
+[ext_resource type="Texture2D" uid="uid://djd3yskvf8xt7" path="res://Assets/Images/symbols/cross.png" id="34_ofqea"]
 [ext_resource type="Texture2D" uid="uid://c5hmrqcah5dde" path="res://Assets/Images/icon_NB.png" id="34_tw0f3"]
+[ext_resource type="Texture2D" uid="uid://bapa74cy0c57s" path="res://Assets/Images/symbols/tick.png" id="35_2ey8p"]
 [ext_resource type="Texture2D" uid="uid://dnbwjdisfavh8" path="res://Assets/Images/Template/Angry.png" id="35_8xq2p"]
 [ext_resource type="AudioStream" uid="uid://bdjcink0rebih" path="res://Assets/Sounds/bgimport.ogg" id="35_82sui"]
 [ext_resource type="Texture2D" uid="uid://b7lm4pfb4ejl3" path="res://Assets/Images/folder.png" id="35_at0t2"]
+[ext_resource type="Texture2D" uid="uid://d0yks2bwu415s" path="res://Assets/Images/symbols/UI_start.png" id="36_6inv2"]
 [ext_resource type="Texture2D" uid="uid://ch6y6a64t0i72" path="res://Assets/Images/Template/Crying.png" id="36_ed0lm"]
 [ext_resource type="Texture2D" uid="uid://dw7tjlfxukq1t" path="res://Assets/Images/Template/Determined.png" id="37_7opjh"]
+[ext_resource type="Texture2D" uid="uid://h6nfgyjo83e5" path="res://Assets/Images/symbols/UI_select.png" id="37_on2y6"]
 [ext_resource type="Texture2D" uid="uid://c7j043oc48n72" path="res://Assets/Images/image.png" id="38_64q62"]
 [ext_resource type="Texture2D" uid="uid://bxv25ubbgt3se" path="res://Assets/Images/brush.png" id="38_ij81t"]
+[ext_resource type="Texture2D" uid="uid://ftfpaq7waiwd" path="res://Assets/Images/symbols/UI_l.png" id="38_kix1u"]
 [ext_resource type="Texture2D" uid="uid://7tvnj3b6jdd5" path="res://Assets/Images/Template/Dizzy.png" id="38_nn25p"]
+[ext_resource type="Texture2D" uid="uid://c86u2fquc6l85" path="res://Assets/Images/symbols/UI_r.png" id="39_j5n62"]
 [ext_resource type="Texture2D" uid="uid://u46lq8qonb4n" path="res://Assets/Images/Template/Happy.png" id="39_kk32g"]
+[ext_resource type="Texture2D" uid="uid://wj66p841o0ff" path="res://Assets/Images/symbols/UI_a.png" id="39_y5un0"]
 [ext_resource type="Texture2D" uid="uid://gpg6o6mv2nhb" path="res://Assets/Images/Template/Inspired.png" id="40_jnqv7"]
+[ext_resource type="Texture2D" uid="uid://djefjgpt61hyn" path="res://Assets/Images/symbols/UI_b.png" id="40_s85ul"]
+[ext_resource type="Texture2D" uid="uid://kf7enmd43nme" path="res://Assets/Images/symbols/UI_x.png" id="41_f3j0y"]
 [ext_resource type="Texture2D" uid="uid://dtag1tmr7slas" path="res://Assets/Images/Template/Joyous.png" id="41_wmx46"]
+[ext_resource type="Texture2D" uid="uid://bc38s8ctbcghr" path="res://Assets/Images/symbols/UI_y.png" id="42_455g5"]
 [ext_resource type="Texture2D" uid="uid://lqejclgs5c1h" path="res://Assets/Images/left_align.png" id="42_w6bt0"]
 [ext_resource type="Texture2D" uid="uid://juw7nfcehoe5" path="res://Assets/Images/Template/Normal.png" id="42_xxpgf"]
 [ext_resource type="Texture2D" uid="uid://cypp2ju6ped17" path="res://Assets/Images/center_align.png" id="43_otqlq"]
 [ext_resource type="Texture2D" uid="uid://dhdushi4l06tc" path="res://Assets/Images/Template/Pain.png" id="43_qqkqu"]
+[ext_resource type="Texture2D" uid="uid://bjq5dawhp0m2m" path="res://Assets/Images/symbols/UI_dpad.png" id="44_8kja1"]
 [ext_resource type="Script" path="res://Scenes/InsertUnicodeBTN.gd" id="44_cmomk"]
 [ext_resource type="Texture2D" uid="uid://0iqgooliert0" path="res://Assets/Images/right_align.png" id="44_jo553"]
 [ext_resource type="Texture2D" uid="uid://c6cqe3x1rbhu4" path="res://Assets/Images/Template/Sad.png" id="44_ot21h"]
@@ -549,7 +562,6 @@ alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="SymbolWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -579,9 +591,9 @@ vertical_alignment = 1
 [node name="HeartSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 6.00001
-offset_top = 21.6667
+offset_top = 22.0
 offset_right = 16.0
-offset_bottom = 31.6667
+offset_bottom = 32.0
 texture_normal = ExtResource("11_mo684")
 ignore_texture_size = true
 stretch_mode = 0
@@ -591,9 +603,9 @@ textEdit = NodePath("../../TextboxEdit")
 [node name="CoinSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 17.9999
-offset_top = 21.6667
+offset_top = 22.0
 offset_right = 27.9999
-offset_bottom = 31.6667
+offset_bottom = 32.0
 texture_normal = ExtResource("11_1n151")
 ignore_texture_size = true
 stretch_mode = 0
@@ -603,9 +615,9 @@ textEdit = NodePath("../../TextboxEdit")
 [node name="StarSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 29.9998
-offset_top = 21.6667
+offset_top = 22.0
 offset_right = 39.9998
-offset_bottom = 31.6667
+offset_bottom = 32.0
 texture_normal = ExtResource("12_vxgy4")
 ignore_texture_size = true
 stretch_mode = 0
@@ -615,10 +627,166 @@ textEdit = NodePath("../../TextboxEdit")
 [node name="SpeechSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 42.0
-offset_top = 21.6667
+offset_top = 22.0
 offset_right = 52.0
-offset_bottom = 31.6667
+offset_bottom = 32.0
 texture_normal = ExtResource("13_t8tcm")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="TMSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 22.0
+offset_right = 64.0
+offset_bottom = 32.0
+texture_normal = ExtResource("32_d4ejl")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="OrbSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 66.0001
+offset_top = 22.0
+offset_right = 76.0001
+offset_bottom = 32.0
+texture_normal = ExtResource("33_onf7c")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="CrossSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 22.0
+offset_right = 85.0
+offset_bottom = 32.0
+texture_normal = ExtResource("34_ofqea")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="TickSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 35.0
+offset_right = 85.0
+offset_bottom = 45.0
+texture_normal = ExtResource("35_2ey8p")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="StartSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 35.0
+offset_right = 28.0
+offset_bottom = 45.0
+texture_normal = ExtResource("36_6inv2")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="SelectSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 35.0
+offset_right = 52.0
+offset_bottom = 45.0
+texture_normal = ExtResource("37_on2y6")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="UI_LSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 35.0
+offset_right = 64.0
+offset_bottom = 45.0
+texture_normal = ExtResource("38_kix1u")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="UI_RSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 66.0001
+offset_top = 35.0
+offset_right = 76.0001
+offset_bottom = 45.0
+texture_normal = ExtResource("39_j5n62")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="UI_ASymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 48.0
+offset_right = 16.0
+offset_bottom = 58.0
+texture_normal = ExtResource("39_y5un0")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="UI_BSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 48.0
+offset_right = 28.0
+offset_bottom = 58.0
+texture_normal = ExtResource("40_s85ul")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="UI_XSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 48.0
+offset_right = 40.0
+offset_bottom = 58.0
+texture_normal = ExtResource("41_f3j0y")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="UI_YSymbol" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 48.0
+offset_right = 52.0
+offset_bottom = 58.0
+texture_normal = ExtResource("42_455g5")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="UI_YSymbol2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 48.0
+offset_right = 64.0
+offset_bottom = 58.0
+texture_normal = ExtResource("44_8kja1")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("11_ouwkk")
@@ -626,10 +794,10 @@ textEdit = NodePath("../../TextboxEdit")
 
 [node name="Smirk" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 54.0001
-offset_top = 22.0
-offset_right = 64.0001
-offset_bottom = 32.0
+offset_left = 114.0
+offset_top = 35.0
+offset_right = 124.0
+offset_bottom = 45.0
 texture_normal = ExtResource("16_rp5cs")
 ignore_texture_size = true
 stretch_mode = 0
@@ -638,10 +806,10 @@ textEdit = NodePath("../../TextboxEdit")
 
 [node name="Crazy" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 66.0001
-offset_top = 22.0
-offset_right = 76.0001
-offset_bottom = 32.0
+offset_left = 126.0
+offset_top = 35.0
+offset_right = 136.0
+offset_bottom = 45.0
 texture_normal = ExtResource("17_r8hl3")
 ignore_texture_size = true
 stretch_mode = 0
@@ -650,9 +818,9 @@ textEdit = NodePath("../../TextboxEdit")
 
 [node name="Smile" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 78.0
+offset_left = 89.9997
 offset_top = 22.0
-offset_right = 88.0
+offset_right = 99.9997
 offset_bottom = 32.0
 texture_normal = ExtResource("18_37hf0")
 ignore_texture_size = true
@@ -662,10 +830,10 @@ textEdit = NodePath("../../TextboxEdit")
 
 [node name="Sob" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 90.0
-offset_top = 22.0
-offset_right = 100.0
-offset_bottom = 32.0
+offset_left = 102.0
+offset_top = 35.0
+offset_right = 112.0
+offset_bottom = 45.0
 texture_normal = ExtResource("19_mhl4t")
 ignore_texture_size = true
 stretch_mode = 0
@@ -674,9 +842,9 @@ textEdit = NodePath("../../TextboxEdit")
 
 [node name="Smirk2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 54.0001
+offset_left = 138.0
 offset_top = 35.0
-offset_right = 64.0001
+offset_right = 148.0
 offset_bottom = 45.0
 texture_normal = ExtResource("20_i0cqj")
 ignore_texture_size = true
@@ -686,9 +854,9 @@ textEdit = NodePath("../../TextboxEdit")
 
 [node name="Crazy2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 66.0001
+offset_left = 150.0
 offset_top = 35.0
-offset_right = 76.0001
+offset_right = 160.0
 offset_bottom = 45.0
 texture_normal = ExtResource("21_pa2tf")
 ignore_texture_size = true
@@ -698,9 +866,9 @@ textEdit = NodePath("../../TextboxEdit")
 
 [node name="Smile2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 78.0
+offset_left = 162.0
 offset_top = 35.0
-offset_right = 88.0
+offset_right = 172.0
 offset_bottom = 45.0
 texture_normal = ExtResource("22_ruxgj")
 ignore_texture_size = true
