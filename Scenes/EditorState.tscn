@@ -422,7 +422,6 @@ offset_bottom = 101.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogueTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("textboxText", "textboxText2")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -562,6 +561,7 @@ alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="SymbolWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -1207,6 +1207,7 @@ volume_db = -25.0
 bus = &"Sound"
 
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -1601,6 +1602,7 @@ theme = ExtResource("5_qi2yv")
 text = "CLOSE"
 
 [node name="BoxSkinWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" node_paths=PackedStringArray("skinDropdown", "icon", "box", "maleTypeBTN", "femaleTypeBTN", "nonBinaryTypeBTN")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332
@@ -2185,8 +2187,8 @@ bus = &"Music"
 [connection signal="pressed" from="Settings" to="Settings" method="_on_settings_pressed"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page1/WindowSizeDropdown" to="Settings/SettingsMenu" method="_on_window_size_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
-[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
+[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_Slider" to="Settings/SettingsMenu" method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_SBOX" to="Settings/SettingsMenu" method="_on_master_sbox_value_changed"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC" to="Settings/SettingsMenu" method="on_mute_music"]
