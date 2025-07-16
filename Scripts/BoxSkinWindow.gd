@@ -58,6 +58,7 @@ func CheckAndCreateBoxSkinFolder():
 # jus the skins that come bundled with PMDDC :>
 func AddInternalSkins():
 	skinDropdown.clear()
+	loadedSkins.clear()
 	var InternalThemeDirectories = DirAccess.get_directories_at("res://PmdSkins")
 	print("...........INTERNAL SKINS............")
 	print(InternalThemeDirectories)
@@ -211,6 +212,7 @@ func openCustomIconFolder():
 
 func OnRefresh():
 	RefreshDropdown()
+	OnSkinDropdownItemSelected(0)
 	var sound_player = $RefreshBTN/RefreshBTNSound
 	sound_player.pitch_scale = randf_range(0.95, 1.05)
 	sound_player.play()
