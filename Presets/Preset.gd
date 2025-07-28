@@ -1,20 +1,20 @@
-class_name Preset
+class_name Preset extends Resource
 
-var prefix:String;
-var prefixColor:Color;
-var text:String;
+@export var prefix:String;
+@export var prefixColor:Color;
+@export var text:String;
 
-var skinName:String;
-var skinGender:int; # 1 = male, 2 = female, 3 = non-binary
+@export var skinName:String;
+@export var skinGender:int; # 1 = male, 2 = female, 3 = non-binary
 
-var pmdCollabPortraitURL:String;
+@export var pmdCollabPortraitURL:String;
 
-var customPortraitName:String;
-var customPortraitEmotion:String;
+@export var customPortraitName:String;
+@export var customPortraitEmotion:String;
 
-var iconAlignment:int; # 1 = left, 2 = right, 3 = center
-var flipPortrait:bool;
-var hidePortrait:bool;
+@export var iconPosition:Vector2;
+@export var flipPortrait:bool;
+@export var hidePortrait:bool;
 
-var custombackgroundPath:String; # if empty, no background
-var backgroundColor:Color;
+# @export var custombackgroundPath:String; # if empty, no background
+# @export var backgroundColor:Color;

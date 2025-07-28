@@ -174,11 +174,13 @@ text = "TEXXTT IUJEN GDFKGHKDFJGKJDFGMN"
 skinName = "ExplorersOfSky_3"
 skinGender = 3
 pmdCollabPortraitURL = ""
-customPortraitName = "Mood"
-customPortraitEmotion = "dissapointment.png"
-iconPosition = Vector2(413, 162)
+customPortraitName = ""
+customPortraitEmotion = ""
+iconAlignment = 0
 flipPortrait = false
 hidePortrait = false
+custombackgroundPath = ""
+backgroundColor = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n64qr"]
 atlas = ExtResource("8_y615r")
@@ -1237,6 +1239,7 @@ stream = ExtResource("61_0gbvx")
 volume_db = -25.0
 
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -1775,20 +1778,13 @@ scale = Vector2(1.25, 1.25)
 theme = ExtResource("5_qi2yv")
 texture_normal = ExtResource("34_tw0f3")
 
-[node name="PresetsTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("dialogTab", "skinWindow", "portraitMenu", "localFolderDropdownLocal", "localEmotionDropdownLocal", "hidePortraitToggle", "flipPortraitButton", "portrait")]
-visible = false
+[node name="PresetsTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("dialogTab", "skinWindow")]
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
 script = ExtResource("102_iggxt")
 dialogTab = NodePath("../DialogueTab")
 skinWindow = NodePath("../ThemesTab/BoxSkinWindow")
-portraitMenu = NodePath("../ThemesTab/PortraitWindow")
-localFolderDropdownLocal = NodePath("../ThemesTab/PortraitWindow/Emotion_LocalDir")
-localEmotionDropdownLocal = NodePath("../ThemesTab/PortraitWindow/Emotion_LocalEmotion")
-hidePortraitToggle = NodePath("../ThemesTab/PortraitHide")
-flipPortraitButton = NodePath("../ThemesTab/PortraitFlip")
-portrait = NodePath("../../../../PMD_Main/Portrait")
 testPreset = SubResource("Resource_nbbti")
 
 [node name="Bg" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/PresetsTab"]

@@ -2,7 +2,6 @@ extends Node2D
 
 var initialPosition:Vector2;
 var lerpPosition:Vector2;
-
 var isVisible:bool = true;
 
 func _ready():
@@ -18,4 +17,3 @@ func _process(delta):
 			lerpPosition = initialPosition
 		else:
 			lerpPosition = initialPosition + Vector2.RIGHT * 800;
-		
