@@ -1,5 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://ldwxr8o7du7"]
-
+[gd_scene load_steps=125 format=3 uid="uid://ldwxr8o7du7"]
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
 [ext_resource type="Texture2D" uid="uid://8ocayen5spgw" path="res://Assets/Images/portraits/icon_386.png" id="3_2dy76"]
@@ -94,10 +93,11 @@
 [ext_resource type="AudioStream" uid="uid://dkrpsd37k8f8c" path="res://Assets/Sounds/folder.ogg" id="60_eptc2"]
 [ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="60_isgay"]
 [ext_resource type="Texture2D" uid="uid://c210dg38ryi6o" path="res://Assets/Images/refresh.png" id="60_j7wfn"]
+[ext_resource type="AudioStream" uid="uid://qfki4nts87wv" path="res://Assets/Sounds/Type.ogg" id="60_x0oe2"]
+[ext_resource type="AudioStream" uid="uid://cbbhc7m0orqup" path="res://Assets/Sounds/Type_Backspace.ogg" id="61_0gbvx"]
 [ext_resource type="Texture2D" uid="uid://3qws3redcwhw" path="res://Assets/Images/refresh_pressed.png" id="61_f1ugg"]
 [ext_resource type="AudioStream" uid="uid://u31hb2xm3nhy" path="res://Assets/Sounds/refresh.ogg" id="63_cc2q7"]
 [ext_resource type="Script" path="res://Scripts/BoxSkinWindow.gd" id="64_3ecio"]
-[ext_resource type="AudioStream" uid="uid://b0tua6ecgivqk" path="res://Assets/Sounds/placeholder_ost.mp3" id="67_s4c4m"]
 [ext_resource type="Texture2D" uid="uid://cewxijhl3fb4b" path="res://Assets/Images/arrow.png" id="67_uwkq2"]
 [ext_resource type="AudioStream" uid="uid://celljk4a0y23y" path="res://Assets/Sounds/settings.ogg" id="71_1u5km"]
 [ext_resource type="Texture2D" uid="uid://blnbx8qbd5fl6" path="res://Assets/Images/speaker_3.png" id="73_xf746"]
@@ -106,7 +106,7 @@
 [ext_resource type="Texture2D" uid="uid://dokenoaellcdy" path="res://PmdSkins/ExplorersOfSky/NonBinary/box.png" id="76_60ftn"]
 [ext_resource type="Texture2D" uid="uid://du5q2pe6h3pup" path="res://PmdSkins/ExplorersOfSky/NonBinary/icon.png" id="77_a3swu"]
 [ext_resource type="AudioStream" uid="uid://djx70svi8ey3s" path="res://Assets/Sounds/mute.ogg" id="78_hn1y3"]
-[ext_resource type="Script" path="res://Scripts/PresetsTab.gd" id="100_c6s1b"]
+[ext_resource type="AudioStream" uid="uid://djs0qxywnom4b" path="res://Assets/Sounds/Writing's A Mystery.wav" id="106_mwxem"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_el3sg"]
 atlas = ExtResource("12_k0q7g")
@@ -424,7 +424,6 @@ offset_bottom = 101.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogueTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("textboxText", "textboxText2")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -1209,6 +1208,14 @@ stream = ExtResource("15_bl6l8")
 volume_db = -25.0
 bus = &"Sound"
 
+[node name="Type" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
+stream = ExtResource("60_x0oe2")
+volume_db = -18.0
+
+[node name="Type_Backspace" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/Type"]
+stream = ExtResource("61_0gbvx")
+volume_db = -25.0
+
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
 visible = false
 anchors_preset = 0
@@ -1720,7 +1727,7 @@ offset_top = 12.0
 offset_right = 40.0
 offset_bottom = 13.0
 
-[node name="MaleTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" instance=ExtResource("10_naogw")]
+[node name="MaleTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"] instance=ExtResource("10_naogw")]
 layout_mode = 1
 offset_left = 4.66667
 offset_top = 70.6667
@@ -1729,7 +1736,7 @@ offset_bottom = 86.5027
 scale = Vector2(1.25, 1.25)
 theme = ExtResource("5_qi2yv")
 
-[node name="FemaleTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" instance=ExtResource("10_naogw")]
+[node name="FemaleTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"] instance=ExtResource("10_naogw")]
 layout_mode = 1
 offset_left = 27.6667
 offset_top = 70.6667
@@ -1739,7 +1746,7 @@ scale = Vector2(1.25, 1.25)
 theme = ExtResource("5_qi2yv")
 texture_normal = ExtResource("33_87j8f")
 
-[node name="NonbinaryTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" instance=ExtResource("10_naogw")]
+[node name="NonbinaryTypeBTN" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"] instance=ExtResource("10_naogw")]
 layout_mode = 1
 offset_left = 50.6667
 offset_top = 70.6667
@@ -1767,6 +1774,7 @@ offset_left = 5.33331
 offset_top = 19.6667
 offset_right = 239.334
 offset_bottom = 44.6667
+
 scale = Vector2(0.7, 0.681632)
 theme = ExtResource("5_qi2yv")
 clip_text = true
@@ -2216,8 +2224,8 @@ scale = Vector2(3, 3)
 texture_normal = ExtResource("67_uwkq2")
 
 [node name="MUSIC" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("67_s4c4m")
-volume_db = -20.0
+stream = ExtResource("106_mwxem")
+volume_db = -20.937
 autoplay = true
 bus = &"Music"
 

@@ -40,6 +40,11 @@ func _ready():
 func onTextboxEditChanged():
 	sentence = $TextboxEdit.text
 	updateHUD()
+	if not Input.is_key_pressed(KEY_SPACE) and not Input.is_key_pressed(KEY_ENTER):
+		if Input.is_key_pressed(KEY_BACKSPACE):
+			$Type/Type_Backspace.play()
+		else:
+			$Type.play()
 
 func onPrefixEditChanged(new_text):	
 	prefix = new_text
