@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=124 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -106,6 +106,7 @@
 [ext_resource type="Texture2D" uid="uid://dokenoaellcdy" path="res://PmdSkins/ExplorersOfSky/NonBinary/box.png" id="76_60ftn"]
 [ext_resource type="Texture2D" uid="uid://du5q2pe6h3pup" path="res://PmdSkins/ExplorersOfSky/NonBinary/icon.png" id="77_a3swu"]
 [ext_resource type="AudioStream" uid="uid://djx70svi8ey3s" path="res://Assets/Sounds/mute.ogg" id="78_hn1y3"]
+[ext_resource type="Script" path="res://Scripts/PresetsTab.gd" id="100_c6s1b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_el3sg"]
 atlas = ExtResource("12_k0q7g")
@@ -383,12 +384,13 @@ text = "THEMES"
 tab = NodePath("../DebugTab/Tabs/ThemesTab")
 metadata/_edit_use_anchors_ = true
 
-[node name="PresetsBTN" parent="PMD_Debug" groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
+[node name="PresetsBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
 offset_left = 595.0
 offset_top = 30.0
 offset_right = 721.0
 offset_bottom = 72.0
 text = "PRESETS"
+tab = NodePath("../DebugTab/Tabs/PresetsTab")
 metadata/_edit_use_anchors_ = true
 
 [node name="DebugTab" type="NinePatchRect" parent="PMD_Debug"]
@@ -1208,6 +1210,7 @@ volume_db = -25.0
 bus = &"Sound"
 
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -1602,6 +1605,7 @@ theme = ExtResource("5_qi2yv")
 text = "CLOSE"
 
 [node name="BoxSkinWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" node_paths=PackedStringArray("skinDropdown", "icon", "box", "maleTypeBTN", "femaleTypeBTN", "nonBinaryTypeBTN")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332
@@ -1746,10 +1750,10 @@ theme = ExtResource("5_qi2yv")
 texture_normal = ExtResource("34_tw0f3")
 
 [node name="PresetsTab" type="Control" parent="PMD_Debug/DebugTab/Tabs"]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
+script = ExtResource("100_c6s1b")
 
 [node name="Bg" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/PresetsTab"]
 layout_mode = 0
@@ -1757,11 +1761,12 @@ offset_right = 176.0
 offset_bottom = 97.0
 color = Color(0.137255, 0.137255, 0.137255, 1)
 
-[node name="SkinDropdown" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/PresetsTab" groups=["UI_BUTTONS"]]
-offset_left = 6.66667
-offset_top = 24.0
-offset_right = 240.667
-offset_bottom = 49.0
+[node name="PresetDropdown" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/PresetsTab" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 5.33331
+offset_top = 19.6667
+offset_right = 239.334
+offset_bottom = 44.6667
 scale = Vector2(0.7, 0.681632)
 theme = ExtResource("5_qi2yv")
 clip_text = true
@@ -1772,6 +1777,64 @@ allow_reselect = true
 popup/item_0/text = "[NULL]"
 popup/item_0/icon = ExtResource("22_ruxgj")
 popup/item_0/id = 0
+
+[node name="LoadPortraitBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PresetsTab" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 60.6666
+offset_right = 179.0
+offset_bottom = 80.6666
+scale = Vector2(0.8, 0.8)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "SAVE"
+
+[node name="PresetName" type="LineEdit" parent="PMD_Debug/DebugTab/Tabs/PresetsTab"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0281364
+anchor_top = 0.549725
+anchor_right = 0.665136
+anchor_bottom = 0.715107
+offset_left = 0.0479984
+offset_top = 8.00999
+offset_right = -0.0640106
+offset_bottom = 7.96797
+theme = ExtResource("5_qi2yv")
+placeholder_text = "Preset Name..."
+metadata/_edit_use_anchors_ = true
+
+[node name="SavePresetLabel" type="Label" parent="PMD_Debug/DebugTab/Tabs/PresetsTab"]
+layout_mode = 0
+offset_left = 6.33333
+offset_top = 46.3333
+offset_right = 171.333
+offset_bottom = 59.3333
+scale = Vector2(0.7219, 0.7219)
+text = "SAVE CURRENT SETUP AS A PRESET"
+label_settings = SubResource("LabelSettings_ahui5")
+
+[node name="Underline" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/PresetsTab/SavePresetLabel"]
+layout_mode = 0
+offset_top = 12.0
+offset_right = 163.0
+offset_bottom = 13.0
+
+[node name="LoadPresetLabel" type="Label" parent="PMD_Debug/DebugTab/Tabs/PresetsTab"]
+layout_mode = 0
+offset_left = 6.33333
+offset_top = 4.66666
+offset_right = 171.333
+offset_bottom = 17.6667
+scale = Vector2(0.7219, 0.7219)
+text = "LOAD AN EXISTING PRESET"
+label_settings = SubResource("LabelSettings_ahui5")
+
+[node name="Underline" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/PresetsTab/LoadPresetLabel"]
+layout_mode = 0
+offset_top = 12.0
+offset_right = 123.0
+offset_bottom = 13.0
 
 [node name="Settings" type="TextureButton" parent="." groups=["UI_BUTTONS"]]
 offset_left = 9.0
