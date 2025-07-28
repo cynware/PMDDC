@@ -120,7 +120,6 @@ func RefreshDropdown():
 	
 func OnSkinDropdownItemSelected(index):
 	currentlySelectedSkin = loadedSkins[index];
-	
 	maleTypeBTN.MarkAsAvailable()
 	femaleTypeBTN.MarkAsAvailable()
 	nonBinaryTypeBTN.MarkAsAvailable()
