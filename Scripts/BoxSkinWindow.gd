@@ -3,6 +3,7 @@ extends Control
 @export var skinDropdown:OptionButton;
 var loadedSkins:Array[PmdSkinData]
 var currentlySelectedSkin:PmdSkinData;
+var currentlySelectedGender:int;
 
 @export var icon:Sprite2D;
 @export var box:Sprite2D;
@@ -32,6 +33,7 @@ func _ready():
 	CheckAndCreateBoxSkinFolder();
 	RefreshDropdown()
 	OnSkinDropdownItemSelected(0);
+	OnMaleTypePressed();
 	$"../../..".texture = currentlySelectedSkin.male_icon;
 
 	
@@ -183,15 +185,17 @@ func OnSkinDropdownItemSelected(index):
 
 
 func OnMaleTypePressed():
-	SelectGender(currentlySelectedSkin.male_icon, currentlySelectedSkin.male_box, load("res://PmdSkins/ExplorersOfSky/Male/icon.png"));
+	SelectGender(currentlySelectedSkin.male_icon, currentlySelectedSkin.male_box, load("res://PmdSkins/ExplorersOfSky/Male/icon.png"), 1);
 
 func OnFemaleTypePressed():
-	SelectGender(currentlySelectedSkin.female_icon, currentlySelectedSkin.female_box, load("res://PmdSkins/ExplorersOfSky/Female/icon.png"));
+	SelectGender(currentlySelectedSkin.female_icon, currentlySelectedSkin.female_box, load("res://PmdSkins/ExplorersOfSky/Female/icon.png"), 2);
 
 func OnNonBinaryTypePressed():
-	SelectGender(currentlySelectedSkin.nonbinary_icon, currentlySelectedSkin.nonbinary_box, load("res://PmdSkins/ExplorersOfSky/Nonbinary/icon.png"));
+	SelectGender(currentlySelectedSkin.nonbinary_icon, currentlySelectedSkin.nonbinary_box, load("res://PmdSkins/ExplorersOfSky/Nonbinary/icon.png"), 3);
 	
-func SelectGender(newIcon:Texture2D, newBox:Texture2D, defaultSkin:Texture2D):
+func SelectGender(newIcon:Texture2D, newBox:Texture2D, defaultSkin:Texture2D, genderId:int):
+	currentlySelectedGender = genderId;
+	
 	icon.texture = newIcon;
 	box.texture = newBox;
 	

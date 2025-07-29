@@ -6,6 +6,7 @@ extends Control
 @export var localFolderDropdownLocal:OptionButton;
 @export var localEmotionDropdownLocal:OptionButton;
 
+var curPmdCollabURL = "";
 
 func _ready():
 	CheckAndCreatePortraitFolder()
@@ -58,6 +59,7 @@ func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 			localEmotionDropdownLocal.add_icon_item(portraitTexture, portraits[i], i);
 		
 func loadIconLocal():
+	curPmdCollabURL = "";
 	var imagepath = "user://Portraits/" + localFolderDropdownLocal.text + "/"+localEmotionDropdownLocal.text;
 	
 	if(!FileAccess.file_exists(imagepath)):
@@ -90,6 +92,7 @@ func loadIconCollab():
 
 func loadIconCollabFromURL(URL:String):
 	# Create an HTTP request node and connect its completion signal.
+	curPmdCollabURL = URL;
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.request_completed.connect(self._http_request_completed)

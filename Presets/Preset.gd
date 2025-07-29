@@ -1,7 +1,7 @@
 class_name Preset extends Resource
 
 @export var prefix:String;
-@export var prefixColor:Color;
+@export var prefixColor:String;
 @export var text:String;
 
 @export var skinName:String;

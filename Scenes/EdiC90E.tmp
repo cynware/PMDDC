@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=130 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -110,6 +110,7 @@
 [ext_resource type="Texture2D" uid="uid://x6w6u2s7jye5" path="res://Assets/Images/trash1.png" id="102_4jttb"]
 [ext_resource type="Script" path="res://Scripts/PresetsTab.gd" id="102_iggxt"]
 [ext_resource type="Texture2D" uid="uid://bne4ici75m24q" path="res://Assets/Images/trash2.png" id="103_3iglc"]
+[ext_resource type="Script" path="res://Presets/Preset.gd" id="103_x5176"]
 [ext_resource type="AudioStream" uid="uid://djs0qxywnom4b" path="res://Assets/Sounds/Writing's A Mystery.wav" id="106_mwxem"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_el3sg"]
@@ -164,6 +165,20 @@ shader_parameter/lod = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ahui5"]
 font = ExtResource("33_x1l3a")
+
+[sub_resource type="Resource" id="Resource_nbbti"]
+script = ExtResource("103_x5176")
+prefix = "PREFIXXX"
+prefixColor = Color(1, 0, 0, 1)
+text = "TEXXTT IUJEN GDFKGHKDFJGKJDFGMN"
+skinName = "ExplorersOfSky_3"
+skinGender = 3
+pmdCollabPortraitURL = ""
+customPortraitName = "Mood"
+customPortraitEmotion = "dissapointment.png"
+iconPosition = Vector2(413, 162)
+flipPortrait = false
+hidePortrait = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n64qr"]
 atlas = ExtResource("8_y615r")
@@ -1222,7 +1237,6 @@ stream = ExtResource("61_0gbvx")
 volume_db = -25.0
 
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -1761,13 +1775,12 @@ scale = Vector2(1.25, 1.25)
 theme = ExtResource("5_qi2yv")
 texture_normal = ExtResource("34_tw0f3")
 
-[node name="PresetsTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("presetDropdown", "presetNameField", "dialogTab", "skinWindow", "portraitMenu", "localFolderDropdownLocal", "localEmotionDropdownLocal", "hidePortraitToggle", "flipPortraitButton", "portrait")]
+[node name="PresetsTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("dialogTab", "skinWindow", "portraitMenu", "localFolderDropdownLocal", "localEmotionDropdownLocal", "hidePortraitToggle", "flipPortraitButton", "portrait")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
 script = ExtResource("102_iggxt")
-presetDropdown = NodePath("PresetDropdown")
-presetNameField = NodePath("PresetName")
 dialogTab = NodePath("../DialogueTab")
 skinWindow = NodePath("../ThemesTab/BoxSkinWindow")
 portraitMenu = NodePath("../ThemesTab/PortraitWindow")
@@ -1776,6 +1789,7 @@ localEmotionDropdownLocal = NodePath("../ThemesTab/PortraitWindow/Emotion_LocalE
 hidePortraitToggle = NodePath("../ThemesTab/PortraitHide")
 flipPortraitButton = NodePath("../ThemesTab/PortraitFlip")
 portrait = NodePath("../../../../PMD_Main/Portrait")
+testPreset = SubResource("Resource_nbbti")
 
 [node name="Bg" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/PresetsTab"]
 layout_mode = 0
@@ -1800,7 +1814,7 @@ popup/item_0/text = "[NULL]"
 popup/item_0/icon = ExtResource("22_ruxgj")
 popup/item_0/id = 0
 
-[node name="SavePresetBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PresetsTab" groups=["UI_BUTTONS"]]
+[node name="LoadPortraitBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PresetsTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 119.0
 offset_top = 60.6666
@@ -2305,9 +2319,6 @@ bus = &"Music"
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/MaleTypeBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" method="OnMaleTypePressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/FemaleTypeBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" method="OnFemaleTypePressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/NonbinaryTypeBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" method="OnNonBinaryTypePressed"]
-[connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PresetsTab/PresetDropdown" to="PMD_Debug/DebugTab/Tabs/PresetsTab" method="LoadPresetFromDropdown"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PresetsTab/SavePresetBTN" to="PMD_Debug/DebugTab/Tabs/PresetsTab" method="OnSavePresetPressed"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PresetsTab/TextureButton" to="PMD_Debug/DebugTab/Tabs/PresetsTab" method="OnDeletePresetPressed"]
 [connection signal="pressed" from="Settings" to="Settings" method="_on_settings_pressed"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page1/WindowSizeDropdown" to="Settings/SettingsMenu" method="_on_window_size_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
