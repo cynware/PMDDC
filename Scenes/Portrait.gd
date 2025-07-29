@@ -44,6 +44,7 @@ func _process(delta):
 			$PortraitHoverButton/ARROWDOWN.visible = true
 # CONTROLS FOR MOVEMENT
 		if Input.is_action_just_pressed("PORTRAIT_LEFT"):
+			player.pitch_scale = 1.0
 			if Input.is_key_pressed(KEY_SHIFT):
 				player.stream = sound1
 				$".".position.x -= 12
@@ -53,6 +54,7 @@ func _process(delta):
 				$".".position.x -= 3
 				player.play()
 		if Input.is_action_just_pressed("PORTRAIT_UP"):
+			player.pitch_scale = 1.2
 			if Input.is_key_pressed(KEY_SHIFT):
 				player.stream = sound1
 				$".".position.y -= 12
@@ -62,6 +64,7 @@ func _process(delta):
 				$".".position.y -= 3
 				player.play()
 		if Input.is_action_just_pressed("PORTRAIT_RIGHT"):
+			player.pitch_scale = 0.8
 			if Input.is_key_pressed(KEY_SHIFT):
 				player.stream = sound1
 				$".".position.x += 12
@@ -71,6 +74,7 @@ func _process(delta):
 				$".".position.x += 3
 				player.play()
 		if Input.is_action_just_pressed("PORTRAIT_DOWN"):
+			player.pitch_scale = 0.6
 			if Input.is_key_pressed(KEY_SHIFT):
 				player.stream = sound1
 				$".".position.y += 12
