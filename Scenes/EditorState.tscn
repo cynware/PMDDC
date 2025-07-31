@@ -1222,7 +1222,6 @@ stream = ExtResource("61_0gbvx")
 volume_db = -25.0
 
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -1382,7 +1381,6 @@ texture_normal = ExtResource("60_j7wfn")
 texture_pressed = ExtResource("61_f1ugg")
 
 [node name="PortraitWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" node_paths=PackedStringArray("icon", "localFolderDropdownLocal", "localEmotionDropdownLocal")]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332
@@ -1762,6 +1760,7 @@ theme = ExtResource("5_qi2yv")
 texture_normal = ExtResource("34_tw0f3")
 
 [node name="PresetsTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("presetDropdown", "presetNameField", "dialogTab", "skinWindow", "portraitMenu", "localFolderDropdownLocal", "localEmotionDropdownLocal", "hidePortraitToggle", "flipPortraitButton", "portrait")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0

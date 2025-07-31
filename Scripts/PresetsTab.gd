@@ -44,13 +44,15 @@ func LoadPreset(preset:Preset):
 			skinWindow.OnNonBinaryTypePressed();
 	
 	# PORTRAIT STUFF
+	
 	if(preset.pmdCollabPortraitURL != ""):
 		portraitMenu.loadIconCollabFromURL(preset.pmdCollabPortraitURL);
 	else:
 		localFolderDropdownLocal.selected = get_index_by_name(localFolderDropdownLocal, preset.customPortraitName)
+		localFolderDropdownLocal.item_selected.emit(localFolderDropdownLocal.selected)
 		localEmotionDropdownLocal.selected = get_index_by_name(localEmotionDropdownLocal, preset.customPortraitEmotion)
+		localEmotionDropdownLocal.item_selected.emit(localEmotionDropdownLocal.selected)
 		
-		portraitMenu.loadIconLocal();
 	
 	portrait.position = preset.iconPosition
 	flipPortraitButton.button_pressed = preset.flipPortrait;
@@ -79,7 +81,7 @@ func SaveCurrentStateAsPreset():
 
 	preset.skinGender = skinWindow.currentlySelectedGender;
 	preset.skinName = skinWindow.skinDropdown.text;
-	if(portraitMenu.curPmdCollabURL == null):
+	if(portraitMenu.curPmdCollabURL == ""):
 		preset.customPortraitName = portraitMenu.localFolderDropdownLocal.text;
 		preset.customPortraitEmotion = portraitMenu.localEmotionDropdownLocal.text;
 	else:
@@ -129,9 +131,6 @@ func LoadPresetFromDropdown(index):
 	preset.iconPosition = string_to_vector2(data.iconPosition)
 	preset.flipPortrait = data.flipPortrait;
 	preset.hidePortrait = data.hidePortrait;
-	
-	
-	
 	
 	# Assign values from JSO
 	

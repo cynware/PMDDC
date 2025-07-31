@@ -70,7 +70,7 @@ func loadIconLocal():
 	if image.load(imagepath) == OK:
 		if image.get_width() > 40 or image.get_height() > 40:
 			image.resize(40, 40, Image.INTERPOLATE_NEAREST)
-	
+
 		var texture = ImageTexture.create_from_image(image)
 		icon.texture = texture
 		icon_texture_changed()
