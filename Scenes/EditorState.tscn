@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=131 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -107,10 +107,13 @@
 [ext_resource type="Texture2D" uid="uid://dokenoaellcdy" path="res://PmdSkins/ExplorersOfSky/NonBinary/box.png" id="76_60ftn"]
 [ext_resource type="Texture2D" uid="uid://du5q2pe6h3pup" path="res://PmdSkins/ExplorersOfSky/NonBinary/icon.png" id="77_a3swu"]
 [ext_resource type="AudioStream" uid="uid://djx70svi8ey3s" path="res://Assets/Sounds/mute.ogg" id="78_hn1y3"]
+[ext_resource type="Texture2D" uid="uid://wls6e8y6ugpo" path="res://Assets/Images/cross_cropped.png" id="94_od227"]
 [ext_resource type="Texture2D" uid="uid://x6w6u2s7jye5" path="res://Assets/Images/trash1.png" id="102_4jttb"]
 [ext_resource type="Script" path="res://Scripts/PresetsTab.gd" id="102_iggxt"]
 [ext_resource type="Texture2D" uid="uid://bne4ici75m24q" path="res://Assets/Images/trash2.png" id="103_3iglc"]
 [ext_resource type="AudioStream" uid="uid://djs0qxywnom4b" path="res://Assets/Sounds/Writing's A Mystery.wav" id="106_mwxem"]
+[ext_resource type="Texture2D" uid="uid://d3lihkq3n7wa4" path="res://Assets/Images/Error_Shocked.png" id="112_opyju"]
+[ext_resource type="AudioStream" uid="uid://d3cmq33rklg1r" path="res://Assets/Sounds/error_shock.ogg" id="114_8jypi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_el3sg"]
 atlas = ExtResource("12_k0q7g")
@@ -428,7 +431,6 @@ offset_bottom = 101.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogueTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("textboxText", "textboxText2")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -965,6 +967,7 @@ scale = Vector2(0.7, 0.7)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "CLOSE"
+icon = ExtResource("94_od227")
 
 [node name="UnicodeWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
 visible = false
@@ -1186,6 +1189,7 @@ scale = Vector2(0.7, 0.7)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "CLOSE"
+icon = ExtResource("94_od227")
 
 [node name="SHINX_HIJINX_APPRECIATION" type="LinkButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow"]
 layout_mode = 0
@@ -1222,6 +1226,7 @@ stream = ExtResource("61_0gbvx")
 volume_db = -25.0
 
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -1381,6 +1386,7 @@ texture_normal = ExtResource("60_j7wfn")
 texture_pressed = ExtResource("61_f1ugg")
 
 [node name="PortraitWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" node_paths=PackedStringArray("icon", "localFolderDropdownLocal", "localEmotionDropdownLocal")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332
@@ -1626,6 +1632,7 @@ scale = Vector2(0.7, 0.7)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "CLOSE"
+icon = ExtResource("94_od227")
 
 [node name="BoxSkinWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" node_paths=PackedStringArray("skinDropdown", "icon", "box", "maleTypeBTN", "femaleTypeBTN", "nonBinaryTypeBTN")]
 visible = false
@@ -1710,6 +1717,7 @@ scale = Vector2(0.7, 0.7)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
 text = "CLOSE"
+icon = ExtResource("94_od227")
 
 [node name="SkinDropdown" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -2229,11 +2237,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CloseBTN" type="Button" parent="Settings/SettingsMenu" groups=["UI_BUTTONS"]]
-layout_mode = 0
-offset_left = 203.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 183.0
 offset_top = 445.0
-offset_right = 383.0
+offset_right = 363.0
 offset_bottom = 462.0
+grow_horizontal = 2
 scale = Vector2(2, 2)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
@@ -2279,6 +2291,96 @@ stream = ExtResource("106_mwxem")
 volume_db = -20.937
 autoplay = true
 bus = &"Music"
+
+[node name="ErrorScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dark" type="ColorRect" parent="ErrorScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 19.7
+anchor_bottom = 14.9
+color = Color(0, 0, 0, 0.631373)
+
+[node name="ErrorBorder" type="NinePatchRect" parent="ErrorScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 19.1
+anchor_bottom = 13.25
+offset_left = 4.0
+offset_top = 163.0
+offset_right = -480.0
+offset_bottom = -218.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(3, 3)
+texture = ExtResource("21_a8dco")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="ErrorDisplay" type="ColorRect" parent="ErrorScreen/ErrorBorder"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 236.0
+offset_bottom = 105.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="ErrorText" type="RichTextLabel" parent="ErrorScreen/ErrorBorder/ErrorDisplay"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 342.0
+offset_bottom = 146.0
+scale = Vector2(0.666, 0.666)
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+text = "Whoo-hoops! You have to put your CD back in your computer!"
+
+[node name="ErrorPortraitBorder" type="TextureRect" parent="ErrorScreen/ErrorBorder"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = -53.3333
+offset_right = 24.0
+offset_bottom = -5.33334
+grow_horizontal = 2
+texture = ExtResource("21_a8dco")
+
+[node name="ErrorPortrait" type="TextureRect" parent="ErrorScreen/ErrorBorder/ErrorPortraitBorder"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.33334
+offset_right = 44.0
+offset_bottom = 44.3333
+texture = ExtResource("112_opyju")
+
+[node name="Error_SND" type="AudioStreamPlayer" parent="ErrorScreen"]
+stream = ExtResource("114_8jypi")
+volume_db = -9.778
 
 [connection signal="file_selected" from="SCREENSHOT MANAGER/SaveWindow" to="SCREENSHOT MANAGER" method="_on_save_window_file_selected"]
 [connection signal="button_down" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_button_button_down"]

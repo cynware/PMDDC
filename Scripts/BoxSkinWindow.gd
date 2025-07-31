@@ -27,6 +27,8 @@ var BoxChangeTargets = [
 	"../../../../ThemesBTN/Border",
 	"../../../../PresetsBTN/Border",
 	"../../../../../Settings/SettingsMenu/SettingsPanel",
+	"../../../../../ErrorScreen/ErrorBorder",
+	"../../../../../ErrorScreen/ErrorBorder/ErrorPortraitBorder"
 ]
 
 func _ready():
