@@ -75,7 +75,6 @@ func loadIconLocal():
 		icon.texture = texture
 		icon_texture_changed()
 		
-
 func loadIconCollab():
 	# Shiny Check
 	var IfShiny = ""
@@ -115,7 +114,6 @@ func _http_request_completed(result, response_code, headers, body):
 	icon.texture = texture
 	icon_texture_changed()
 
-
 func icon_texture_changed():
 	if(icon.texture == null):
 		return;
@@ -142,4 +140,18 @@ func OnRefresh():
 
 func OnEmotionSelected(index):
 	loadIconLocal()
-	
+
+var allowedDexNumCharacters = "0123456789";
+
+func OnDexNumChanged(new_text):
+	var caret_pos = $DexNum.caret_column 
+	var filtered_text = ""
+	for char in new_text:
+		if char in allowedDexNumCharacters:
+			filtered_text += char
+	$DexNum.text = filtered_text;
+	$DexNum.caret_column = caret_pos;
+
+func _input(event):
+	if(Input.is_action_just_pressed("BACK") and visible):
+		visible = false;

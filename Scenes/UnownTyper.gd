@@ -1,7 +1,7 @@
-extends Node
+extends Control
 
 @onready var text_edit = $"../TextboxEdit"
-@onready var toggle_button = $UnownModeToggle
+@onready var toggle_button = $UnownModeToggleBTN
 
 var unown_mode := false
 
@@ -31,3 +31,7 @@ func _on_textbox_edit_gui_input(event):
 		if upper_char in map.keys():
 			text_edit.insert_text_at_caret(map[upper_char])
 			$"../TextboxEdit".accept_event()
+
+func _input(event):
+	if(Input.is_action_just_pressed("BACK") and visible):
+		visible = false;

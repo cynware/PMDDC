@@ -102,3 +102,6 @@ func _on_alignment_button_item_selected(index):
 	updateHUD();
 	print(Alignment)
 
+func _input(event):
+	if(Input.is_action_just_pressed("BACK") and $SymbolWindow.visible):
+		$SymbolWindow.visible = false;

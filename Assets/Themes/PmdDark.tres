@@ -9,7 +9,8 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fmqrw"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjpo4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltjfo"]
+bg_color = Color(0.360108, 0.360108, 0.360108, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y78k6"]
 bg_color = Color(0.12549, 0.12549, 0.12549, 0.937255)
@@ -50,7 +51,7 @@ content_margin_top = 5.0
 default_font = ExtResource("1_3uc8h")
 default_font_size = 16
 Button/styles/focus = SubResource("StyleBoxEmpty_fmqrw")
-Button/styles/hover = SubResource("StyleBoxEmpty_cjpo4")
+Button/styles/hover = SubResource("StyleBoxFlat_ltjfo")
 Button/styles/normal = SubResource("StyleBoxFlat_y78k6")
 Button/styles/pressed = SubResource("StyleBoxFlat_xv2ht")
 CheckBox/constants/check_v_offset = 2

@@ -27,8 +27,8 @@ var BoxChangeTargets = [
 	"../../../../ThemesBTN/Border",
 	"../../../../PresetsBTN/Border",
 	"../../../../../Settings/SettingsMenu/SettingsPanel",
-	"../../../../../ErrorScreen/ErrorBorder",
-	"../../../../../ErrorScreen/ErrorBorder/ErrorPortraitBorder"
+	"../../../../../NoticeScreen/InfoBorder",
+	"../../../../../NoticeScreen/InfoBorder/InfoPortraitBorder"
 ]
 
 func _ready():
@@ -182,7 +182,7 @@ func OnSkinDropdownItemSelected(index):
 				if currentlySelectedSkin in loadedSkins.slice(0,5):
 					node.texture = currentlySelectedSkin.nonbinary_icon
 				else:
-					node.texture = load("res://PmdSkins/ExplorersOfSky/Nonbinary/icon.png")
+					node.texture = load("res://PmdSkins/ExplorersOfSky/NonBinary/icon.png")
 
 
 
@@ -221,4 +221,7 @@ func OnRefresh():
 	var sound_player = $RefreshBTN/RefreshBTNSound
 	sound_player.pitch_scale = randf_range(0.95, 1.05)
 	sound_player.play()
-	
+
+func _input(event):
+	if(Input.is_action_just_pressed("BACK") and visible):
+		visible = false;

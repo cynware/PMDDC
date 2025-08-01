@@ -1,5 +1,7 @@
 extends Control
 
+@export var noticeScreen:Control;
+
 @export_category("TAB ELEMENTS")
 @export var presetDropdown:OptionButton;
 @export var presetNameField:LineEdit;
@@ -60,7 +62,6 @@ func LoadPreset(preset:Preset):
 	
 	hidePortraitToggle.button_pressed = preset.hidePortrait;
 	hidePortraitToggle.pressed.emit()
-	
 
 func CheckAndCreatePresetFolder():
 	if (!DirAccess.dir_exists_absolute("user://Presets")):
@@ -102,11 +103,56 @@ func SaveCurrentStateAsPreset():
 		file.store_string(json);
 		file.close();
 	else:
+		var errorText = "Whoo-hoops! You have to put your CD back in your computer!\n\nFailed to save the preset. :(\nPlease try again.\n\nIf this problem doesn't go away, make sure you aren't using any forbidden characters, or you have enough available storage."
+		noticeScreen.ShowNoticeScreen(errorText);
 		print("Failed to write preset to file at path: " + savePath);
 	
 	RefreshDropdown()
+
+func IsPresetValid(preset:Preset) -> bool:
+	var errorHeader = "Whoo-hoops! You have to put your CD back in your computer!\n\nFailed to load the preset. :(\n\n";
 	
+	if(!DirAccess.dir_exists_absolute("user://Portraits/" + preset.customPortraitName)):
+		var errorText = errorHeader + "The preset mentions a custom portrait collection called \"" + preset.customPortraitName + "\" that doesn't exist.";
+		noticeScreen.ShowNoticeScreen(errorText);
+		return false;
+	
+	if(!FileAccess.file_exists("user://Portraits/" + preset.customPortraitName + "/" + preset.customPortraitEmotion)):
+		var errorText = errorHeader + "The preset mentions a custom emotion called \"" + preset.customPortraitEmotion + "\" belonging to the \"" + preset.customPortraitName + "\" portrait collection that doesn't exist.";
+		noticeScreen.ShowNoticeScreen(errorText);
+		return false;
+	
+	var localSkins = DirAccess.get_directories_at("res://PmdSkins");
+	if(!DirAccess.dir_exists_absolute("user://BoxSkins/" + preset.skinName)):
+		if(!localSkins.has(preset.skinName)):
+			var errorText = errorHeader + "The preset mentions a custom box skin collection called \"" + preset.skinName + "\" that doesn't exist.";
+			noticeScreen.ShowNoticeScreen(errorText);
+			return false;
+	
+	if(!DirAccess.dir_exists_absolute("user://BoxSkins/" + preset.skinName)):
+		if(!localSkins.has(preset.skinName)):
+			var errorText = errorHeader + "The preset mentions a custom box skin collection called \"" + preset.skinName + "\" that doesn't exist.";
+			noticeScreen.ShowNoticeScreen(errorText);
+			return false;
+	
+	var genderFolderName = "";
+	match preset.skinGender:
+		1:
+			genderFolderName = "Male"
+		2:
+			genderFolderName = "Female"
+		3: 
+			genderFolderName = "NonBinary"
+	
+	if(!DirAccess.dir_exists_absolute("user://BoxSkins/" + preset.skinName + "/" + genderFolderName)):
+		if(!localSkins.has(preset.skinName)):
+			var errorText = errorHeader + "Couldn't locate the gender folder \"" + genderFolderName + "\" mentioned in the preset.";
+			noticeScreen.ShowNoticeScreen(errorText);
+			return false;
+			
+	return true;
 func LoadPresetFromDropdown(index):
+	
 	var path = "user://Presets/" + presetDropdown.text;
 	var file = FileAccess.open(path, FileAccess.READ)
 	var content = file.get_as_text()
@@ -114,6 +160,8 @@ func LoadPresetFromDropdown(index):
 
 	var result = JSON.parse_string(content)
 	if typeof(result) != TYPE_DICTIONARY:
+		var errorText = "Whoo-hoops! You have to put your CD back in your computer!\n\nFailed to parse the " + presetDropdown.text + " preset. :(\n\nIf this keeps happening, the preset may be corrupted or has incorrect formatting."
+		noticeScreen.ShowNoticeScreen(errorText);
 		push_error("Failed to parse JSON")
 		return null
 
@@ -133,6 +181,8 @@ func LoadPresetFromDropdown(index):
 	preset.hidePortrait = data.hidePortrait;
 	
 	# Assign values from JSO
+	if(!IsPresetValid(preset)): 
+		return;
 	
 	LoadPreset(preset);
 	
@@ -141,6 +191,7 @@ func RefreshDropdown():
 		
 	for preset in DirAccess.get_files_at("user://Presets"):
 		presetDropdown.add_item(preset);
+		
 func get_index_by_name(dropdown: OptionButton, target_name: String) -> int:
 	for i in range(dropdown.get_item_count()):
 		if dropdown.get_item_text(i) == target_name:
