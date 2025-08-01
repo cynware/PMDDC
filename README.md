@@ -54,8 +54,8 @@ Feel free to give feedback or tell us any QOL changes you'd like to see, too! We
 
 ---
 ## SCREENSHOTS
-<img width="512" height="384" alt="lilligant" src="https://github.com/user-attachments/assets/d6ca04cf-bbd8-4145-b797-3794b9879501" />
-<img width="512" height="384" alt="broissleepingsob" src="https://github.com/user-attachments/assets/65f3e83e-300d-4c07-b256-b6e023732f8a" />
-<img width="512" height="384" alt="eodreference" src="https://github.com/user-attachments/assets/11ceeb3a-9257-4d4e-9191-76b028834319" />
-<img width="512" height="384" alt="what" src="https://github.com/user-attachments/assets/7ae0aa85-e1a3-452b-9efa-51727d1a7d1e" />
+<img width="384" height="288" alt="lilligant" src="https://github.com/user-attachments/assets/d6ca04cf-bbd8-4145-b797-3794b9879501" />
+<img width="384" height="288" alt="broissleepingsob" src="https://github.com/user-attachments/assets/65f3e83e-300d-4c07-b256-b6e023732f8a" />
+<img width="384" height="288" alt="eodreference" src="https://github.com/user-attachments/assets/11ceeb3a-9257-4d4e-9191-76b028834319" />
+<img width="384" height="288" alt="what" src="https://github.com/user-attachments/assets/7ae0aa85-e1a3-452b-9efa-51727d1a7d1e" />
 
