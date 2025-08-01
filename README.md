@@ -38,5 +38,5 @@ and has been designed to be as accurate as possible, down to the **pixel**.
 > [ShinxHijinx](https://www.youtube.com/user/ShinxHijinx)
 >
 ---
-This program couldn't have been made possible without the help of these amazing people! Be sure to report any bugs to our Github, Itch.io page, or contact "remukko" on Discord!
-Feel free to give feedback or any QOL changes you'd like to see, too! We're working on making this program the best it can be!
+This program couldn't have been made possible without the help of these amazing people! Be sure to report any bugs to our [Github](https://github.com/cynware/PMDDC/issues), [Itch.io](https://remukko.itch.io/pmddc) page, or contact "remukko" on Discord!
+Feel free to give feedback or tell us any QOL changes you'd like to see, too! We're working on making this program the best it can be!
