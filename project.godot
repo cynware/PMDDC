@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Pokemon Mystery Dungeon: Dialog Creator"
-config/description="dcfiolsdfbjilsdfbujlsdbjlbjkldjkdAS"
+config/description="A small tool that allows you to make your own PMD dialogue with ease!"
 config/version="v1.0.0"
 run/main_scene="res://Scenes/EditorState.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
