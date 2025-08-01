@@ -39,6 +39,15 @@ Check out our [User Guide](https://docs.google.com/document/d/1o-Z5ef6qfXY3gpRPF
 **THE WONDER MAIL FONT**
 > [ShinxHijinx](https://www.youtube.com/user/ShinxHijinx)
 >
+**PLAYTESTERS**
+> Ultimate Kirb
+> 
+> Sagittari
+> 
+> Mintyslime
+> 
+> Angiev1rus
+> 
 ---
 This program couldn't have been made possible without the help of these amazing people! Be sure to report any bugs to our [Github](https://github.com/cynware/PMDDC/issues), [Itch.io](https://remukko.itch.io/pmddc) page, or contact "remukko" on Discord!
 Feel free to give feedback or tell us any QOL changes you'd like to see, too! We're working on making this program the best it can be!
