@@ -2,7 +2,7 @@ extends Control
 
 var latestVersion:String;
 var githubReleasesLink:String = "https://github.com/cynware/PMDDC/releases"
-var itchLink:String = "https://remukko.itch.io/pmddc"
+var itchLink:String = "https://rem521.itch.io/pmddc"
 
 @export var infoText:RichTextLabel;
 @export var gitButton:Button;

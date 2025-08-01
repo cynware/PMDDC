@@ -2377,6 +2377,7 @@ Theres a new update available!
 -Kissed you're mum"
 
 [node name="CloseBTN" type="Button" parent="NoticeScreen/InfoBorder/InfoDisplay" groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 91.0
 offset_top = 83.0
 offset_right = 142.0
@@ -2390,6 +2391,7 @@ icon = ExtResource("94_od227")
 
 [node name="DownloadGithub" type="Button" parent="NoticeScreen/InfoBorder/InfoDisplay" groups=["UI_BUTTONS"]]
 visible = false
+layout_mode = 0
 offset_left = 89.0
 offset_top = 82.3333
 offset_right = 180.0
@@ -2403,6 +2405,7 @@ icon = ExtResource("114_kf8gs")
 
 [node name="DownloadItch" type="Button" parent="NoticeScreen/InfoBorder/InfoDisplay" groups=["UI_BUTTONS"]]
 visible = false
+layout_mode = 0
 offset_left = 19.0
 offset_top = 82.6667
 offset_right = 111.0
