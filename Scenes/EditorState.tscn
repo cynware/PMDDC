@@ -1220,10 +1220,12 @@ bus = &"Sound"
 [node name="Type" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
 stream = ExtResource("60_x0oe2")
 volume_db = -18.0
+bus = &"Sound"
 
 [node name="Type_Backspace" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/Type"]
 stream = ExtResource("61_0gbvx")
 volume_db = -25.0
+bus = &"Sound"
 
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
 visible = false
@@ -2383,6 +2385,7 @@ texture = ExtResource("112_opyju")
 [node name="Error_SND" type="AudioStreamPlayer" parent="ErrorScreen"]
 stream = ExtResource("114_8jypi")
 volume_db = -9.778
+bus = &"Sound"
 
 [connection signal="file_selected" from="SCREENSHOT MANAGER/SaveWindow" to="SCREENSHOT MANAGER" method="_on_save_window_file_selected"]
 [connection signal="button_down" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_button_button_down"]
