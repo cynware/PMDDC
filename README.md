@@ -51,3 +51,11 @@ Check out our [User Guide](https://docs.google.com/document/d/1o-Z5ef6qfXY3gpRPF
 ---
 This program couldn't have been made possible without the help of these amazing people! Be sure to report any bugs to our [Github](https://github.com/cynware/PMDDC/issues), [Itch.io](https://remukko.itch.io/pmddc) page, or contact "remukko" on Discord!
 Feel free to give feedback or tell us any QOL changes you'd like to see, too! We're working on making this program the best it can be!
+
+---
+## SCREENSHOTS
+<img width="512" height="384" alt="lilligant" src="https://github.com/user-attachments/assets/d6ca04cf-bbd8-4145-b797-3794b9879501" />
+<img width="512" height="384" alt="broissleepingsob" src="https://github.com/user-attachments/assets/65f3e83e-300d-4c07-b256-b6e023732f8a" />
+<img width="512" height="384" alt="eodreference" src="https://github.com/user-attachments/assets/11ceeb3a-9257-4d4e-9191-76b028834319" />
+<img width="512" height="384" alt="what" src="https://github.com/user-attachments/assets/7ae0aa85-e1a3-452b-9efa-51727d1a7d1e" />
+
