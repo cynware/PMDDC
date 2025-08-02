@@ -9,7 +9,8 @@ This program is made to allow people to create their own dialogue in the style o
 and has been designed to be as accurate as possible, down to the **pixel**.
 
 <img width="384" height="288" alt="godot windows opt tools 64_TIkfIqpr4O" src="https://github.com/user-attachments/assets/80b5318f-9ce9-499f-bb41-bab7b6203ad0" />
-<img width="384" height="288" alt="godot windows opt tools 64_zXpoc0bQ1H" src="https://github.com/user-attachments/assets/79728f79-5e1c-4bb1-a7fc-14a6b25f6bd9" />
+<img width="384" height="288" alt="godot windows opt tools 64_dyFFVDRaMu" src="https://github.com/user-attachments/assets/a85e7c49-7bef-4a62-8b64-d581d201c644" />
+
 
 Check out our [User Guide](https://docs.google.com/document/d/1o-Z5ef6qfXY3gpRPFDh1-bJZqdwO-P0FDkMGhKyFNDY/edit?usp=sharing) for the latest version!
 
