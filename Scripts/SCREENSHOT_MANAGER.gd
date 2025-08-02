@@ -19,6 +19,9 @@ func _ready():
 	get_viewport().transparent_bg = true;	
 	DisplayServer.window_set_min_size(Vector2(256, 192));
 	
+	resolutionMultiplierDropdown.selected = Preferences.export_ResolutionMultiplier;
+	transparentBackgroundToggle.button_pressed = Preferences.export_transparentBackground
+	
 func _process(delta):
 	#if Input.is_action_just_pressed("ResetWindowSize"):
 		#get_window().size = Vector2(256, 192);
@@ -55,3 +58,11 @@ func _on_save_window_file_selected(path):
 	if capture != null:
 		capture.save_png(path);
 
+
+
+func _on_export_resolution_multiplier_item_selected(index):
+	Preferences.export_ResolutionMultiplier = index;
+
+
+func _on_transparent_background_toggled(toggled_on):
+	Preferences.export_transparentBackground = toggled_on;

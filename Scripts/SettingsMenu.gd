@@ -10,21 +10,26 @@ func _ready():
 	initialArrowLeftPos = arrowLeft.position;
 	initialArrowRightPos = arrowRight.position;
 	
-	$SettingsPanel/Page3/Vol_MASTER/Master_Slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
-	$SettingsPanel/Page3/Vol_MUSIC/Music_Slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
-	$SettingsPanel/Page3/Vol_SFX/SFX_Slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound"))
+	$SettingsPanel/Page3/Vol_MASTER/Master_Slider.value = Preferences.audio_masterVolume
+	$SettingsPanel/Page3/Vol_MUSIC/Music_Slider.value = Preferences.audio_musicVolume
+	$SettingsPanel/Page3/Vol_SFX/SFX_Slider.value = Preferences.audio_sfxVolume
 
 func _on_master_sbox_value_changed(value):
 	_on_master_slider_value_changed(value)
 	$SettingsPanel/Page3/Vol_MASTER/Master_Slider.value = $SettingsPanel/Page3/Vol_MASTER/Master_SBOX.value
+	Preferences.audio_masterVolume = $SettingsPanel/Page3/Vol_MASTER/Master_Slider.value;
 
 func _on_music_sbox_value_changed(value):
 	_on_MusicSlider_value_changed(value)
 	$SettingsPanel/Page3/Vol_MUSIC/Music_Slider.value = $SettingsPanel/Page3/Vol_MUSIC/Music_SBOX.value
+	Preferences.audio_musicVolume = $SettingsPanel/Page3/Vol_MUSIC/Music_Slider.value;
+	
 
 func _on_sfx_sbox_value_changed(value):
 	_on_SFXSlider_value_changed(value)
 	$SettingsPanel/Page3/Vol_SFX/SFX_Slider.value = $SettingsPanel/Page3/Vol_SFX/SFX_SBOX.value
+	Preferences.audio_sfxVolume = $SettingsPanel/Page3/Vol_SFX/SFX_Slider.value;
+	
 
 func _on_master_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
@@ -102,10 +107,11 @@ func _on_window_size_item_selected(index):
 
 func _on_fullscreen_butt_toggled(toggled_on):
 	if toggled_on == true:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 		print(DisplayServer.window_get_mode()) 
 	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+		_on_window_size_item_selected(0)
 		print(DisplayServer.window_get_mode()) 
 
 # ------
@@ -169,3 +175,8 @@ func _process(delta):
 		on_left_pressed()
 
 
+
+
+func _on_visibility_changed():
+	if(!visible):
+		Preferences.SavePreferences()
