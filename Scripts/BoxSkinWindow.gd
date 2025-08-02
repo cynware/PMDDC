@@ -183,17 +183,18 @@ func OnSkinDropdownItemSelected(index):
 					node.texture = currentlySelectedSkin.nonbinary_icon
 				else:
 					node.texture = load("res://PmdSkins/ExplorersOfSky/NonBinary/icon.png")
+					print(node.texture.resource_path);
 
 
 
 func OnMaleTypePressed():
-	SelectGender(currentlySelectedSkin.male_icon, currentlySelectedSkin.male_box, load("res://PmdSkins/ExplorersOfSky/Male/icon.png"), 1);
+	SelectGender(currentlySelectedSkin.male_icon, currentlySelectedSkin.male_box, template_iconM, 1);
 
 func OnFemaleTypePressed():
-	SelectGender(currentlySelectedSkin.female_icon, currentlySelectedSkin.female_box, load("res://PmdSkins/ExplorersOfSky/Female/icon.png"), 2);
+	SelectGender(currentlySelectedSkin.female_icon, currentlySelectedSkin.female_box, template_iconF, 2);
 
 func OnNonBinaryTypePressed():
-	SelectGender(currentlySelectedSkin.nonbinary_icon, currentlySelectedSkin.nonbinary_box, load("res://PmdSkins/ExplorersOfSky/Nonbinary/icon.png"), 3);
+	SelectGender(currentlySelectedSkin.nonbinary_icon, currentlySelectedSkin.nonbinary_box, template_iconNB, 3);
 	
 func SelectGender(newIcon:Texture2D, newBox:Texture2D, defaultSkin:Texture2D, genderId:int):
 	currentlySelectedGender = genderId;
