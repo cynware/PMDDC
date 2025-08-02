@@ -43,7 +43,7 @@ Check out our [User Guide](https://docs.google.com/document/d/1o-Z5ef6qfXY3gpRPF
 **PLAYTESTERS**
 > Ultimate Kirb
 > 
-> Sagittari
+> [Sagittari](https://sagittari2763.itch.io/)
 > 
 > Mintyslime
 > 
