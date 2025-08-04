@@ -96,6 +96,7 @@ func onGlyphWindowOpen():
 	SoundEffectManager.PlayAccept()
 
 func _on_alignment_button_item_selected(index):
+	SoundEffectManager.PlayChooseDropdown()
 	match index:
 		0:
 			Alignment = "left"
