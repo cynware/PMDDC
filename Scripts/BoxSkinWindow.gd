@@ -126,6 +126,7 @@ func RefreshDropdown():
 	print(loadedSkins)
 	
 func OnSkinDropdownItemSelected(index):
+	SoundEffectManager.PlayChooseDropdown()
 	currentlySelectedSkin = loadedSkins[index];
 	maleTypeBTN.MarkAsAvailable()
 	femaleTypeBTN.MarkAsAvailable()
@@ -170,12 +171,15 @@ func OnSkinDropdownItemSelected(index):
 		UpdateDebugTabCorners(currentlySelectedSkin.nonbinary_icon, template_iconNB);
 
 func OnMaleTypePressed():
+	SoundEffectManager.PlayCheckboxOff()
 	SelectGender(currentlySelectedSkin.male_icon, currentlySelectedSkin.male_box, template_iconM, 1);
 
 func OnFemaleTypePressed():
+	SoundEffectManager.PlayCheckboxOff()	
 	SelectGender(currentlySelectedSkin.female_icon, currentlySelectedSkin.female_box, template_iconF, 2);
 
 func OnNonBinaryTypePressed():
+	SoundEffectManager.PlayCheckboxOff()	
 	SelectGender(currentlySelectedSkin.nonbinary_icon, currentlySelectedSkin.nonbinary_box, template_iconNB, 3);
 	
 func SelectGender(newIcon:Texture2D, newBox:Texture2D, defaultSkin:Texture2D, genderId:int):
@@ -211,3 +215,4 @@ func OnRefresh():
 func _input(event):
 	if(Input.is_action_just_pressed("BACK") and visible):
 		visible = false;
+		SoundEffectManager.PlayCancel()

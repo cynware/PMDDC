@@ -16,7 +16,7 @@ func _process(delta):
 	position.y = lerp(position.y, lerpY, 15 * delta);
 	
 func _on_pressed():
-	clickSFX.play();
+	SoundEffectManager.PlayAccept()
 	
 	for child in $"../DebugTab/Tabs".get_children():
 		child.visible = false;

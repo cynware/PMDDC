@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Preferences="*res://Scripts/Preferences.gd"
+SoundEffectManager="*res://Scenes/SoundEffectManager.tscn"
 
 [display]
 

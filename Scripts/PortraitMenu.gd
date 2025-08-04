@@ -77,6 +77,7 @@ func loadIconLocal():
 		
 func loadIconCollab():
 	# Shiny Check
+	SoundEffectManager.PlaySavePreset()
 	var IfShiny = ""
 	if $ShinyCheck.button_pressed == true:
 		IfShiny = "0000/0001/"
@@ -130,6 +131,7 @@ func openCustomIconFolder():
 	sound_player.play()
 
 func OnFolderSelectedChanged(index):
+	SoundEffectManager.PlayChooseDropdown()
 	RetrievePortraitsInDirectory(false)
 
 func OnRefresh():
@@ -139,6 +141,7 @@ func OnRefresh():
 	sound_player.play()
 
 func OnEmotionSelected(index):
+	SoundEffectManager.PlayChooseDropdown()	
 	loadIconLocal()
 
 var allowedDexNumCharacters = "0123456789";
@@ -152,6 +155,20 @@ func OnDexNumChanged(new_text):
 	$DexNum.text = filtered_text;
 	$DexNum.caret_column = caret_pos;
 
+func _on_shiny_check_toggled(toggled_on):
+	if(toggled_on):
+		SoundEffectManager.PlayCheckboxOn()
+	else:
+		SoundEffectManager.PlayCheckboxOff()
+		
+func _on_emotion_collab_item_selected(index):
+	SoundEffectManager.PlayChooseDropdown()
+	
 func _input(event):
 	if(Input.is_action_just_pressed("BACK") and visible):
 		visible = false;
+		SoundEffectManager.PlayCancel()
+
+
+
+

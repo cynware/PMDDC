@@ -44,7 +44,6 @@ func OnChangelogRequestCompleted(result, response_code, headers, body):
 		print("Failed to grab changelog. Error code: ", result)
 		
 func ShowNoticeScreen(txt:String, updateAvailable:bool = false):
-	
 	itchButton.visible = updateAvailable;
 	gitButton.visible = updateAvailable;
 	
@@ -52,6 +51,7 @@ func ShowNoticeScreen(txt:String, updateAvailable:bool = false):
 		closeButton.position = updateAvailableCloseButtonPosition;
 	else:
 		closeButton.position = normalCloseButtonPosition;
+		SoundEffectManager.PlayDelete()
 
 	visible = true;
 	infoText.text = txt;

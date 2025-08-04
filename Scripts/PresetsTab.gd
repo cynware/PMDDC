@@ -225,9 +225,11 @@ func string_to_vector2(s: String) -> Vector2:
 
 
 func OnSavePresetPressed():
+	SoundEffectManager.PlaySavePreset()
 	SaveCurrentStateAsPreset()
 
 
 func OnDeletePresetPressed():
+	SoundEffectManager.PlayDelete()
 	DirAccess.remove_absolute("user://Presets/" + presetDropdown.text);
 	RefreshDropdown()

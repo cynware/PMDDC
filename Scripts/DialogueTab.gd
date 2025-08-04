@@ -66,6 +66,10 @@ func onColourInsert():
 	updateHUD();
 	
 func _on_prefix_enabled_pressed():
+	if prefixEnabled.button_pressed:
+		SoundEffectManager.PlayCheckboxOn()
+	else:
+		SoundEffectManager.PlayCheckboxOff()
 	updateHUD();
 	
 func onPrefixColourChanged(colour):
@@ -81,15 +85,15 @@ func onPrefixColourChanged(colour):
 func onSymbolWindowClose():
 	$SymbolWindow.visible = false;
 	$UnicodeWindow.visible = false;
-	$ClickSFX.play();
+	SoundEffectManager.PlayCancel()
 
 func onSymbolWindowOpen():
 	$SymbolWindow.visible = true;
-	$ClickSFX.play();
+	SoundEffectManager.PlayAccept()
 	
 func onGlyphWindowOpen():
 	$UnicodeWindow.visible = true
-	$ClickSFX.play();
+	SoundEffectManager.PlayAccept()
 
 func _on_alignment_button_item_selected(index):
 	match index:
@@ -103,5 +107,7 @@ func _on_alignment_button_item_selected(index):
 	print(Alignment)
 
 func _input(event):
-	if(Input.is_action_just_pressed("BACK") and $SymbolWindow.visible):
-		$SymbolWindow.visible = false;
+	if(Input.is_action_just_pressed("BACK")):
+		if($SymbolWindow.visible or $UnicodeWindow.visible):
+			onSymbolWindowClose()
+			

@@ -10,25 +10,28 @@ func onBgColourInputChanged(color):
 
 func onPortraitWindowClose():
 	$PortraitWindow.visible = false;
-	$ClickSFX.play();
+	SoundEffectManager.PlayCancel();
 
 func onPortraitWindowOpen():
 	$PortraitWindow.visible = true;
-	$ClickSFX.play();
+	SoundEffectManager.PlayAccept();
 	
 func onBoxSkinWindowClose():
 	$BoxSkinWindow.visible = false;
-	$ClickSFX.play()
+	SoundEffectManager.PlayCancel();
 
 func onBoxSkinWindowOpen():
 	$BoxSkinWindow.visible = true;
-	$ClickSFX.play();
+	SoundEffectManager.PlayAccept();
 
 func on_portrait_flip():
 	if $PortraitFlip.button_pressed:
 		$"../../../../PMD_Main/Portrait/Icon".scale.x = -1;
+		SoundEffectManager.PlayCheckboxOn()
 	else:
 		$"../../../../PMD_Main/Portrait/Icon".scale.x = 1;
+		SoundEffectManager.PlayCheckboxOff()
+		
 
 func _on_custom_background_btn_pressed():
 	$PortraitWindow/FolderBTN/FolderBTNSound.play()
@@ -49,6 +52,12 @@ func _on_upload_image_file_selected(path):
 
 func _on_portrait_hide_pressed():
 	portrait.visible = !$PortraitHide.button_pressed;
+	
+	if($PortraitHide.button_pressed):
+		SoundEffectManager.PlayCheckboxOn()
+	else:
+		SoundEffectManager.PlayCheckboxOff()
+		
 
 
 func _on_portrait_left_pressed():
@@ -67,6 +76,7 @@ func _on_bg_reload_pressed():
 
 
 func _on_alignment_selected(index):
+	SoundEffectManager.PlayChooseDropdown()
 	match  index:
 		0:
 			portrait.set_position(Vector2(108,276))

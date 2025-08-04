@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://bds8mbk1ht1dx"]
+
+[ext_resource type="Script" path="res://Scripts/SoundEffectManager.gd" id="1_dw4sc"]
+[ext_resource type="AudioStream" uid="uid://r32yop1dwqy1" path="res://Assets/Sounds/pmdMenu_2.ogg" id="2_84dti"]
+[ext_resource type="AudioStream" uid="uid://dopgwiieklh37" path="res://Assets/Sounds/pmdMenu_1.ogg" id="3_0ybof"]
+[ext_resource type="AudioStream" uid="uid://twfyp3yshndf" path="res://Assets/Sounds/CheckboxOn.ogg" id="4_s1n3a"]
+[ext_resource type="AudioStream" uid="uid://b1dxuwkyn1m5r" path="res://Assets/Sounds/CheckboxOff.ogg" id="5_6iibe"]
+[ext_resource type="AudioStream" uid="uid://b56ndr2wmxtrk" path="res://Assets/Sounds/ChooseDropdown.ogg" id="6_2wu5y"]
+[ext_resource type="AudioStream" uid="uid://b4wmx3dlhi4vk" path="res://Assets/Sounds/Delete.ogg" id="7_13mtx"]
+[ext_resource type="AudioStream" uid="uid://ctk2ayrbof8ja" path="res://Assets/Sounds/SavePreset.ogg" id="8_lij0f"]
+
+[node name="SoundEffectManager" type="Node" node_paths=PackedStringArray("sfx_accept", "sfx_cancel", "sfx_checkboxOn", "sfx_checkboxOff", "sfx_chooseDropdown", "sfx_delete", "sfx_savePreset")]
+script = ExtResource("1_dw4sc")
+sfx_accept = NodePath("Accept")
+sfx_cancel = NodePath("Cancel")
+sfx_checkboxOn = NodePath("CheckboxOn")
+sfx_checkboxOff = NodePath("CheckboxOff")
+sfx_chooseDropdown = NodePath("ChooseDropdown")
+sfx_delete = NodePath("Delete")
+sfx_savePreset = NodePath("SavePreset")
+
+[node name="Accept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_84dti")
+volume_db = -25.0
+bus = &"Sound"
+
+[node name="Cancel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0ybof")
+volume_db = -25.0
+bus = &"Sound"
+
+[node name="CheckboxOn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_s1n3a")
+volume_db = -15.0
+bus = &"Sound"
+
+[node name="CheckboxOff" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6iibe")
+volume_db = -15.0
+bus = &"Sound"
+
+[node name="ChooseDropdown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2wu5y")
+volume_db = -15.0
+bus = &"Sound"
+
+[node name="Delete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_13mtx")
+volume_db = -15.0
+bus = &"Sound"
+
+[node name="SavePreset" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_lij0f")
+volume_db = -15.0
+bus = &"Sound"
