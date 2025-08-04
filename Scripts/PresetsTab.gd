@@ -117,10 +117,13 @@ func IsPresetValid(preset:Preset) -> bool:
 		noticeScreen.ShowNoticeScreen(errorText);
 		return false;
 	
-	if(!FileAccess.file_exists("user://Portraits/" + preset.customPortraitName + "/" + preset.customPortraitEmotion)):
-		var errorText = errorHeader + "The preset mentions a custom emotion called \"" + preset.customPortraitEmotion + "\" belonging to the \"" + preset.customPortraitName + "\" portrait collection that doesn't exist.";
-		noticeScreen.ShowNoticeScreen(errorText);
-		return false;
+	# If no pmdCollabPortrait URL, only then check if the local portrait is valid!
+	# Small oversight on my end. My bad!
+	if(preset.pmdCollabPortraitURL == ""):
+		if(!FileAccess.file_exists("user://Portraits/" + preset.customPortraitName + "/" + preset.customPortraitEmotion)):
+			var errorText = errorHeader + "The preset mentions a custom emotion called \"" + preset.customPortraitEmotion + "\" belonging to the \"" + preset.customPortraitName + "\" portrait collection that doesn't exist.";
+			noticeScreen.ShowNoticeScreen(errorText);
+			return false;
 	
 	var localSkins = DirAccess.get_directories_at("res://PmdSkins");
 	if(!DirAccess.dir_exists_absolute("user://BoxSkins/" + preset.skinName)):
