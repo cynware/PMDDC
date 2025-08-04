@@ -5,6 +5,7 @@ extends Control
 
 @export var localFolderDropdownLocal:OptionButton;
 @export var localEmotionDropdownLocal:OptionButton;
+@export var errorIcon:Sprite2D;
 
 var curPmdCollabURL = "";
 
@@ -49,6 +50,8 @@ func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 		var error = img.load("user://Portraits/" + localFolderDropdownLocal.text + "/" + portraits[i])
 
 		if error == OK:
+			errorIcon.visible = false;
+			
 			if(icon.texture == null):
 				img.resize(40, 40, Image.INTERPOLATE_NEAREST);
 				icon.texture = ImageTexture.create_from_image(img);
@@ -57,6 +60,9 @@ func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 			img.resize(20, 20, Image.INTERPOLATE_NEAREST);
 			var portraitTexture := ImageTexture.create_from_image(img);
 			localEmotionDropdownLocal.add_icon_item(portraitTexture, portraits[i], i);
+		else:
+			errorIcon.visible = true;
+			
 		
 func loadIconLocal():
 	curPmdCollabURL = "";
@@ -68,12 +74,16 @@ func loadIconLocal():
 	var image = Image.load_from_file(imagepath)
 	
 	if image.load(imagepath) == OK:
+		errorIcon.visible = false;
+		
 		if image.get_width() > 40 or image.get_height() > 40:
 			image.resize(40, 40, Image.INTERPOLATE_NEAREST)
 
 		var texture = ImageTexture.create_from_image(image)
 		icon.texture = texture
 		icon_texture_changed()
+	else:
+		errorIcon.visible = true;
 		
 func loadIconCollab():
 	# Shiny Check
@@ -92,6 +102,8 @@ func loadIconCollab():
 
 func loadIconCollabFromURL(URL:String):
 	# Create an HTTP request node and connect its completion signal.
+	errorIcon.visible = false;
+	
 	curPmdCollabURL = URL;
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
@@ -100,6 +112,7 @@ func loadIconCollabFromURL(URL:String):
 	# Perform the HTTP request. The URL below returns a PNG image as of writing.
 	var error = http_request.request(URL)
 	if error != OK:
+		errorIcon.visible = true;
 		push_error("An error occurred in the HTTP request.")
 	
 func _http_request_completed(result, response_code, headers, body):
@@ -109,6 +122,8 @@ func _http_request_completed(result, response_code, headers, body):
 	var image = Image.new()
 	var error = image.load_png_from_buffer(body)
 	if error != OK:
+		errorIcon.visible = true;
+		
 		push_error("Couldn't load the image.")
 
 	var texture = ImageTexture.create_from_image(image)
