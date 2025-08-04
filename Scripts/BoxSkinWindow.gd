@@ -2,6 +2,7 @@ extends Control
 
 @export var skinDropdown:OptionButton;
 var loadedSkins:Array[PmdSkinData]
+var internalSkinCount:int;
 var currentlySelectedSkin:PmdSkinData;
 var currentlySelectedGender:int;
 
@@ -36,7 +37,7 @@ func _ready():
 	RefreshDropdown()
 	OnSkinDropdownItemSelected(0);
 	OnMaleTypePressed();
-	$"../../..".texture = currentlySelectedSkin.male_icon;
+	#$"../../..".texture = currentlySelectedSkin.male_icon;
 
 	
 func CheckAndCreateBoxSkinFolder():
@@ -64,6 +65,8 @@ func AddInternalSkins():
 	skinDropdown.clear()
 	loadedSkins.clear()
 	var InternalThemeDirectories = DirAccess.get_directories_at("res://PmdSkins")
+	internalSkinCount = InternalThemeDirectories.size()
+	print("INTERNAL SKIN COUNT: " + str(internalSkinCount));
 	print("...........INTERNAL SKINS............")
 	print(InternalThemeDirectories)
 	for skin in InternalThemeDirectories:
@@ -143,13 +146,7 @@ func OnSkinDropdownItemSelected(index):
 		box.texture = currentlySelectedSkin.male_box;
 	if(currentlySelectedSkin.male_icon != null):
 		icon.texture = currentlySelectedSkin.male_icon;
-		for path in BoxChangeTargets:
-			var node = get_node_or_null(path)
-			if node:
-				if currentlySelectedSkin in loadedSkins.slice(0,5):
-					node.texture = currentlySelectedSkin.male_icon
-				else:
-					node.texture = load("res://PmdSkins/ExplorersOfSky/Male/icon.png")
+		UpdateDebugTabCorners(currentlySelectedSkin.male_icon, template_iconM);
 	
 	if(icon.texture == currentlySelectedSkin.male_icon && box.texture == currentlySelectedSkin.male_box):
 		return;
@@ -159,13 +156,7 @@ func OnSkinDropdownItemSelected(index):
 		box.texture = currentlySelectedSkin.female_box;
 	if(currentlySelectedSkin.female_icon != null):
 		icon.texture = currentlySelectedSkin.female_icon;
-		for path in BoxChangeTargets:
-			var node = get_node_or_null(path)
-			if node:
-				if currentlySelectedSkin in loadedSkins.slice(0,5):
-					node.texture = currentlySelectedSkin.female_icon
-				else:
-					node.texture = load("res://PmdSkins/ExplorersOfSky/Female/icon.png")
+		UpdateDebugTabCorners(currentlySelectedSkin.female_icon, template_iconF);
 	
 	if(icon.texture == currentlySelectedSkin.female_icon && box.texture == currentlySelectedSkin.female_box):
 		return;
@@ -176,16 +167,7 @@ func OnSkinDropdownItemSelected(index):
 	
 	if(currentlySelectedSkin.nonbinary_icon != null):
 		icon.texture = currentlySelectedSkin.nonbinary_icon;
-		for path in BoxChangeTargets:
-			var node = get_node_or_null(path)
-			if node:
-				if currentlySelectedSkin in loadedSkins.slice(0,5):
-					node.texture = currentlySelectedSkin.nonbinary_icon
-				else:
-					node.texture = load("res://PmdSkins/ExplorersOfSky/NonBinary/icon.png")
-					print(node.texture.resource_path);
-
-
+		UpdateDebugTabCorners(currentlySelectedSkin.nonbinary_icon, template_iconNB);
 
 func OnMaleTypePressed():
 	SelectGender(currentlySelectedSkin.male_icon, currentlySelectedSkin.male_box, template_iconM, 1);
@@ -202,10 +184,13 @@ func SelectGender(newIcon:Texture2D, newBox:Texture2D, defaultSkin:Texture2D, ge
 	icon.texture = newIcon;
 	box.texture = newBox;
 	
+	UpdateDebugTabCorners(newIcon, defaultSkin)
+
+func UpdateDebugTabCorners(newIcon:Texture2D, defaultSkin:Texture2D):
 	for path in BoxChangeTargets:
 		var node = get_node_or_null(path)
 		if node:
-			if currentlySelectedSkin in loadedSkins.slice(0,5):
+			if currentlySelectedSkin in loadedSkins.slice(0,internalSkinCount):
 				node.texture = newIcon
 			else:
 				node.texture = defaultSkin;
