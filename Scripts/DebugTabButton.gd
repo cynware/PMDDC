@@ -3,7 +3,6 @@ extends Button
 ## The tab it toggles on/off
 @export var tab:Control;
 
-@onready var clickSFX:AudioStreamPlayer = $ClickSFX;
 
 var initialY:float;
 var lerpY:float;

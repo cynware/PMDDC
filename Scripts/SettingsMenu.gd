@@ -7,6 +7,7 @@ var initialArrowLeftPos:Vector2;
 var initialArrowRightPos:Vector2;
 
 func _ready():
+	$BuildNum.text = "v" + ProjectSettings.get_setting("application/config/version");
 	initialArrowLeftPos = arrowLeft.position;
 	initialArrowRightPos = arrowRight.position;
 	

@@ -2278,6 +2278,18 @@ offset_top = 12.0
 offset_right = 141.0
 offset_bottom = 13.0
 
+[node name="BuildNum" type="Label" parent="Settings/SettingsMenu"]
+layout_mode = 0
+offset_left = 498.0
+offset_top = 545.0
+offset_right = 629.0
+offset_bottom = 558.0
+scale = Vector2(2, 2)
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_color = Color(1, 1, 1, 0.345098)
+text = "v0.0.0"
+horizontal_alignment = 2
+
 [node name="MUSIC" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("106_mwxem")
 volume_db = -20.937

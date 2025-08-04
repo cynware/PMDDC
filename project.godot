@@ -12,11 +12,13 @@ config_version=5
 
 config/name="Pokemon Mystery Dungeon: Dialog Creator"
 config/description="A small tool that allows you to make your own PMD dialogue with ease!"
-config/version="1.0.0"
+config/version="1.0.1"
 run/main_scene="res://Scenes/EditorState.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/bg_color=Color(0.298039, 0.298039, 0.298039, 1)
 boot_splash/show_image=false
+boot_splash/image="res://icon.png"
+boot_splash/use_filter=false
 config/icon="res://icon.png"
 
 [autoload]
