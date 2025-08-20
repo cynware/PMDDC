@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=160 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -33,6 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://b6mwarnlbkg4j" path="res://Assets/Images/symbols/sob.png" id="19_mhl4t"]
 [ext_resource type="Texture2D" uid="uid://bncd0cvvnkwy6" path="res://Assets/Images/symbols/thinking.png" id="20_i0cqj"]
 [ext_resource type="Texture2D" uid="uid://b56ay8kc1irey" path="res://Assets/Images/GENDERLESS_BORDER.png" id="21_a8dco"]
+[ext_resource type="Texture2D" uid="uid://cmmmgf6pbcuym" path="res://Assets/Images/PortraitsBTN.png" id="21_dvy8t"]
+[ext_resource type="Texture2D" uid="uid://cweqhbdcy7mr2" path="res://Assets/Images/ThemesBTN.png" id="21_iikh1"]
 [ext_resource type="Texture2D" uid="uid://ofjrj8k0jb76" path="res://Assets/Images/symbols/happy.png" id="21_pa2tf"]
 [ext_resource type="Texture2D" uid="uid://b0qkkn1jioi4w" path="res://Assets/Images/symbols/evil_gang.png" id="22_ruxgj"]
 [ext_resource type="Texture2D" uid="uid://dfoinj66226d6" path="res://Assets/Images/symbols/face_holding_back_tears.png" id="23_2oyy6"]
@@ -110,6 +112,7 @@
 [ext_resource type="Texture2D" uid="uid://x6w6u2s7jye5" path="res://Assets/Images/trash1.png" id="102_4jttb"]
 [ext_resource type="Script" path="res://Scripts/PresetsTab.gd" id="102_iggxt"]
 [ext_resource type="Texture2D" uid="uid://bne4ici75m24q" path="res://Assets/Images/trash2.png" id="103_3iglc"]
+[ext_resource type="Texture2D" uid="uid://bj6q4tu1amxnx" path="res://Assets/Images/DialogueBTN.png" id="105_8v2b5"]
 [ext_resource type="AudioStream" uid="uid://djs0qxywnom4b" path="res://Assets/Sounds/Writing's A Mystery.wav" id="106_mwxem"]
 [ext_resource type="Texture2D" uid="uid://d3lihkq3n7wa4" path="res://Assets/Images/Error_Shocked.png" id="112_opyju"]
 [ext_resource type="Script" path="res://Scripts/NoticeManager.gd" id="113_cordu"]
@@ -164,6 +167,207 @@ animations = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
 shader = ExtResource("6_q7upt")
 shader_parameter/lod = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66xd4"]
+atlas = ExtResource("21_iikh1")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pect"]
+atlas = ExtResource("21_iikh1")
+region = Rect2(25, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwtb4"]
+atlas = ExtResource("21_iikh1")
+region = Rect2(25, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_priue"]
+atlas = ExtResource("21_iikh1")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cx1k"]
+atlas = ExtResource("21_iikh1")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4pj3"]
+atlas = ExtResource("21_iikh1")
+region = Rect2(25, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e61cf"]
+atlas = ExtResource("21_iikh1")
+region = Rect2(25, 0, 25, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cp5g0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66xd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pect")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwtb4")
+}],
+"loop": false,
+"name": &"CLICK",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_priue")
+}],
+"loop": false,
+"name": &"IDLE",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cx1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4pj3")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_e61cf")
+}],
+"loop": true,
+"name": &"SELECTED",
+"speed": 4.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ch0s"]
+atlas = ExtResource("21_dvy8t")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2mt3"]
+atlas = ExtResource("21_dvy8t")
+region = Rect2(25, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1wog"]
+atlas = ExtResource("21_dvy8t")
+region = Rect2(25, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tff3"]
+atlas = ExtResource("21_dvy8t")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pcnr"]
+atlas = ExtResource("21_dvy8t")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcql6"]
+atlas = ExtResource("21_dvy8t")
+region = Rect2(25, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdwex"]
+atlas = ExtResource("21_dvy8t")
+region = Rect2(25, 0, 25, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c6rok"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ch0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2mt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1wog")
+}],
+"loop": false,
+"name": &"CLICK",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tff3")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pcnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcql6")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_tdwex")
+}],
+"loop": true,
+"name": &"SELECTED",
+"speed": 4.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmni4"]
+atlas = ExtResource("105_8v2b5")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ogg4"]
+atlas = ExtResource("105_8v2b5")
+region = Rect2(25, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6dsu"]
+atlas = ExtResource("105_8v2b5")
+region = Rect2(25, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nemm"]
+atlas = ExtResource("105_8v2b5")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fthpj"]
+atlas = ExtResource("105_8v2b5")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o18qj"]
+atlas = ExtResource("105_8v2b5")
+region = Rect2(25, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xffpn"]
+atlas = ExtResource("105_8v2b5")
+region = Rect2(25, 0, 25, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r6pca"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmni4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ogg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6dsu")
+}],
+"loop": false,
+"name": &"CLICK",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nemm")
+}],
+"loop": false,
+"name": &"IDLE",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fthpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o18qj")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_xffpn")
+}],
+"loop": true,
+"name": &"SELECTED",
+"speed": 4.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l7fbr"]
 
@@ -375,7 +579,121 @@ offset_top = 24.0
 offset_right = 721.0
 offset_bottom = 66.0
 
+[node name="ThemesTAB_BTN" type="NinePatchRect" parent="PMD_Debug"]
+offset_left = 675.0
+offset_top = 243.0
+offset_right = 818.0
+offset_bottom = 278.0
+scale = Vector2(3, 3)
+texture = ExtResource("21_a8dco")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="ColorRect" type="ColorRect" parent="PMD_Debug/ThemesTAB_BTN"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 139.0
+offset_bottom = 31.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="ICON" type="AnimatedSprite2D" parent="PMD_Debug/ThemesTAB_BTN"]
+position = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_cp5g0")
+animation = &"IDLE"
+frame_progress = 1.0
+centered = false
+
+[node name="DESCRIPTOR" type="Label" parent="PMD_Debug/ThemesTAB_BTN"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 6.0
+offset_right = 114.0
+offset_bottom = 29.0
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "THEMES"
+vertical_alignment = 1
+
+[node name="PortraitTAB_BTN" type="NinePatchRect" parent="PMD_Debug"]
+offset_left = 675.0
+offset_top = 129.0
+offset_right = 818.0
+offset_bottom = 164.0
+scale = Vector2(3, 3)
+texture = ExtResource("21_a8dco")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="ColorRect" type="ColorRect" parent="PMD_Debug/PortraitTAB_BTN"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 139.0
+offset_bottom = 31.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="ICON" type="AnimatedSprite2D" parent="PMD_Debug/PortraitTAB_BTN"]
+position = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_c6rok")
+animation = &"IDLE"
+frame_progress = 0.325776
+centered = false
+
+[node name="DESCRIPTOR" type="Label" parent="PMD_Debug/PortraitTAB_BTN"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 6.0
+offset_right = 114.0
+offset_bottom = 29.0
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "PORTRAITS"
+vertical_alignment = 1
+
+[node name="DialogueTAB_BTN" type="NinePatchRect" parent="PMD_Debug"]
+offset_left = 675.0
+offset_top = 15.0
+offset_right = 818.0
+offset_bottom = 50.0
+scale = Vector2(3, 3)
+texture = ExtResource("21_a8dco")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="ColorRect" type="ColorRect" parent="PMD_Debug/DialogueTAB_BTN"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 139.0
+offset_bottom = 31.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="ICON" type="AnimatedSprite2D" parent="PMD_Debug/DialogueTAB_BTN"]
+position = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_r6pca")
+animation = &"IDLE"
+centered = false
+
+[node name="DESCRIPTOR" type="Label" parent="PMD_Debug/DialogueTAB_BTN"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 6.0
+offset_right = 114.0
+offset_bottom = 29.0
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "DIALOGUE"
+vertical_alignment = 1
+
 [node name="DialogueBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
+visible = false
 offset_left = 295.0
 offset_top = 30.0
 offset_right = 421.0
@@ -385,6 +703,7 @@ tab = NodePath("../DebugTab/Tabs/DialogueTab")
 metadata/_edit_use_anchors_ = true
 
 [node name="ThemesBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
+visible = false
 offset_left = 445.0
 offset_top = 30.0
 offset_right = 571.0
@@ -394,6 +713,7 @@ tab = NodePath("../DebugTab/Tabs/ThemesTab")
 metadata/_edit_use_anchors_ = true
 
 [node name="PresetsBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
+visible = false
 offset_left = 595.0
 offset_top = 30.0
 offset_right = 721.0
@@ -403,6 +723,7 @@ tab = NodePath("../DebugTab/Tabs/PresetsTab")
 metadata/_edit_use_anchors_ = true
 
 [node name="DebugTab" type="NinePatchRect" parent="PMD_Debug"]
+visible = false
 offset_left = 193.0
 offset_top = 66.0
 offset_right = 377.0
@@ -2508,8 +2829,8 @@ bus = &"Sound"
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page2/ExportResolutionMultiplier" to="SCREENSHOT MANAGER" method="_on_export_resolution_multiplier_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page2/TransparentBackground" to="SCREENSHOT MANAGER" method="_on_transparent_background_toggled"]
-[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
+[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_Slider" to="Settings/SettingsMenu" method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_SBOX" to="Settings/SettingsMenu" method="_on_master_sbox_value_changed"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC" to="Settings/SettingsMenu" method="on_mute_music"]

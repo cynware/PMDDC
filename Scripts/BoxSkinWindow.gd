@@ -29,7 +29,10 @@ var BoxChangeTargets = [
 	"../../../../PresetsBTN/Border",
 	"../../../../../Settings/SettingsMenu/SettingsPanel",
 	"../../../../../NoticeScreen/InfoBorder",
-	"../../../../../NoticeScreen/InfoBorder/InfoPortraitBorder"
+	"../../../../../NoticeScreen/InfoBorder/InfoPortraitBorder",
+	"../../../../DialogueTAB_BTN",
+	"../../../../ThemesTAB_BTN",
+	"../../../../PortraitTAB_BTN"
 ]
 
 func _ready():
