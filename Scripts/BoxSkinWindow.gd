@@ -32,7 +32,9 @@ var BoxChangeTargets = [
 	"../../../../../NoticeScreen/InfoBorder/InfoPortraitBorder",
 	"../../../../DialogueTAB_BTN",
 	"../../../../ThemesTAB_BTN",
-	"../../../../PortraitTAB_BTN"
+	"../../../../PortraitTAB_BTN",
+	"../../../../PresetsTAB_BTN",
+	"../../../../TAB_DISPLAYNAME"
 ]
 
 func _ready():

@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://cweqhbdcy7mr2" path="res://Assets/Images/ThemesBTN.png" id="21_iikh1"]
 [ext_resource type="Texture2D" uid="uid://ofjrj8k0jb76" path="res://Assets/Images/symbols/happy.png" id="21_pa2tf"]
 [ext_resource type="Texture2D" uid="uid://b0qkkn1jioi4w" path="res://Assets/Images/symbols/evil_gang.png" id="22_ruxgj"]
+[ext_resource type="Texture2D" uid="uid://2njooebahpew" path="res://Assets/Images/PresetsBTN.png" id="23_1ak43"]
 [ext_resource type="Texture2D" uid="uid://dfoinj66226d6" path="res://Assets/Images/symbols/face_holding_back_tears.png" id="23_2oyy6"]
 [ext_resource type="Texture2D" uid="uid://ccg4avukacymh" path="res://Assets/Images/symbols/pensive.png" id="24_t7fh0"]
 [ext_resource type="Texture2D" uid="uid://bx2lmiel2bdql" path="res://Assets/Images/symbols/face_hearts.png" id="25_ruyj5"]
@@ -168,112 +169,88 @@ animations = [{
 shader = ExtResource("6_q7upt")
 shader_parameter/lod = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_66xd4"]
-atlas = ExtResource("21_iikh1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgfop"]
+atlas = ExtResource("21_dvy8t")
 region = Rect2(0, 25, 25, 25)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3pect"]
-atlas = ExtResource("21_iikh1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_x37lv"]
+atlas = ExtResource("21_dvy8t")
 region = Rect2(25, 25, 25, 25)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uwtb4"]
-atlas = ExtResource("21_iikh1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk1hl"]
+atlas = ExtResource("21_dvy8t")
 region = Rect2(25, 0, 25, 25)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_priue"]
-atlas = ExtResource("21_iikh1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_irxug"]
+atlas = ExtResource("21_dvy8t")
 region = Rect2(0, 0, 25, 25)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3cx1k"]
-atlas = ExtResource("21_iikh1")
-region = Rect2(0, 25, 25, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e4pj3"]
-atlas = ExtResource("21_iikh1")
-region = Rect2(25, 25, 25, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e61cf"]
-atlas = ExtResource("21_iikh1")
-region = Rect2(25, 0, 25, 25)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cp5g0"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7yoyl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_66xd4")
+"texture": SubResource("AtlasTexture_jgfop")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3pect")
+"texture": SubResource("AtlasTexture_x37lv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uwtb4")
+"texture": SubResource("AtlasTexture_gk1hl")
 }],
-"loop": false,
+"loop": true,
 "name": &"CLICK",
 "speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_priue")
+"texture": SubResource("AtlasTexture_irxug")
 }],
-"loop": false,
+"loop": true,
 "name": &"IDLE",
-"speed": 4.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3cx1k")
+"texture": SubResource("AtlasTexture_jgfop")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e4pj3")
+"texture": SubResource("AtlasTexture_x37lv")
 }, {
 "duration": 2.0,
-"texture": SubResource("AtlasTexture_e61cf")
+"texture": SubResource("AtlasTexture_gk1hl")
 }],
 "loop": true,
 "name": &"SELECTED",
 "speed": 4.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ch0s"]
-atlas = ExtResource("21_dvy8t")
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3w7s"]
+atlas = ExtResource("21_iikh1")
 region = Rect2(0, 25, 25, 25)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g2mt3"]
-atlas = ExtResource("21_dvy8t")
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6iyl"]
+atlas = ExtResource("21_iikh1")
 region = Rect2(25, 25, 25, 25)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x1wog"]
-atlas = ExtResource("21_dvy8t")
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5var"]
+atlas = ExtResource("21_iikh1")
 region = Rect2(25, 0, 25, 25)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0tff3"]
-atlas = ExtResource("21_dvy8t")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgkh0"]
+atlas = ExtResource("21_iikh1")
 region = Rect2(0, 0, 25, 25)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8pcnr"]
-atlas = ExtResource("21_dvy8t")
-region = Rect2(0, 25, 25, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kcql6"]
-atlas = ExtResource("21_dvy8t")
-region = Rect2(25, 25, 25, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tdwex"]
-atlas = ExtResource("21_dvy8t")
-region = Rect2(25, 0, 25, 25)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_c6rok"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_4pb6x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0ch0s")
+"texture": SubResource("AtlasTexture_g3w7s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g2mt3")
+"texture": SubResource("AtlasTexture_u6iyl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x1wog")
+"texture": SubResource("AtlasTexture_s5var")
 }],
 "loop": false,
 "name": &"CLICK",
@@ -281,7 +258,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0tff3")
+"texture": SubResource("AtlasTexture_kgkh0")
 }],
 "loop": true,
 "name": &"IDLE",
@@ -289,13 +266,68 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8pcnr")
+"texture": SubResource("AtlasTexture_g3w7s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kcql6")
+"texture": SubResource("AtlasTexture_u6iyl")
 }, {
 "duration": 2.0,
-"texture": SubResource("AtlasTexture_tdwex")
+"texture": SubResource("AtlasTexture_s5var")
+}],
+"loop": true,
+"name": &"SELECTED",
+"speed": 4.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0daid"]
+atlas = ExtResource("23_1ak43")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gley"]
+atlas = ExtResource("23_1ak43")
+region = Rect2(25, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xpbj"]
+atlas = ExtResource("23_1ak43")
+region = Rect2(25, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaw1f"]
+atlas = ExtResource("23_1ak43")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rh3dj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0daid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gley")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xpbj")
+}],
+"loop": false,
+"name": &"CLICK",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aaw1f")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0daid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gley")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_3xpbj")
 }],
 "loop": true,
 "name": &"SELECTED",
@@ -579,11 +611,42 @@ offset_top = 24.0
 offset_right = 721.0
 offset_bottom = 66.0
 
+[node name="TAB_DISPLAYNAME" type="NinePatchRect" parent="PMD_Debug"]
+offset_left = 205.0
+offset_top = 14.0
+offset_right = 248.0
+offset_bottom = 42.0
+scale = Vector2(3, 3)
+texture = ExtResource("21_a8dco")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="ColorRect" type="ColorRect" parent="PMD_Debug/TAB_DISPLAYNAME"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 39.0
+offset_bottom = 24.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="Label" type="Label" parent="PMD_Debug/TAB_DISPLAYNAME"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 51.0
+offset_bottom = 20.0
+scale = Vector2(0.666, 0.666)
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "DIALOGUE"
+
 [node name="ThemesTAB_BTN" type="NinePatchRect" parent="PMD_Debug"]
-offset_left = 675.0
-offset_top = 243.0
-offset_right = 818.0
-offset_bottom = 278.0
+offset_left = 478.0
+offset_top = 8.0
+offset_right = 505.0
+offset_bottom = 36.0
 scale = Vector2(3, 3)
 texture = ExtResource("21_a8dco")
 patch_margin_left = 5
@@ -595,33 +658,22 @@ patch_margin_bottom = 5
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 139.0
-offset_bottom = 31.0
+offset_right = 23.0
+offset_bottom = 24.0
 color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="ICON" type="AnimatedSprite2D" parent="PMD_Debug/ThemesTAB_BTN"]
-position = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_cp5g0")
+position = Vector2(5.16666, 4.333)
+scale = Vector2(0.666, 0.666)
+sprite_frames = SubResource("SpriteFrames_7yoyl")
 animation = &"IDLE"
-frame_progress = 1.0
 centered = false
 
-[node name="DESCRIPTOR" type="Label" parent="PMD_Debug/ThemesTAB_BTN"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 6.0
-offset_right = 114.0
-offset_bottom = 29.0
-theme = ExtResource("5_qi2yv")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "THEMES"
-vertical_alignment = 1
-
 [node name="PortraitTAB_BTN" type="NinePatchRect" parent="PMD_Debug"]
-offset_left = 675.0
-offset_top = 129.0
-offset_right = 818.0
-offset_bottom = 164.0
+offset_left = 565.0
+offset_top = 8.0
+offset_right = 592.0
+offset_bottom = 36.0
 scale = Vector2(3, 3)
 texture = ExtResource("21_a8dco")
 patch_margin_left = 5
@@ -633,33 +685,50 @@ patch_margin_bottom = 5
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 139.0
-offset_bottom = 31.0
+offset_right = 23.0
+offset_bottom = 24.0
 color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="ICON" type="AnimatedSprite2D" parent="PMD_Debug/PortraitTAB_BTN"]
-position = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_c6rok")
+position = Vector2(5.16666, 4.333)
+scale = Vector2(0.666, 0.666)
+sprite_frames = SubResource("SpriteFrames_4pb6x")
 animation = &"IDLE"
-frame_progress = 0.325776
 centered = false
 
-[node name="DESCRIPTOR" type="Label" parent="PMD_Debug/PortraitTAB_BTN"]
+[node name="PresetsTAB_BTN" type="NinePatchRect" parent="PMD_Debug"]
+offset_left = 652.0
+offset_top = 8.0
+offset_right = 679.0
+offset_bottom = 36.0
+scale = Vector2(3, 3)
+texture = ExtResource("21_a8dco")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="ColorRect" type="ColorRect" parent="PMD_Debug/PresetsTAB_BTN"]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 6.0
-offset_right = 114.0
-offset_bottom = 29.0
-theme = ExtResource("5_qi2yv")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "PORTRAITS"
-vertical_alignment = 1
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 23.0
+offset_bottom = 24.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="ICON" type="AnimatedSprite2D" parent="PMD_Debug/PresetsTAB_BTN"]
+position = Vector2(5.16666, 4.333)
+scale = Vector2(0.666, 0.666)
+sprite_frames = SubResource("SpriteFrames_rh3dj")
+animation = &"IDLE"
+frame_progress = 0.264307
+centered = false
 
 [node name="DialogueTAB_BTN" type="NinePatchRect" parent="PMD_Debug"]
-offset_left = 675.0
-offset_top = 15.0
-offset_right = 818.0
-offset_bottom = 50.0
+offset_left = 391.0
+offset_top = 8.0
+offset_right = 418.0
+offset_bottom = 36.0
 scale = Vector2(3, 3)
 texture = ExtResource("21_a8dco")
 patch_margin_left = 5
@@ -671,26 +740,16 @@ patch_margin_bottom = 5
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 139.0
-offset_bottom = 31.0
+offset_right = 23.0
+offset_bottom = 24.0
 color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="ICON" type="AnimatedSprite2D" parent="PMD_Debug/DialogueTAB_BTN"]
-position = Vector2(5, 5)
+position = Vector2(5.16666, 4.333)
+scale = Vector2(0.666, 0.666)
 sprite_frames = SubResource("SpriteFrames_r6pca")
 animation = &"IDLE"
 centered = false
-
-[node name="DESCRIPTOR" type="Label" parent="PMD_Debug/DialogueTAB_BTN"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 6.0
-offset_right = 114.0
-offset_bottom = 29.0
-theme = ExtResource("5_qi2yv")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "DIALOGUE"
-vertical_alignment = 1
 
 [node name="DialogueBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
 visible = false
@@ -723,18 +782,16 @@ tab = NodePath("../DebugTab/Tabs/PresetsTab")
 metadata/_edit_use_anchors_ = true
 
 [node name="DebugTab" type="NinePatchRect" parent="PMD_Debug"]
-visible = false
 offset_left = 193.0
-offset_top = 66.0
+offset_top = 71.0
 offset_right = 377.0
-offset_bottom = 171.0
+offset_bottom = 176.0
 scale = Vector2(3, 3)
 texture = ExtResource("21_a8dco")
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
-metadata/_edit_use_anchors_ = true
 
 [node name="Dark" type="ColorRect" parent="PMD_Debug/DebugTab"]
 layout_mode = 0
@@ -742,7 +799,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 180.0
 offset_bottom = 101.0
-color = Color(0.12549, 0.12549, 0.12549, 0.937255)
+color = Color(0.12549, 0.12549, 0.12549, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Tabs" type="Control" parent="PMD_Debug/DebugTab"]
@@ -2829,8 +2886,8 @@ bus = &"Sound"
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page2/ExportResolutionMultiplier" to="SCREENSHOT MANAGER" method="_on_export_resolution_multiplier_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page2/TransparentBackground" to="SCREENSHOT MANAGER" method="_on_transparent_background_toggled"]
-[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
+[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_Slider" to="Settings/SettingsMenu" method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_SBOX" to="Settings/SettingsMenu" method="_on_master_sbox_value_changed"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC" to="Settings/SettingsMenu" method="on_mute_music"]
