@@ -799,7 +799,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 180.0
 offset_bottom = 101.0
-color = Color(0.12549, 0.12549, 0.12549, 1)
+color = Color(0.140447, 0.140447, 0.140447, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Tabs" type="Control" parent="PMD_Debug/DebugTab"]
@@ -1758,6 +1758,7 @@ texture_normal = ExtResource("60_j7wfn")
 texture_pressed = ExtResource("61_f1ugg")
 
 [node name="PortraitWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" node_paths=PackedStringArray("icon", "localFolderDropdownLocal", "localEmotionDropdownLocal", "errorIcon")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332
