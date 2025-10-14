@@ -9,17 +9,31 @@ func onBgColourInputChanged(color):
 	$"../../../../BgColour".color = color;
 
 func onPortraitWindowClose():
-	$PortraitWindow.visible = false;
+	$"../PortraitTab/LocalPorWindow".visible = false;
 	SoundEffectManager.PlayCancel();
-
 func onPortraitWindowOpen():
 	$PortraitWindow.visible = true;
 	SoundEffectManager.PlayAccept();
 	
+func onLocalPortraitWindowClose():
+	$"../PortraitTab/LocalPorWindow".visible = false;
+	SoundEffectManager.PlayAccept();
+func onLocalPortraitWindowOpen():
+	$"../PortraitTab/LocalPorWindow".visible = true;
+	SoundEffectManager.PlayCancel();
+
+func onCollabPortraitWindowClose():
+	$"../PortraitTab/CollabPorWindow".visible = false;
+	SoundEffectManager.PlayAccept();
+func onCollabPortraitWindowOpen():
+	$"../PortraitTab/CollabPorWindow".visible = true;
+	SoundEffectManager.PlayCancel();
+
+	
 func onBoxSkinWindowClose():
 	$BoxSkinWindow.visible = false;
 	SoundEffectManager.PlayCancel();
-
+	
 func onBoxSkinWindowOpen():
 	$BoxSkinWindow.visible = true;
 	SoundEffectManager.PlayAccept();

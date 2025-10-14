@@ -184,6 +184,8 @@ func _input(event):
 		visible = false;
 		SoundEffectManager.PlayCancel()
 
-
-
-
+func _on_collab_btn_pressed():
+	OS.shell_open("https://sprites.pmdcollab.org/")
+	var sound_player = $FolderBTN/FolderBTNSound
+	sound_player.pitch_scale = randf_range(0.95, 1.05)
+	sound_player.play()
