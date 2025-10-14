@@ -1,4 +1,4 @@
-[gd_scene load_steps=160 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=171 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -46,12 +46,15 @@
 [ext_resource type="Texture2D" uid="uid://df38v2x0eu0jl" path="res://Assets/Images/symbols/nerd.png" id="28_6ychj"]
 [ext_resource type="Script" path="res://Scripts/ThemesTab.gd" id="30_q7nel"]
 [ext_resource type="Texture2D" uid="uid://cy6c4ctgd1wx2" path="res://Assets/Images/symbols/tm.png" id="32_d4ejl"]
+[ext_resource type="Texture2D" uid="uid://dsyhtk2a33fyu" path="res://Assets/Images/buttongradient.png" id="32_nhym6"]
 [ext_resource type="Texture2D" uid="uid://cu4qsbkuar1md" path="res://Assets/Images/icon_F.png" id="33_87j8f"]
+[ext_resource type="Texture2D" uid="uid://bmnh78ywv8gvu" path="res://Assets/Images/buttongradient_hover.png" id="33_lyn8s"]
 [ext_resource type="Texture2D" uid="uid://b0lwif4de21c7" path="res://Assets/Images/symbols/orb.png" id="33_onf7c"]
 [ext_resource type="Script" path="res://Scripts/PortraitMenu.gd" id="33_ovcmm"]
 [ext_resource type="FontFile" uid="uid://b18bcqecgsw5x" path="res://Assets/Fonts/Wondermail.ttf" id="33_x1l3a"]
 [ext_resource type="Texture2D" uid="uid://djd3yskvf8xt7" path="res://Assets/Images/symbols/cross.png" id="34_ofqea"]
 [ext_resource type="Texture2D" uid="uid://c5hmrqcah5dde" path="res://Assets/Images/icon_NB.png" id="34_tw0f3"]
+[ext_resource type="Texture2D" uid="uid://2frujpx4nbfj" path="res://Assets/Images/buttongradient_press.png" id="34_y62w7"]
 [ext_resource type="Texture2D" uid="uid://bapa74cy0c57s" path="res://Assets/Images/symbols/tick.png" id="35_2ey8p"]
 [ext_resource type="Texture2D" uid="uid://dnbwjdisfavh8" path="res://Assets/Images/Template/Angry.png" id="35_8xq2p"]
 [ext_resource type="AudioStream" uid="uid://bdjcink0rebih" path="res://Assets/Sounds/bgimport.ogg" id="35_82sui"]
@@ -114,7 +117,10 @@
 [ext_resource type="Script" path="res://Scripts/PresetsTab.gd" id="102_iggxt"]
 [ext_resource type="Texture2D" uid="uid://bne4ici75m24q" path="res://Assets/Images/trash2.png" id="103_3iglc"]
 [ext_resource type="Texture2D" uid="uid://bj6q4tu1amxnx" path="res://Assets/Images/DialogueBTN.png" id="105_8v2b5"]
+[ext_resource type="Theme" uid="uid://dsc1ij8moovpg" path="res://Assets/Themes/PMDButton.tres" id="106_82bab"]
+[ext_resource type="Texture2D" uid="uid://jy67laiu7kn" path="res://Assets/Images/PMDCollab.png" id="106_kesd2"]
 [ext_resource type="AudioStream" uid="uid://djs0qxywnom4b" path="res://Assets/Sounds/Writing's A Mystery.wav" id="106_mwxem"]
+[ext_resource type="Texture2D" uid="uid://davlvqytoh330" path="res://Assets/Images/Local.png" id="107_cgcba"]
 [ext_resource type="Texture2D" uid="uid://d3lihkq3n7wa4" path="res://Assets/Images/Error_Shocked.png" id="112_opyju"]
 [ext_resource type="Script" path="res://Scripts/NoticeManager.gd" id="113_cordu"]
 [ext_resource type="AudioStream" uid="uid://d3cmq33rklg1r" path="res://Assets/Sounds/error_shock.ogg" id="114_8jypi"]
@@ -401,6 +407,56 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x4kfj"]
+content_margin_left = 0.0
+content_margin_top = 1.0
+texture = ExtResource("32_nhym6")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+axis_stretch_horizontal = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oo1q3"]
+content_margin_left = 0.0
+content_margin_top = 1.0
+texture = ExtResource("33_lyn8s")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+axis_stretch_horizontal = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mg20k"]
+content_margin_left = 0.0
+content_margin_top = 1.0
+texture = ExtResource("34_y62w7")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+axis_stretch_horizontal = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_koqge"]
+content_margin_left = 0.0
+content_margin_top = 1.0
+texture = ExtResource("34_y62w7")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+axis_stretch_horizontal = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_crd6r"]
+content_margin_left = 0.0
+content_margin_top = 1.0
+texture = ExtResource("34_y62w7")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+axis_stretch_horizontal = 1
+
 [sub_resource type="LabelSettings" id="LabelSettings_l7fbr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ahui5"]
@@ -612,6 +668,7 @@ offset_right = 721.0
 offset_bottom = 66.0
 
 [node name="TAB_DISPLAYNAME" type="NinePatchRect" parent="PMD_Debug"]
+visible = false
 offset_left = 205.0
 offset_top = 14.0
 offset_right = 248.0
@@ -643,6 +700,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "DIALOGUE"
 
 [node name="PortraitTAB_BTN" type="NinePatchRect" parent="PMD_Debug"]
+visible = false
 offset_left = 478.0
 offset_top = 8.0
 offset_right = 505.0
@@ -663,6 +721,7 @@ offset_bottom = 24.0
 color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="PortraitTAB_BTN2" type="Button" parent="PMD_Debug/PortraitTAB_BTN" groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 23.0
@@ -677,6 +736,7 @@ animation = &"IDLE"
 centered = false
 
 [node name="ThemesTAB_BTN" type="NinePatchRect" parent="PMD_Debug"]
+visible = false
 offset_left = 565.0
 offset_top = 8.0
 offset_right = 592.0
@@ -697,6 +757,7 @@ offset_bottom = 24.0
 color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="ThemesTAB_BTN2" type="Button" parent="PMD_Debug/ThemesTAB_BTN" groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 23.0
@@ -711,6 +772,7 @@ animation = &"IDLE"
 centered = false
 
 [node name="PresetsTAB_BTN" type="NinePatchRect" parent="PMD_Debug"]
+visible = false
 offset_left = 652.0
 offset_top = 8.0
 offset_right = 679.0
@@ -731,6 +793,7 @@ offset_bottom = 24.0
 color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="PresetsTAB_BTN2" type="Button" parent="PMD_Debug/PresetsTAB_BTN" groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 23.0
@@ -745,6 +808,7 @@ animation = &"IDLE"
 centered = false
 
 [node name="DialogueTAB_BTN" type="NinePatchRect" parent="PMD_Debug"]
+visible = false
 offset_left = 391.0
 offset_top = 8.0
 offset_right = 418.0
@@ -765,6 +829,7 @@ offset_bottom = 24.0
 color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="DialogueTAB_BTN2" type="Button" parent="PMD_Debug/DialogueTAB_BTN" groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 23.0
@@ -779,7 +844,6 @@ animation = &"IDLE"
 centered = false
 
 [node name="DialogueBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
-visible = false
 offset_left = 295.0
 offset_top = 30.0
 offset_right = 421.0
@@ -789,7 +853,6 @@ tab = NodePath("../DebugTab/Tabs/DialogueTab")
 metadata/_edit_use_anchors_ = true
 
 [node name="ThemesBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
-visible = false
 offset_left = 445.0
 offset_top = 30.0
 offset_right = 571.0
@@ -799,7 +862,6 @@ tab = NodePath("../DebugTab/Tabs/ThemesTab")
 metadata/_edit_use_anchors_ = true
 
 [node name="PresetsBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
-visible = false
 offset_left = 595.0
 offset_top = 30.0
 offset_right = 721.0
@@ -854,19 +916,18 @@ offset_right = 227.0
 offset_bottom = 81.0
 scale = Vector2(0.7, 0.7)
 theme = ExtResource("5_qi2yv")
-placeholder_text = "Textbox text goes here..."
+placeholder_text = "Dialogue goes here..."
 wrap_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="AlignmentButton" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 103.333
-offset_top = 2.33334
-offset_right = 164.333
-offset_bottom = 26.3333
-scale = Vector2(0.33, 0.33)
-theme = ExtResource("5_qi2yv")
-expand_icon = true
+offset_left = 92.9996
+offset_top = 2.0
+offset_right = 125.0
+offset_bottom = 17.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("106_82bab")
 item_count = 3
 selected = 0
 allow_reselect = true
@@ -884,30 +945,32 @@ popup/item_2/id = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.00946988
-anchor_right = 0.00189374
+anchor_right = 0.0189375
+anchor_bottom = 0.0206186
 offset_left = 39.6667
 offset_top = 2.0
 offset_right = 111.667
 offset_bottom = 15.0
 scale = Vector2(0.7, 0.7)
 focus_mode = 0
-theme = ExtResource("5_qi2yv")
+theme = ExtResource("106_82bab")
 text = "INSERT COLOUR"
 metadata/_edit_use_anchors_ = true
 
 [node name="InsertSymbolBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0378807
+anchor_left = -0.0132557
 anchor_top = -0.0206186
-anchor_right = 0.0378807
+anchor_right = -0.0132556
+anchor_bottom = 0.0206186
 offset_left = 118.333
 offset_top = 4.0
-offset_right = 144.333
+offset_right = 150.333
 offset_bottom = 15.0
 scale = Vector2(0.7, 0.7)
 focus_mode = 0
-theme = ExtResource("5_qi2yv")
+theme = ExtResource("106_82bab")
 icon = ExtResource("18_37hf0")
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -915,23 +978,33 @@ metadata/_edit_use_anchors_ = true
 [node name="InsertGlyphBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0189375
-anchor_right = 0.019
+anchor_left = -0.0151535
+anchor_right = -0.0150909
+anchor_bottom = 0.0206186
 offset_left = 141.667
 offset_top = 2.0
-offset_right = 167.656
+offset_right = 173.656
 offset_bottom = 15.0
 scale = Vector2(0.7, 0.7)
-theme = ExtResource("5_qi2yv")
+theme = ExtResource("106_82bab")
+theme_override_styles/normal = SubResource("StyleBoxTexture_x4kfj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oo1q3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mg20k")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_koqge")
+theme_override_styles/focus = SubResource("StyleBoxTexture_crd6r")
 text = "❤"
 metadata/_edit_use_anchors_ = true
 
 [node name="InsertColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.0568176
+anchor_bottom = 0.0618557
 offset_left = 15.0001
 offset_top = 2.0
 offset_right = 36.0001
 offset_bottom = 11.0
+scale = Vector2(0.7, 0.7)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
 color = Color(0.972549, 0.972549, 0, 1)
@@ -1612,11 +1685,11 @@ uri = "https://www.dafont.com/wonder-mail.charmap"
 
 [node name="UnownModeToggleBTN" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 100.667
-offset_top = 1.0
-offset_right = 170.667
-offset_bottom = 17.0
-theme = ExtResource("5_qi2yv")
+offset_left = 98.0003
+offset_top = 2.0
+offset_right = 173.0
+offset_bottom = 20.0
+theme = ExtResource("106_82bab")
 text = "Unown Keys"
 
 [node name="Type" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
@@ -1638,43 +1711,6 @@ script = ExtResource("30_q7nel")
 portrait = NodePath("../../../../PMD_Main/Portrait")
 textbox = NodePath("../../../../PMD_Main/Textbox")
 
-[node name="PORTRAITALIGNMENT" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 34.0
-offset_right = 123.0
-offset_bottom = 51.0
-scale = Vector2(0.8, 0.8)
-theme = ExtResource("5_qi2yv")
-alignment = 1
-item_count = 3
-selected = 0
-allow_reselect = true
-popup/item_0/text = "Left"
-popup/item_0/id = 0
-popup/item_1/text = "Right"
-popup/item_1/id = 1
-popup/item_2/text = "Center"
-popup/item_2/id = 2
-
-[node name="Alignment_Preview" type="TextureRect" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/PORTRAITALIGNMENT"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 1.25
-offset_right = 20.0
-offset_bottom = 16.25
-
-[node name="LoadPortraitBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 18.0
-offset_right = 123.0
-offset_bottom = 35.0
-scale = Vector2(0.8, 0.8)
-focus_mode = 0
-theme = ExtResource("5_qi2yv")
-text = "LOAD PORTRAIT"
-
 [node name="BGImageOpener" type="FileDialog" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 title = "Open a File"
 size = Vector2i(335, 159)
@@ -1691,7 +1727,7 @@ offset_right = 83.3334
 offset_bottom = 90.0
 scale = Vector2(1.2, 1.2)
 tooltip_text = "Load a background image from your local files."
-theme = ExtResource("5_qi2yv")
+theme = ExtResource("106_82bab")
 text = "
 "
 icon = ExtResource("38_64q62")
@@ -1730,34 +1766,12 @@ texture = ExtResource("38_ij81t")
 layout_mode = 0
 offset_left = 5.0
 offset_top = 3.0
-offset_right = 215.0
+offset_right = 213.0
 offset_bottom = 20.0
 scale = Vector2(0.8, 0.8)
 focus_mode = 0
-theme = ExtResource("5_qi2yv")
+theme = ExtResource("106_82bab")
 text = "LOAD BOX SKIN"
-
-[node name="PortraitHide" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
-layout_mode = 0
-offset_left = 105.0
-offset_top = 34.0
-offset_right = 195.0
-offset_bottom = 52.0
-scale = Vector2(0.75, 0.75)
-theme = ExtResource("5_qi2yv")
-text = "Hide Portrait"
-alignment = 1
-
-[node name="PortraitFlip" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
-layout_mode = 0
-offset_left = 105.0
-offset_top = 18.0
-offset_right = 195.0
-offset_bottom = 36.0
-scale = Vector2(0.75, 0.75)
-theme = ExtResource("5_qi2yv")
-text = "Flip Portrait"
-alignment = 1
 
 [node name="BackgroundLabel" type="Label" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
@@ -2179,6 +2193,366 @@ scale = Vector2(1.25, 1.25)
 theme = ExtResource("5_qi2yv")
 texture_normal = ExtResource("34_tw0f3")
 
+[node name="PortraitTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
+visible = false
+anchors_preset = 0
+offset_right = 176.0
+offset_bottom = 97.0
+script = ExtResource("30_q7nel")
+portrait = NodePath("../../../../PMD_Main/Portrait")
+textbox = NodePath("../../../../PMD_Main/Textbox")
+
+[node name="Label1" type="Label" parent="PMD_Debug/DebugTab/Tabs/PortraitTab"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 171.0
+offset_bottom = 15.0
+theme = ExtResource("5_qi2yv")
+text = "LOAD PORTRAIT FROM"
+
+[node name="ColorRect" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/Label1"]
+layout_mode = 0
+offset_top = 13.0
+offset_right = 166.0
+offset_bottom = 14.0
+
+[node name="Label2" type="Label" parent="PMD_Debug/DebugTab/Tabs/PortraitTab"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 60.6667
+offset_right = 171.0
+offset_bottom = 73.6667
+theme = ExtResource("5_qi2yv")
+text = "PORTRAIT OPTIONS"
+
+[node name="ColorRect" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/Label2"]
+offset_top = 13.0
+offset_right = 166.0
+offset_bottom = 14.0
+
+[node name="PORTRAITALIGNMENT" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 79.0
+offset_right = 71.0
+offset_bottom = 96.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("106_82bab")
+alignment = 2
+item_count = 3
+selected = 0
+allow_reselect = true
+popup/item_0/text = "Left "
+popup/item_0/id = 0
+popup/item_1/text = "Right "
+popup/item_1/id = 1
+popup/item_2/text = "Center"
+popup/item_2/id = 2
+
+[node name="Alignment_Preview" type="TextureRect" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PORTRAITALIGNMENT"]
+layout_mode = 0
+offset_left = 1.66666
+offset_top = 1.25
+offset_right = 16.6667
+offset_bottom = 16.25
+
+[node name="LoadPortraitBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 19.0
+offset_right = 171.0
+offset_bottom = 36.0
+focus_mode = 0
+theme = ExtResource("106_82bab")
+text = "PMDCOLLAB REPOSITORY  "
+icon = ExtResource("106_kesd2")
+alignment = 2
+
+[node name="LoadPortraitBTN2" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 40.0
+offset_right = 171.0
+offset_bottom = 57.0
+focus_mode = 0
+theme = ExtResource("106_82bab")
+text = "LOCAL FILE DIRECTORY  "
+icon = ExtResource("107_cgcba")
+alignment = 2
+
+[node name="PortraitHide" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 121.333
+offset_top = 79.0
+offset_right = 187.333
+offset_bottom = 97.0
+scale = Vector2(0.75, 0.75)
+theme = ExtResource("106_82bab")
+text = "Hide
+"
+alignment = 1
+
+[node name="PortraitFlip" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 79.0
+offset_right = 131.0
+offset_bottom = 97.0
+scale = Vector2(0.75, 0.75)
+theme = ExtResource("106_82bab")
+text = "Flip"
+alignment = 1
+
+[node name="PortraitWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" node_paths=PackedStringArray("icon", "localFolderDropdownLocal", "localEmotionDropdownLocal", "errorIcon")]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = -0.333332
+offset_right = 176.0
+offset_bottom = 96.6666
+script = ExtResource("33_ovcmm")
+icon = NodePath("../../../../../PMD_Main/Portrait/Icon")
+presetImages = Array[Texture2D]([ExtResource("35_8xq2p"), ExtResource("36_ed0lm"), ExtResource("37_7opjh"), ExtResource("38_nn25p"), ExtResource("39_kk32g"), ExtResource("40_jnqv7"), ExtResource("41_wmx46"), ExtResource("42_xxpgf"), ExtResource("43_qqkqu"), ExtResource("44_ot21h"), ExtResource("45_c04ku"), ExtResource("46_lfj07"), ExtResource("47_vwl7f"), ExtResource("48_gt2bu"), ExtResource("49_d1k3h"), ExtResource("50_ld6pt"), ExtResource("51_vsdx0"), ExtResource("52_ttctp"), ExtResource("53_34vbu"), ExtResource("54_kgwja")])
+localFolderDropdownLocal = NodePath("../../ThemesTab/PortraitWindow/Emotion_LocalDir")
+localEmotionDropdownLocal = NodePath("../../ThemesTab/PortraitWindow/Emotion_LocalEmotion")
+errorIcon = NodePath("../../../../../PMD_Main/Portrait/ERRORICON")
+
+[node name="Bg" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow"]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 97.0
+color = Color(0.156863, 0.156863, 0.156863, 1)
+
+[node name="Header" type="Label" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow"]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 19.0
+theme = ExtResource("5_qi2yv")
+text = "CHOOSE PORTRAIT"
+label_settings = SubResource("LabelSettings_l7fbr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Header" type="Label" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow/Header"]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 19.0
+theme = ExtResource("5_qi2yv")
+text = "CHOOSE PORTRAIT"
+label_settings = SubResource("LabelSettings_l7fbr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubHeader1" type="Label" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow/Header"]
+visible = false
+layout_mode = 0
+offset_left = 4.66666
+offset_top = 17.6667
+offset_right = 180.667
+offset_bottom = 36.6667
+scale = Vector2(0.75, 0.75)
+theme = ExtResource("5_qi2yv")
+text = "LOAD FROM PMDCOLLAB"
+label_settings = SubResource("LabelSettings_l7fbr")
+vertical_alignment = 1
+
+[node name="SubHeader2" type="Label" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow/Header"]
+layout_mode = 0
+offset_left = 4.66666
+offset_top = 49.0
+offset_right = 180.667
+offset_bottom = 68.0
+scale = Vector2(0.75, 0.75)
+theme = ExtResource("5_qi2yv")
+text = "LOAD FROM LOCAL FILES"
+label_settings = SubResource("LabelSettings_l7fbr")
+vertical_alignment = 1
+
+[node name="PmdCollabHeader" type="LinkButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow/Header"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 19.3333
+offset_right = 115.0
+offset_bottom = 32.3333
+scale = Vector2(0.75, 0.75)
+theme = ExtResource("5_qi2yv")
+text = "LOAD FROM PMDCOLLAB"
+underline = 1
+uri = "https://sprites.pmdcollab.org/"
+
+[node name="Emotion_LocalDir" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 63.0
+offset_right = 111.0
+offset_bottom = 88.0
+scale = Vector2(0.7, 0.681632)
+tooltip_text = "Loads locally saved portraits from \\Pokemon Mystery Dungeon- Dialog Creator\\Portraits.
+Make a folder, and place your images inside."
+theme = ExtResource("5_qi2yv")
+clip_text = true
+item_count = 1
+selected = 0
+fit_to_longest_item = false
+allow_reselect = true
+popup/item_0/text = "[NULL]"
+popup/item_0/icon = ExtResource("22_ruxgj")
+popup/item_0/id = 0
+
+[node name="Emotion_LocalEmotion" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 63.0
+offset_right = 207.0
+offset_bottom = 88.0
+scale = Vector2(0.7, 0.681632)
+tooltip_text = "The selected emotion from your local files."
+theme = ExtResource("5_qi2yv")
+alignment = 2
+clip_text = true
+icon_alignment = 2
+item_count = 1
+selected = 0
+fit_to_longest_item = false
+allow_reselect = true
+popup/item_0/text = "[NULL]"
+popup/item_0/icon = ExtResource("22_ruxgj")
+popup/item_0/id = 0
+
+[node name="ShinyCheck" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 31.0
+offset_right = 143.0
+offset_bottom = 53.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("5_qi2yv")
+text = "Shiny"
+alignment = 1
+
+[node name="DexNum" type="LineEdit" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 32.0
+offset_right = 58.0
+offset_bottom = 52.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("5_qi2yv")
+placeholder_text = "Pokédex#"
+
+[node name="Emotion_Collab" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 49.3333
+offset_top = 31.3333
+offset_right = 116.333
+offset_bottom = 56.3333
+scale = Vector2(0.7, 0.7)
+tooltip_text = "The selected emotion you want to load from PMDCollab."
+theme = ExtResource("5_qi2yv")
+alignment = 1
+item_count = 20
+selected = 0
+popup/item_0/text = "Normal"
+popup/item_0/id = 0
+popup/item_1/text = "Angry"
+popup/item_1/id = 1
+popup/item_2/text = "Crying"
+popup/item_2/id = 2
+popup/item_3/text = "Determined"
+popup/item_3/id = 3
+popup/item_4/text = "Dizzy"
+popup/item_4/id = 4
+popup/item_5/text = "Happy"
+popup/item_5/id = 5
+popup/item_6/text = "Inspired"
+popup/item_6/id = 6
+popup/item_7/text = "Joyous"
+popup/item_7/id = 7
+popup/item_8/text = "Pain"
+popup/item_8/id = 8
+popup/item_9/text = "Sad"
+popup/item_9/id = 9
+popup/item_10/text = "Shouting"
+popup/item_10/id = 10
+popup/item_11/text = "Sigh"
+popup/item_11/id = 11
+popup/item_12/text = "Special0"
+popup/item_12/id = 12
+popup/item_13/text = "Special1"
+popup/item_13/id = 13
+popup/item_14/text = "Special2"
+popup/item_14/id = 14
+popup/item_15/text = "Special3"
+popup/item_15/id = 15
+popup/item_16/text = "Stunned"
+popup/item_16/id = 16
+popup/item_17/text = "Surprised"
+popup/item_17/id = 17
+popup/item_18/text = "Teary-Eyed"
+popup/item_18/id = 18
+popup/item_19/text = "Worried"
+popup/item_19/id = 19
+
+[node name="Portrait_COLLABBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 31.0
+offset_right = 180.0
+offset_bottom = 53.0
+scale = Vector2(0.8, 0.8)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "LOAD"
+
+[node name="FolderBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 3.33333
+offset_right = 170.0
+offset_bottom = 13.3333
+texture_normal = ExtResource("35_at0t2")
+texture_pressed = ExtResource("59_1fss6")
+
+[node name="FileDialog" type="FileDialog" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow/FolderBTN"]
+title = "Open a File or Directory"
+size = Vector2i(454, 159)
+ok_button_text = "Open"
+file_mode = 3
+access = 2
+use_native_dialog = true
+
+[node name="FolderBTNSound" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow/FolderBTN"]
+stream = ExtResource("60_eptc2")
+volume_db = -10.0
+bus = &"Sound"
+
+[node name="RefreshBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 142.667
+offset_top = 3.0
+offset_right = 154.667
+offset_bottom = 14.0
+texture_normal = ExtResource("60_j7wfn")
+texture_pressed = ExtResource("61_f1ugg")
+
+[node name="RefreshBTNSound" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow/RefreshBTN"]
+stream = ExtResource("63_cc2q7")
+volume_db = -10.0
+bus = &"Sound"
+
+[node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 71.3333
+offset_top = 83.9333
+offset_right = 117.333
+offset_bottom = 98.9333
+scale = Vector2(0.7, 0.7)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "CLOSE"
+icon = ExtResource("94_od227")
+
 [node name="PresetsTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("noticeScreen", "presetDropdown", "presetNameField", "dialogTab", "skinWindow", "portraitMenu", "localFolderDropdownLocal", "localEmotionDropdownLocal", "hidePortraitToggle", "flipPortraitButton", "portrait")]
 visible = false
 anchors_preset = 0
@@ -2193,8 +2567,8 @@ skinWindow = NodePath("../ThemesTab/BoxSkinWindow")
 portraitMenu = NodePath("../ThemesTab/PortraitWindow")
 localFolderDropdownLocal = NodePath("../ThemesTab/PortraitWindow/Emotion_LocalDir")
 localEmotionDropdownLocal = NodePath("../ThemesTab/PortraitWindow/Emotion_LocalEmotion")
-hidePortraitToggle = NodePath("../ThemesTab/PortraitHide")
-flipPortraitButton = NodePath("../ThemesTab/PortraitFlip")
+hidePortraitToggle = NodePath("../PortraitTab/PortraitHide")
+flipPortraitButton = NodePath("../PortraitTab/PortraitFlip")
 portrait = NodePath("../../../../PMD_Main/Portrait")
 
 [node name="Bg" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/PresetsTab"]
@@ -2210,7 +2584,7 @@ offset_top = 20.0
 offset_right = 219.0
 offset_bottom = 45.0
 scale = Vector2(0.7, 0.681632)
-theme = ExtResource("5_qi2yv")
+theme = ExtResource("106_82bab")
 clip_text = true
 item_count = 1
 selected = 0
@@ -2227,7 +2601,7 @@ offset_right = 179.0
 offset_bottom = 80.6666
 scale = Vector2(0.8, 0.8)
 focus_mode = 0
-theme = ExtResource("5_qi2yv")
+theme = ExtResource("106_82bab")
 text = "SAVE"
 
 [node name="PresetName" type="LineEdit" parent="PMD_Debug/DebugTab/Tabs/PresetsTab"]
@@ -2277,7 +2651,7 @@ offset_top = 12.0
 offset_right = 123.0
 offset_bottom = 13.0
 
-[node name="TextureButton" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PresetsTab"]
+[node name="TextureButton" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PresetsTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 160.0
 offset_top = 23.0
@@ -2880,14 +3254,10 @@ bus = &"Sound"
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/TripleDotBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/TripleDotBTN" method="OnUnicodePressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowClose"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/UnownModeToggleBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_unown_mode_toggle_pressed"]
-[connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PORTRAITALIGNMENT" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_alignment_selected"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/LoadPortraitBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onPortraitWindowOpen"]
 [connection signal="file_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BGImageOpener" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_upload_image_file_selected"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/CustomBackgroundBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_custom_background_btn_pressed"]
 [connection signal="color_changed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BgColour" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onBgColourInputChanged"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/LoadBoxSkinBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onBoxSkinWindowOpen"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitHide" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_portrait_hide_pressed"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitFlip" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="on_portrait_flip"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BGReload" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_bg_reload_pressed"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Emotion_LocalDir" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="OnFolderSelectedChanged"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow/Emotion_LocalEmotion" to="PMD_Debug/DebugTab/Tabs/ThemesTab/PortraitWindow" method="OnEmotionSelected"]
@@ -2905,6 +3275,20 @@ bus = &"Sound"
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/MaleTypeBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" method="OnMaleTypePressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/FemaleTypeBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" method="OnFemaleTypePressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/NonbinaryTypeBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" method="OnNonBinaryTypePressed"]
+[connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PORTRAITALIGNMENT" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_alignment_selected"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadPortraitBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="onPortraitWindowOpen"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadPortraitBTN2" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="onPortraitWindowOpen"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitHide" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_portrait_hide_pressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitFlip" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="on_portrait_flip"]
+[connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow/Emotion_LocalDir" to="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow" method="OnFolderSelectedChanged"]
+[connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow/Emotion_LocalEmotion" to="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow" method="OnEmotionSelected"]
+[connection signal="toggled" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow/ShinyCheck" to="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow" method="_on_shiny_check_toggled"]
+[connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow/DexNum" to="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow" method="OnDexNumChanged"]
+[connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow/Emotion_Collab" to="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow" method="_on_emotion_collab_item_selected"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow/Portrait_COLLABBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow" method="loadIconCollab"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow/FolderBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow" method="openCustomIconFolder"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow/RefreshBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow" method="OnRefresh"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="onPortraitWindowClose"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PresetsTab/PresetDropdown" to="PMD_Debug/DebugTab/Tabs/PresetsTab" method="LoadPresetFromDropdown"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PresetsTab/SavePresetBTN" to="PMD_Debug/DebugTab/Tabs/PresetsTab" method="OnSavePresetPressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PresetsTab/TextureButton" to="PMD_Debug/DebugTab/Tabs/PresetsTab" method="OnDeletePresetPressed"]

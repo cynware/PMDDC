@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=20 format=3 uid="uid://dsorw808w1qst"]
+[gd_resource type="Theme" load_steps=21 format=3 uid="uid://dsorw808w1qst"]
 
 [ext_resource type="FontFile" uid="uid://b18bcqecgsw5x" path="res://Assets/Fonts/Wondermail.ttf" id="1_3uc8h"]
 [ext_resource type="Texture2D" uid="uid://cohkcapmu2cqk" path="res://Assets/Images/PMD_Dark/checkbox_ticked.png" id="1_u75dl"]
@@ -14,6 +14,7 @@ bg_color = Color(0.188235, 0.188235, 0.188235, 0.917647)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y78k6"]
 bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+border_color = Color(0.435192, 0.435192, 0.435192, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xv2ht"]
 bg_color = Color(0.188235, 0.188235, 0.188235, 0.937255)
@@ -28,24 +29,63 @@ corner_detail = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l23hv"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58jpp"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm65d"]
+content_margin_left = 4.0
+content_margin_top = 2.0
 bg_color = Color(0.160784, 0.160784, 0.160784, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.345098, 0.345098, 0.345098, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08s60"]
+content_margin_left = 4.0
+content_margin_top = 2.0
 bg_color = Color(0.160784, 0.160784, 0.160784, 1)
-border_width_left = 5
-border_width_top = 3
-border_color = Color(0.160784, 0.160784, 0.160784, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.345098, 0.345098, 0.345098, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16x6q"]
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_1ksfg"]
-content_margin_left = 5.0
-content_margin_top = 5.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfh72"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.160784, 0.160784, 0.160784, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.345098, 0.345098, 0.345098, 1)
+corner_detail = 1
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_qhqse"]
-content_margin_left = 5.0
-content_margin_top = 5.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_og71h"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.160784, 0.160784, 0.160784, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.345098, 0.345098, 0.345098, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xasb"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.160784, 0.160784, 0.160784, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.345098, 0.345098, 0.345098, 1)
+corner_detail = 1
 
 [resource]
 default_font = ExtResource("1_3uc8h")
@@ -73,7 +113,7 @@ HSlider/icons/grabber_disabled = ExtResource("2_n4xpp")
 HSlider/icons/grabber_highlight = ExtResource("4_in1mf")
 LineEdit/colors/selection_color = Color(0.501961, 0.501961, 0.501961, 0)
 LineEdit/fonts/font = ExtResource("1_3uc8h")
-LineEdit/styles/focus = SubResource("StyleBoxFlat_58jpp")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_nm65d")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_08s60")
 OptionButton/constants/arrow_margin = 2
 OptionButton/constants/modulate_arrow = 2
@@ -81,8 +121,9 @@ OptionButton/icons/arrow = ExtResource("5_61avt")
 OptionButton/styles/focus = SubResource("StyleBoxEmpty_16x6q")
 SpinBox/icons/updown = ExtResource("6_j52bk")
 TextEdit/colors/background_color = Color(0.160784, 0.160784, 0.160784, 1)
-TextEdit/styles/focus = SubResource("StyleBoxLine_1ksfg")
-TextEdit/styles/normal = SubResource("StyleBoxLine_qhqse")
+TextEdit/styles/focus = SubResource("StyleBoxFlat_wfh72")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_og71h")
+TextEdit/styles/read_only = SubResource("StyleBoxFlat_8xasb")
 TooltipLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 TooltipLabel/constants/outline_size = 8
 TooltipLabel/constants/shadow_offset_x = 5
