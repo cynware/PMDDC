@@ -10,6 +10,7 @@ extends Node
 @export var background:ColorRect;
 @export var debugMenu:Node2D;
 @export var settingsButton:TextureButton;
+@export var saveButton:TextureButton;
  
 #@export var debugShit:ColorRect;
 
@@ -37,6 +38,7 @@ func takeTransparentScreenshot():
 	background.visible = !$"../Settings/SettingsMenu/SettingsPanel/Page2/TransparentBackground".button_pressed;
 	debugMenu.visible = false;
 	settingsButton.visible = false;
+	saveButton.visible = false;
 	
 	var viewport := get_viewport()	
 	await RenderingServer.frame_post_draw
@@ -49,6 +51,7 @@ func takeTransparentScreenshot():
 	background.visible = true;
 	debugMenu.visible = true;
 	settingsButton.visible = true;
+	saveButton.visible = true;
 	
 	saveWindow.visible = true;
 	
@@ -56,8 +59,10 @@ func takeTransparentScreenshot():
 func _on_save_window_file_selected(path):
 	print(path);
 	if capture != null:
-		capture.save_png(path);
-
+		if path.ends_with(".png"):
+			capture.save_png(path);
+		else:
+			capture.save_png(path + ".png");
 
 
 func _on_export_resolution_multiplier_item_selected(index):
@@ -66,3 +71,9 @@ func _on_export_resolution_multiplier_item_selected(index):
 
 func _on_transparent_background_toggled(toggled_on):
 	Preferences.export_transparentBackground = toggled_on;
+
+
+func _on_save_pressed():
+	takeTransparentScreenshot();
+	$"../Save/SaveSprite".play("saver")
+	SoundEffectManager.PlaySavePreset()

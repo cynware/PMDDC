@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=180 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -128,6 +128,7 @@
 [ext_resource type="AudioStream" uid="uid://d3cmq33rklg1r" path="res://Assets/Sounds/error_shock.ogg" id="114_8jypi"]
 [ext_resource type="Texture2D" uid="uid://dxocs5ttthrk7" path="res://Assets/Images/LogoGithub.png" id="114_kf8gs"]
 [ext_resource type="Texture2D" uid="uid://w83ibpmub3h6" path="res://Assets/Images/LogoItch.png" id="115_5mbxs"]
+[ext_resource type="Texture2D" uid="uid://cdau1s1nshadb" path="res://Assets/Images/saveicon.png" id="117_2q84r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_el3sg"]
 atlas = ExtResource("12_k0q7g")
@@ -464,6 +465,52 @@ axis_stretch_horizontal = 1
 [sub_resource type="LabelSettings" id="LabelSettings_ahui5"]
 font = ExtResource("33_x1l3a")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_heu3h"]
+atlas = ExtResource("117_2q84r")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrbqj"]
+atlas = ExtResource("117_2q84r")
+region = Rect2(72, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmfr5"]
+atlas = ExtResource("117_2q84r")
+region = Rect2(144, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm31t"]
+atlas = ExtResource("117_2q84r")
+region = Rect2(216, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0le5"]
+atlas = ExtResource("117_2q84r")
+region = Rect2(288, 0, 72, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lwd0f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_heu3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrbqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmfr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm31t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0le5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_heu3h")
+}],
+"loop": false,
+"name": &"saver",
+"speed": 12.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_n64qr"]
 atlas = ExtResource("8_y615r")
 region = Rect2(0, 0, 72, 72)
@@ -511,13 +558,14 @@ animations = [{
 
 [node name="EditorState" type="Node2D"]
 
-[node name="SCREENSHOT MANAGER" type="Node" parent="." node_paths=PackedStringArray("transparentBackgroundToggle", "resolutionMultiplierDropdown", "background", "debugMenu", "settingsButton")]
+[node name="SCREENSHOT MANAGER" type="Node" parent="." node_paths=PackedStringArray("transparentBackgroundToggle", "resolutionMultiplierDropdown", "background", "debugMenu", "settingsButton", "saveButton")]
 script = ExtResource("1_8ny4k")
 transparentBackgroundToggle = NodePath("../Settings/SettingsMenu/SettingsPanel/Page2/TransparentBackground")
 resolutionMultiplierDropdown = NodePath("../Settings/SettingsMenu/SettingsPanel/Page2/ExportResolutionMultiplier")
 background = NodePath("../BgColour")
 debugMenu = NodePath("../PMD_Debug")
 settingsButton = NodePath("../Settings")
+saveButton = NodePath("../Save")
 
 [node name="SaveWindow" type="FileDialog" parent="SCREENSHOT MANAGER"]
 initial_position = 4
@@ -1876,14 +1924,14 @@ bus = &"Sound"
 
 [node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 142.333
+offset_left = 137.333
 offset_top = 84.3333
-offset_right = 181.333
+offset_right = 188.333
 offset_bottom = 99.3333
 scale = Vector2(0.7, 0.7)
 focus_mode = 0
-theme = ExtResource("5_qi2yv")
-text = "CLOSE"
+theme = ExtResource("106_82bab")
+text = "CLOSE "
 icon = ExtResource("94_od227")
 
 [node name="SkinDropdown" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"]]
@@ -1893,7 +1941,7 @@ offset_top = 24.0
 offset_right = 240.667
 offset_bottom = 49.0
 scale = Vector2(0.7, 0.681632)
-theme = ExtResource("5_qi2yv")
+theme = ExtResource("106_82bab")
 clip_text = true
 item_count = 1
 selected = 0
@@ -2059,6 +2107,7 @@ text = "Flip"
 alignment = 1
 
 [node name="CollabPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" node_paths=PackedStringArray("icon", "localFolderDropdownLocal", "localEmotionDropdownLocal", "errorIcon")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332
@@ -2102,6 +2151,7 @@ label_settings = SubResource("LabelSettings_l7fbr")
 vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/Header"]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 19.3333
 offset_right = 165.0
@@ -2538,6 +2588,17 @@ offset_bottom = 34.0
 texture_normal = ExtResource("102_4jttb")
 texture_pressed = ExtResource("103_3iglc")
 
+[node name="Save" type="TextureButton" parent="." groups=["UI_BUTTONS"]]
+offset_left = 81.0
+offset_top = 9.0
+offset_right = 153.0
+offset_bottom = 81.0
+
+[node name="SaveSprite" type="AnimatedSprite2D" parent="Save"]
+position = Vector2(36, 36)
+sprite_frames = SubResource("SpriteFrames_lwd0f")
+animation = &"saver"
+
 [node name="Settings" type="TextureButton" parent="." groups=["UI_BUTTONS"]]
 offset_left = 9.0
 offset_top = 9.0
@@ -2616,10 +2677,10 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = 4.0
 offset_top = 34.0
-offset_right = 227.0
-offset_bottom = 62.0
-scale = Vector2(0.5, 0.5)
-theme = ExtResource("5_qi2yv")
+offset_right = 163.0
+offset_bottom = 53.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("106_82bab")
 item_count = 3
 allow_reselect = true
 popup/item_0/text = "768 x 576"
@@ -2631,13 +2692,13 @@ popup/item_2/id = 2
 
 [node name="FullscreenButt" type="CheckBox" parent="Settings/SettingsMenu/SettingsPanel/Page1" groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 3.99997
+offset_left = 4.0
 offset_top = 50.0
-offset_right = 70.0
-offset_bottom = 66.0
+offset_right = 73.0
+offset_bottom = 68.0
 scale = Vector2(0.8, 0.8)
 tooltip_text = "Make sure to be in Windowed mode for this! It may break in Maximized mode."
-theme = ExtResource("5_qi2yv")
+theme = ExtResource("106_82bab")
 text = "Fullscreen"
 alignment = 1
 
@@ -2678,12 +2739,12 @@ vertical_alignment = 1
 
 [node name="ExportResolutionMultiplier" type="OptionButton" parent="Settings/SettingsMenu/SettingsPanel/Page2" groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 4.99993
+offset_left = 6.0
 offset_top = 41.0
-offset_right = 227.0
-offset_bottom = 69.0
-scale = Vector2(0.5, 0.5)
-theme = ExtResource("5_qi2yv")
+offset_right = 161.0
+offset_bottom = 57.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("106_82bab")
 alignment = 1
 item_count = 10
 selected = 0
@@ -2708,28 +2769,17 @@ popup/item_8/id = 9
 popup/item_9/text = "10x"
 popup/item_9/id = 10
 
-[node name="TransparentBackgroundHeader" type="Label" parent="Settings/SettingsMenu/SettingsPanel/Page2"]
-layout_mode = 0
-offset_left = -6.86646e-05
-offset_top = 52.0
-offset_right = 211.0
-offset_bottom = 71.0
-scale = Vector2(0.569821, 0.569821)
-theme = ExtResource("5_qi2yv")
-text = "Transparent Background"
-label_settings = SubResource("LabelSettings_l7fbr")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="TransparentBackground" type="CheckBox" parent="Settings/SettingsMenu/SettingsPanel/Page2" groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 50.6666
-offset_top = 60.3333
-offset_right = 74.6666
-offset_bottom = 84.3333
+offset_left = 8.33334
+offset_top = 55.0
+offset_right = 143.333
+offset_bottom = 77.0
 scale = Vector2(0.76, 0.76)
+theme = ExtResource("106_82bab")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_43upc")
 button_pressed = true
+text = "Transparent Background "
 flat = true
 alignment = 1
 icon_alignment = 1
@@ -3040,12 +3090,12 @@ layout_mode = 0
 offset_left = 91.0
 offset_top = 83.0
 offset_right = 142.0
-offset_bottom = 103.0
+offset_bottom = 101.0
 scale = Vector2(0.7, 0.7)
 pivot_offset = Vector2(25.8892, 10.7289)
 focus_mode = 0
-theme = ExtResource("5_qi2yv")
-text = "CLOSE"
+theme = ExtResource("106_82bab")
+text = "CLOSE "
 icon = ExtResource("94_od227")
 
 [node name="DownloadGithub" type="Button" parent="NoticeScreen/InfoBorder/InfoDisplay" groups=["UI_BUTTONS"]]
@@ -3164,14 +3214,15 @@ bus = &"Sound"
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PresetsTab/PresetDropdown" to="PMD_Debug/DebugTab/Tabs/PresetsTab" method="LoadPresetFromDropdown"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PresetsTab/SavePresetBTN" to="PMD_Debug/DebugTab/Tabs/PresetsTab" method="OnSavePresetPressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PresetsTab/TextureButton" to="PMD_Debug/DebugTab/Tabs/PresetsTab" method="OnDeletePresetPressed"]
+[connection signal="pressed" from="Save" to="SCREENSHOT MANAGER" method="_on_save_pressed"]
 [connection signal="pressed" from="Settings" to="Settings" method="_on_settings_pressed"]
 [connection signal="visibility_changed" from="Settings/SettingsMenu" to="Settings/SettingsMenu" method="_on_visibility_changed"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page1/WindowSizeDropdown" to="Settings/SettingsMenu" method="_on_window_size_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page2/ExportResolutionMultiplier" to="SCREENSHOT MANAGER" method="_on_export_resolution_multiplier_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page2/TransparentBackground" to="SCREENSHOT MANAGER" method="_on_transparent_background_toggled"]
-[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
+[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_Slider" to="Settings/SettingsMenu" method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_SBOX" to="Settings/SettingsMenu" method="_on_master_sbox_value_changed"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC" to="Settings/SettingsMenu" method="on_mute_music"]
