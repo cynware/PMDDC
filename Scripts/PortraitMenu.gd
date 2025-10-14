@@ -88,15 +88,10 @@ func loadIconLocal():
 func loadIconCollab():
 	# Shiny Check
 	SoundEffectManager.PlaySavePreset()
-	var IfShiny = ""
-	if $ShinyCheck.button_pressed == true:
-		IfShiny = "0000/0001/"
-	else:
-		IfShiny = ""
 		
 	# Perform the HTTP request. The URL below returns a PNG image as of writing.
 	var formattedPokemonNumber = "%04d" % int($DexNum.text)
-	var formattedURL = "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/"+ formattedPokemonNumber + "/" + IfShiny + $Emotion_Collab.text + ".png"
+	var formattedURL = "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/"+ formattedPokemonNumber + "/" + $Emotion_Collab.text + ".png"
 	loadIconCollabFromURL(formattedURL)
 # Called when the HTTP request is completed.
 
