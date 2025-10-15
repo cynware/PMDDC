@@ -136,9 +136,7 @@ func icon_texture_changed():
 
 func openCustomIconFolder():
 	OS.shell_open(ProjectSettings.globalize_path("user://Portraits"))
-	var sound_player = $FolderBTN/FolderBTNSound
-	sound_player.pitch_scale = randf_range(0.95, 1.05)
-	sound_player.play()
+	SoundEffectManager.PlayFolder()
 
 func OnFolderSelectedChanged(index):
 	SoundEffectManager.PlayChooseDropdown()
@@ -146,9 +144,7 @@ func OnFolderSelectedChanged(index):
 
 func OnRefresh():
 	RetrievePortraitsInDirectory()
-	var sound_player = $RefreshBTN/RefreshBTNSound
-	sound_player.pitch_scale = randf_range(0.95, 1.05)
-	sound_player.play()
+	SoundEffectManager.PlayRefresh()
 
 func OnEmotionSelected(index):
 	SoundEffectManager.PlayChooseDropdown()	
@@ -181,6 +177,6 @@ func _input(event):
 
 func _on_collab_btn_pressed():
 	OS.shell_open("https://sprites.pmdcollab.org/")
-	var sound_player = $FolderBTN/FolderBTNSound
+	var sound_player = SoundEffectManager.get_child(7)
 	sound_player.pitch_scale = randf_range(0.95, 1.05)
 	sound_player.play()

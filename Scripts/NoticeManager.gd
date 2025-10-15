@@ -37,7 +37,7 @@ func OnChangelogRequestCompleted(result, response_code, headers, body):
 		
 		if(latestVersion != ProjectSettings.get_setting("application/config/version")):
 			lines.remove_at(0);
-			
+			SoundEffectManager.PlayError()
 			ShowNoticeScreen("There is a new update available!\n\n" + "\n".join(lines), true);
 			print("[[[ BUILD IS OUT OF DATE ]]]");
 	else:

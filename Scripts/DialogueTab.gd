@@ -42,9 +42,9 @@ func onTextboxEditChanged():
 	updateHUD()
 	if not Input.is_key_pressed(KEY_SPACE) and not Input.is_key_pressed(KEY_ENTER):
 		if Input.is_key_pressed(KEY_BACKSPACE):
-			$Type/Type_Backspace.play()
+			SoundEffectManager.PlayTypeback()
 		else:
-			$Type.play()
+			SoundEffectManager.PlayType()
 
 func onPrefixEditChanged(new_text):	
 	prefix = new_text

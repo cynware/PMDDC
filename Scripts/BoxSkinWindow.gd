@@ -206,16 +206,12 @@ func UpdateDebugTabCorners(newIcon:Texture2D, defaultSkin:Texture2D):
 				
 func openCustomIconFolder():
 	OS.shell_open(ProjectSettings.globalize_path("user://BoxSkins"))
-	var sound_player = $FolderBTN/FolderBTNSound
-	sound_player.pitch_scale = randf_range(0.95, 1.05)
-	sound_player.play()
+	SoundEffectManager.PlayFolder()
 
 func OnRefresh():
 	RefreshDropdown()
 	OnSkinDropdownItemSelected(0)
-	var sound_player = $RefreshBTN/RefreshBTNSound
-	sound_player.pitch_scale = randf_range(0.95, 1.05)
-	sound_player.play()
+	SoundEffectManager.PlayRefresh()
 
 func _input(event):
 	if(Input.is_action_just_pressed("BACK") and visible):

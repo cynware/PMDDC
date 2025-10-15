@@ -68,7 +68,7 @@ func _on_MusicSlider_value_changed(value):
 	$SettingsPanel/Page3/Vol_MUSIC/Music_SBOX.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
 
 func on_mute_music(toggled_on):
-	$SettingsPanel/Page3/MUTE.play()
+	SoundEffectManager.PlayMute()
 	$SettingsPanel/Page3/Vol_MUSIC.texture_normal = load("res://Assets/Images/speaker_0.png")
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), -80)
 
@@ -88,7 +88,7 @@ func _on_SFXSlider_value_changed(value):
 	$SettingsPanel/Page3/Vol_SFX/SFX_SBOX.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound"))
 
 func on_mute_SFX(toggled_on):
-	$SettingsPanel/Page3/MUTE.play()
+	SoundEffectManager.PlayMute()
 	$SettingsPanel/Page3/Vol_SFX.texture_normal = load("res://Assets/Images/speaker_0.png")
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sound"), -80)
 

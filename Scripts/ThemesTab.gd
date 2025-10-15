@@ -48,7 +48,7 @@ func on_portrait_flip():
 		
 
 func _on_custom_background_btn_pressed():
-	$PortraitWindow/FolderBTN/FolderBTNSound.play()
+	SoundEffectManager.PlayFolder()
 	$BGImageOpener.popup_centered()  # Opens the dialog
 	
 
@@ -62,7 +62,7 @@ func _on_upload_image_file_selected(path):
 	image_texture.set_image(image)
 	
 	$"../../../../BgColour/ImageBg".texture = image_texture
-	$CustomBackgroundBTN/BGImport.play()
+	SoundEffectManager.PlayBGImport()
 
 func _on_portrait_hide_pressed():
 	portrait.visible = !$PortraitHide.button_pressed;
@@ -84,7 +84,7 @@ func _on_portrait_right_pressed():
 
 func _on_bg_reload_pressed():
 	$"../../../../BgColour/ImageBg".texture = null
-	$PortraitWindow/RefreshBTN/RefreshBTNSound.play()
+	SoundEffectManager.PlayRefresh()
 	$"../../../../BgColour".color = Color.html("#4c4c4c");
 	$BgColour.color = Color.html("#4c4c4c");
 

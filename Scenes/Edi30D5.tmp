@@ -1,4 +1,4 @@
-[gd_scene load_steps=171 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=180 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://riac5l0rgksx" path="res://Assets/Images/symbols/star.png" id="12_vxgy4"]
 [ext_resource type="Texture2D" uid="uid://dmlppb1jvlf0q" path="res://Assets/Images/symbols/textbubble.png" id="13_t8tcm"]
 [ext_resource type="Texture2D" uid="uid://rxffw7bc5pqx" path="res://Assets/Images/SecretFanfare.png" id="14_i3641"]
+[ext_resource type="AudioStream" uid="uid://btlxqqv75tadk" path="res://Assets/Sounds/fanfare.ogg" id="14_xmjlf"]
 [ext_resource type="Texture2D" uid="uid://bnriejy5kq618" path="res://Assets/Images/symbols/smirk.png" id="16_rp5cs"]
 [ext_resource type="Texture2D" uid="uid://brl01k6drroqp" path="res://Assets/Images/symbols/crazy.png" id="17_r8hl3"]
 [ext_resource type="Texture2D" uid="uid://cj557ykdx0jj2" path="res://Assets/Images/symbols/smile.png" id="18_37hf0"]
@@ -56,6 +57,7 @@
 [ext_resource type="Texture2D" uid="uid://2frujpx4nbfj" path="res://Assets/Images/buttongradient_press.png" id="34_y62w7"]
 [ext_resource type="Texture2D" uid="uid://bapa74cy0c57s" path="res://Assets/Images/symbols/tick.png" id="35_2ey8p"]
 [ext_resource type="Texture2D" uid="uid://dnbwjdisfavh8" path="res://Assets/Images/Template/Angry.png" id="35_8xq2p"]
+[ext_resource type="AudioStream" uid="uid://bdjcink0rebih" path="res://Assets/Sounds/bgimport.ogg" id="35_82sui"]
 [ext_resource type="Texture2D" uid="uid://b7lm4pfb4ejl3" path="res://Assets/Images/folder.png" id="35_at0t2"]
 [ext_resource type="Texture2D" uid="uid://d0yks2bwu415s" path="res://Assets/Images/symbols/UI_start.png" id="36_6inv2"]
 [ext_resource type="Texture2D" uid="uid://ch6y6a64t0i72" path="res://Assets/Images/Template/Crying.png" id="36_ed0lm"]
@@ -94,16 +96,22 @@
 [ext_resource type="Texture2D" uid="uid://bgye8e2e0iqxr" path="res://Assets/Images/Template/Worried.png" id="54_kgwja"]
 [ext_resource type="Texture2D" uid="uid://cvfbxcxp8idf7" path="res://Assets/Images/folder_pressed.png" id="59_1fss6"]
 [ext_resource type="Script" path="res://Scripts/SettingsMenu.gd" id="59_ibx88"]
+[ext_resource type="AudioStream" uid="uid://dkrpsd37k8f8c" path="res://Assets/Sounds/folder.ogg" id="60_eptc2"]
 [ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="60_isgay"]
 [ext_resource type="Texture2D" uid="uid://c210dg38ryi6o" path="res://Assets/Images/refresh.png" id="60_j7wfn"]
+[ext_resource type="AudioStream" uid="uid://qfki4nts87wv" path="res://Assets/Sounds/Type.ogg" id="60_x0oe2"]
+[ext_resource type="AudioStream" uid="uid://cbbhc7m0orqup" path="res://Assets/Sounds/Type_Backspace.ogg" id="61_0gbvx"]
 [ext_resource type="Texture2D" uid="uid://3qws3redcwhw" path="res://Assets/Images/refresh_pressed.png" id="61_f1ugg"]
+[ext_resource type="AudioStream" uid="uid://u31hb2xm3nhy" path="res://Assets/Sounds/refresh.ogg" id="63_cc2q7"]
 [ext_resource type="Script" path="res://Scripts/BoxSkinWindow.gd" id="64_3ecio"]
 [ext_resource type="Texture2D" uid="uid://cewxijhl3fb4b" path="res://Assets/Images/arrow.png" id="67_uwkq2"]
+[ext_resource type="AudioStream" uid="uid://celljk4a0y23y" path="res://Assets/Sounds/settings.ogg" id="71_1u5km"]
 [ext_resource type="Texture2D" uid="uid://blnbx8qbd5fl6" path="res://Assets/Images/speaker_3.png" id="73_xf746"]
 [ext_resource type="Texture2D" uid="uid://v3tk0jxwtxlr" path="res://PmdSkins/ExplorersOfSky/Female/box.png" id="74_oh7sq"]
 [ext_resource type="Texture2D" uid="uid://fyku5sd4svm" path="res://PmdSkins/ExplorersOfSky/Female/icon.png" id="75_uxeqa"]
 [ext_resource type="Texture2D" uid="uid://dokenoaellcdy" path="res://PmdSkins/ExplorersOfSky/NonBinary/box.png" id="76_60ftn"]
 [ext_resource type="Texture2D" uid="uid://du5q2pe6h3pup" path="res://PmdSkins/ExplorersOfSky/NonBinary/icon.png" id="77_a3swu"]
+[ext_resource type="AudioStream" uid="uid://djx70svi8ey3s" path="res://Assets/Sounds/mute.ogg" id="78_hn1y3"]
 [ext_resource type="Texture2D" uid="uid://wls6e8y6ugpo" path="res://Assets/Images/cross_cropped.png" id="94_od227"]
 [ext_resource type="Texture2D" uid="uid://x6w6u2s7jye5" path="res://Assets/Images/trash1.png" id="102_4jttb"]
 [ext_resource type="Script" path="res://Scripts/PresetsTab.gd" id="102_iggxt"]
@@ -117,6 +125,7 @@
 [ext_resource type="Texture2D" uid="uid://bd381xgme446w" path="res://Assets/Images/PMDCollab_pressed.png" id="112_y1oxe"]
 [ext_resource type="Script" path="res://Scripts/NoticeManager.gd" id="113_cordu"]
 [ext_resource type="Texture2D" uid="uid://bg6i4ox514e3q" path="res://Assets/Images/save.png" id="113_v4soi"]
+[ext_resource type="AudioStream" uid="uid://d3cmq33rklg1r" path="res://Assets/Sounds/error_shock.ogg" id="114_8jypi"]
 [ext_resource type="Texture2D" uid="uid://dxocs5ttthrk7" path="res://Assets/Images/LogoGithub.png" id="114_kf8gs"]
 [ext_resource type="Texture2D" uid="uid://w83ibpmub3h6" path="res://Assets/Images/LogoItch.png" id="115_5mbxs"]
 [ext_resource type="Texture2D" uid="uid://cdau1s1nshadb" path="res://Assets/Images/saveicon.png" id="117_2q84r"]
@@ -641,6 +650,15 @@ position = Vector2(24, 52.5)
 rotation = -1.5708
 texture = ExtResource("67_uwkq2")
 flip_h = true
+
+[node name="MOVESFX" type="AudioStreamPlayer" parent="PMD_Main/Portrait"]
+volume_db = -15.0
+bus = &"Sound"
+
+[node name="FANFARE" type="AudioStreamPlayer" parent="PMD_Main/Portrait/MOVESFX"]
+stream = ExtResource("14_xmjlf")
+volume_db = -15.0
+bus = &"Sound"
 
 [node name="Textbox" type="Sprite2D" parent="PMD_Main"]
 position = Vector2(384, 468)
@@ -1725,6 +1743,16 @@ offset_bottom = 20.0
 theme = ExtResource("106_82bab")
 text = "Unown Keys"
 
+[node name="Type" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
+stream = ExtResource("60_x0oe2")
+volume_db = -10.0
+bus = &"Sound"
+
+[node name="Type_Backspace" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/Type"]
+stream = ExtResource("61_0gbvx")
+volume_db = -25.0
+bus = &"Sound"
+
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
 visible = false
 anchors_preset = 0
@@ -1755,6 +1783,11 @@ text = "
 "
 icon = ExtResource("38_64q62")
 icon_alignment = 1
+
+[node name="BGImport" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/CustomBackgroundBTN"]
+stream = ExtResource("35_82sui")
+volume_db = -10.0
+bus = &"Sound"
 
 [node name="BgColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
 layout_mode = 1
@@ -1870,6 +1903,11 @@ file_mode = 3
 access = 2
 use_native_dialog = true
 
+[node name="FolderBTNSound" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/FolderBTN"]
+stream = ExtResource("60_eptc2")
+volume_db = -10.0
+bus = &"Sound"
+
 [node name="RefreshBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 142.667
@@ -1878,6 +1916,11 @@ offset_right = 154.667
 offset_bottom = 14.0
 texture_normal = ExtResource("60_j7wfn")
 texture_pressed = ExtResource("61_f1ugg")
+
+[node name="RefreshBTNSound" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/RefreshBTN"]
+stream = ExtResource("63_cc2q7")
+volume_db = -10.0
+bus = &"Sound"
 
 [node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -2071,8 +2114,8 @@ offset_top = -0.333332
 offset_right = 176.0
 offset_bottom = 96.6666
 script = ExtResource("33_ovcmm")
-icon = NodePath("../../../../../PMD_Main/Portrait/Icon")
 presetImages = Array[Texture2D]([ExtResource("35_8xq2p"), ExtResource("36_ed0lm"), ExtResource("37_7opjh"), ExtResource("38_nn25p"), ExtResource("39_kk32g"), ExtResource("40_jnqv7"), ExtResource("41_wmx46"), ExtResource("42_xxpgf"), ExtResource("43_qqkqu"), ExtResource("44_ot21h"), ExtResource("45_c04ku"), ExtResource("46_lfj07"), ExtResource("47_vwl7f"), ExtResource("48_gt2bu"), ExtResource("49_d1k3h"), ExtResource("50_ld6pt"), ExtResource("51_vsdx0"), ExtResource("52_ttctp"), ExtResource("53_34vbu"), ExtResource("54_kgwja")])
+icon = NodePath("../../../../../PMD_Main/Portrait/Icon")
 localFolderDropdownLocal = NodePath("../LocalPorWindow/Emotion_LocalDir")
 localEmotionDropdownLocal = NodePath("../LocalPorWindow/Emotion_LocalEmotion")
 errorIcon = NodePath("../../../../../PMD_Main/Portrait/ERRORICON")
@@ -2280,8 +2323,8 @@ offset_top = -0.333332
 offset_right = 176.0
 offset_bottom = 96.6666
 script = ExtResource("33_ovcmm")
-icon = NodePath("../../../../../PMD_Main/Portrait/Icon")
 presetImages = Array[Texture2D]([ExtResource("35_8xq2p"), ExtResource("36_ed0lm"), ExtResource("37_7opjh"), ExtResource("38_nn25p"), ExtResource("39_kk32g"), ExtResource("40_jnqv7"), ExtResource("41_wmx46"), ExtResource("42_xxpgf"), ExtResource("43_qqkqu"), ExtResource("44_ot21h"), ExtResource("45_c04ku"), ExtResource("46_lfj07"), ExtResource("47_vwl7f"), ExtResource("48_gt2bu"), ExtResource("49_d1k3h"), ExtResource("50_ld6pt"), ExtResource("51_vsdx0"), ExtResource("52_ttctp"), ExtResource("53_34vbu"), ExtResource("54_kgwja")])
+icon = NodePath("../../../../../PMD_Main/Portrait/Icon")
 localFolderDropdownLocal = NodePath("Emotion_LocalDir")
 localEmotionDropdownLocal = NodePath("Emotion_LocalEmotion")
 errorIcon = NodePath("../../../../../PMD_Main/Portrait/ERRORICON")
@@ -2392,6 +2435,11 @@ file_mode = 3
 access = 2
 use_native_dialog = true
 
+[node name="FolderBTNSound" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/LocalPorWindow/FolderBTN"]
+stream = ExtResource("60_eptc2")
+volume_db = -10.0
+bus = &"Sound"
+
 [node name="RefreshBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/LocalPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 142.667
@@ -2400,6 +2448,11 @@ offset_right = 154.667
 offset_bottom = 14.0
 texture_normal = ExtResource("60_j7wfn")
 texture_pressed = ExtResource("61_f1ugg")
+
+[node name="RefreshBTNSound" type="AudioStreamPlayer" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/LocalPorWindow/RefreshBTN"]
+stream = ExtResource("63_cc2q7")
+volume_db = -10.0
+bus = &"Sound"
 
 [node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/LocalPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -2547,6 +2600,12 @@ sprite_frames = SubResource("SpriteFrames_xivcx")
 animation = &"Spin"
 frame = 4
 frame_progress = 0.869618
+
+[node name="SettingSound" type="AudioStreamPlayer" parent="Settings/GearSprite"]
+stream = ExtResource("71_1u5km")
+volume_db = -10.0
+pitch_scale = 0.9
+bus = &"Sound"
 
 [node name="SettingsMenu" type="Control" parent="Settings" node_paths=PackedStringArray("arrowLeft", "arrowRight")]
 visible = false
@@ -2845,6 +2904,11 @@ max_value = 10.0
 rounded = true
 suffix = "dB"
 
+[node name="MUTE" type="AudioStreamPlayer" parent="Settings/SettingsMenu/SettingsPanel/Page3"]
+stream = ExtResource("78_hn1y3")
+volume_db = -15.0
+bus = &"Misc"
+
 [node name="Header" type="Label" parent="Settings/SettingsMenu"]
 layout_mode = 0
 offset_left = 203.0
@@ -3073,11 +3137,17 @@ offset_right = 44.0
 offset_bottom = 44.3333
 texture = ExtResource("112_opyju")
 
+[node name="Error_SND" type="AudioStreamPlayer" parent="NoticeScreen"]
+stream = ExtResource("114_8jypi")
+volume_db = -9.778
+bus = &"Sound"
+
 [connection signal="file_selected" from="SCREENSHOT MANAGER/SaveWindow" to="SCREENSHOT MANAGER" method="_on_save_window_file_selected"]
 [connection signal="button_down" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_button_button_down"]
 [connection signal="button_up" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_button_button_up"]
 [connection signal="focus_entered" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_portrait_hover_button_focus_entered"]
 [connection signal="focus_exited" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_portrait_hover_button_focus_exited"]
+[connection signal="finished" from="PMD_Main/Portrait/MOVESFX/FANFARE" to="PMD_Main/Portrait" method="_on_fanfare_finished"]
 [connection signal="gui_input" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_textbox_edit_gui_input"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/DialogueTab/AlignmentButton" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="_on_alignment_button_item_selected"]

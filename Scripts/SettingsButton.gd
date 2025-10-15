@@ -21,9 +21,7 @@ func _input(event):
 func _on_settings_pressed():
 	get_node("SettingsMenu").visible = true
 	$GearSprite.play("Spin")
-	var sound_player = $GearSprite/SettingSound
-	sound_player.pitch_scale = randf_range(0.8, 0.95)
-	sound_player.play()
+	SoundEffectManager.PlaySetting()
 	
 func _on_close_btn_pressed():
 	get_node("SettingsMenu").visible = false

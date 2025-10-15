@@ -6,9 +6,10 @@ var offsetty = Vector2(0,0)
 var snap = 3
 var focus = false
 
-@onready var player = $MOVESFX
+@onready var player = SoundEffectManager.get_child(13)
 var sound1 = preload("res://Assets/Sounds/Portrait_Move_Shift.ogg")
 var sound2 = preload("res://Assets/Sounds/Portrait_Move.ogg")
+var fanfare = SoundEffectManager.get_child(14)
 
 var timer = 0
 
@@ -17,6 +18,9 @@ func resettimer():
 
 
 func _process(delta):
+	if not fanfare.playing:
+		$"../SECRET".visible = false
+	
 	if dragging:
 		var newPos = get_global_mouse_position() - offsetty
 		position = Vector2(snapped(newPos.x,snap),snapped(newPos.y,snap))
@@ -141,10 +145,7 @@ func _unhandled_input(event):
 			input_sequence.clear()
 
 func SuperAwesomeSecretCode():
-	$MOVESFX/FANFARE.play()
+	SoundEffectManager.PlayFanfare()
 	$"../SECRET".play("SECRET")
 	$"../SECRET".visible = true
 	print("Please don't tell Bog")
-
-func _on_fanfare_finished():
-	$"../SECRET".visible = false
