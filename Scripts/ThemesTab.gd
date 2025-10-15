@@ -4,7 +4,6 @@ var toggled:bool = true;
 @export var portrait:Sprite2D;
 @export var textbox:Sprite2D;
 
-
 func onBgColourInputChanged(color):
 	$"../../../../BgColour".color = color;
 
@@ -98,3 +97,11 @@ func _on_alignment_selected(index):
 			portrait.set_position(Vector2(660,276))
 		2:
 			portrait.set_position(Vector2(384,276))
+
+
+func on_defaultbg_change(index):
+	if index == 0:
+		$"../../../../BgColour/ImageBg".texture = null
+	else:
+		$"../../../../BgColour/ImageBg".texture = $DefaultBGs.get_item_icon(index)
+	SoundEffectManager.PlayBGImport()

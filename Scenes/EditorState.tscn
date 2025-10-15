@@ -1,4 +1,4 @@
-[gd_scene load_steps=171 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=189 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -99,11 +99,28 @@
 [ext_resource type="Texture2D" uid="uid://3qws3redcwhw" path="res://Assets/Images/refresh_pressed.png" id="61_f1ugg"]
 [ext_resource type="Script" path="res://Scripts/BoxSkinWindow.gd" id="64_3ecio"]
 [ext_resource type="Texture2D" uid="uid://cewxijhl3fb4b" path="res://Assets/Images/arrow.png" id="67_uwkq2"]
+[ext_resource type="Texture2D" uid="uid://drb0dfsxjw8nu" path="res://Assets/Images/default_bgs/NONE.png" id="68_to8is"]
+[ext_resource type="Texture2D" uid="uid://b2x4jemqiqy6u" path="res://Assets/Images/default_bgs/1.png" id="69_y4mxw"]
+[ext_resource type="Texture2D" uid="uid://dfdvy16n57pw2" path="res://Assets/Images/default_bgs/2.png" id="70_hnink"]
+[ext_resource type="Texture2D" uid="uid://wcn4prjuv4cm" path="res://Assets/Images/default_bgs/3.png" id="71_ujchj"]
+[ext_resource type="Texture2D" uid="uid://bqao3n63d7nj7" path="res://Assets/Images/default_bgs/4.png" id="72_4mucd"]
+[ext_resource type="Texture2D" uid="uid://c8xdjqki6gmgo" path="res://Assets/Images/default_bgs/5.png" id="73_4fxy3"]
 [ext_resource type="Texture2D" uid="uid://blnbx8qbd5fl6" path="res://Assets/Images/speaker_3.png" id="73_xf746"]
 [ext_resource type="Texture2D" uid="uid://v3tk0jxwtxlr" path="res://PmdSkins/ExplorersOfSky/Female/box.png" id="74_oh7sq"]
+[ext_resource type="Texture2D" uid="uid://rs08c4ommupi" path="res://Assets/Images/default_bgs/6.png" id="74_vut51"]
+[ext_resource type="Texture2D" uid="uid://c7t6qii5rjakn" path="res://Assets/Images/default_bgs/7.png" id="75_bpmhg"]
 [ext_resource type="Texture2D" uid="uid://fyku5sd4svm" path="res://PmdSkins/ExplorersOfSky/Female/icon.png" id="75_uxeqa"]
+[ext_resource type="Texture2D" uid="uid://xegltla38itc" path="res://Assets/Images/default_bgs/8.png" id="76_08xig"]
 [ext_resource type="Texture2D" uid="uid://dokenoaellcdy" path="res://PmdSkins/ExplorersOfSky/NonBinary/box.png" id="76_60ftn"]
 [ext_resource type="Texture2D" uid="uid://du5q2pe6h3pup" path="res://PmdSkins/ExplorersOfSky/NonBinary/icon.png" id="77_a3swu"]
+[ext_resource type="Texture2D" uid="uid://8t0k32ah2xny" path="res://Assets/Images/default_bgs/9.png" id="77_gy0v1"]
+[ext_resource type="Texture2D" uid="uid://dkxh0q7po4ye7" path="res://Assets/Images/default_bgs/10.png" id="78_vjvw3"]
+[ext_resource type="Texture2D" uid="uid://uipkoyd558ws" path="res://Assets/Images/default_bgs/BagBG.png" id="79_tnj8l"]
+[ext_resource type="Texture2D" uid="uid://cofi6cp3ibie6" path="res://Assets/Images/default_bgs/BulletinBoard.png" id="80_dqvof"]
+[ext_resource type="Texture2D" uid="uid://bn0cbpatwe53j" path="res://Assets/Images/default_bgs/Charm.png" id="81_6ir1s"]
+[ext_resource type="Texture2D" uid="uid://ukqwamsk73ii" path="res://Assets/Images/default_bgs/OutlawBoard.png" id="82_8xbdw"]
+[ext_resource type="Texture2D" uid="uid://ck06oqbn82mwj" path="res://Assets/Images/default_bgs/ProjectP.png" id="83_lyd4u"]
+[ext_resource type="Texture2D" uid="uid://cn606o3milgf5" path="res://Assets/Images/default_bgs/SkyJukebox.png" id="84_eew3q"]
 [ext_resource type="Texture2D" uid="uid://wls6e8y6ugpo" path="res://Assets/Images/cross_cropped.png" id="94_od227"]
 [ext_resource type="Texture2D" uid="uid://x6w6u2s7jye5" path="res://Assets/Images/trash1.png" id="102_4jttb"]
 [ext_resource type="Script" path="res://Scripts/PresetsTab.gd" id="102_iggxt"]
@@ -452,6 +469,8 @@ texture_margin_bottom = 1.0
 axis_stretch_horizontal = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_l7fbr"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_qmomk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ahui5"]
 font = ExtResource("33_x1l3a")
@@ -1734,6 +1753,70 @@ script = ExtResource("30_q7nel")
 portrait = NodePath("../../../../PMD_Main/Portrait")
 textbox = NodePath("../../../../PMD_Main/Textbox")
 
+[node name="DefaultBGs" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+offset_left = 109.667
+offset_top = 72.0
+offset_right = 141.667
+offset_bottom = 90.0
+scale = Vector2(1.2, 1.2)
+theme = ExtResource("106_82bab")
+theme_override_icons/arrow = SubResource("ImageTexture_qmomk")
+icon_alignment = 1
+expand_icon = true
+item_count = 17
+selected = 0
+popup/item_0/text = ""
+popup/item_0/icon = ExtResource("68_to8is")
+popup/item_0/id = 0
+popup/item_1/text = ""
+popup/item_1/icon = ExtResource("69_y4mxw")
+popup/item_1/id = 1
+popup/item_2/text = ""
+popup/item_2/icon = ExtResource("70_hnink")
+popup/item_2/id = 2
+popup/item_3/text = ""
+popup/item_3/icon = ExtResource("71_ujchj")
+popup/item_3/id = 3
+popup/item_4/text = ""
+popup/item_4/icon = ExtResource("72_4mucd")
+popup/item_4/id = 4
+popup/item_5/text = ""
+popup/item_5/icon = ExtResource("73_4fxy3")
+popup/item_5/id = 5
+popup/item_6/text = ""
+popup/item_6/icon = ExtResource("74_vut51")
+popup/item_6/id = 6
+popup/item_7/text = ""
+popup/item_7/icon = ExtResource("75_bpmhg")
+popup/item_7/id = 7
+popup/item_8/text = ""
+popup/item_8/icon = ExtResource("76_08xig")
+popup/item_8/id = 8
+popup/item_9/text = ""
+popup/item_9/icon = ExtResource("77_gy0v1")
+popup/item_9/id = 9
+popup/item_10/text = ""
+popup/item_10/icon = ExtResource("78_vjvw3")
+popup/item_10/id = 10
+popup/item_11/text = ""
+popup/item_11/icon = ExtResource("79_tnj8l")
+popup/item_11/id = 11
+popup/item_12/text = ""
+popup/item_12/icon = ExtResource("80_dqvof")
+popup/item_12/id = 12
+popup/item_13/text = ""
+popup/item_13/icon = ExtResource("81_6ir1s")
+popup/item_13/id = 13
+popup/item_14/text = ""
+popup/item_14/icon = ExtResource("82_8xbdw")
+popup/item_14/id = 14
+popup/item_15/text = ""
+popup/item_15/icon = ExtResource("83_lyd4u")
+popup/item_15/id = 15
+popup/item_16/text = ""
+popup/item_16/icon = ExtResource("84_eew3q")
+popup/item_16/id = 16
+
 [node name="BGImageOpener" type="FileDialog" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 title = "Open a File"
 size = Vector2i(335, 159)
@@ -1744,9 +1827,9 @@ use_native_dialog = true
 
 [node name="CustomBackgroundBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 49.3334
+offset_left = 25.6667
 offset_top = 72.0
-offset_right = 83.3334
+offset_right = 59.6667
 offset_bottom = 90.0
 scale = Vector2(1.2, 1.2)
 tooltip_text = "Load a background image from your local files."
@@ -1763,9 +1846,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 4.33337
+offset_left = -19.3333
 offset_top = 23.5
-offset_right = 36.3334
+offset_right = 12.6667
 offset_bottom = 41.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -3103,6 +3186,7 @@ texture = ExtResource("112_opyju")
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/TripleDotBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/TripleDotBTN" method="OnUnicodePressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowClose"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/UnownModeToggleBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_unown_mode_toggle_pressed"]
+[connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/DefaultBGs" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="on_defaultbg_change"]
 [connection signal="file_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BGImageOpener" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_upload_image_file_selected"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/CustomBackgroundBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_custom_background_btn_pressed"]
 [connection signal="color_changed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BgColour" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onBgColourInputChanged"]
