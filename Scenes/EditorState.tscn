@@ -1,4 +1,4 @@
-[gd_scene load_steps=189 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=186 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -214,7 +214,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gk1hl")
 }],
-"loop": true,
+"loop": false,
 "name": &"CLICK",
 "speed": 4.0
 }, {
@@ -222,23 +222,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_irxug")
 }],
-"loop": true,
+"loop": false,
 "name": &"IDLE",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jgfop")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x37lv")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_gk1hl")
-}],
-"loop": true,
-"name": &"SELECTED",
-"speed": 4.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g3w7s"]
@@ -279,20 +265,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"IDLE",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g3w7s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u6iyl")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_s5var")
-}],
-"loop": true,
-"name": &"SELECTED",
 "speed": 4.0
 }]
 
@@ -335,20 +307,6 @@ animations = [{
 "loop": true,
 "name": &"IDLE",
 "speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0daid")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7gley")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_3xpbj")
-}],
-"loop": true,
-"name": &"SELECTED",
-"speed": 4.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tmni4"]
@@ -366,18 +324,6 @@ region = Rect2(25, 0, 25, 25)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5nemm"]
 atlas = ExtResource("105_8v2b5")
 region = Rect2(0, 0, 25, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fthpj"]
-atlas = ExtResource("105_8v2b5")
-region = Rect2(0, 25, 25, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o18qj"]
-atlas = ExtResource("105_8v2b5")
-region = Rect2(25, 25, 25, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xffpn"]
-atlas = ExtResource("105_8v2b5")
-region = Rect2(25, 0, 25, 25)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r6pca"]
 animations = [{
@@ -401,20 +347,6 @@ animations = [{
 }],
 "loop": false,
 "name": &"IDLE",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fthpj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o18qj")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_xffpn")
-}],
-"loop": true,
-"name": &"SELECTED",
 "speed": 4.0
 }]
 
@@ -1744,7 +1676,6 @@ theme = ExtResource("106_82bab")
 text = "Unown Keys"
 
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -3231,8 +3162,8 @@ texture = ExtResource("112_opyju")
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page2/ExportResolutionMultiplier" to="SCREENSHOT MANAGER" method="_on_export_resolution_multiplier_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page2/TransparentBackground" to="SCREENSHOT MANAGER" method="_on_transparent_background_toggled"]
-[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
+[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_Slider" to="Settings/SettingsMenu" method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_SBOX" to="Settings/SettingsMenu" method="_on_master_sbox_value_changed"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC" to="Settings/SettingsMenu" method="on_mute_music"]
