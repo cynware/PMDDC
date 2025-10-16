@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=34 format=3 uid="uid://dsc1ij8moovpg"]
+[gd_resource type="Theme" load_steps=31 format=3 uid="uid://dsc1ij8moovpg"]
 
 [ext_resource type="Texture2D" uid="uid://cohkcapmu2cqk" path="res://Assets/Images/PMD_Dark/checkbox_ticked.png" id="1_h60n2"]
 [ext_resource type="Texture2D" uid="uid://bmnh78ywv8gvu" path="res://Assets/Images/buttongradient_hover.png" id="1_jtluw"]
@@ -113,15 +113,6 @@ border_width_left = 5
 border_width_top = 3
 border_color = Color(0.160784, 0.160784, 0.160784, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wcuof"]
-bg_color = Color(0.12549, 0.12549, 0.12549, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sclw"]
-bg_color = Color(0.12549, 0.12549, 0.12549, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8dv7"]
-bg_color = Color(0.141176, 0.141176, 0.141176, 1)
-
 [sub_resource type="ImageTexture" id="ImageTexture_mhvtk"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_65ro4"]
@@ -180,9 +171,6 @@ LineEdit/styles/normal = SubResource("StyleBoxFlat_08s60")
 OptionButton/constants/arrow_margin = 2
 OptionButton/constants/modulate_arrow = 2
 OptionButton/icons/arrow = ExtResource("5_0vtmn")
-OptionButton/styles/focus = SubResource("StyleBoxFlat_wcuof")
-OptionButton/styles/normal = SubResource("StyleBoxFlat_7sclw")
-Panel/styles/panel = SubResource("StyleBoxFlat_y8dv7")
 PopupMenu/icons/radio_checked = ExtResource("9_etc08")
 PopupMenu/icons/radio_checked_disabled = ExtResource("9_etc08")
 PopupMenu/icons/radio_unchecked = SubResource("ImageTexture_mhvtk")
