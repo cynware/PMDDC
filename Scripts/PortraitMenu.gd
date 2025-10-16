@@ -9,6 +9,9 @@ extends Control
 
 var curPmdCollabURL = "";
 
+var pmdCollabJsonMirror = "https://raw.githubusercontent.com/cynware/PMDDC-Data/refs/heads/main/pmdcollabmirror.txt";
+var pmdCollabJson:String;
+
 func _ready():
 	CheckAndCreatePortraitFolder()
 	RetrievePortraitsInDirectory()
@@ -16,7 +19,6 @@ func _ready():
 	# get_window().connect("focus_entered", self, "RetrievePortraitsInDirectory");
 	#get_window().connect("focus_entered",  RetrievePortraitsInDirectory)
 	
-
 func CheckAndCreatePortraitFolder():
 	if (!DirAccess.dir_exists_absolute("user://Portraits")):
 		DirAccess.make_dir_absolute("user://Portraits")
