@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=25 format=3 uid="uid://dsc1ij8moovpg"]
+[gd_resource type="Theme" load_steps=34 format=3 uid="uid://dsc1ij8moovpg"]
 
 [ext_resource type="Texture2D" uid="uid://cohkcapmu2cqk" path="res://Assets/Images/PMD_Dark/checkbox_ticked.png" id="1_h60n2"]
 [ext_resource type="Texture2D" uid="uid://bmnh78ywv8gvu" path="res://Assets/Images/buttongradient_hover.png" id="1_jtluw"]
@@ -9,6 +9,8 @@
 [ext_resource type="FontFile" uid="uid://b18bcqecgsw5x" path="res://Assets/Fonts/Wondermail.ttf" id="4_u4pk8"]
 [ext_resource type="Texture2D" uid="uid://bn81fgma51c58" path="res://Assets/Images/PMD_Dark/dropdown.png" id="5_0vtmn"]
 [ext_resource type="Texture2D" uid="uid://c4kwxc8eyqgbm" path="res://Assets/Images/PMD_Dark/spinboxarrows.png" id="6_bja06"]
+[ext_resource type="Texture2D" uid="uid://dgdjxdyxvneq5" path="res://Assets/Images/arrow_big.png" id="9_etc08"]
+[ext_resource type="Texture2D" uid="uid://b56ay8kc1irey" path="res://Assets/Images/GENDERLESS_BORDER.png" id="9_hi3n1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xii81"]
 content_margin_left = 4.0
@@ -111,7 +113,31 @@ border_width_left = 5
 border_width_top = 3
 border_color = Color(0.160784, 0.160784, 0.160784, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16x6q"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wcuof"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sclw"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8dv7"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[sub_resource type="ImageTexture" id="ImageTexture_mhvtk"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_65ro4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbubl"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0nymc"]
+texture = ExtResource("9_hi3n1")
+texture_margin_left = 4.0
+texture_margin_top = 5.0
+texture_margin_right = 4.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7wp3"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 1)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_1ksfg"]
 content_margin_left = 5.0
@@ -154,7 +180,16 @@ LineEdit/styles/normal = SubResource("StyleBoxFlat_08s60")
 OptionButton/constants/arrow_margin = 2
 OptionButton/constants/modulate_arrow = 2
 OptionButton/icons/arrow = ExtResource("5_0vtmn")
-OptionButton/styles/focus = SubResource("StyleBoxEmpty_16x6q")
+OptionButton/styles/focus = SubResource("StyleBoxFlat_wcuof")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_7sclw")
+Panel/styles/panel = SubResource("StyleBoxFlat_y8dv7")
+PopupMenu/icons/radio_checked = ExtResource("9_etc08")
+PopupMenu/icons/radio_checked_disabled = ExtResource("9_etc08")
+PopupMenu/icons/radio_unchecked = SubResource("ImageTexture_mhvtk")
+PopupMenu/icons/radio_unchecked_disabled = SubResource("ImageTexture_65ro4")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_tbubl")
+PopupMenu/styles/panel = SubResource("StyleBoxTexture_0nymc")
+PopupPanel/styles/panel = SubResource("StyleBoxFlat_g7wp3")
 SpinBox/icons/updown = ExtResource("6_bja06")
 TextEdit/colors/background_color = Color(0.160784, 0.160784, 0.160784, 1)
 TextEdit/styles/focus = SubResource("StyleBoxLine_1ksfg")

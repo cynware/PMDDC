@@ -34,7 +34,7 @@ var BoxChangeTargets = [
 	"../../../../ThemesTAB_BTN",
 	"../../../../PortraitTAB_BTN",
 	"../../../../PresetsTAB_BTN",
-	"../../../../TAB_DISPLAYNAME"
+	"../../../../TAB_DISPLAYNAME",
 ]
 
 func _ready():
@@ -196,13 +196,16 @@ func SelectGender(newIcon:Texture2D, newBox:Texture2D, defaultSkin:Texture2D, ge
 	UpdateDebugTabCorners(newIcon, defaultSkin)
 
 func UpdateDebugTabCorners(newIcon:Texture2D, defaultSkin:Texture2D):
+	var popupmenu = load("res://Assets/Themes/PMDButton.tres::StyleBoxTexture_0nymc")
 	for path in BoxChangeTargets:
 		var node = get_node_or_null(path)
 		if node:
 			if currentlySelectedSkin in loadedSkins.slice(0,internalSkinCount):
 				node.texture = newIcon
+				popupmenu.texture = newIcon
 			else:
 				node.texture = defaultSkin;
+				popupmenu.texture = defaultSkin
 				
 func openCustomIconFolder():
 	OS.shell_open(ProjectSettings.globalize_path("user://BoxSkins"))

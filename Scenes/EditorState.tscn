@@ -1745,7 +1745,6 @@ theme = ExtResource("106_82bab")
 text = "Unown Keys"
 
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -1754,6 +1753,7 @@ portrait = NodePath("../../../../PMD_Main/Portrait")
 textbox = NodePath("../../../../PMD_Main/Textbox")
 
 [node name="DefaultBGs" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
+layout_mode = 0
 offset_left = 109.667
 offset_top = 72.0
 offset_right = 141.667
@@ -2036,6 +2036,7 @@ theme = ExtResource("5_qi2yv")
 texture_normal = ExtResource("34_tw0f3")
 
 [node name="PortraitTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -3226,8 +3227,8 @@ texture = ExtResource("112_opyju")
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page2/ExportResolutionMultiplier" to="SCREENSHOT MANAGER" method="_on_export_resolution_multiplier_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page2/TransparentBackground" to="SCREENSHOT MANAGER" method="_on_transparent_background_toggled"]
-[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
+[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_Slider" to="Settings/SettingsMenu" method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_SBOX" to="Settings/SettingsMenu" method="_on_master_sbox_value_changed"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC" to="Settings/SettingsMenu" method="on_mute_music"]
