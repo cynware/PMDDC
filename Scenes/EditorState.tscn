@@ -719,10 +719,9 @@ offset_right = 721.0
 offset_bottom = 66.0
 
 [node name="TAB_DISPLAYNAME" type="NinePatchRect" parent="PMD_Debug"]
-visible = false
 offset_left = 205.0
 offset_top = 14.0
-offset_right = 248.0
+offset_right = 255.0
 offset_bottom = 42.0
 scale = Vector2(3, 3)
 texture = ExtResource("21_a8dco")
@@ -735,23 +734,23 @@ patch_margin_bottom = 5
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 39.0
+offset_right = 46.0
 offset_bottom = 24.0
 color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="Label" type="Label" parent="PMD_Debug/TAB_DISPLAYNAME"]
 layout_mode = 0
-offset_left = 7.0
+offset_left = 4.0
 offset_top = 7.0
-offset_right = 51.0
+offset_right = 67.0
 offset_bottom = 20.0
 scale = Vector2(0.666, 0.666)
 theme = ExtResource("5_qi2yv")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "DIALOGUE"
+horizontal_alignment = 1
 
 [node name="PortraitTAB_BTN" type="NinePatchRect" parent="PMD_Debug"]
-visible = false
 offset_left = 478.0
 offset_top = 8.0
 offset_right = 505.0
@@ -787,7 +786,6 @@ animation = &"IDLE"
 centered = false
 
 [node name="ThemesTAB_BTN" type="NinePatchRect" parent="PMD_Debug"]
-visible = false
 offset_left = 565.0
 offset_top = 8.0
 offset_right = 592.0
@@ -823,7 +821,6 @@ animation = &"IDLE"
 centered = false
 
 [node name="PresetsTAB_BTN" type="NinePatchRect" parent="PMD_Debug"]
-visible = false
 offset_left = 652.0
 offset_top = 8.0
 offset_right = 679.0
@@ -859,7 +856,6 @@ animation = &"IDLE"
 centered = false
 
 [node name="DialogueTAB_BTN" type="NinePatchRect" parent="PMD_Debug"]
-visible = false
 offset_left = 391.0
 offset_top = 8.0
 offset_right = 418.0
@@ -895,6 +891,7 @@ animation = &"IDLE"
 centered = false
 
 [node name="DialogueBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
+visible = false
 offset_left = 295.0
 offset_top = 30.0
 offset_right = 421.0
@@ -904,6 +901,7 @@ tab = NodePath("../DebugTab/Tabs/DialogueTab")
 metadata/_edit_use_anchors_ = true
 
 [node name="ThemesBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
+visible = false
 offset_left = 445.0
 offset_top = 30.0
 offset_right = 571.0
@@ -913,6 +911,7 @@ tab = NodePath("../DebugTab/Tabs/ThemesTab")
 metadata/_edit_use_anchors_ = true
 
 [node name="PresetsBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
+visible = false
 offset_left = 595.0
 offset_top = 30.0
 offset_right = 721.0
@@ -1745,6 +1744,7 @@ theme = ExtResource("106_82bab")
 text = "Unown Keys"
 
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -3162,6 +3162,10 @@ texture = ExtResource("112_opyju")
 [connection signal="button_up" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_button_button_up"]
 [connection signal="focus_entered" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_portrait_hover_button_focus_entered"]
 [connection signal="focus_exited" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_portrait_hover_button_focus_exited"]
+[connection signal="pressed" from="PMD_Debug/PortraitTAB_BTN/PortraitTAB_BTN2" to="PMD_Debug" method="portrait_tab_pressed"]
+[connection signal="pressed" from="PMD_Debug/ThemesTAB_BTN/ThemesTAB_BTN2" to="PMD_Debug" method="themes_tab_pressed"]
+[connection signal="pressed" from="PMD_Debug/PresetsTAB_BTN/PresetsTAB_BTN2" to="PMD_Debug" method="presets_tab_pressed"]
+[connection signal="pressed" from="PMD_Debug/DialogueTAB_BTN/DialogueTAB_BTN2" to="PMD_Debug" method="dialogue_tab_pressed"]
 [connection signal="gui_input" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_textbox_edit_gui_input"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/DialogueTab/AlignmentButton" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="_on_alignment_button_item_selected"]
@@ -3227,8 +3231,8 @@ texture = ExtResource("112_opyju")
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page2/ExportResolutionMultiplier" to="SCREENSHOT MANAGER" method="_on_export_resolution_multiplier_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page2/TransparentBackground" to="SCREENSHOT MANAGER" method="_on_transparent_background_toggled"]
-[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
+[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_Slider" to="Settings/SettingsMenu" method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_SBOX" to="Settings/SettingsMenu" method="_on_master_sbox_value_changed"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC" to="Settings/SettingsMenu" method="on_mute_music"]
