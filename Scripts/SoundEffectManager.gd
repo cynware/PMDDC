@@ -26,9 +26,20 @@ extends Node
 @export var sfx_Settings:AudioStreamPlayer;
 @export var sfx_Mute:AudioStreamPlayer;
 
+@export var sfx_tab_dialogue:AudioStreamPlayer;
+@export var sfx_tab_portraits:AudioStreamPlayer;
+@export var sfx_tab_presets:AudioStreamPlayer;
+
 
 func PlayAccept():
 	sfx_accept.play()
+	
+func PlayDialogueTab():
+	sfx_tab_dialogue.play()
+func PlayPortraitTab():
+	sfx_tab_portraits.play()
+func PlayPresetTab():
+	sfx_tab_presets.play()
 	
 func PlaySetting():
 	sfx_Settings.pitch_scale = randf_range(0.8, 0.95)

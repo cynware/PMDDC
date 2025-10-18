@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bds8mbk1ht1dx"]
+[gd_scene load_steps=21 format=3 uid="uid://bds8mbk1ht1dx"]
 
 [ext_resource type="Script" path="res://Scripts/SoundEffectManager.gd" id="1_dw4sc"]
 [ext_resource type="AudioStream" uid="uid://r32yop1dwqy1" path="res://Assets/Sounds/pmdMenu_2.ogg" id="2_84dti"]
@@ -17,8 +17,11 @@
 [ext_resource type="AudioStream" uid="uid://btlxqqv75tadk" path="res://Assets/Sounds/fanfare.ogg" id="15_ewojj"]
 [ext_resource type="AudioStream" uid="uid://celljk4a0y23y" path="res://Assets/Sounds/settings.ogg" id="16_tjw6e"]
 [ext_resource type="AudioStream" uid="uid://djx70svi8ey3s" path="res://Assets/Sounds/mute.ogg" id="17_a4rxk"]
+[ext_resource type="AudioStream" uid="uid://e5xc4jx1dd6u" path="res://Assets/Sounds/dialogue.mp3" id="18_1rn62"]
+[ext_resource type="AudioStream" uid="uid://cc7rnttfy3oak" path="res://Assets/Sounds/portraits.mp3" id="19_lsik5"]
+[ext_resource type="AudioStream" uid="uid://bgvpru8nc0rdh" path="res://Assets/Sounds/presets.mp3" id="20_urgk5"]
 
-[node name="SoundEffectManager" type="Node" node_paths=PackedStringArray("sfx_accept", "sfx_cancel", "sfx_checkboxOn", "sfx_checkboxOff", "sfx_chooseDropdown", "sfx_delete", "sfx_savePreset", "sfx_folderBTN", "sfx_refreshBTN", "sfx_Type", "sfx_TypeBackspace", "sfx_BGImport", "sfx_Error", "sfx_Move", "sfx_Fanfare", "sfx_Settings", "sfx_Mute")]
+[node name="SoundEffectManager" type="Node" node_paths=PackedStringArray("sfx_accept", "sfx_cancel", "sfx_checkboxOn", "sfx_checkboxOff", "sfx_chooseDropdown", "sfx_delete", "sfx_savePreset", "sfx_folderBTN", "sfx_refreshBTN", "sfx_Type", "sfx_TypeBackspace", "sfx_BGImport", "sfx_Error", "sfx_Move", "sfx_Fanfare", "sfx_Settings", "sfx_Mute", "sfx_tab_dialogue", "sfx_tab_portraits", "sfx_tab_presets")]
 script = ExtResource("1_dw4sc")
 sfx_accept = NodePath("Accept")
 sfx_cancel = NodePath("Cancel")
@@ -37,6 +40,9 @@ sfx_Move = NodePath("MOVESFX")
 sfx_Fanfare = NodePath("FANFARE")
 sfx_Settings = NodePath("SettingSound")
 sfx_Mute = NodePath("MUTE")
+sfx_tab_dialogue = NodePath("DIALOGUE")
+sfx_tab_portraits = NodePath("PORTRAITS")
+sfx_tab_presets = NodePath("PRESETS")
 
 [node name="Accept" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_84dti")
@@ -90,7 +96,7 @@ bus = &"Sound"
 
 [node name="Type_Backspace" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_qxrac")
-volume_db = -25.0
+volume_db = -15.0
 bus = &"Sound"
 
 [node name="BGImport" type="AudioStreamPlayer" parent="."]
@@ -122,3 +128,18 @@ bus = &"Sound"
 stream = ExtResource("17_a4rxk")
 volume_db = -15.0
 bus = &"Misc"
+
+[node name="DIALOGUE" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_1rn62")
+volume_db = -24.0
+bus = &"Sound"
+
+[node name="PORTRAITS" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_lsik5")
+volume_db = -24.0
+bus = &"Sound"
+
+[node name="PRESETS" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_urgk5")
+volume_db = -24.0
+bus = &"Sound"

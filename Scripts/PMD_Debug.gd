@@ -31,7 +31,7 @@ func portrait_tab_pressed():
 	$PresetsTAB_BTN/ICON.play("IDLE")
 	$DialogueTAB_BTN/ICON.play("IDLE")
 	
-	SoundEffectManager.PlayAccept()
+	SoundEffectManager.PlayPortraitTab()
 
 
 func themes_tab_pressed():
@@ -46,7 +46,7 @@ func themes_tab_pressed():
 	$PresetsTAB_BTN/ICON.play("IDLE")
 	$DialogueTAB_BTN/ICON.play("IDLE")
 	
-	SoundEffectManager.PlayAccept()
+	SoundEffectManager.PlayBGImport()
 
 
 func presets_tab_pressed():
@@ -61,7 +61,7 @@ func presets_tab_pressed():
 	$ThemesTAB_BTN/ICON.play("IDLE")
 	$PortraitTAB_BTN/ICON.play("IDLE")
 	
-	SoundEffectManager.PlayAccept()
+	SoundEffectManager.PlayPresetTab()
 
 
 func dialogue_tab_pressed():
@@ -76,4 +76,4 @@ func dialogue_tab_pressed():
 	$ThemesTAB_BTN/ICON.play("IDLE")
 	$PortraitTAB_BTN/ICON.play("IDLE")
 	
-	SoundEffectManager.PlayAccept()
+	SoundEffectManager.PlayDialogueTab()
