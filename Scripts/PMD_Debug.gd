@@ -19,6 +19,8 @@ func _process(delta):
 			lerpPosition = initialPosition + Vector2.RIGHT * 800;
 
 
+
+
 func portrait_tab_pressed():
 	$DebugTab/Tabs/PortraitTab.visible = true
 	$DebugTab/Tabs/DialogueTab.visible = false
@@ -32,6 +34,7 @@ func portrait_tab_pressed():
 	$DialogueTAB_BTN/ICON.play("IDLE")
 	
 	SoundEffectManager.PlayPortraitTab()
+
 
 
 func themes_tab_pressed():

@@ -196,17 +196,28 @@ func SelectGender(newIcon:Texture2D, newBox:Texture2D, defaultSkin:Texture2D, ge
 	UpdateDebugTabCorners(newIcon, defaultSkin)
 
 func UpdateDebugTabCorners(newIcon:Texture2D, defaultSkin:Texture2D):
-	var popupmenu = load("res://Assets/Themes/PMDButton.tres::StyleBoxTexture_0nymc")
 	for path in BoxChangeTargets:
 		var node = get_node_or_null(path)
 		if node:
 			if currentlySelectedSkin in loadedSkins.slice(0,internalSkinCount):
 				node.texture = newIcon
-				popupmenu.texture = newIcon
+				UpdateThemePopup(newIcon, defaultSkin)
 			else:
 				node.texture = defaultSkin;
-				popupmenu.texture = defaultSkin
+				UpdateThemePopup(newIcon, defaultSkin)
 				
+
+func UpdateThemePopup(newIcon:Texture2D, defaultSkin:Texture2D):
+	var popupmenu = load("res://Assets/Themes/PMDButton.tres::StyleBoxTexture_0nymc")
+	if currentlySelectedSkin in loadedSkins.slice(0,internalSkinCount):
+		var img = newIcon.get_image()
+		img.resize(img.get_width() * 3, img.get_height() * 3, Image.INTERPOLATE_NEAREST)
+		popupmenu.texture = ImageTexture.create_from_image(img)
+	else:
+		var img = defaultSkin.get_image()
+		img.resize(img.get_width() * 3, img.get_height() * 3, Image.INTERPOLATE_NEAREST)
+		popupmenu.texture = ImageTexture.create_from_image(img)
+
 func openCustomIconFolder():
 	OS.shell_open(ProjectSettings.globalize_path("user://BoxSkins"))
 	SoundEffectManager.PlayFolder()

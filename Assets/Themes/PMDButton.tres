@@ -121,14 +121,18 @@ bg_color = Color(0.12549, 0.12549, 0.12549, 1)
 [sub_resource type="ImageTexture" id="ImageTexture_65ro4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbubl"]
-bg_color = Color(0.141176, 0.141176, 0.141176, 1)
+bg_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0nymc"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
 texture = ExtResource("9_hi3n1")
-texture_margin_left = 4.0
-texture_margin_top = 5.0
-texture_margin_right = 4.0
-texture_margin_bottom = 5.0
+texture_margin_left = 30.0
+texture_margin_top = 30.0
+texture_margin_right = 30.0
+texture_margin_bottom = 30.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7wp3"]
 bg_color = Color(0.12549, 0.12549, 0.12549, 1)

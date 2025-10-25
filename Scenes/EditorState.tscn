@@ -1,4 +1,4 @@
-[gd_scene load_steps=186 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=187 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://beikwn8chfkpn" path="res://Assets/Images/portraits/ERRORPORTRAIT.png" id="4_yqe1g"]
 [ext_resource type="Theme" uid="uid://dsorw808w1qst" path="res://Assets/Themes/PmdDark.tres" id="5_qi2yv"]
 [ext_resource type="Texture2D" uid="uid://qsa6ad01bahp" path="res://Assets/Images/cursor_hand.png" id="5_xlvjr"]
-[ext_resource type="PackedScene" uid="uid://bgtua870y440s" path="res://Scenes/Components/DebugTabButton.tscn" id="6_4mf72"]
 [ext_resource type="Texture2D" uid="uid://ddukth4vrqoyi" path="res://Assets/Images/cursor_pointer.png" id="6_7n837"]
 [ext_resource type="Shader" path="res://Assets/Shaders/blur.gdshader" id="6_q7upt"]
 [ext_resource type="Texture2D" uid="uid://n7h3uxp83t63" path="res://Assets/Images/cursor_hand_grab.png" id="7_scbut"]
@@ -38,11 +37,13 @@
 [ext_resource type="Texture2D" uid="uid://b0qkkn1jioi4w" path="res://Assets/Images/symbols/evil_gang.png" id="22_ruxgj"]
 [ext_resource type="Texture2D" uid="uid://2njooebahpew" path="res://Assets/Images/PresetsBTN.png" id="23_1ak43"]
 [ext_resource type="Texture2D" uid="uid://dfoinj66226d6" path="res://Assets/Images/symbols/face_holding_back_tears.png" id="23_2oyy6"]
+[ext_resource type="Script" path="res://Scripts/DebugTabButton.gd" id="23_7dxfk"]
 [ext_resource type="Texture2D" uid="uid://ccg4avukacymh" path="res://Assets/Images/symbols/pensive.png" id="24_t7fh0"]
 [ext_resource type="Texture2D" uid="uid://bx2lmiel2bdql" path="res://Assets/Images/symbols/face_hearts.png" id="25_ruyj5"]
 [ext_resource type="Texture2D" uid="uid://bpqxghytjwgbm" path="res://Assets/Images/symbols/flushed.png" id="26_ywre3"]
 [ext_resource type="Texture2D" uid="uid://cdmr3icjt0nx2" path="res://Assets/Images/symbols/face_with_monocle.png" id="27_yq5tl"]
 [ext_resource type="Texture2D" uid="uid://df38v2x0eu0jl" path="res://Assets/Images/symbols/nerd.png" id="28_6ychj"]
+[ext_resource type="Script" path="res://Scripts/ThemeFix.gd" id="30_e868e"]
 [ext_resource type="Script" path="res://Scripts/ThemesTab.gd" id="30_q7nel"]
 [ext_resource type="Texture2D" uid="uid://cy6c4ctgd1wx2" path="res://Assets/Images/symbols/tm.png" id="32_d4ejl"]
 [ext_resource type="Texture2D" uid="uid://dsyhtk2a33fyu" path="res://Assets/Images/buttongradient.png" id="32_nhym6"]
@@ -709,6 +710,7 @@ offset_top = 4.0
 offset_right = 23.0
 offset_bottom = 24.0
 theme = ExtResource("5_qi2yv")
+script = ExtResource("23_7dxfk")
 
 [node name="ICON" type="AnimatedSprite2D" parent="PMD_Debug/PortraitTAB_BTN"]
 position = Vector2(5.16666, 4.333)
@@ -744,6 +746,7 @@ offset_top = 4.0
 offset_right = 23.0
 offset_bottom = 24.0
 theme = ExtResource("5_qi2yv")
+script = ExtResource("23_7dxfk")
 
 [node name="ICON" type="AnimatedSprite2D" parent="PMD_Debug/ThemesTAB_BTN"]
 position = Vector2(5.16666, 4.333)
@@ -779,6 +782,7 @@ offset_top = 4.0
 offset_right = 23.0
 offset_bottom = 24.0
 theme = ExtResource("5_qi2yv")
+script = ExtResource("23_7dxfk")
 
 [node name="ICON" type="AnimatedSprite2D" parent="PMD_Debug/PresetsTAB_BTN"]
 position = Vector2(5.16666, 4.333)
@@ -814,6 +818,7 @@ offset_top = 4.0
 offset_right = 23.0
 offset_bottom = 24.0
 theme = ExtResource("5_qi2yv")
+script = ExtResource("23_7dxfk")
 
 [node name="ICON" type="AnimatedSprite2D" parent="PMD_Debug/DialogueTAB_BTN"]
 position = Vector2(5.16666, 4.333)
@@ -821,36 +826,6 @@ scale = Vector2(0.666, 0.666)
 sprite_frames = SubResource("SpriteFrames_r6pca")
 animation = &"IDLE"
 centered = false
-
-[node name="DialogueBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
-visible = false
-offset_left = 295.0
-offset_top = 30.0
-offset_right = 421.0
-offset_bottom = 72.0
-text = "DIALOGUE"
-tab = NodePath("../DebugTab/Tabs/DialogueTab")
-metadata/_edit_use_anchors_ = true
-
-[node name="ThemesBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
-visible = false
-offset_left = 445.0
-offset_top = 30.0
-offset_right = 571.0
-offset_bottom = 72.0
-text = "THEMES"
-tab = NodePath("../DebugTab/Tabs/ThemesTab")
-metadata/_edit_use_anchors_ = true
-
-[node name="PresetsBTN" parent="PMD_Debug" node_paths=PackedStringArray("tab") groups=["UI_BUTTONS"] instance=ExtResource("6_4mf72")]
-visible = false
-offset_left = 595.0
-offset_top = 30.0
-offset_right = 721.0
-offset_bottom = 72.0
-text = "PRESETS"
-tab = NodePath("../DebugTab/Tabs/PresetsTab")
-metadata/_edit_use_anchors_ = true
 
 [node name="DebugTab" type="NinePatchRect" parent="PMD_Debug"]
 offset_left = 193.0
@@ -882,7 +857,6 @@ offset_bottom = 101.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogueTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("textboxText", "textboxText2")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -923,6 +897,7 @@ popup/item_1/id = 1
 popup/item_2/text = ""
 popup/item_2/icon = ExtResource("44_jo553")
 popup/item_2/id = 2
+script = ExtResource("30_e868e")
 
 [node name="InsertColourBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 1
@@ -1676,6 +1651,7 @@ theme = ExtResource("106_82bab")
 text = "Unown Keys"
 
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -1747,6 +1723,7 @@ popup/item_15/id = 15
 popup/item_16/text = ""
 popup/item_16/icon = ExtResource("84_eew3q")
 popup/item_16/id = 16
+script = ExtResource("30_e868e")
 
 [node name="BGImageOpener" type="FileDialog" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 title = "Open a File"
@@ -1855,7 +1832,7 @@ template_iconNB = ExtResource("77_a3swu")
 layout_mode = 0
 offset_right = 176.0
 offset_bottom = 97.0
-color = Color(0.156863, 0.156863, 0.156863, 1)
+color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="Header" type="Label" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow"]
 layout_mode = 0
@@ -1921,6 +1898,7 @@ allow_reselect = true
 popup/item_0/text = "[NULL]"
 popup/item_0/icon = ExtResource("22_ruxgj")
 popup/item_0/id = 0
+script = ExtResource("30_e868e")
 
 [node name="GenderLabel" type="Label" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow"]
 layout_mode = 0
@@ -2023,6 +2001,7 @@ popup/item_1/text = "Right "
 popup/item_1/id = 1
 popup/item_2/text = "Center"
 popup/item_2/id = 2
+script = ExtResource("30_e868e")
 
 [node name="Alignment_Preview" type="TextureRect" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/PORTRAITALIGNMENT"]
 layout_mode = 0
@@ -2191,6 +2170,7 @@ popup/item_18/text = "Teary-Eyed"
 popup/item_18/id = 18
 popup/item_19/text = "Worried"
 popup/item_19/id = 19
+script = ExtResource("30_e868e")
 
 [node name="Form_Collab" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -2206,6 +2186,7 @@ item_count = 1
 selected = 0
 popup/item_0/text = "FORM HERE"
 popup/item_0/id = 0
+script = ExtResource("30_e868e")
 
 [node name="Portrait_COLLABBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -2369,6 +2350,7 @@ allow_reselect = true
 popup/item_0/text = "[NULL]"
 popup/item_0/icon = ExtResource("22_ruxgj")
 popup/item_0/id = 0
+script = ExtResource("30_e868e")
 
 [node name="Emotion_LocalEmotion" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/LocalPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -2389,6 +2371,7 @@ allow_reselect = true
 popup/item_0/text = "[NULL]"
 popup/item_0/icon = ExtResource("22_ruxgj")
 popup/item_0/id = 0
+script = ExtResource("30_e868e")
 
 [node name="FolderBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/LocalPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -2467,6 +2450,7 @@ fit_to_longest_item = false
 allow_reselect = true
 popup/item_0/text = "[NULL]"
 popup/item_0/id = 0
+script = ExtResource("30_e868e")
 
 [node name="SavePresetBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PresetsTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -2630,6 +2614,7 @@ popup/item_1/text = "1024 x 768"
 popup/item_1/id = 1
 popup/item_2/text = "1280 x 960"
 popup/item_2/id = 2
+script = ExtResource("30_e868e")
 
 [node name="FullscreenButt" type="CheckBox" parent="Settings/SettingsMenu/SettingsPanel/Page1" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -2709,6 +2694,7 @@ popup/item_8/text = "9x"
 popup/item_8/id = 9
 popup/item_9/text = "10x"
 popup/item_9/id = 10
+script = ExtResource("30_e868e")
 
 [node name="TransparentBackground" type="CheckBox" parent="Settings/SettingsMenu/SettingsPanel/Page2" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -3093,9 +3079,17 @@ texture = ExtResource("112_opyju")
 [connection signal="button_up" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_button_button_up"]
 [connection signal="focus_entered" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_portrait_hover_button_focus_entered"]
 [connection signal="focus_exited" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_portrait_hover_button_focus_exited"]
+[connection signal="button_down" from="PMD_Debug/PortraitTAB_BTN/PortraitTAB_BTN2" to="PMD_Debug/PortraitTAB_BTN/PortraitTAB_BTN2" method="_on_button_down"]
+[connection signal="button_up" from="PMD_Debug/PortraitTAB_BTN/PortraitTAB_BTN2" to="PMD_Debug/PortraitTAB_BTN/PortraitTAB_BTN2" method="_on_button_up"]
 [connection signal="pressed" from="PMD_Debug/PortraitTAB_BTN/PortraitTAB_BTN2" to="PMD_Debug" method="portrait_tab_pressed"]
+[connection signal="button_down" from="PMD_Debug/ThemesTAB_BTN/ThemesTAB_BTN2" to="PMD_Debug/ThemesTAB_BTN/ThemesTAB_BTN2" method="_on_button_down"]
+[connection signal="button_up" from="PMD_Debug/ThemesTAB_BTN/ThemesTAB_BTN2" to="PMD_Debug/ThemesTAB_BTN/ThemesTAB_BTN2" method="_on_button_up"]
 [connection signal="pressed" from="PMD_Debug/ThemesTAB_BTN/ThemesTAB_BTN2" to="PMD_Debug" method="themes_tab_pressed"]
+[connection signal="button_down" from="PMD_Debug/PresetsTAB_BTN/PresetsTAB_BTN2" to="PMD_Debug/PresetsTAB_BTN/PresetsTAB_BTN2" method="_on_button_down"]
+[connection signal="button_up" from="PMD_Debug/PresetsTAB_BTN/PresetsTAB_BTN2" to="PMD_Debug/PresetsTAB_BTN/PresetsTAB_BTN2" method="_on_button_up"]
 [connection signal="pressed" from="PMD_Debug/PresetsTAB_BTN/PresetsTAB_BTN2" to="PMD_Debug" method="presets_tab_pressed"]
+[connection signal="button_down" from="PMD_Debug/DialogueTAB_BTN/DialogueTAB_BTN2" to="PMD_Debug/DialogueTAB_BTN/DialogueTAB_BTN2" method="_on_button_down"]
+[connection signal="button_up" from="PMD_Debug/DialogueTAB_BTN/DialogueTAB_BTN2" to="PMD_Debug/DialogueTAB_BTN/DialogueTAB_BTN2" method="_on_button_up"]
 [connection signal="pressed" from="PMD_Debug/DialogueTAB_BTN/DialogueTAB_BTN2" to="PMD_Debug" method="dialogue_tab_pressed"]
 [connection signal="gui_input" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_textbox_edit_gui_input"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
@@ -3178,7 +3172,3 @@ texture = ExtResource("112_opyju")
 [connection signal="pressed" from="NoticeScreen/InfoBorder/InfoDisplay/CloseBTN" to="NoticeScreen" method="CloseNotice"]
 [connection signal="pressed" from="NoticeScreen/InfoBorder/InfoDisplay/DownloadGithub" to="NoticeScreen" method="OpenGithubReleasesPage"]
 [connection signal="pressed" from="NoticeScreen/InfoBorder/InfoDisplay/DownloadItch" to="NoticeScreen" method="OpenItchioPage"]
-
-[editable path="PMD_Debug/DialogueBTN"]
-[editable path="PMD_Debug/ThemesBTN"]
-[editable path="PMD_Debug/PresetsBTN"]
