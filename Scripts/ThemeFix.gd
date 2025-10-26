@@ -27,6 +27,7 @@ extends OptionButton
 # ;::;;:;;;;:;;;$&&&&$&xx$$&&&&&$xx&&&$XxXXxxxxxxxxxxxxx;+;Xxxx+xxxxx+Xxxxxxxx;;;;;;;+;;;;;;;;;;;+++x;
 
 # Called when the node enters the scene tree for the first time.
+
 func _ready():
 	get_popup().transparent = true
 	get_popup().transparent_bg = true
