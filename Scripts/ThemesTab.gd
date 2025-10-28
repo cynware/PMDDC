@@ -33,6 +33,13 @@ func onBoxSkinWindowClose():
 	$BoxSkinWindow.visible = false;
 	SoundEffectManager.PlayCancel();
 	
+func onOptionBoxWindowClose():
+	$OptionBoxWindow.visible = false;
+	SoundEffectManager.PlayCancel();
+func onOptionBoxWindowOpen():
+	$OptionBoxWindow.visible = true;
+	SoundEffectManager.PlayAccept();
+	
 func onBoxSkinWindowOpen():
 	$BoxSkinWindow.visible = true;
 	SoundEffectManager.PlayAccept();
@@ -62,6 +69,9 @@ func _on_upload_image_file_selected(path):
 	
 	$"../../../../BgColour/ImageBg".texture = image_texture
 	SoundEffectManager.PlayBGImport()
+	
+	$DefaultBGs.selected = 0
+	$"../../../../BgColour/PMD_QuizBG".visible = false
 
 func _on_portrait_hide_pressed():
 	portrait.visible = !$PortraitHide.button_pressed;
@@ -86,6 +96,8 @@ func _on_bg_reload_pressed():
 	SoundEffectManager.PlayRefresh()
 	$"../../../../BgColour".color = Color.html("#4c4c4c");
 	$BgColour.color = Color.html("#4c4c4c");
+	$DefaultBGs.selected = 0
+	$"../../../../BgColour/PMD_QuizBG".visible = false
 
 
 func _on_alignment_selected(index):
@@ -104,4 +116,9 @@ func on_defaultbg_change(index):
 		$"../../../../BgColour/ImageBg".texture = null
 	else:
 		$"../../../../BgColour/ImageBg".texture = $DefaultBGs.get_item_icon(index)
+	if index == 17:
+		$"../../../../BgColour/PMD_QuizBG".visible = true
+		$"../../../../BgColour/ImageBg".texture = null
+	else:
+		$"../../../../BgColour/PMD_QuizBG".visible = false
 	SoundEffectManager.PlayBGImport()

@@ -15,6 +15,7 @@ config/description="A small tool that allows you to make your own PMD dialogue w
 config/version="1.1.0"
 run/main_scene="res://Scenes/EditorState.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
+run/max_fps=60
 boot_splash/bg_color=Color(0.298039, 0.298039, 0.298039, 1)
 boot_splash/show_image=false
 boot_splash/image="res://icon.png"
