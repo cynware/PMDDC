@@ -15,8 +15,12 @@ func _process(delta):
 		
 		if(isVisible):
 			lerpPosition = initialPosition
+			$"../Save".visible = true
+			$"../Settings".visible = true
 		else:
 			lerpPosition = initialPosition + Vector2.RIGHT * 800;
+			$"../Save".visible = false
+			$"../Settings".visible = false
 
 
 
