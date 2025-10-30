@@ -95,6 +95,10 @@ func onGlyphWindowOpen():
 	$UnicodeWindow.visible = true
 	SoundEffectManager.PlayAccept()
 
+func onOptionBoxWindowOpen():
+	$OptionBoxWindow.visible = true
+	SoundEffectManager.PlayAccept()
+
 func _on_alignment_button_item_selected(index):
 	SoundEffectManager.PlayChooseDropdown()
 	match index:

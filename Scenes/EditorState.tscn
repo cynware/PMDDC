@@ -1,4 +1,4 @@
-[gd_scene load_steps=319 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=323 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -49,6 +49,7 @@
 [ext_resource type="Script" path="res://Scripts/ThemeFix.gd" id="30_e868e"]
 [ext_resource type="Script" path="res://Scripts/ThemesTab.gd" id="30_q7nel"]
 [ext_resource type="Texture2D" uid="uid://cy6c4ctgd1wx2" path="res://Assets/Images/symbols/tm.png" id="32_d4ejl"]
+[ext_resource type="Texture2D" uid="uid://du0jtwpi0bsfi" path="res://Assets/Images/optionbox_button.png" id="32_nav62"]
 [ext_resource type="Texture2D" uid="uid://dsyhtk2a33fyu" path="res://Assets/Images/buttongradient.png" id="32_nhym6"]
 [ext_resource type="Texture2D" uid="uid://cu4qsbkuar1md" path="res://Assets/Images/icon_F.png" id="33_87j8f"]
 [ext_resource type="Texture2D" uid="uid://bmnh78ywv8gvu" path="res://Assets/Images/buttongradient_hover.png" id="33_lyn8s"]
@@ -75,6 +76,7 @@
 [ext_resource type="Texture2D" uid="uid://gpg6o6mv2nhb" path="res://Assets/Images/Template/Inspired.png" id="40_jnqv7"]
 [ext_resource type="Texture2D" uid="uid://djefjgpt61hyn" path="res://Assets/Images/symbols/UI_b.png" id="40_s85ul"]
 [ext_resource type="Texture2D" uid="uid://kf7enmd43nme" path="res://Assets/Images/symbols/UI_x.png" id="41_f3j0y"]
+[ext_resource type="ButtonGroup" uid="uid://dvespeylyt7qh" path="res://Assets/Button_Groups/markers.tres" id="41_q0qa3"]
 [ext_resource type="Texture2D" uid="uid://dtag1tmr7slas" path="res://Assets/Images/Template/Joyous.png" id="41_wmx46"]
 [ext_resource type="Texture2D" uid="uid://bc38s8ctbcghr" path="res://Assets/Images/symbols/UI_y.png" id="42_455g5"]
 [ext_resource type="Texture2D" uid="uid://lqejclgs5c1h" path="res://Assets/Images/left_align.png" id="42_w6bt0"]
@@ -125,8 +127,10 @@
 [ext_resource type="Texture2D" uid="uid://ukqwamsk73ii" path="res://Assets/Images/default_bgs/OutlawBoard.png" id="82_8xbdw"]
 [ext_resource type="Texture2D" uid="uid://ck06oqbn82mwj" path="res://Assets/Images/default_bgs/ProjectP.png" id="83_lyd4u"]
 [ext_resource type="Texture2D" uid="uid://cn606o3milgf5" path="res://Assets/Images/default_bgs/SkyJukebox.png" id="84_eew3q"]
+[ext_resource type="Texture2D" uid="uid://d3uj58gi22gy1" path="res://Assets/Images/arrow_off.png" id="89_c313j"]
 [ext_resource type="Texture2D" uid="uid://c1jighmqs2dvc" path="res://Assets/Images/default_bgs/QuizPreview.png" id="89_w8s5a"]
 [ext_resource type="Texture2D" uid="uid://wls6e8y6ugpo" path="res://Assets/Images/cross_cropped.png" id="94_od227"]
+[ext_resource type="Script" path="res://Scenes/OptionBoxWindow.gd" id="96_foo2s"]
 [ext_resource type="Texture2D" uid="uid://x6w6u2s7jye5" path="res://Assets/Images/trash1.png" id="102_4jttb"]
 [ext_resource type="Script" path="res://Scripts/PresetsTab.gd" id="102_iggxt"]
 [ext_resource type="Texture2D" uid="uid://bne4ici75m24q" path="res://Assets/Images/trash2.png" id="103_3iglc"]
@@ -1547,6 +1551,240 @@ rotation = -1.5708
 texture = ExtResource("67_uwkq2")
 flip_h = true
 
+[node name="OptionBox" type="Control" parent="PMD_Main"]
+visible = false
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 741.0
+offset_top = 375.0
+offset_right = 742.0
+offset_bottom = 376.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(3, 3)
+
+[node name="OptionBoxBorder" type="NinePatchRect" parent="PMD_Main/OptionBox"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("9_ebeq2")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="HighlightMarker" type="ColorRect" parent="PMD_Main/OptionBox/OptionBoxBorder"]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = 5.0
+offset_right = 6.0
+offset_bottom = 17.0
+color = Color(0, 0.501961, 0.972549, 1)
+
+[node name="BoxLine1" type="RichTextLabel" parent="PMD_Main/OptionBox/OptionBoxBorder"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+offset_left = 21.0
+offset_top = 6.0
+offset_right = 30.0
+offset_bottom = 22.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="BoxLine1_S" type="RichTextLabel" parent="PMD_Main/OptionBox/OptionBoxBorder/BoxLine1"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+offset_right = 9.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="BoxLine2" type="RichTextLabel" parent="PMD_Main/OptionBox/OptionBoxBorder"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 22.0
+offset_right = 30.0
+offset_bottom = 38.0
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="BoxLine2_S" type="RichTextLabel" parent="PMD_Main/OptionBox/OptionBoxBorder/BoxLine2"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 16.0
+pivot_offset = Vector2(17, 14)
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="BoxLine3" type="RichTextLabel" parent="PMD_Main/OptionBox/OptionBoxBorder"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 38.0
+offset_right = 30.0
+offset_bottom = 54.0
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="BoxLine3_S" type="RichTextLabel" parent="PMD_Main/OptionBox/OptionBoxBorder/BoxLine3"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 16.0
+pivot_offset = Vector2(17, 14)
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="BoxLine4" type="RichTextLabel" parent="PMD_Main/OptionBox/OptionBoxBorder"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 54.0
+offset_right = 30.0
+offset_bottom = 70.0
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="BoxLine4_S" type="RichTextLabel" parent="PMD_Main/OptionBox/OptionBoxBorder/BoxLine4"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 16.0
+pivot_offset = Vector2(17, 14)
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="BoxLine5" type="RichTextLabel" parent="PMD_Main/OptionBox/OptionBoxBorder"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 70.0
+offset_right = 30.0
+offset_bottom = 86.0
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="BoxLine5_S" type="RichTextLabel" parent="PMD_Main/OptionBox/OptionBoxBorder/BoxLine5"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 16.0
+pivot_offset = Vector2(17, 14)
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="OptionArrow" type="TextureRect" parent="PMD_Main/OptionBox/OptionBoxBorder"]
+visible = false
+layout_mode = 0
+offset_top = 5.0
+offset_right = 5.0
+offset_bottom = 16.0
+texture = ExtResource("67_uwkq2")
+
 [node name="Textbox" type="Sprite2D" parent="PMD_Main"]
 position = Vector2(384, 468)
 scale = Vector2(3, 3)
@@ -1810,7 +2048,6 @@ offset_bottom = 101.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogueTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("textboxText", "textboxText2")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -1873,31 +2110,33 @@ metadata/_edit_use_anchors_ = true
 [node name="InsertSymbolBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0132557
-anchor_top = -0.0206186
-anchor_right = -0.0132556
-anchor_bottom = 0.0206186
-offset_left = 118.333
-offset_top = 4.0
-offset_right = 150.333
-offset_bottom = 15.0
+anchor_left = 0.665
+anchor_top = 0.021
+anchor_right = 0.744
+anchor_bottom = 0.129
+offset_left = -0.0400009
+offset_top = -0.0370002
+offset_right = 6.056
+offset_bottom = 4.487
 scale = Vector2(0.7, 0.7)
 focus_mode = 0
 theme = ExtResource("106_82bab")
 icon = ExtResource("18_37hf0")
+clip_text = true
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="InsertGlyphBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0151535
-anchor_right = -0.0150909
-anchor_bottom = 0.0206186
-offset_left = 141.667
-offset_top = 2.0
-offset_right = 173.656
-offset_bottom = 15.0
+anchor_left = 0.756
+anchor_top = 0.021
+anchor_right = 0.835
+anchor_bottom = 0.129
+offset_left = -0.0559998
+offset_top = -0.0370002
+offset_right = 6.03999
+offset_bottom = 4.487
 scale = Vector2(0.7, 0.7)
 theme = ExtResource("106_82bab")
 theme_override_styles/normal = SubResource("StyleBoxTexture_x4kfj")
@@ -1906,6 +2145,29 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_mg20k")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_koqge")
 theme_override_styles/focus = SubResource("StyleBoxTexture_crd6r")
 text = "❤"
+clip_text = true
+metadata/_edit_use_anchors_ = true
+
+[node name="OptionBoxBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.846591
+anchor_top = 0.0206186
+anchor_right = 0.926
+anchor_bottom = 0.129
+offset_right = 6.02399
+offset_bottom = 4.487
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("106_82bab")
+theme_override_styles/normal = SubResource("StyleBoxTexture_x4kfj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oo1q3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mg20k")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_koqge")
+theme_override_styles/focus = SubResource("StyleBoxTexture_crd6r")
+icon = ExtResource("32_nav62")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
 metadata/_edit_use_anchors_ = true
 
 [node name="InsertColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
@@ -1961,6 +2223,249 @@ text = "PREFIX"
 flat = true
 alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="OptionBoxWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" node_paths=PackedStringArray("OptionBoxBorder", "OptionBox", "OptionLabel1", "OptionLabel2", "OptionLabel3", "OptionLabel4", "OptionLabel5", "BoxLine1", "BoxLine2", "BoxLine3", "BoxLine4", "BoxLine5", "BoxLineS1", "BoxLineS2", "BoxLineS3", "BoxLineS4", "BoxLineS5", "TextOffset", "BoxPadding", "OptMarker1", "OptMarker2", "OptMarker3", "OptMarker4", "OptMarker5", "OptionArrow", "HighlightMarker", "HighlightButton")]
+visible = false
+anchors_preset = 0
+offset_right = 176.0
+offset_bottom = 97.0
+script = ExtResource("96_foo2s")
+OptionBoxBorder = NodePath("../../../../../PMD_Main/OptionBox/OptionBoxBorder")
+OptionBox = NodePath("../../../../../PMD_Main/OptionBox")
+OptionLabel1 = NodePath("OptionLabels/OptionLabel1")
+OptionLabel2 = NodePath("OptionLabels/OptionLabel2")
+OptionLabel3 = NodePath("OptionLabels/OptionLabel3")
+OptionLabel4 = NodePath("OptionLabels/OptionLabel4")
+OptionLabel5 = NodePath("OptionLabels/OptionLabel5")
+BoxLine1 = NodePath("../../../../../PMD_Main/OptionBox/OptionBoxBorder/BoxLine1")
+BoxLine2 = NodePath("../../../../../PMD_Main/OptionBox/OptionBoxBorder/BoxLine2")
+BoxLine3 = NodePath("../../../../../PMD_Main/OptionBox/OptionBoxBorder/BoxLine3")
+BoxLine4 = NodePath("../../../../../PMD_Main/OptionBox/OptionBoxBorder/BoxLine4")
+BoxLine5 = NodePath("../../../../../PMD_Main/OptionBox/OptionBoxBorder/BoxLine5")
+BoxLineS1 = NodePath("../../../../../PMD_Main/OptionBox/OptionBoxBorder/BoxLine1/BoxLine1_S")
+BoxLineS2 = NodePath("../../../../../PMD_Main/OptionBox/OptionBoxBorder/BoxLine2/BoxLine2_S")
+BoxLineS3 = NodePath("../../../../../PMD_Main/OptionBox/OptionBoxBorder/BoxLine3/BoxLine3_S")
+BoxLineS4 = NodePath("../../../../../PMD_Main/OptionBox/OptionBoxBorder/BoxLine4/BoxLine4_S")
+BoxLineS5 = NodePath("../../../../../PMD_Main/OptionBox/OptionBoxBorder/BoxLine5/BoxLine5_S")
+TextOffset = NodePath("TextOffset")
+BoxPadding = NodePath("BoxPadding")
+OptMarker1 = NodePath("MarkerButtons/Marker1")
+OptMarker2 = NodePath("MarkerButtons/Marker2")
+OptMarker3 = NodePath("MarkerButtons/Marker3")
+OptMarker4 = NodePath("MarkerButtons/Marker4")
+OptMarker5 = NodePath("MarkerButtons/Marker5")
+OptionArrow = NodePath("../../../../../PMD_Main/OptionBox/OptionBoxBorder/OptionArrow")
+HighlightMarker = NodePath("../../../../../PMD_Main/OptionBox/OptionBoxBorder/HighlightMarker")
+HighlightButton = NodePath("HighlightToggle")
+
+[node name="Bg" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow"]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 97.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="Header" type="Label" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow"]
+layout_mode = 0
+offset_left = 2.66667
+offset_top = 1.33333
+offset_right = 115.667
+offset_bottom = 16.3333
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("5_qi2yv")
+text = "OPTION BOX SETTINGS"
+label_settings = SubResource("LabelSettings_l7fbr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Underline" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/Header"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 12.0
+offset_right = 109.0
+offset_bottom = 13.0
+
+[node name="OptionLabels" type="Control" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="OptionLabel1" type="LineEdit" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/OptionLabels"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 32.0
+offset_right = 123.0
+offset_bottom = 48.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_qi2yv")
+placeholder_text = "Option 1"
+
+[node name="OptionLabel2" type="LineEdit" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/OptionLabels"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 45.0
+offset_right = 123.0
+offset_bottom = 61.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_qi2yv")
+placeholder_text = "Option 2"
+
+[node name="OptionLabel3" type="LineEdit" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/OptionLabels"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 58.0
+offset_right = 123.0
+offset_bottom = 74.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_qi2yv")
+placeholder_text = "Option 3"
+
+[node name="OptionLabel4" type="LineEdit" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/OptionLabels"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 71.0
+offset_right = 123.0
+offset_bottom = 87.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_qi2yv")
+placeholder_text = "Option 4"
+
+[node name="OptionLabel5" type="LineEdit" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/OptionLabels"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 84.0
+offset_right = 123.0
+offset_bottom = 100.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_qi2yv")
+placeholder_text = "Option 5"
+
+[node name="MarkerButtons" type="Control" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow"]
+anchors_preset = 0
+offset_left = 88.0
+offset_top = 32.0
+offset_right = 93.0
+offset_bottom = 95.0
+
+[node name="Marker1" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/MarkerButtons" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_right = 5.0
+offset_bottom = 11.0
+disabled = true
+toggle_mode = true
+button_group = ExtResource("41_q0qa3")
+texture_normal = ExtResource("89_c313j")
+texture_pressed = ExtResource("67_uwkq2")
+texture_disabled = ExtResource("34_ofqea")
+
+[node name="Marker2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/MarkerButtons" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = -3.05176e-05
+offset_top = 13.0
+offset_right = 4.99997
+offset_bottom = 24.0
+disabled = true
+toggle_mode = true
+button_group = ExtResource("41_q0qa3")
+texture_normal = ExtResource("89_c313j")
+texture_pressed = ExtResource("67_uwkq2")
+texture_disabled = ExtResource("34_ofqea")
+
+[node name="Marker3" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/MarkerButtons" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = -3.05176e-05
+offset_top = 26.0
+offset_right = 4.99997
+offset_bottom = 37.0
+disabled = true
+toggle_mode = true
+button_group = ExtResource("41_q0qa3")
+texture_normal = ExtResource("89_c313j")
+texture_pressed = ExtResource("67_uwkq2")
+texture_disabled = ExtResource("34_ofqea")
+
+[node name="Marker4" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/MarkerButtons" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = -3.05176e-05
+offset_top = 39.0
+offset_right = 4.99997
+offset_bottom = 50.0
+disabled = true
+toggle_mode = true
+button_group = ExtResource("41_q0qa3")
+texture_normal = ExtResource("89_c313j")
+texture_pressed = ExtResource("67_uwkq2")
+texture_disabled = ExtResource("34_ofqea")
+
+[node name="Marker5" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/MarkerButtons" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = -3.05176e-05
+offset_top = 52.0
+offset_right = 4.99997
+offset_bottom = 63.0
+disabled = true
+toggle_mode = true
+button_group = ExtResource("41_q0qa3")
+texture_normal = ExtResource("89_c313j")
+texture_pressed = ExtResource("67_uwkq2")
+texture_disabled = ExtResource("34_ofqea")
+
+[node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 84.0
+offset_right = 188.0
+offset_bottom = 99.0
+scale = Vector2(0.7, 0.7)
+focus_mode = 0
+theme = ExtResource("106_82bab")
+text = "CLOSE "
+icon = ExtResource("94_od227")
+
+[node name="TextOffset" type="SpinBox" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 2.66667
+offset_right = 203.0
+offset_bottom = 18.6667
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("106_82bab")
+min_value = -5.0
+max_value = 10.0
+prefix = "Text Offset:"
+
+[node name="BoxPadding" type="SpinBox" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 15.6667
+offset_right = 203.0
+offset_bottom = 31.6667
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("106_82bab")
+min_value = -1.0
+prefix = "Box Padding:"
+
+[node name="BoxToggle" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 108.0
+offset_bottom = 34.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("106_82bab")
+text = "Option Box "
+alignment = 1
+
+[node name="HighlightToggle" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 29.0
+offset_right = 178.0
+offset_bottom = 47.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("106_82bab")
+disabled = true
+text = "Highlight"
+alignment = 1
 
 [node name="SymbolWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
 visible = false
@@ -2189,6 +2694,18 @@ offset_top = 48.0
 offset_right = 64.0
 offset_bottom = 58.0
 texture_normal = ExtResource("44_8kja1")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="UI_Arrow" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 48.0
+offset_right = 71.0
+offset_bottom = 58.0
+texture_normal = ExtResource("67_uwkq2")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("11_ouwkk")
@@ -2606,6 +3123,7 @@ theme = ExtResource("106_82bab")
 text = "Unown Keys"
 
 [node name="ThemesTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -2778,46 +3296,6 @@ layout_mode = 0
 offset_top = 12.0
 offset_right = 88.0
 offset_bottom = 13.0
-
-[node name="OptionBoxWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
-visible = false
-anchors_preset = 0
-offset_left = 4.66667
-offset_top = 70.3334
-offset_right = 44.6667
-offset_bottom = 110.333
-
-[node name="Bg" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/OptionBoxWindow"]
-layout_mode = 0
-offset_left = -4.66667
-offset_top = -70.3334
-offset_right = 171.333
-offset_bottom = 26.6666
-color = Color(0.12549, 0.12549, 0.12549, 1)
-
-[node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/OptionBoxWindow" groups=["UI_BUTTONS"]]
-layout_mode = 0
-offset_left = 132.333
-offset_top = 13.6666
-offset_right = 183.333
-offset_bottom = 28.6666
-scale = Vector2(0.7, 0.7)
-focus_mode = 0
-theme = ExtResource("106_82bab")
-text = "CLOSE "
-icon = ExtResource("94_od227")
-
-[node name="Header" type="Label" parent="PMD_Debug/DebugTab/Tabs/ThemesTab/OptionBoxWindow"]
-layout_mode = 0
-offset_left = -4.66666
-offset_top = -70.3333
-offset_right = 171.333
-offset_bottom = -51.3333
-theme = ExtResource("5_qi2yv")
-text = "OPTION BUTTON SETTINGS"
-label_settings = SubResource("LabelSettings_l7fbr")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="BoxSkinWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" node_paths=PackedStringArray("skinDropdown", "icon", "box", "maleTypeBTN", "femaleTypeBTN", "nonBinaryTypeBTN")]
 visible = false
@@ -3268,7 +3746,7 @@ theme = ExtResource("106_82bab")
 text = "CLOSE "
 icon = ExtResource("94_od227")
 
-[node name="Button" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow"]
+[node name="Button" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 125.0
 offset_top = 29.3333
@@ -4109,9 +4587,25 @@ texture = ExtResource("112_opyju")
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColourBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onColourInsert"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertSymbolBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowOpen"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertGlyphBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onGlyphWindowOpen"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onOptionBoxWindowOpen"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onPrefixEditChanged"]
 [connection signal="color_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixColour" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onPrefixColourChanged"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixEnabled" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="_on_prefix_enabled_pressed"]
+[connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/OptionLabels/OptionLabel1" to="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" method="_on_option_label_text_changed"]
+[connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/OptionLabels/OptionLabel2" to="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" method="_on_option_label_text_changed"]
+[connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/OptionLabels/OptionLabel3" to="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" method="_on_option_label_text_changed"]
+[connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/OptionLabels/OptionLabel4" to="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" method="_on_option_label_text_changed"]
+[connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/OptionLabels/OptionLabel5" to="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" method="_on_option_label_text_changed"]
+[connection signal="toggled" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/MarkerButtons/Marker1" to="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" method="_on_marker_toggled"]
+[connection signal="toggled" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/MarkerButtons/Marker2" to="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" method="_on_marker_toggled"]
+[connection signal="toggled" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/MarkerButtons/Marker3" to="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" method="_on_marker_toggled"]
+[connection signal="toggled" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/MarkerButtons/Marker4" to="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" method="_on_marker_toggled"]
+[connection signal="toggled" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/MarkerButtons/Marker5" to="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" method="_on_marker_toggled"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" method="_on_close_btn_pressed"]
+[connection signal="value_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/TextOffset" to="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" method="_on_option_label_text_changed"]
+[connection signal="value_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/BoxPadding" to="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" method="_on_option_label_text_changed"]
+[connection signal="toggled" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/BoxToggle" to="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" method="_on_box_toggle_toggled"]
+[connection signal="toggled" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow/HighlightToggle" to="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxWindow" method="on_highlight_toggle"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowClose"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/MusicalnoteSymbol" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/MusicalnoteSymbol" method="OnUnicodePressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/PokéBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/PokéBTN" method="OnUnicodePressed"]
@@ -4134,7 +4628,6 @@ texture = ExtResource("112_opyju")
 [connection signal="color_changed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BgColour" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onBgColourInputChanged"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/LoadBoxSkinBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onBoxSkinWindowOpen"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BackgroundLabel/BGReload" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_bg_reload_pressed"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/OptionBoxWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onOptionBoxWindowClose"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/FolderBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" method="openCustomIconFolder"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/RefreshBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow" method="OnRefresh"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BoxSkinWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="onBoxSkinWindowClose"]

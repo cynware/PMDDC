@@ -36,6 +36,9 @@ var BoxChangeTargets = [
 	"../../../../PresetsTAB_BTN",
 	"../../../../TAB_DISPLAYNAME",
 ]
+var TextBoxChangeTargets = [
+	"../../../../../PMD_Main/OptionBox/OptionBoxBorder"
+]
 
 func _ready():
 	CheckAndCreateBoxSkinFolder();
@@ -205,7 +208,10 @@ func UpdateDebugTabCorners(newIcon:Texture2D, defaultSkin:Texture2D):
 			else:
 				node.texture = defaultSkin;
 				UpdateThemePopup(newIcon, defaultSkin)
-				
+	for path in TextBoxChangeTargets:
+		var node = get_node_or_null(path)
+		if node:
+			node.texture = box.texture
 
 func UpdateThemePopup(newIcon:Texture2D, defaultSkin:Texture2D):
 	var popupmenu = load("res://Assets/Themes/PMDButton.tres::StyleBoxTexture_0nymc")

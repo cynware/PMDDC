@@ -32,13 +32,7 @@ func onCollabPortraitWindowOpen():
 func onBoxSkinWindowClose():
 	$BoxSkinWindow.visible = false;
 	SoundEffectManager.PlayCancel();
-	
-func onOptionBoxWindowClose():
-	$OptionBoxWindow.visible = false;
-	SoundEffectManager.PlayCancel();
-func onOptionBoxWindowOpen():
-	$OptionBoxWindow.visible = true;
-	SoundEffectManager.PlayAccept();
+
 	
 func onBoxSkinWindowOpen():
 	$BoxSkinWindow.visible = true;
