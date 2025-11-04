@@ -92,6 +92,7 @@ func _on_bg_reload_pressed():
 	$BgColour.color = Color.html("#4c4c4c");
 	$DefaultBGs.selected = 0
 	$"../../../../BgColour/PMD_QuizBG".visible = false
+	$"../../../../BgColour/AnimatedBackground".visible = false
 
 
 func _on_alignment_selected(index):
@@ -113,6 +114,21 @@ func on_defaultbg_change(index):
 	if index == 17:
 		$"../../../../BgColour/PMD_QuizBG".visible = true
 		$"../../../../BgColour/ImageBg".texture = null
+		$"../../../../BgColour/AnimatedBackground".stop()
+		$"../../../../BgColour/AnimatedBackground".visible = false
+	elif index == 18:
+		$"../../../../BgColour/AnimatedBackground".visible = true
+		$"../../../../BgColour/AnimatedBackground".play("V26P09A")
 	else:
 		$"../../../../BgColour/PMD_QuizBG".visible = false
+		$"../../../../BgColour/AnimatedBackground".visible = false
 	SoundEffectManager.PlayBGImport()
+
+
+func _on_boxarrow_toggled(toggled_on):
+	if toggled_on:
+		$"../../../../PMD_Main/Textbox/TextArrow".visible = true
+		SoundEffectManager.PlayCheckboxOn()
+	else:
+		$"../../../../PMD_Main/Textbox/TextArrow".visible = false
+		SoundEffectManager.PlayCheckboxOff()

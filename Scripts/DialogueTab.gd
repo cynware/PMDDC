@@ -17,6 +17,7 @@ var prefixColour:Color = Color("F8F800");
 var Alignment = "left"
 
 var colorSwatches:Array[Color] = [
+	Color(Color.WHITE),
 	Color("F8F800"),
 	Color("0098F8"),
 	Color(0, 152, 248, 1),
@@ -54,11 +55,11 @@ func onPrefixEditChanged(new_text):
 func updateHUD() -> void:
 	
 	if prefixEnabled.button_pressed:
-		textboxText.text = "[" + Alignment + "]" + "[color=" + str(prefixColour.to_html(false)) + "]" + prefix + "[/color][img=3]res://Assets/Images/prefixcolon.png[/img] " + sentence  + "[/" + Alignment + "]";
-		textboxText2.text = "[" + Alignment + "]" + "[color=" + str(prefixColour.to_html(false)) + "]" + prefix + "[/color][img=3]res://Assets/Images/prefixcolon.png[/img] " + sentence  + "[/" + Alignment + "]";
+		textboxText.text = "[" + Alignment + "]" + "[color=" + str(prefixColour.to_html(false)) + "]" + prefix + "[/color][img=3]res://Assets/Images/prefixcolon.png[/img] " + $WYSIWYG.boxstorage.text  + "[/" + Alignment + "]";
+		textboxText2.text = "[" + Alignment + "]" + "[color=" + str(prefixColour.to_html(false)) + "]" + prefix + "[/color][img=3]res://Assets/Images/prefixcolon.png[/img] " + $WYSIWYG.boxstorage.text  + "[/" + Alignment + "]";
 	else:
-		textboxText.text = "[" + Alignment + "]" + sentence + "[/" + Alignment + "]"
-		textboxText2.text = "[" + Alignment + "]" + sentence + "[/" + Alignment + "]"
+		textboxText.text = "[" + Alignment + "]" + $WYSIWYG.boxstorage.text + "[/" + Alignment + "]"
+		textboxText2.text = "[" + Alignment + "]" + $WYSIWYG.boxstorage.text + "[/" + Alignment + "]"
 	
 func onColourInsert():
 	$TextboxEdit.text += "[color=" + str(textboxInsertColourPicker.get_picker().color.to_html(false)) + "]TEXT[/color]"; 

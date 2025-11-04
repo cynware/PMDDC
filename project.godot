@@ -35,6 +35,10 @@ window/stretch/mode="viewport"
 window/per_pixel_transparency/allowed=true
 window/vsync/vsync_mode=0
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 ui_focus_next={

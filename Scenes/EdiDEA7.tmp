@@ -1,4 +1,4 @@
-[gd_scene load_steps=337 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=330 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -23,7 +23,6 @@
 [ext_resource type="Script" path="res://Scripts/PMD_Debug.gd" id="11_8cckt"]
 [ext_resource type="Texture2D" uid="uid://dcskbgqsta1r3" path="res://Assets/Images/symbols/heart.png" id="11_mo684"]
 [ext_resource type="Script" path="res://Scripts/InsertSymbolBTN.gd" id="11_ouwkk"]
-[ext_resource type="Texture2D" uid="uid://b1d4pyguep4v4" path="res://Assets/Images/default_bgs/V26P09A.png" id="12_huhuk"]
 [ext_resource type="Texture2D" uid="uid://2tcah6xehd0i" path="res://Assets/Images/Portrait_Selection.png" id="12_k0q7g"]
 [ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdSkins/ExplorersOfSky/Male/icon.png" id="12_t8jjw"]
 [ext_resource type="Texture2D" uid="uid://riac5l0rgksx" path="res://Assets/Images/symbols/star.png" id="12_vxgy4"]
@@ -134,7 +133,6 @@
 [ext_resource type="Texture2D" uid="uid://c1jighmqs2dvc" path="res://Assets/Images/default_bgs/QuizPreview.png" id="89_w8s5a"]
 [ext_resource type="Texture2D" uid="uid://wls6e8y6ugpo" path="res://Assets/Images/cross_cropped.png" id="94_od227"]
 [ext_resource type="Script" path="res://Scenes/OptionBoxWindow.gd" id="96_foo2s"]
-[ext_resource type="Texture2D" uid="uid://d2jkoyggrnj7y" path="res://Assets/Images/default_bgs/V26P09A_Preview.png" id="97_mv73b"]
 [ext_resource type="Texture2D" uid="uid://x6w6u2s7jye5" path="res://Assets/Images/trash1.png" id="102_4jttb"]
 [ext_resource type="Script" path="res://Scripts/PresetsTab.gd" id="102_iggxt"]
 [ext_resource type="Texture2D" uid="uid://bne4ici75m24q" path="res://Assets/Images/trash2.png" id="103_3iglc"]
@@ -1049,42 +1047,6 @@ animations = [{
 "speed": 7.5
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vp53q"]
-atlas = ExtResource("12_huhuk")
-region = Rect2(0, 0, 312, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k3u4s"]
-atlas = ExtResource("12_huhuk")
-region = Rect2(312, 0, 312, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1b0n8"]
-atlas = ExtResource("12_huhuk")
-region = Rect2(624, 0, 312, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tksoo"]
-atlas = ExtResource("12_huhuk")
-region = Rect2(936, 0, 312, 240)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_65kac"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vp53q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k3u4s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1b0n8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tksoo")
-}],
-"loop": true,
-"name": &"V26P09A",
-"speed": 5.0
-}]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_el3sg"]
 atlas = ExtResource("12_k0q7g")
 region = Rect2(0, 0, 44, 44)
@@ -1545,14 +1507,6 @@ layout_mode = 0
 offset_right = 256.0
 offset_bottom = 192.0
 scale = Vector2(3, 3)
-
-[node name="AnimatedBackground" type="AnimatedSprite2D" parent="BgColour"]
-visible = false
-position = Vector2(384, 288)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_65kac")
-animation = &"V26P09A"
-frame_progress = 0.358335
 
 [node name="PMD_Main" type="Node2D" parent="."]
 
@@ -2138,20 +2092,14 @@ offset_right = 227.0
 offset_bottom = 81.0
 scale = Vector2(0.7, 0.7)
 theme = ExtResource("5_qi2yv")
-theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
 theme_override_colors/selection_color = Color(0, 0.501961, 0.972549, 1)
 theme_override_constants/line_spacing = -1
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kqiv1")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ii8p2")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_uol7o")
 placeholder_text = "Dialogue goes here..."
-context_menu_enabled = false
-shortcut_keys_enabled = false
-drag_and_drop_selection_enabled = false
 wrap_mode = 1
-autowrap_mode = 1
-scroll_fit_content_height = true
-caret_blink = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Frontend_Editor" type="RichTextLabel" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG"]
@@ -2173,16 +2121,7 @@ theme_override_constants/outline_size = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_onn3m")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w6h55")
 bbcode_enabled = true
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
 selection_enabled = true
-
-[node name="Textbox_Storage" type="RichTextLabel" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG"]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="TextboxEdit" type="TextEdit" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
 visible = false
@@ -2221,7 +2160,6 @@ popup/item_2/id = 2
 script = ExtResource("30_e868e")
 
 [node name="InsertColourBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.00946988
@@ -2304,36 +2242,18 @@ metadata/_edit_use_anchors_ = true
 [node name="InsertColour" type="ColorPickerButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.074
-anchor_top = 0.021
-anchor_right = 0.313
-anchor_bottom = 0.129
-offset_left = -0.0240002
-offset_top = -0.0370002
-offset_right = 17.912
-offset_bottom = 4.487
+anchor_right = 0.0568176
+anchor_bottom = 0.0618557
+offset_left = 15.0001
+offset_top = 2.0
+offset_right = 36.0001
+offset_bottom = 11.0
 scale = Vector2(0.7, 0.7)
 focus_mode = 0
 theme = ExtResource("5_qi2yv")
-icon_alignment = 1
-color = Color(1, 1, 1, 1)
+color = Color(0.972549, 0.972549, 0, 1)
 edit_alpha = false
 metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColour"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 58.0
-offset_bottom = 14.0
-theme = ExtResource("5_qi2yv")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/outline_size = 2
-text = "COLOR"
-horizontal_alignment = 1
 
 [node name="PrefixEdit" type="LineEdit" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
 layout_mode = 0
@@ -3057,7 +2977,7 @@ text = "CHOOSE GLYPH"
 label_settings = SubResource("LabelSettings_l7fbr")
 vertical_alignment = 1
 
-[node name="MusicalnoteSymbol" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit", "Picker") groups=["UI_BUTTONS"]]
+[node name="MusicalnoteSymbol" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 6.0
 offset_top = 22.0
@@ -3069,9 +2989,8 @@ icon_alignment = 1
 script = ExtResource("44_cmomk")
 textEdit = NodePath("../../TextboxEdit")
 Unicode = "♪"
-Picker = NodePath("../../InsertColour")
 
-[node name="PokéBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit", "Picker") groups=["UI_BUTTONS"]]
+[node name="PokéBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 22.0
@@ -3084,9 +3003,8 @@ icon_alignment = 1
 script = ExtResource("44_cmomk")
 textEdit = NodePath("../../TextboxEdit")
 Unicode = ""
-Picker = NodePath("../../InsertColour")
 
-[node name="FemaleUniBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit", "Picker") groups=["UI_BUTTONS"]]
+[node name="FemaleUniBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 37.6667
 offset_top = 22.0
@@ -3099,9 +3017,8 @@ icon_alignment = 1
 script = ExtResource("44_cmomk")
 textEdit = NodePath("../../TextboxEdit")
 Unicode = "♀"
-Picker = NodePath("../../InsertColour")
 
-[node name="MaleUniBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit", "Picker") groups=["UI_BUTTONS"]]
+[node name="MaleUniBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 48.6667
 offset_top = 22.0
@@ -3114,9 +3031,8 @@ icon_alignment = 1
 script = ExtResource("44_cmomk")
 textEdit = NodePath("../../TextboxEdit")
 Unicode = "♂"
-Picker = NodePath("../../InsertColour")
 
-[node name="CopyrightBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit", "Picker") groups=["UI_BUTTONS"]]
+[node name="CopyrightBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 60.0
 offset_top = 22.0
@@ -3129,9 +3045,8 @@ icon_alignment = 1
 script = ExtResource("44_cmomk")
 textEdit = NodePath("../../TextboxEdit")
 Unicode = "©"
-Picker = NodePath("../../InsertColour")
 
-[node name="RegisteredBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit", "Picker") groups=["UI_BUTTONS"]]
+[node name="RegisteredBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 71.6668
 offset_top = 22.0
@@ -3144,9 +3059,8 @@ icon_alignment = 1
 script = ExtResource("44_cmomk")
 textEdit = NodePath("../../TextboxEdit")
 Unicode = "®"
-Picker = NodePath("../../InsertColour")
 
-[node name="TrademarkBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit", "Picker") groups=["UI_BUTTONS"]]
+[node name="TrademarkBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 83.0004
 offset_top = 22.0
@@ -3159,9 +3073,8 @@ icon_alignment = 1
 script = ExtResource("44_cmomk")
 textEdit = NodePath("../../TextboxEdit")
 Unicode = "™"
-Picker = NodePath("../../InsertColour")
 
-[node name="LArrowBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit", "Picker") groups=["UI_BUTTONS"]]
+[node name="LArrowBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 94.6672
 offset_top = 22.0
@@ -3174,9 +3087,8 @@ icon_alignment = 1
 script = ExtResource("44_cmomk")
 textEdit = NodePath("../../TextboxEdit")
 Unicode = "←"
-Picker = NodePath("../../InsertColour")
 
-[node name="UArrowBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit", "Picker") groups=["UI_BUTTONS"]]
+[node name="UArrowBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 108.001
 offset_top = 22.0
@@ -3189,9 +3101,8 @@ icon_alignment = 1
 script = ExtResource("44_cmomk")
 textEdit = NodePath("../../TextboxEdit")
 Unicode = "↑"
-Picker = NodePath("../../InsertColour")
 
-[node name="RArrowBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit", "Picker") groups=["UI_BUTTONS"]]
+[node name="RArrowBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 121.667
 offset_top = 22.0
@@ -3204,9 +3115,8 @@ icon_alignment = 1
 script = ExtResource("44_cmomk")
 textEdit = NodePath("../../TextboxEdit")
 Unicode = "→"
-Picker = NodePath("../../InsertColour")
 
-[node name="DArrowBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit", "Picker") groups=["UI_BUTTONS"]]
+[node name="DArrowBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 135.001
 offset_top = 22.0
@@ -3219,9 +3129,8 @@ icon_alignment = 1
 script = ExtResource("44_cmomk")
 textEdit = NodePath("../../TextboxEdit")
 Unicode = "↓"
-Picker = NodePath("../../InsertColour")
 
-[node name="InfinityBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit", "Picker") groups=["UI_BUTTONS"]]
+[node name="InfinityBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 148.667
 offset_top = 22.0
@@ -3234,9 +3143,8 @@ icon_alignment = 1
 script = ExtResource("44_cmomk")
 textEdit = NodePath("../../TextboxEdit")
 Unicode = "∞"
-Picker = NodePath("../../InsertColour")
 
-[node name="TripleDotBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit", "Picker") groups=["UI_BUTTONS"]]
+[node name="TripleDotBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 162.001
 offset_top = 22.0
@@ -3249,7 +3157,6 @@ icon_alignment = 1
 script = ExtResource("44_cmomk")
 textEdit = NodePath("../../TextboxEdit")
 Unicode = "⋯"
-Picker = NodePath("../../InsertColour")
 
 [node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -3316,7 +3223,7 @@ theme = ExtResource("106_82bab")
 theme_override_icons/arrow = SubResource("ImageTexture_qmomk")
 icon_alignment = 1
 expand_icon = true
-item_count = 19
+item_count = 18
 selected = 0
 popup/item_0/text = ""
 popup/item_0/icon = ExtResource("68_to8is")
@@ -3372,9 +3279,6 @@ popup/item_16/id = 16
 popup/item_17/text = ""
 popup/item_17/icon = ExtResource("89_w8s5a")
 popup/item_17/id = 17
-popup/item_18/text = ""
-popup/item_18/icon = ExtResource("97_mv73b")
-popup/item_18/id = 18
 script = ExtResource("30_e868e")
 
 [node name="BGImageOpener" type="FileDialog" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
@@ -4767,9 +4671,6 @@ texture = ExtResource("112_opyju")
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertSymbolBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowOpen"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertGlyphBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onGlyphWindowOpen"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onOptionBoxWindowOpen"]
-[connection signal="color_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColour" to="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG" method="on_Picker_color_changed"]
-[connection signal="focus_entered" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow/HeartSymbol" method="_on_prefix_edit_focus_entered"]
-[connection signal="focus_exited" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow/HeartSymbol" method="_on_prefix_edit_focus_exited"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onPrefixEditChanged"]
 [connection signal="color_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixColour" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onPrefixColourChanged"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixEnabled" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="_on_prefix_enabled_pressed"]
