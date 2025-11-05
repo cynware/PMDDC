@@ -2,6 +2,7 @@ extends Control
 
 @export var textboxText:RichTextLabel
 @export var textboxText2:RichTextLabel
+var rng = RandomNumberGenerator.new()
 
 @onready var textboxEdit:TextEdit = $TextboxEdit
 @onready var textboxInsertColourPicker:ColorPickerButton = $InsertColour;
@@ -37,6 +38,15 @@ func _ready():
 		textboxInsertColourPicker.get_picker().add_preset(colorSwatches[i]);
 	
 	updateHUD();
+	
+	var secretdoof = round(rng.randf_range(1, 100))
+	if secretdoof == 50:
+		$InsertColour/SecretDoof.visible = true
+		$InsertColour/SecretDoof/SecretDoof.play("default")
+	else:
+		$InsertColour/SecretDoof.visible = false
+	
+	
 	
 func onTextboxEditChanged():
 	sentence = $TextboxEdit.text

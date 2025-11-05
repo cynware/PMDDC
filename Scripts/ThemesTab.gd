@@ -66,6 +66,7 @@ func _on_upload_image_file_selected(path):
 	
 	$DefaultBGs.selected = 0
 	$"../../../../BgColour/PMD_QuizBG".visible = false
+	$"../../../../BgColour/AnimatedBackground".visible = false
 
 func _on_portrait_hide_pressed():
 	portrait.visible = !$PortraitHide.button_pressed;
@@ -119,6 +120,24 @@ func on_defaultbg_change(index):
 	elif index == 18:
 		$"../../../../BgColour/AnimatedBackground".visible = true
 		$"../../../../BgColour/AnimatedBackground".play("V26P09A")
+	elif index == 19:
+		$"../../../../BgColour/AnimatedBackground".visible = true
+		$"../../../../BgColour/AnimatedBackground".play("Fogbound_Lake")
+	elif index == 20:
+		$"../../../../BgColour/AnimatedBackground".visible = true
+		$"../../../../BgColour/AnimatedBackground".play("Sea_Day")
+	elif index == 21:
+		$"../../../../BgColour/AnimatedBackground".visible = true
+		$"../../../../BgColour/AnimatedBackground".play("Sea_Night")
+	elif index == 23:
+		$"../../../../BgColour/AnimatedBackground".visible = true
+		$"../../../../BgColour/AnimatedBackground".play("Beach_Sunset")
+	elif index == 24:
+		$"../../../../BgColour/AnimatedBackground".visible = true
+		$"../../../../BgColour/AnimatedBackground".play("beach_cavemouth")
+	elif index == 25:
+		$"../../../../BgColour/AnimatedBackground".visible = true
+		$"../../../../BgColour/AnimatedBackground".play("time_travel")
 	else:
 		$"../../../../BgColour/PMD_QuizBG".visible = false
 		$"../../../../BgColour/AnimatedBackground".visible = false
@@ -131,4 +150,12 @@ func _on_boxarrow_toggled(toggled_on):
 		SoundEffectManager.PlayCheckboxOn()
 	else:
 		$"../../../../PMD_Main/Textbox/TextArrow".visible = false
+		SoundEffectManager.PlayCheckboxOff()
+
+func _on_textbox_hidden(toggled_on):
+	if toggled_on:
+		$"../../../../PMD_Main/Textbox".visible = false
+		SoundEffectManager.PlayCheckboxOn()
+	else:
+		$"../../../../PMD_Main/Textbox".visible = true
 		SoundEffectManager.PlayCheckboxOff()

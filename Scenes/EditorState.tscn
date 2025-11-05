@@ -1,4 +1,4 @@
-[gd_scene load_steps=337 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=396 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -11,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://ddukth4vrqoyi" path="res://Assets/Images/cursor_pointer.png" id="6_7n837"]
 [ext_resource type="Shader" path="res://Assets/Shaders/blur.gdshader" id="6_q7upt"]
 [ext_resource type="Texture2D" uid="uid://n7h3uxp83t63" path="res://Assets/Images/cursor_hand_grab.png" id="7_scbut"]
-[ext_resource type="Script" path="res://Scenes/QuizBG.gd" id="8_8yc88"]
+[ext_resource type="Script" path="res://Scripts/QuizBG.gd" id="8_8yc88"]
 [ext_resource type="Texture2D" uid="uid://j3bv0ywv3uvd" path="res://Assets/Images/default_bgs/pmd_quiz_1.png" id="8_35bby"]
-[ext_resource type="Script" path="res://Scenes/Portrait.gd" id="8_iisxg"]
+[ext_resource type="Script" path="res://Scripts/Portrait.gd" id="8_iisxg"]
 [ext_resource type="Texture2D" uid="uid://cw3vgkeuuytrs" path="res://Assets/Images/default_bgs/pmd_quiz_2.png" id="8_rl3y6"]
 [ext_resource type="Texture2D" uid="uid://bm3rt1xw07m17" path="res://Assets/Images/settings.png" id="8_y615r"]
 [ext_resource type="Texture2D" uid="uid://dg6at41hquvec" path="res://PmdSkins/ExplorersOfSky/Male/box.png" id="9_ebeq2"]
@@ -23,15 +23,21 @@
 [ext_resource type="Script" path="res://Scripts/PMD_Debug.gd" id="11_8cckt"]
 [ext_resource type="Texture2D" uid="uid://dcskbgqsta1r3" path="res://Assets/Images/symbols/heart.png" id="11_mo684"]
 [ext_resource type="Script" path="res://Scripts/InsertSymbolBTN.gd" id="11_ouwkk"]
+[ext_resource type="Texture2D" uid="uid://cu55e124bjd1a" path="res://Assets/Images/default_bgs/beach_sunset.png" id="12_hifya"]
 [ext_resource type="Texture2D" uid="uid://b1d4pyguep4v4" path="res://Assets/Images/default_bgs/V26P09A.png" id="12_huhuk"]
 [ext_resource type="Texture2D" uid="uid://2tcah6xehd0i" path="res://Assets/Images/Portrait_Selection.png" id="12_k0q7g"]
 [ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdSkins/ExplorersOfSky/Male/icon.png" id="12_t8jjw"]
 [ext_resource type="Texture2D" uid="uid://riac5l0rgksx" path="res://Assets/Images/symbols/star.png" id="12_vxgy4"]
+[ext_resource type="Texture2D" uid="uid://bqa3apsvhkj3q" path="res://Assets/Images/default_bgs/forgottenlake.png" id="13_fhqvo"]
 [ext_resource type="Texture2D" uid="uid://dmlppb1jvlf0q" path="res://Assets/Images/symbols/textbubble.png" id="13_t8tcm"]
+[ext_resource type="Texture2D" uid="uid://b26okeqvxfi" path="res://Assets/Images/default_bgs/seaday.png" id="13_txnmg"]
 [ext_resource type="Texture2D" uid="uid://rxffw7bc5pqx" path="res://Assets/Images/SecretFanfare.png" id="14_i3641"]
+[ext_resource type="Texture2D" uid="uid://dowp5h435eoc0" path="res://Assets/Images/default_bgs/seanight.png" id="14_y1m6r"]
 [ext_resource type="Texture2D" uid="uid://bnriejy5kq618" path="res://Assets/Images/symbols/smirk.png" id="16_rp5cs"]
+[ext_resource type="Texture2D" uid="uid://d6q2tixeubhm" path="res://Assets/Images/default_bgs/beach_cavemouth.png" id="17_ms6jg"]
 [ext_resource type="Texture2D" uid="uid://brl01k6drroqp" path="res://Assets/Images/symbols/crazy.png" id="17_r8hl3"]
 [ext_resource type="Texture2D" uid="uid://cj557ykdx0jj2" path="res://Assets/Images/symbols/smile.png" id="18_37hf0"]
+[ext_resource type="Texture2D" uid="uid://b7tqw1wgnn5qw" path="res://Assets/Images/default_bgs/time_travel.png" id="18_om3ui"]
 [ext_resource type="Texture2D" uid="uid://b6mwarnlbkg4j" path="res://Assets/Images/symbols/sob.png" id="19_mhl4t"]
 [ext_resource type="Texture2D" uid="uid://bncd0cvvnkwy6" path="res://Assets/Images/symbols/thinking.png" id="20_i0cqj"]
 [ext_resource type="Texture2D" uid="uid://dul2thkrv3ifc" path="res://Assets/Images/arrow_down.png" id="21_8m8cv"]
@@ -50,7 +56,7 @@
 [ext_resource type="Texture2D" uid="uid://df38v2x0eu0jl" path="res://Assets/Images/symbols/nerd.png" id="28_6ychj"]
 [ext_resource type="Script" path="res://Scripts/ThemeFix.gd" id="30_e868e"]
 [ext_resource type="Script" path="res://Scripts/ThemesTab.gd" id="30_q7nel"]
-[ext_resource type="Script" path="res://Scenes/WYSIWYG.gd" id="31_nmmn0"]
+[ext_resource type="Script" path="res://Scripts/WYSIWYG.gd" id="31_nmmn0"]
 [ext_resource type="Texture2D" uid="uid://cy6c4ctgd1wx2" path="res://Assets/Images/symbols/tm.png" id="32_d4ejl"]
 [ext_resource type="Texture2D" uid="uid://du0jtwpi0bsfi" path="res://Assets/Images/optionbox_button.png" id="32_nav62"]
 [ext_resource type="Texture2D" uid="uid://dsyhtk2a33fyu" path="res://Assets/Images/buttongradient.png" id="32_nhym6"]
@@ -84,13 +90,14 @@
 [ext_resource type="Texture2D" uid="uid://bc38s8ctbcghr" path="res://Assets/Images/symbols/UI_y.png" id="42_455g5"]
 [ext_resource type="Texture2D" uid="uid://lqejclgs5c1h" path="res://Assets/Images/left_align.png" id="42_w6bt0"]
 [ext_resource type="Texture2D" uid="uid://juw7nfcehoe5" path="res://Assets/Images/Template/Normal.png" id="42_xxpgf"]
+[ext_resource type="Texture2D" uid="uid://lskvqv413lvm" path="res://Assets/Images/bidoof_sleep.png" id="43_7uo2a"]
 [ext_resource type="Texture2D" uid="uid://cypp2ju6ped17" path="res://Assets/Images/center_align.png" id="43_otqlq"]
 [ext_resource type="Texture2D" uid="uid://dhdushi4l06tc" path="res://Assets/Images/Template/Pain.png" id="43_qqkqu"]
 [ext_resource type="Texture2D" uid="uid://bjq5dawhp0m2m" path="res://Assets/Images/symbols/UI_dpad.png" id="44_8kja1"]
-[ext_resource type="Script" path="res://Scenes/InsertUnicodeBTN.gd" id="44_cmomk"]
+[ext_resource type="Script" path="res://Scripts/InsertUnicodeBTN.gd" id="44_cmomk"]
 [ext_resource type="Texture2D" uid="uid://0iqgooliert0" path="res://Assets/Images/right_align.png" id="44_jo553"]
 [ext_resource type="Texture2D" uid="uid://c6cqe3x1rbhu4" path="res://Assets/Images/Template/Sad.png" id="44_ot21h"]
-[ext_resource type="Script" path="res://Scenes/UnownTyper.gd" id="44_re0y6"]
+[ext_resource type="Script" path="res://Scripts/UnownTyper.gd" id="44_re0y6"]
 [ext_resource type="Texture2D" uid="uid://bewad4ai343at" path="res://Assets/Images/Template/Shouting.png" id="45_c04ku"]
 [ext_resource type="Texture2D" uid="uid://5t1n7mrmrkpi" path="res://Assets/Images/Template/Sigh.png" id="46_lfj07"]
 [ext_resource type="Texture2D" uid="uid://1qskq0wfvhc1" path="res://Assets/Images/Template/Special0.png" id="47_vwl7f"]
@@ -133,22 +140,34 @@
 [ext_resource type="Texture2D" uid="uid://d3uj58gi22gy1" path="res://Assets/Images/arrow_off.png" id="89_c313j"]
 [ext_resource type="Texture2D" uid="uid://c1jighmqs2dvc" path="res://Assets/Images/default_bgs/QuizPreview.png" id="89_w8s5a"]
 [ext_resource type="Texture2D" uid="uid://wls6e8y6ugpo" path="res://Assets/Images/cross_cropped.png" id="94_od227"]
-[ext_resource type="Script" path="res://Scenes/OptionBoxWindow.gd" id="96_foo2s"]
+[ext_resource type="Script" path="res://Scripts/OptionBoxWindow.gd" id="96_foo2s"]
 [ext_resource type="Texture2D" uid="uid://d2jkoyggrnj7y" path="res://Assets/Images/default_bgs/V26P09A_Preview.png" id="97_mv73b"]
 [ext_resource type="Texture2D" uid="uid://x6w6u2s7jye5" path="res://Assets/Images/trash1.png" id="102_4jttb"]
+[ext_resource type="Texture2D" uid="uid://cax3bqxqb7gdr" path="res://Assets/Images/default_bgs/Fogbound_Lake_Preview.png" id="102_68xj1"]
 [ext_resource type="Script" path="res://Scripts/PresetsTab.gd" id="102_iggxt"]
 [ext_resource type="Texture2D" uid="uid://bne4ici75m24q" path="res://Assets/Images/trash2.png" id="103_3iglc"]
+[ext_resource type="Texture2D" uid="uid://clri4gvsge7uy" path="res://Assets/Images/default_bgs/seaday_preview.png" id="103_teq4g"]
+[ext_resource type="Texture2D" uid="uid://dbbt1joeok0og" path="res://Assets/Images/default_bgs/seanight_preview.png" id="104_xxpwv"]
+[ext_resource type="Texture2D" uid="uid://dla4v18v5mmbx" path="res://Assets/Images/default_bgs/NightSky.png" id="105_0plic"]
 [ext_resource type="Texture2D" uid="uid://bj6q4tu1amxnx" path="res://Assets/Images/DialogueBTN.png" id="105_8v2b5"]
+[ext_resource type="Texture2D" uid="uid://cyqfaq8kix4yw" path="res://Assets/Images/default_bgs/TreasureBag.png" id="105_xej4c"]
 [ext_resource type="Theme" uid="uid://dsc1ij8moovpg" path="res://Assets/Themes/PMDButton.tres" id="106_82bab"]
 [ext_resource type="Texture2D" uid="uid://jy67laiu7kn" path="res://Assets/Images/PMDCollab.png" id="106_kesd2"]
+[ext_resource type="Texture2D" uid="uid://c5ckj4meoegdn" path="res://Assets/Images/default_bgs/FootprintRunes.png" id="106_l13p0"]
 [ext_resource type="AudioStream" uid="uid://djs0qxywnom4b" path="res://Assets/Sounds/Writing's A Mystery.wav" id="106_mwxem"]
 [ext_resource type="Texture2D" uid="uid://davlvqytoh330" path="res://Assets/Images/Local.png" id="107_cgcba"]
+[ext_resource type="Texture2D" uid="uid://bberd777e0olj" path="res://Assets/Images/default_bgs/beach_sunset_preview.png" id="107_ftcy0"]
+[ext_resource type="Texture2D" uid="uid://cx55ktdybwk0c" path="res://Assets/Images/default_bgs/beach_cavemouth_preview.png" id="109_g1b0j"]
+[ext_resource type="Texture2D" uid="uid://crhkr2e5s8u7c" path="res://Assets/Images/default_bgs/sharpedo_bluff.png" id="110_cshex"]
+[ext_resource type="Texture2D" uid="uid://djc3j6snxlaoc" path="res://Assets/Images/default_bgs/time_travel_preview.png" id="111_oh623"]
 [ext_resource type="Texture2D" uid="uid://d3lihkq3n7wa4" path="res://Assets/Images/Error_Shocked.png" id="112_opyju"]
 [ext_resource type="Texture2D" uid="uid://bd381xgme446w" path="res://Assets/Images/PMDCollab_pressed.png" id="112_y1oxe"]
 [ext_resource type="Script" path="res://Scripts/NoticeManager.gd" id="113_cordu"]
 [ext_resource type="Texture2D" uid="uid://bg6i4ox514e3q" path="res://Assets/Images/save.png" id="113_v4soi"]
 [ext_resource type="Texture2D" uid="uid://dxocs5ttthrk7" path="res://Assets/Images/LogoGithub.png" id="114_kf8gs"]
 [ext_resource type="Texture2D" uid="uid://w83ibpmub3h6" path="res://Assets/Images/LogoItch.png" id="115_5mbxs"]
+[ext_resource type="Texture2D" uid="uid://cvl8t10uahj03" path="res://Assets/Images/default_bgs/skies_cliffs.png" id="115_f5fc1"]
+[ext_resource type="Texture2D" uid="uid://bxbyt0so4i8j5" path="res://Assets/Images/default_bgs/wanted_poster.png" id="116_4ueth"]
 [ext_resource type="Texture2D" uid="uid://cdau1s1nshadb" path="res://Assets/Images/saveicon.png" id="117_2q84r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s71i0"]
@@ -1049,6 +1068,110 @@ animations = [{
 "speed": 7.5
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5iir"]
+atlas = ExtResource("12_hifya")
+region = Rect2(0, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gy38"]
+atlas = ExtResource("12_hifya")
+region = Rect2(312, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvdqa"]
+atlas = ExtResource("12_hifya")
+region = Rect2(624, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrvs7"]
+atlas = ExtResource("12_hifya")
+region = Rect2(936, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aep1b"]
+atlas = ExtResource("12_hifya")
+region = Rect2(1248, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4f8f"]
+atlas = ExtResource("12_hifya")
+region = Rect2(1560, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg4r7"]
+atlas = ExtResource("12_hifya")
+region = Rect2(0, 240, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrxrn"]
+atlas = ExtResource("12_hifya")
+region = Rect2(312, 240, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0qor"]
+atlas = ExtResource("12_hifya")
+region = Rect2(624, 240, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvx7o"]
+atlas = ExtResource("12_hifya")
+region = Rect2(936, 240, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mr4nn"]
+atlas = ExtResource("12_hifya")
+region = Rect2(1248, 240, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeue7"]
+atlas = ExtResource("12_hifya")
+region = Rect2(1560, 240, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bylmq"]
+atlas = ExtResource("13_fhqvo")
+region = Rect2(0, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rni1"]
+atlas = ExtResource("13_fhqvo")
+region = Rect2(312, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaawi"]
+atlas = ExtResource("13_fhqvo")
+region = Rect2(624, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p50w"]
+atlas = ExtResource("13_txnmg")
+region = Rect2(0, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5esxo"]
+atlas = ExtResource("13_txnmg")
+region = Rect2(312, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dftka"]
+atlas = ExtResource("13_txnmg")
+region = Rect2(624, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo14j"]
+atlas = ExtResource("13_txnmg")
+region = Rect2(936, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhnxr"]
+atlas = ExtResource("14_y1m6r")
+region = Rect2(0, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u07l5"]
+atlas = ExtResource("14_y1m6r")
+region = Rect2(312, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl5vb"]
+atlas = ExtResource("14_y1m6r")
+region = Rect2(624, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5e5y"]
+atlas = ExtResource("14_y1m6r")
+region = Rect2(936, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pulvj"]
+atlas = ExtResource("14_y1m6r")
+region = Rect2(0, 240, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy6ep"]
+atlas = ExtResource("14_y1m6r")
+region = Rect2(312, 240, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdrug"]
+atlas = ExtResource("14_y1m6r")
+region = Rect2(624, 240, 312, 240)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vp53q"]
 atlas = ExtResource("12_huhuk")
 region = Rect2(0, 0, 312, 240)
@@ -1065,8 +1188,142 @@ region = Rect2(624, 0, 312, 240)
 atlas = ExtResource("12_huhuk")
 region = Rect2(936, 0, 312, 240)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_14r6b"]
+atlas = ExtResource("17_ms6jg")
+region = Rect2(0, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kvyu"]
+atlas = ExtResource("17_ms6jg")
+region = Rect2(312, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3rbb"]
+atlas = ExtResource("17_ms6jg")
+region = Rect2(624, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21th8"]
+atlas = ExtResource("17_ms6jg")
+region = Rect2(936, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_merbs"]
+atlas = ExtResource("18_om3ui")
+region = Rect2(312, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8mgy"]
+atlas = ExtResource("18_om3ui")
+region = Rect2(624, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1yka"]
+atlas = ExtResource("18_om3ui")
+region = Rect2(936, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3esox"]
+atlas = ExtResource("18_om3ui")
+region = Rect2(1248, 0, 312, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvv1a"]
+atlas = ExtResource("18_om3ui")
+region = Rect2(1560, 0, 312, 240)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_65kac"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5iir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gy38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvdqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrvs7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aep1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4f8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg4r7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrxrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0qor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvx7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mr4nn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qeue7")
+}],
+"loop": true,
+"name": &"Beach_Sunset",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bylmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rni1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vaawi")
+}],
+"loop": true,
+"name": &"Fogbound_Lake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p50w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5esxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dftka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo14j")
+}],
+"loop": true,
+"name": &"Sea_Day",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhnxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u07l5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cl5vb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5e5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pulvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dy6ep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdrug")
+}],
+"loop": true,
+"name": &"Sea_Night",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vp53q")
@@ -1083,7 +1340,56 @@ animations = [{
 "loop": true,
 "name": &"V26P09A",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14r6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kvyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3rbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21th8")
+}],
+"loop": true,
+"name": &"beach_cavemouth",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_merbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8mgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1yka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3esox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvv1a")
+}],
+"loop": true,
+"name": &"time_travel",
+"speed": 20.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gkl72"]
+
+[sub_resource type="GDScript" id="GDScript_dgkoj"]
+script/source = "extends Sprite2D
+
+@export var palette_size: int = 1
+@export var shader_path: String = \"res://palette_quantize.shader\"
+
+func _ready():
+	pass
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_el3sg"]
 atlas = ExtResource("12_k0q7g")
@@ -1357,6 +1663,28 @@ texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 axis_stretch_horizontal = 1
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxfdo"]
+atlas = ExtResource("43_7uo2a")
+region = Rect2(0, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahgvd"]
+atlas = ExtResource("43_7uo2a")
+region = Rect2(20, 0, 20, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lgxlc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxfdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahgvd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
 [sub_resource type="LabelSettings" id="LabelSettings_l7fbr"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_qmomk"]
@@ -1551,8 +1879,8 @@ visible = false
 position = Vector2(384, 288)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_65kac")
-animation = &"V26P09A"
-frame_progress = 0.358335
+animation = &"time_travel"
+frame_progress = 0.103687
 
 [node name="PMD_Main" type="Node2D" parent="."]
 
@@ -1566,7 +1894,9 @@ script = ExtResource("8_iisxg")
 texture = ExtResource("4_yqe1g")
 
 [node name="Icon" type="Sprite2D" parent="PMD_Main/Portrait"]
+material = SubResource("ShaderMaterial_gkl72")
 texture = ExtResource("3_2dy76")
+script = SubResource("GDScript_dgkoj")
 
 [node name="PortraitHoverButton" type="Button" parent="PMD_Main/Portrait"]
 self_modulate = Color(1, 1, 1, 0)
@@ -2086,9 +2416,9 @@ centered = false
 
 [node name="DebugTab" type="NinePatchRect" parent="PMD_Debug"]
 offset_left = 193.0
-offset_top = 71.0
+offset_top = 72.0
 offset_right = 377.0
-offset_bottom = 176.0
+offset_bottom = 177.0
 scale = Vector2(3, 3)
 texture = ExtResource("21_a8dco")
 patch_margin_left = 5
@@ -2199,9 +2529,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AlignmentButton" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 92.9996
+offset_left = 77.0
 offset_top = 2.0
-offset_right = 125.0
+offset_right = 117.0
 offset_bottom = 17.0
 scale = Vector2(0.7, 0.7)
 theme = ExtResource("106_82bab")
@@ -2240,15 +2570,15 @@ metadata/_edit_use_anchors_ = true
 [node name="InsertSymbolBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.665
+anchor_left = 0.608197
 anchor_top = 0.021
-anchor_right = 0.755364
-anchor_bottom = 0.139309
-offset_left = -0.0400009
+anchor_right = 0.71
+anchor_bottom = 0.126
+offset_left = -0.0426636
 offset_top = -0.0370002
-offset_right = 6.056
-offset_bottom = 4.487
-scale = Vector2(0.65, 0.65)
+offset_right = 12.04
+offset_bottom = 6.778
+scale = Vector2(0.6, 0.6)
 focus_mode = 0
 theme = ExtResource("106_82bab")
 icon = ExtResource("18_37hf0")
@@ -2260,15 +2590,15 @@ metadata/_edit_use_anchors_ = true
 [node name="InsertGlyphBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.756
+anchor_left = 0.716227
 anchor_top = 0.021
-anchor_right = 0.835
-anchor_bottom = 0.129
+anchor_right = 0.818
+anchor_bottom = 0.126
 offset_left = -0.0559998
 offset_top = -0.0370002
-offset_right = 6.03999
-offset_bottom = 4.487
-scale = Vector2(0.7, 0.7)
+offset_right = 12.032
+offset_bottom = 6.778
+scale = Vector2(0.6, 0.6)
 theme = ExtResource("106_82bab")
 theme_override_styles/normal = SubResource("StyleBoxTexture_x4kfj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_oo1q3")
@@ -2282,13 +2612,13 @@ metadata/_edit_use_anchors_ = true
 [node name="OptionBoxBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.846591
+anchor_left = 0.823864
 anchor_top = 0.0206186
-anchor_right = 0.926
-anchor_bottom = 0.129
-offset_right = 6.02399
-offset_bottom = 4.487
-scale = Vector2(0.7, 0.7)
+anchor_right = 0.925682
+anchor_bottom = 0.126
+offset_right = 12.08
+offset_bottom = 6.778
+scale = Vector2(0.6, 0.6)
 theme = ExtResource("106_82bab")
 theme_override_styles/normal = SubResource("StyleBoxTexture_x4kfj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_oo1q3")
@@ -2319,6 +2649,30 @@ icon_alignment = 1
 color = Color(1, 1, 1, 1)
 edit_alpha = false
 metadata/_edit_use_anchors_ = true
+
+[node name="SecretDoof" type="Control" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColour"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 65.0
+offset_top = -2.0
+offset_right = 87.0
+offset_bottom = 16.0
+tooltip_text = "You've found the secret BIDOOF.
+He's sleeping..."
+
+[node name="SecretDoof" type="AnimatedSprite2D" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColour/SecretDoof"]
+position = Vector2(10.1905, 9.14285)
+sprite_frames = SubResource("SpriteFrames_lgxlc")
+frame_progress = 0.841823
+
+[node name="SecretFan" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColour/SecretDoof"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 21.0
+offset_bottom = 18.0
+tooltip_text = "You've found the secret BIDOOF.
+He's sleeping..."
 
 [node name="Label" type="Label" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColour"]
 layout_mode = 0
@@ -3305,6 +3659,17 @@ text = "BOX ARROW"
 icon = ExtResource("21_8m8cv")
 alignment = 1
 
+[node name="BOXARROW2" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/ThemesTab" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 35.0
+offset_right = 190.0
+offset_bottom = 53.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("106_82bab")
+text = "HIDE TEXTBOX"
+alignment = 1
+
 [node name="DefaultBGs" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
 layout_mode = 0
 offset_left = 109.667
@@ -3316,7 +3681,7 @@ theme = ExtResource("106_82bab")
 theme_override_icons/arrow = SubResource("ImageTexture_qmomk")
 icon_alignment = 1
 expand_icon = true
-item_count = 19
+item_count = 31
 selected = 0
 popup/item_0/text = ""
 popup/item_0/icon = ExtResource("68_to8is")
@@ -3375,6 +3740,42 @@ popup/item_17/id = 17
 popup/item_18/text = ""
 popup/item_18/icon = ExtResource("97_mv73b")
 popup/item_18/id = 18
+popup/item_19/text = ""
+popup/item_19/icon = ExtResource("102_68xj1")
+popup/item_19/id = 19
+popup/item_20/text = ""
+popup/item_20/icon = ExtResource("103_teq4g")
+popup/item_20/id = 20
+popup/item_21/text = ""
+popup/item_21/icon = ExtResource("104_xxpwv")
+popup/item_21/id = 21
+popup/item_22/text = ""
+popup/item_22/icon = ExtResource("105_0plic")
+popup/item_22/id = 22
+popup/item_23/text = ""
+popup/item_23/icon = ExtResource("107_ftcy0")
+popup/item_23/id = 23
+popup/item_24/text = ""
+popup/item_24/icon = ExtResource("109_g1b0j")
+popup/item_24/id = 24
+popup/item_25/text = ""
+popup/item_25/icon = ExtResource("111_oh623")
+popup/item_25/id = 25
+popup/item_26/text = ""
+popup/item_26/icon = ExtResource("110_cshex")
+popup/item_26/id = 26
+popup/item_27/text = ""
+popup/item_27/icon = ExtResource("115_f5fc1")
+popup/item_27/id = 27
+popup/item_28/text = ""
+popup/item_28/icon = ExtResource("105_xej4c")
+popup/item_28/id = 28
+popup/item_29/text = ""
+popup/item_29/icon = ExtResource("106_l13p0")
+popup/item_29/id = 29
+popup/item_30/text = ""
+popup/item_30/icon = ExtResource("116_4ueth")
+popup/item_30/id = 30
 script = ExtResource("30_e868e")
 
 [node name="BGImageOpener" type="FileDialog" parent="PMD_Debug/DebugTab/Tabs/ThemesTab"]
@@ -4768,6 +5169,7 @@ texture = ExtResource("112_opyju")
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertGlyphBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onGlyphWindowOpen"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/OptionBoxBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onOptionBoxWindowOpen"]
 [connection signal="color_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColour" to="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG" method="on_Picker_color_changed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColour/SecretDoof/SecretFan" to="PMD_Main/Portrait" method="SuperAwesomeSecretCode"]
 [connection signal="focus_entered" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow/HeartSymbol" method="_on_prefix_edit_focus_entered"]
 [connection signal="focus_exited" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow/HeartSymbol" method="_on_prefix_edit_focus_exited"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/PrefixEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onPrefixEditChanged"]
@@ -4805,6 +5207,7 @@ texture = ExtResource("112_opyju")
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowClose"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/UnownModeToggleBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_unown_mode_toggle_pressed"]
 [connection signal="toggled" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BOXARROW" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_boxarrow_toggled"]
+[connection signal="toggled" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BOXARROW2" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_textbox_hidden"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/DefaultBGs" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="on_defaultbg_change"]
 [connection signal="file_selected" from="PMD_Debug/DebugTab/Tabs/ThemesTab/BGImageOpener" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_upload_image_file_selected"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/ThemesTab/CustomBackgroundBTN" to="PMD_Debug/DebugTab/Tabs/ThemesTab" method="_on_custom_background_btn_pressed"]
