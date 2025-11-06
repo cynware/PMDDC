@@ -21,7 +21,6 @@ func onPressed() -> void:
 	if prefix_edit.has_focus():
 		$"../..".onPrefixEditChanged("[img=" + str(symbolSize) + "]"  + texture_normal.resource_path + "[/img] ")
 		$"../../PrefixEdit".text = "[img=" + str(symbolSize) + "]"  + texture_normal.resource_path + "[/img] "
-		$"../../PrefixEdit".insert_text_at_caret()
 	else:
 		$"../../WYSIWYG".text_data.append({"type": "img", "src": texture_normal.resource_path, "size": symbolSize})
 		$"../../WYSIWYG".update_display()
