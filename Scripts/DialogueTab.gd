@@ -43,6 +43,7 @@ func _ready():
 	if secretdoof == 50:
 		$InsertColour/SecretDoof.visible = true
 		$InsertColour/SecretDoof/SecretDoof.play("default")
+		$WYSIWYG/Backend_Editor.placeholder_text = "Aw, look! He's sleeping!"
 	else:
 		$InsertColour/SecretDoof.visible = false
 	

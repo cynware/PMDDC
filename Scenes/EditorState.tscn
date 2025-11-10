@@ -1435,10 +1435,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
-shader = ExtResource("6_q7upt")
-shader_parameter/lod = 1.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgfop"]
 atlas = ExtResource("21_dvy8t")
 region = Rect2(0, 25, 25, 25)
@@ -1686,6 +1682,10 @@ animations = [{
 }]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l7fbr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
+shader = ExtResource("6_q7upt")
+shader_parameter/lod = 1.0
 
 [sub_resource type="ImageTexture" id="ImageTexture_qmomk"]
 
@@ -2230,14 +2230,6 @@ frame_progress = 0.893053
 [node name="PMD_Debug" type="Node2D" parent="."]
 script = ExtResource("11_8cckt")
 
-[node name="Blur" type="ColorRect" parent="PMD_Debug"]
-visible = false
-material = SubResource("ShaderMaterial_75fvv")
-offset_left = 295.0
-offset_top = 24.0
-offset_right = 721.0
-offset_bottom = 66.0
-
 [node name="TAB_DISPLAYNAME" type="NinePatchRect" parent="PMD_Debug"]
 offset_left = 205.0
 offset_top = 14.0
@@ -2432,7 +2424,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 180.0
 offset_bottom = 101.0
-color = Color(0.140447, 0.140447, 0.140447, 1)
+color = Color(0.12549, 0.12549, 0.12549, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Tabs" type="Control" parent="PMD_Debug/DebugTab"]
@@ -4143,7 +4135,7 @@ errorIcon = NodePath("../../../../../PMD_Main/Portrait/ERRORICON")
 layout_mode = 0
 offset_right = 176.0
 offset_bottom = 97.0
-color = Color(0.156863, 0.156863, 0.156863, 1)
+color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="Header" type="Label" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow"]
 layout_mode = 0
@@ -4354,7 +4346,7 @@ errorIcon = NodePath("../../../../../PMD_Main/Portrait/ERRORICON")
 layout_mode = 0
 offset_right = 176.0
 offset_bottom = 97.0
-color = Color(0.156863, 0.156863, 0.156863, 1)
+color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="Header" type="Label" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/LocalPorWindow"]
 layout_mode = 0
@@ -4501,7 +4493,7 @@ portrait = NodePath("../../../../PMD_Main/Portrait")
 layout_mode = 0
 offset_right = 176.0
 offset_bottom = 97.0
-color = Color(0.137255, 0.137255, 0.137255, 1)
+color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="PresetDropdown" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/PresetsTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -4592,6 +4584,8 @@ offset_left = 81.0
 offset_top = 9.0
 offset_right = 153.0
 offset_bottom = 81.0
+tooltip_text = "You can also press \"CTRL + S\" or \"F12\" to save."
+theme = ExtResource("5_qi2yv")
 
 [node name="SaveSprite" type="AnimatedSprite2D" parent="Save"]
 position = Vector2(36, 36)
@@ -4960,22 +4954,6 @@ offset_right = 473.0
 offset_bottom = 129.0
 scale = Vector2(3, 3)
 texture_normal = ExtResource("67_uwkq2")
-
-[node name="Savereminder" type="Label" parent="Settings/SettingsMenu"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 545.0
-offset_right = 150.0
-offset_bottom = 558.0
-scale = Vector2(2, 2)
-theme = ExtResource("5_qi2yv")
-text = "Press CTRL+S or F12 to save!"
-
-[node name="ColorRect" type="ColorRect" parent="Settings/SettingsMenu/Savereminder"]
-layout_mode = 0
-offset_top = 12.0
-offset_right = 141.0
-offset_bottom = 13.0
 
 [node name="BuildNum" type="Label" parent="Settings/SettingsMenu"]
 layout_mode = 0

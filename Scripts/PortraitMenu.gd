@@ -39,13 +39,29 @@ func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 	if(refreshFolderDropdown):
 		localFolderDropdownLocal.clear()
 		for dir in DirAccess.get_directories_at("user://Portraits/"):
-			localFolderDropdownLocal.add_item(dir);
-		
-	if(!DirAccess.dir_exists_absolute("user://Portraits/" + localFolderDropdownLocal.text)):
-		return;
+			var img := Image.new()
+			var localportraits = DirAccess.get_files_at("user://Portraits/" + dir + "/")
+			var error = img.load("user://Portraits/" + dir + "/" + localportraits[0])
+
+			if error == OK:
+				errorIcon.visible = false;
+				
+				if(icon.texture == null):
+					img.resize(40, 40, Image.INTERPOLATE_NEAREST);
+					icon.texture = ImageTexture.create_from_image(img);
+					icon_texture_changed()
+					
+				img.resize(20, 20, Image.INTERPOLATE_NEAREST);
+				var portraitTexture := ImageTexture.create_from_image(img);
+				localFolderDropdownLocal.add_icon_item(portraitTexture, dir, 0);
+			else:
+				errorIcon.visible = true;
 		
 	var portraits = DirAccess.get_files_at("user://Portraits/" + localFolderDropdownLocal.text + "/");
 	print(portraits);
+	
+	if(!DirAccess.dir_exists_absolute("user://Portraits/" + localFolderDropdownLocal.text)):
+		return;
 		
 	for i in portraits.size():
 		var img := Image.new()

@@ -18,10 +18,54 @@ var syncing_frontend = false
 var pending_text_change = false
 var text_change_timer = 0.0
 
-
+var rng = RandomNumberGenerator.new()
+var natures = [
+	"bold",
+	"brave",
+	"calm",
+	"docile",
+	"hardy",
+	"hasty",
+	"impish",
+	"jolly",
+	"lonely",
+	"naïve",
+	"quiet",
+	"quirky",
+	"rash",
+	"relaxed",
+	"sassy",
+	"timid"
+]
+var placeholdersplashes = [
+	"Welcome to the world of Pokémon!",
+	"Try out Skytemple, too!",
+	"Blah blah blah...",
+	"Put your dialogue here!",
+	"Everyone at PMDCollab is amazing, yup yup!",
+	"You seem to be...the " + natures[0] + " type!",
+	"Honoring the legacy of Pokémon Mystery\nDungeon: Comic Maker!",
+	"Make us right!",
+	"(HE HAS THEM? FEET?)",
+	"YOOM...TAH!",
+	"SMILES GO FOR MILES!",
+	"By golly!",
+	"Rem burst into spontaneous\nlaughter and fainted!",
+	"Got 1% more accurate since last update!",
+	"No secrets here, you know...",
+	"- Removed Missingno.",
+	"Originally made for Rats N' Ribbons!",
+	"Partially powered by a beaver and a dream!",
+	"The sky had a Pokémon!"
+]
 
 func _ready():
 	last_text = backend.text
+	natures.shuffle()
+	placeholdersplashes[6] = "You seem to be...the " + natures[0] + " type!"
+	placeholdersplashes.shuffle()
+	backend.placeholder_text = placeholdersplashes[0]
+	#backend.placeholder_text = "Partially powered by a beaver and a dream!"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
