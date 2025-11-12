@@ -28,7 +28,6 @@
 [ext_resource type="Texture2D" uid="uid://2tcah6xehd0i" path="res://Assets/Images/Portrait_Selection.png" id="12_k0q7g"]
 [ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdSkins/ExplorersOfSky/Male/icon.png" id="12_t8jjw"]
 [ext_resource type="Texture2D" uid="uid://riac5l0rgksx" path="res://Assets/Images/symbols/star.png" id="12_vxgy4"]
-[ext_resource type="Texture2D" uid="uid://bqa3apsvhkj3q" path="res://Assets/Images/default_bgs/forgottenlake.png" id="13_fhqvo"]
 [ext_resource type="Texture2D" uid="uid://dmlppb1jvlf0q" path="res://Assets/Images/symbols/textbubble.png" id="13_t8tcm"]
 [ext_resource type="Texture2D" uid="uid://b26okeqvxfi" path="res://Assets/Images/default_bgs/seaday.png" id="13_txnmg"]
 [ext_resource type="Texture2D" uid="uid://rxffw7bc5pqx" path="res://Assets/Images/SecretFanfare.png" id="14_i3641"]
@@ -169,6 +168,7 @@
 [ext_resource type="Texture2D" uid="uid://cvl8t10uahj03" path="res://Assets/Images/default_bgs/skies_cliffs.png" id="115_f5fc1"]
 [ext_resource type="Texture2D" uid="uid://bxbyt0so4i8j5" path="res://Assets/Images/default_bgs/wanted_poster.png" id="116_4ueth"]
 [ext_resource type="Texture2D" uid="uid://cdau1s1nshadb" path="res://Assets/Images/saveicon.png" id="117_2q84r"]
+[ext_resource type="Script" path="res://Scripts/PmdCollabHandler.gd" id="133_0wtcu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s71i0"]
 atlas = ExtResource("8_rl3y6")
@@ -1117,15 +1117,12 @@ atlas = ExtResource("12_hifya")
 region = Rect2(1560, 240, 312, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bylmq"]
-atlas = ExtResource("13_fhqvo")
 region = Rect2(0, 0, 312, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8rni1"]
-atlas = ExtResource("13_fhqvo")
 region = Rect2(312, 0, 312, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vaawi"]
-atlas = ExtResource("13_fhqvo")
 region = Rect2(624, 0, 312, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4p50w"]
@@ -2436,6 +2433,7 @@ offset_bottom = 101.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogueTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("textboxText", "textboxText2")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -4005,7 +4003,6 @@ theme = ExtResource("5_qi2yv")
 texture_normal = ExtResource("34_tw0f3")
 
 [node name="PortraitTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -4117,19 +4114,13 @@ theme = ExtResource("106_82bab")
 text = "Flip"
 alignment = 1
 
-[node name="CollabPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" node_paths=PackedStringArray("icon", "localFolderDropdownLocal", "localEmotionDropdownLocal", "errorIcon")]
-visible = false
+[node name="CollabPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab"]
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332
 offset_right = 176.0
 offset_bottom = 96.6666
-script = ExtResource("33_ovcmm")
-icon = NodePath("../../../../../PMD_Main/Portrait/Icon")
-presetImages = Array[Texture2D]([ExtResource("35_8xq2p"), ExtResource("36_ed0lm"), ExtResource("37_7opjh"), ExtResource("38_nn25p"), ExtResource("39_kk32g"), ExtResource("40_jnqv7"), ExtResource("41_wmx46"), ExtResource("42_xxpgf"), ExtResource("43_qqkqu"), ExtResource("44_ot21h"), ExtResource("45_c04ku"), ExtResource("46_lfj07"), ExtResource("47_vwl7f"), ExtResource("48_gt2bu"), ExtResource("49_d1k3h"), ExtResource("50_ld6pt"), ExtResource("51_vsdx0"), ExtResource("52_ttctp"), ExtResource("53_34vbu"), ExtResource("54_kgwja")])
-localFolderDropdownLocal = NodePath("../LocalPorWindow/Emotion_LocalDir")
-localEmotionDropdownLocal = NodePath("../LocalPorWindow/Emotion_LocalEmotion")
-errorIcon = NodePath("../../../../../PMD_Main/Portrait/ERRORICON")
+script = ExtResource("133_0wtcu")
 
 [node name="Bg" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow"]
 layout_mode = 0
