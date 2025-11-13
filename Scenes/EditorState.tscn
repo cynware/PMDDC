@@ -3364,14 +3364,14 @@ textEdit = NodePath("../../TextboxEdit")
 
 [node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 74.3333
-offset_top = 86.6667
-offset_right = 110.333
-offset_bottom = 99.6667
+offset_left = 71.3333
+offset_top = 85.6667
+offset_right = 122.333
+offset_bottom = 100.667
 scale = Vector2(0.7, 0.7)
 focus_mode = 0
-theme = ExtResource("5_qi2yv")
-text = "CLOSE"
+theme = ExtResource("106_82bab")
+text = "CLOSE "
 icon = ExtResource("94_od227")
 
 [node name="UnicodeWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
@@ -3599,14 +3599,14 @@ Picker = NodePath("../../InsertColour")
 
 [node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 74.3333
-offset_top = 86.6667
-offset_right = 110.333
-offset_bottom = 99.6667
+offset_left = 71.3333
+offset_top = 85.6667
+offset_right = 122.333
+offset_bottom = 100.667
 scale = Vector2(0.7, 0.7)
 focus_mode = 0
-theme = ExtResource("5_qi2yv")
-text = "CLOSE"
+theme = ExtResource("106_82bab")
+text = "CLOSE "
 icon = ExtResource("94_od227")
 
 [node name="SHINX_HIJINX_APPRECIATION" type="LinkButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow"]
