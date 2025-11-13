@@ -2433,7 +2433,6 @@ offset_bottom = 101.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogueTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("textboxText", "textboxText2")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -4003,6 +4002,7 @@ theme = ExtResource("5_qi2yv")
 texture_normal = ExtResource("34_tw0f3")
 
 [node name="PortraitTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -4115,6 +4115,7 @@ text = "Flip"
 alignment = 1
 
 [node name="CollabPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332

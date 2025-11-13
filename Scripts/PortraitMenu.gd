@@ -12,6 +12,8 @@ var curPmdCollabURL = "";
 var pmdCollabJsonMirror = "https://raw.githubusercontent.com/cynware/PMDDC-Data/refs/heads/main/pmdcollabmirror.txt";
 var pmdCollabJson:String;
 
+var emotions = []
+
 func _ready():
 	CheckAndCreatePortraitFolder()
 	RetrievePortraitsInDirectory()
@@ -31,7 +33,7 @@ func CheckAndCreatePortraitFolder():
 		print("PORTRAITS FOLDER ALREADY EXISTS")
 
 func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
-
+	emotions.clear()
 	localEmotionDropdownLocal.clear()
 	localEmotionDropdownLocal.icon = null;
 	icon.texture = null;
@@ -58,7 +60,7 @@ func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 				errorIcon.visible = true;
 		
 	var portraits = DirAccess.get_files_at("user://Portraits/" + localFolderDropdownLocal.text + "/");
-	print(portraits);
+	#print(portraits);
 	
 	if(!DirAccess.dir_exists_absolute("user://Portraits/" + localFolderDropdownLocal.text)):
 		return;
@@ -77,14 +79,16 @@ func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 				
 			img.resize(20, 20, Image.INTERPOLATE_NEAREST);
 			var portraitTexture := ImageTexture.create_from_image(img);
-			localEmotionDropdownLocal.add_icon_item(portraitTexture, portraits[i], i);
+			emotions.append(portraits[i])
+			localEmotionDropdownLocal.add_icon_item(portraitTexture, portraits[i].get_basename(), i);
 		else:
 			errorIcon.visible = true;
 			
+	print(emotions)
 		
 func loadIconLocal():
 	curPmdCollabURL = "";
-	var imagepath = "user://Portraits/" + localFolderDropdownLocal.text + "/"+localEmotionDropdownLocal.text;
+	var imagepath = "user://Portraits/" + localFolderDropdownLocal.text + "/"+ emotions[localEmotionDropdownLocal.get_selected_id()];
 	
 	if(!FileAccess.file_exists(imagepath)):
 		return;

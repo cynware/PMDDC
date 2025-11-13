@@ -52,7 +52,8 @@ func LoadPreset(preset:Preset):
 	else:
 		localFolderDropdownLocal.selected = get_index_by_name(localFolderDropdownLocal, preset.customPortraitName)
 		localFolderDropdownLocal.item_selected.emit(localFolderDropdownLocal.selected)
-		localEmotionDropdownLocal.selected = get_index_by_name(localEmotionDropdownLocal, preset.customPortraitEmotion)
+		localEmotionDropdownLocal.selected = get_index_by_name(localEmotionDropdownLocal, preset.customPortraitEmotion.get_basename())
+		#print("ID IS: ", localEmotionDropdownLocal.selected)
 		localEmotionDropdownLocal.item_selected.emit(localEmotionDropdownLocal.selected)
 		
 	
@@ -84,7 +85,7 @@ func SaveCurrentStateAsPreset():
 	preset.skinName = skinWindow.skinDropdown.text;
 	if(portraitMenu.curPmdCollabURL == ""):
 		preset.customPortraitName = portraitMenu.localFolderDropdownLocal.text;
-		preset.customPortraitEmotion = portraitMenu.localEmotionDropdownLocal.text;
+		preset.customPortraitEmotion = portraitMenu.emotions[localEmotionDropdownLocal.get_selected_id()];
 	else:
 		preset.pmdCollabPortraitURL = portraitMenu.curPmdCollabURL;
 		
@@ -156,7 +157,7 @@ func IsPresetValid(preset:Preset) -> bool:
 	return true;
 func LoadPresetFromDropdown(index):
 	
-	var path = "user://Presets/" + presetDropdown.text;
+	var path = "user://Presets/" + presetDropdown.text + ".json";
 	var file = FileAccess.open(path, FileAccess.READ)
 	var content = file.get_as_text()
 	file.close()
@@ -193,7 +194,7 @@ func RefreshDropdown():
 	presetDropdown.clear();
 		
 	for preset in DirAccess.get_files_at("user://Presets"):
-		presetDropdown.add_item(preset);
+		presetDropdown.add_item(preset.get_basename());
 		
 func get_index_by_name(dropdown: OptionButton, target_name: String) -> int:
 	for i in range(dropdown.get_item_count()):
@@ -231,5 +232,5 @@ func OnSavePresetPressed():
 
 func OnDeletePresetPressed():
 	SoundEffectManager.PlayDelete()
-	DirAccess.remove_absolute("user://Presets/" + presetDropdown.text);
+	DirAccess.remove_absolute("user://Presets/" + presetDropdown.text + ".json");
 	RefreshDropdown()
