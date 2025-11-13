@@ -1,27 +1,33 @@
+# PokemonData.gd
 extends Resource
 class_name PokemonData
 
-var id: String
-var name: String
-var complete: int
-var forms: Dictionary = {}
+var id: String = ""
+var name: String = ""
+var complete: int = 0
+var forms: Dictionary = {} 
 
-# Parse JSON into CreatureData objects
-static func from_json(json_data: Dictionary) -> Dictionary:
-	var result := {}
-	for id in json_data.keys():
-		var pokemon_dict = json_data[id]
-		var pokemon = PokemonData.new()
-		pokemon.id = pokemon_dict.get("id", "")
-		pokemon.name = pokemon_dict.get("name", "")
-		pokemon.complete = pokemon_dict.get("complete", 0)
+static func from_json_entry(entry: Dictionary) -> PokemonData:
+	var p := PokemonData.new()
+	p.id = str(entry.get("id", ""))
+	p.name = entry.get("name", "")
+	p.complete = int(entry.get("complete", 0))
 
-		# Parse forms
-		var form_dict := {}
-		if "forms" in pokemon_dict:
-			for form_id in pokemon_dict["forms"].keys():
-				form_dict[form_id] = FormData.from_json(pokemon_dict["forms"][form_id])
-		pokemon.forms = form_dict
+	var form_dict: Dictionary = {}
+	var forms_src = entry.get("forms", {})
+	if typeof(forms_src) == TYPE_DICTIONARY:
+		for form_id in forms_src.keys():
+			var form_data = forms_src[form_id]
+			if typeof(form_data) == TYPE_DICTIONARY:
+				form_dict[form_id] = FormData.from_json(form_data)
+	p.forms = form_dict
+	return p
 
-		result[id] = pokemon
+
+static func from_json_root(json_root: Dictionary) -> Dictionary:
+	var result: Dictionary = {}
+	for id_key in json_root.keys():
+		var poke_dict = json_root[id_key]
+		if typeof(poke_dict) == TYPE_DICTIONARY:
+			result[id_key] = PokemonData.from_json_entry(poke_dict)
 	return result
