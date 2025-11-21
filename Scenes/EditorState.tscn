@@ -1,4 +1,4 @@
-[gd_scene load_steps=396 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=397 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://2tcah6xehd0i" path="res://Assets/Images/Portrait_Selection.png" id="12_k0q7g"]
 [ext_resource type="Texture2D" uid="uid://cwwklr2117ker" path="res://PmdSkins/ExplorersOfSky/Male/icon.png" id="12_t8jjw"]
 [ext_resource type="Texture2D" uid="uid://riac5l0rgksx" path="res://Assets/Images/symbols/star.png" id="12_vxgy4"]
+[ext_resource type="Texture2D" uid="uid://bmfl8p3ne55v1" path="res://Assets/Images/default_bgs/fogboundlake.png" id="13_o6u6y"]
 [ext_resource type="Texture2D" uid="uid://dmlppb1jvlf0q" path="res://Assets/Images/symbols/textbubble.png" id="13_t8tcm"]
 [ext_resource type="Texture2D" uid="uid://b26okeqvxfi" path="res://Assets/Images/default_bgs/seaday.png" id="13_txnmg"]
 [ext_resource type="Texture2D" uid="uid://rxffw7bc5pqx" path="res://Assets/Images/SecretFanfare.png" id="14_i3641"]
@@ -1116,13 +1117,16 @@ region = Rect2(1248, 240, 312, 240)
 atlas = ExtResource("12_hifya")
 region = Rect2(1560, 240, 312, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bylmq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cqli"]
+atlas = ExtResource("13_o6u6y")
 region = Rect2(0, 0, 312, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8rni1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypr4a"]
+atlas = ExtResource("13_o6u6y")
 region = Rect2(312, 0, 312, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vaawi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3jiu"]
+atlas = ExtResource("13_o6u6y")
 region = Rect2(624, 0, 312, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4p50w"]
@@ -1266,13 +1270,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bylmq")
+"texture": SubResource("AtlasTexture_7cqli")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8rni1")
+"texture": SubResource("AtlasTexture_ypr4a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vaawi")
+"texture": SubResource("AtlasTexture_g3jiu")
 }],
 "loop": true,
 "name": &"Fogbound_Lake",
@@ -1876,8 +1880,8 @@ visible = false
 position = Vector2(384, 288)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_65kac")
-animation = &"time_travel"
-frame_progress = 0.103687
+animation = &"V26P09A"
+frame_progress = 0.16947
 
 [node name="PMD_Main" type="Node2D" parent="."]
 
