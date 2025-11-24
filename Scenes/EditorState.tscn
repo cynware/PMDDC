@@ -3977,7 +3977,6 @@ text = "SAVE"
 icon = ExtResource("113_v4soi")
 
 [node name="LocalPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" node_paths=PackedStringArray("icon", "localFolderDropdownLocal", "localEmotionDropdownLocal", "errorIcon")]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332

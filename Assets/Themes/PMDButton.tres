@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=32 format=3 uid="uid://dsc1ij8moovpg"]
+[gd_resource type="Theme" load_steps=36 format=3 uid="uid://dsc1ij8moovpg"]
 
 [ext_resource type="Texture2D" uid="uid://cohkcapmu2cqk" path="res://Assets/Images/PMD_Dark/checkbox_ticked.png" id="1_h60n2"]
 [ext_resource type="Texture2D" uid="uid://bmnh78ywv8gvu" path="res://Assets/Images/buttongradient_hover.png" id="1_jtluw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c4kwxc8eyqgbm" path="res://Assets/Images/PMD_Dark/spinboxarrows.png" id="6_bja06"]
 [ext_resource type="Texture2D" uid="uid://dgdjxdyxvneq5" path="res://Assets/Images/arrow_big.png" id="9_etc08"]
 [ext_resource type="Texture2D" uid="uid://b56ay8kc1irey" path="res://Assets/Images/GENDERLESS_BORDER.png" id="9_hi3n1"]
+[ext_resource type="Texture2D" uid="uid://bje3w50m87go2" path="res://Assets/Images/scrollbar.png" id="12_tj72m"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xii81"]
 content_margin_left = 4.0
@@ -145,6 +146,31 @@ content_margin_top = 5.0
 content_margin_left = 5.0
 content_margin_top = 5.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_63e48"]
+texture = ExtResource("12_tj72m")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+expand_margin_left = 3.0
+modulate_color = Color(0.529067, 0.529067, 0.529067, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n6sti"]
+texture = ExtResource("12_tj72m")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+expand_margin_left = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f0dti"]
+texture = ExtResource("12_tj72m")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+expand_margin_left = 3.0
+
 [resource]
 default_font = ExtResource("4_u4pk8")
 default_font_size = 16
@@ -197,3 +223,6 @@ TooltipLabel/constants/shadow_offset_x = 5
 TooltipLabel/constants/shadow_offset_y = 5
 TooltipLabel/font_sizes/font_size = 20
 TooltipLabel/fonts/font = ExtResource("4_u4pk8")
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_63e48")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_n6sti")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_f0dti")
