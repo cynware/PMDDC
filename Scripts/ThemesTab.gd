@@ -159,3 +159,8 @@ func _on_textbox_hidden(toggled_on):
 	else:
 		$"../../../../PMD_Main/Textbox".visible = true
 		SoundEffectManager.PlayCheckboxOff()
+
+
+func _on_pmd_coll_download_btn_pressed():
+	SoundEffectManager.PlayFolder()
+	$"../../../../DownloadScreen".visible = true

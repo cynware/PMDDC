@@ -1,4 +1,4 @@
-[gd_scene load_steps=402 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=403 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -175,6 +175,7 @@
 [ext_resource type="Texture2D" uid="uid://idc1p6ikqgi7" path="res://Assets/Images/progressbar_over.png" id="118_t7tk3"]
 [ext_resource type="Texture2D" uid="uid://bigq7k8pjdu14" path="res://Assets/Images/progressbar_progress.png" id="119_tsut3"]
 [ext_resource type="Script" path="res://Scripts/PmdCollabHandler.gd" id="133_0wtcu"]
+[ext_resource type="Texture2D" uid="uid://cskegma3a265l" path="res://Assets/Images/bidoof.png" id="176_ych8s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s71i0"]
 atlas = ExtResource("8_rl3y6")
@@ -5142,6 +5143,155 @@ offset_right = 44.0
 offset_bottom = 44.3333
 texture = ExtResource("112_opyju")
 
+[node name="DownloadScreen" type="Control" parent="." node_paths=PackedStringArray("infoText", "gitButton", "itchButton", "closeButton")]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("113_cordu")
+infoText = NodePath("../NoticeScreen/InfoBorder/InfoDisplay/InfoText")
+gitButton = NodePath("../NoticeScreen/InfoBorder/InfoDisplay/DownloadGithub")
+itchButton = NodePath("../NoticeScreen/InfoBorder/InfoDisplay/DownloadItch")
+closeButton = NodePath("../NoticeScreen/InfoBorder/InfoDisplay/CloseBTN")
+normalCloseButtonPosition = Vector2(91, 83)
+updateAvailableCloseButtonPosition = Vector2(158, 83)
+
+[node name="Dark" type="ColorRect" parent="DownloadScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 19.7
+anchor_bottom = 14.9
+color = Color(0, 0, 0, 0.631373)
+
+[node name="InfoBorder" type="NinePatchRect" parent="DownloadScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 19.1
+anchor_bottom = 13.25
+offset_left = 4.0
+offset_top = 163.0
+offset_right = -480.0
+offset_bottom = -269.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(3, 3)
+texture = ExtResource("21_a8dco")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="InfoDisplay" type="ColorRect" parent="DownloadScreen/InfoBorder"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 236.0
+offset_bottom = 54.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="InfoText" type="RichTextLabel" parent="DownloadScreen/InfoBorder/InfoDisplay"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 342.0
+offset_bottom = 71.0
+scale = Vector2(0.666, 0.666)
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+bbcode_enabled = true
+text = "[center]By golly! Would you like to download all portraits from [img]res://Assets/Images/PMDCollab.png[/img] [color=f8f800]PMDCollab[/color]?
+[color=9c9c9c](You can still use PMDDC while the download is going, yup yup!)[/color]
+The size of the download is:"
+
+[node name="YesBTN" type="Button" parent="DownloadScreen/InfoBorder/InfoDisplay" groups=["UI_BUTTONS"]]
+offset_left = 50.0
+offset_top = 29.667
+offset_right = 124.0
+offset_bottom = 47.667
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(25.8892, 10.7289)
+focus_mode = 0
+theme = ExtResource("106_82bab")
+text = "Yes, siree! "
+icon = ExtResource("35_2ey8p")
+
+[node name="CloseBTN" type="Button" parent="DownloadScreen/InfoBorder/InfoDisplay" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 30.0
+offset_right = 194.0
+offset_bottom = 48.0
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(25.8892, 10.7289)
+focus_mode = 0
+theme = ExtResource("106_82bab")
+text = "No, thanks! "
+icon = ExtResource("34_ofqea")
+
+[node name="DownloadGithub" type="Button" parent="DownloadScreen/InfoBorder/InfoDisplay" groups=["UI_BUTTONS"]]
+visible = false
+layout_mode = 0
+offset_left = 89.0
+offset_top = 82.3333
+offset_right = 180.0
+offset_bottom = 102.333
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(25.8892, 10.7289)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "GET ON GITHUB"
+icon = ExtResource("114_kf8gs")
+
+[node name="DownloadItch" type="Button" parent="DownloadScreen/InfoBorder/InfoDisplay" groups=["UI_BUTTONS"]]
+visible = false
+layout_mode = 0
+offset_left = 19.0
+offset_top = 82.6667
+offset_right = 111.0
+offset_bottom = 102.667
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(25.8892, 10.7289)
+focus_mode = 0
+theme = ExtResource("5_qi2yv")
+text = "GET ON ITCH.IO"
+icon = ExtResource("115_5mbxs")
+
+[node name="InfoPortraitBorder" type="TextureRect" parent="DownloadScreen/InfoBorder"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = -53.3333
+offset_right = 24.0
+offset_bottom = -5.33334
+grow_horizontal = 2
+texture = ExtResource("21_a8dco")
+
+[node name="ErrorPortrait" type="TextureRect" parent="DownloadScreen/InfoBorder/InfoPortraitBorder"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.33334
+offset_right = 44.0
+offset_bottom = 44.3333
+texture = ExtResource("176_ych8s")
+
 [connection signal="file_selected" from="SCREENSHOT MANAGER/SaveWindow" to="SCREENSHOT MANAGER" method="_on_save_window_file_selected"]
 [connection signal="button_down" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_button_button_down"]
 [connection signal="button_up" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_button_button_up"]
@@ -5208,6 +5358,7 @@ texture = ExtResource("112_opyju")
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/UnownModeToggleBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_unown_mode_toggle_pressed"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PORTRAITALIGNMENT" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_alignment_selected"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadPortraitBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="onCollabPortraitWindowOpen"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadPortraitBTN/PMDColl_DownloadBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_pmd_coll_download_btn_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadPortraitBTN2" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="onLocalPortraitWindowOpen"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitHide" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_portrait_hide_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitFlip" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="on_portrait_flip"]
@@ -5264,3 +5415,7 @@ texture = ExtResource("112_opyju")
 [connection signal="pressed" from="NoticeScreen/InfoBorder/InfoDisplay/CloseBTN" to="NoticeScreen" method="CloseNotice"]
 [connection signal="pressed" from="NoticeScreen/InfoBorder/InfoDisplay/DownloadGithub" to="NoticeScreen" method="OpenGithubReleasesPage"]
 [connection signal="pressed" from="NoticeScreen/InfoBorder/InfoDisplay/DownloadItch" to="NoticeScreen" method="OpenItchioPage"]
+[connection signal="pressed" from="DownloadScreen/InfoBorder/InfoDisplay/YesBTN" to="DownloadScreen" method="CloseNotice"]
+[connection signal="pressed" from="DownloadScreen/InfoBorder/InfoDisplay/CloseBTN" to="DownloadScreen" method="CloseNotice"]
+[connection signal="pressed" from="DownloadScreen/InfoBorder/InfoDisplay/DownloadGithub" to="DownloadScreen" method="OpenGithubReleasesPage"]
+[connection signal="pressed" from="DownloadScreen/InfoBorder/InfoDisplay/DownloadItch" to="DownloadScreen" method="OpenItchioPage"]

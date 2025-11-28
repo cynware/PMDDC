@@ -35,6 +35,8 @@ var BoxChangeTargets = [
 	"../../../../PortraitTAB_BTN",
 	"../../../../PresetsTAB_BTN",
 	"../../../../TAB_DISPLAYNAME",
+	"../../../../../DownloadScreen/InfoBorder/InfoPortraitBorder",
+	"../../../../../DownloadScreen/InfoBorder"
 ]
 var TextBoxChangeTargets = [
 	"../../../../../PMD_Main/OptionBox/OptionBoxBorder"

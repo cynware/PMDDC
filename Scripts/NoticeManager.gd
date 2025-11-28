@@ -63,4 +63,5 @@ func OpenItchioPage():
 	OS.shell_open(itchLink);
 
 func CloseNotice():
+	SoundEffectManager.PlayCancel()
 	visible = false;
