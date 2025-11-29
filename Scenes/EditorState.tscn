@@ -1,4 +1,4 @@
-[gd_scene load_steps=403 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=407 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://cj557ykdx0jj2" path="res://Assets/Images/symbols/smile.png" id="18_37hf0"]
 [ext_resource type="Texture2D" uid="uid://b7tqw1wgnn5qw" path="res://Assets/Images/default_bgs/time_travel.png" id="18_om3ui"]
 [ext_resource type="Texture2D" uid="uid://b6mwarnlbkg4j" path="res://Assets/Images/symbols/sob.png" id="19_mhl4t"]
+[ext_resource type="Script" path="res://Scenes/PMD_Main.gd" id="19_r2b4s"]
 [ext_resource type="Texture2D" uid="uid://bncd0cvvnkwy6" path="res://Assets/Images/symbols/thinking.png" id="20_i0cqj"]
 [ext_resource type="Texture2D" uid="uid://dul2thkrv3ifc" path="res://Assets/Images/arrow_down.png" id="21_8m8cv"]
 [ext_resource type="Texture2D" uid="uid://b56ay8kc1irey" path="res://Assets/Images/GENDERLESS_BORDER.png" id="21_a8dco"]
@@ -93,11 +94,14 @@
 [ext_resource type="Texture2D" uid="uid://lskvqv413lvm" path="res://Assets/Images/bidoof_sleep.png" id="43_7uo2a"]
 [ext_resource type="Texture2D" uid="uid://cypp2ju6ped17" path="res://Assets/Images/center_align.png" id="43_otqlq"]
 [ext_resource type="Texture2D" uid="uid://dhdushi4l06tc" path="res://Assets/Images/Template/Pain.png" id="43_qqkqu"]
+[ext_resource type="Texture2D" uid="uid://c2v655i54kbsf" path="res://Assets/Images/spd_1.png" id="43_tqp5e"]
 [ext_resource type="Texture2D" uid="uid://bjq5dawhp0m2m" path="res://Assets/Images/symbols/UI_dpad.png" id="44_8kja1"]
+[ext_resource type="Texture2D" uid="uid://byd6wl2yp6jjv" path="res://Assets/Images/spd_2.png" id="44_35v56"]
 [ext_resource type="Script" path="res://Scripts/InsertUnicodeBTN.gd" id="44_cmomk"]
 [ext_resource type="Texture2D" uid="uid://0iqgooliert0" path="res://Assets/Images/right_align.png" id="44_jo553"]
 [ext_resource type="Texture2D" uid="uid://c6cqe3x1rbhu4" path="res://Assets/Images/Template/Sad.png" id="44_ot21h"]
 [ext_resource type="Script" path="res://Scripts/UnownTyper.gd" id="44_re0y6"]
+[ext_resource type="Texture2D" uid="uid://ccus4wkjrmxyy" path="res://Assets/Images/spd_3.png" id="45_64a3n"]
 [ext_resource type="Texture2D" uid="uid://bewad4ai343at" path="res://Assets/Images/Template/Shouting.png" id="45_c04ku"]
 [ext_resource type="Texture2D" uid="uid://5t1n7mrmrkpi" path="res://Assets/Images/Template/Sigh.png" id="46_lfj07"]
 [ext_resource type="Texture2D" uid="uid://1qskq0wfvhc1" path="res://Assets/Images/Template/Special0.png" id="47_vwl7f"]
@@ -1889,7 +1893,10 @@ sprite_frames = SubResource("SpriteFrames_65kac")
 animation = &"V26P09A"
 frame_progress = 0.16947
 
-[node name="PMD_Main" type="Node2D" parent="."]
+[node name="PMD_Main" type="Node2D" parent="." node_paths=PackedStringArray("text_display_1", "text_display_2")]
+script = ExtResource("19_r2b4s")
+text_display_1 = NodePath("Textbox/Text1")
+text_display_2 = NodePath("Textbox/Text2")
 
 [node name="Portrait" type="Sprite2D" parent="PMD_Main"]
 position = Vector2(108, 276)
@@ -2549,6 +2556,36 @@ popup/item_2/icon = ExtResource("44_jo553")
 popup/item_2/id = 2
 script = ExtResource("30_e868e")
 
+[node name="ScrollSpeedBTN" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 2.0
+offset_right = 86.0
+offset_bottom = 17.0
+scale = Vector2(0.7, 0.7)
+focus_mode = 0
+theme = ExtResource("106_82bab")
+text_overrun_behavior = 2
+expand_icon = true
+item_count = 4
+selected = 3
+fit_to_longest_item = false
+allow_reselect = true
+popup/item_0/text = "Text Speed:"
+popup/item_0/id = 3
+popup/item_0/disabled = true
+popup/item_0/separator = true
+popup/item_1/text = "Slow"
+popup/item_1/icon = ExtResource("43_tqp5e")
+popup/item_1/id = 0
+popup/item_2/text = "Medium"
+popup/item_2/icon = ExtResource("44_35v56")
+popup/item_2/id = 1
+popup/item_3/text = "Vanilla"
+popup/item_3/icon = ExtResource("45_64a3n")
+popup/item_3/id = 2
+script = ExtResource("30_e868e")
+
 [node name="InsertColourBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/DialogueTab" groups=["UI_BUTTONS"]]
 visible = false
 layout_mode = 1
@@ -2635,7 +2672,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.074
 anchor_top = 0.021
-anchor_right = 0.313
+anchor_right = 0.222091
 anchor_bottom = 0.129
 offset_left = -0.0240002
 offset_top = -0.0370002
@@ -2650,13 +2687,12 @@ edit_alpha = false
 metadata/_edit_use_anchors_ = true
 
 [node name="SecretDoof" type="Control" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColour"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = 65.0
-offset_top = -2.0
-offset_right = 87.0
-offset_bottom = 16.0
+offset_left = -17.381
+offset_top = 117.048
+offset_right = 4.61903
+offset_bottom = 135.048
 tooltip_text = "You've found the secret BIDOOF.
 He's sleeping..."
 
@@ -2677,7 +2713,7 @@ He's sleeping..."
 layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
-offset_right = 58.0
+offset_right = 44.0
 offset_bottom = 14.0
 theme = ExtResource("5_qi2yv")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -4603,15 +4639,28 @@ texture_normal = ExtResource("102_4jttb")
 texture_pressed = ExtResource("103_3iglc")
 
 [node name="Save" type="TextureButton" parent="." groups=["UI_BUTTONS"]]
-offset_left = 81.0
+offset_left = 82.0
 offset_top = 9.0
-offset_right = 153.0
+offset_right = 154.0
 offset_bottom = 81.0
 tooltip_text = "You can also press \"CTRL + S\" or \"F12\" to save."
 theme = ExtResource("5_qi2yv")
 
 [node name="SaveSprite" type="AnimatedSprite2D" parent="Save"]
-position = Vector2(36, 36)
+position = Vector2(35.8571, 36)
+sprite_frames = SubResource("SpriteFrames_lwd0f")
+animation = &"saver"
+
+[node name="PlayBTN" type="TextureButton" parent="." groups=["UI_BUTTONS"]]
+offset_left = 9.0
+offset_top = 81.0
+offset_right = 81.0
+offset_bottom = 153.0
+tooltip_text = "You can also press \"CTRL + S\" or \"F12\" to save."
+theme = ExtResource("5_qi2yv")
+
+[node name="PlaySPRITE" type="AnimatedSprite2D" parent="PlayBTN"]
+position = Vector2(36.1429, 36)
 sprite_frames = SubResource("SpriteFrames_lwd0f")
 animation = &"saver"
 
@@ -5220,6 +5269,7 @@ text = "[center]By golly! Would you like to download all portraits from [img]res
 The size of the download is:"
 
 [node name="YesBTN" type="Button" parent="DownloadScreen/InfoBorder/InfoDisplay" groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 50.0
 offset_top = 29.667
 offset_right = 124.0
@@ -5314,6 +5364,7 @@ texture = ExtResource("176_ych8s")
 [connection signal="gui_input" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_textbox_edit_gui_input"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/DialogueTab/AlignmentButton" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="_on_alignment_button_item_selected"]
+[connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/DialogueTab/ScrollSpeedBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG" method="ScrollSpeedBTN_Selected"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColourBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onColourInsert"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertSymbolBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowOpen"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertGlyphBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onGlyphWindowOpen"]
@@ -5393,6 +5444,7 @@ texture = ExtResource("176_ych8s")
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PresetsTab/SavePresetBTN" to="PMD_Debug/DebugTab/Tabs/PresetsTab" method="OnSavePresetPressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PresetsTab/TextureButton" to="PMD_Debug/DebugTab/Tabs/PresetsTab" method="OnDeletePresetPressed"]
 [connection signal="pressed" from="Save" to="SCREENSHOT MANAGER" method="_on_save_pressed"]
+[connection signal="pressed" from="PlayBTN" to="PMD_Main" method="_on_play_btn_pressed"]
 [connection signal="pressed" from="Settings" to="Settings" method="_on_settings_pressed"]
 [connection signal="visibility_changed" from="Settings/SettingsMenu" to="Settings/SettingsMenu" method="_on_visibility_changed"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page1/WindowSizeDropdown" to="Settings/SettingsMenu" method="_on_window_size_item_selected"]

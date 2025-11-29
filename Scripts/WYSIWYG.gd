@@ -18,6 +18,8 @@ var syncing_frontend = false
 var pending_text_change = false
 var text_change_timer = 0.0
 
+var scroll_speed = 3
+
 var rng = RandomNumberGenerator.new()
 var natures = [
 	"bold",
@@ -108,7 +110,48 @@ func _input(event):
 	else:
 		pass
 	
+func ScrollSpeedBTN_Selected(index):
+	scroll_speed = index
+	SoundEffectManager.PlayRefresh()
 	
+	if not backend.has_selection():
+		return
+	
+	var from_line = backend.get_selection_from_line()
+	var from_col = backend.get_selection_from_column()
+	var to_line = backend.get_selection_to_line()
+	var to_col = backend.get_selection_to_column()
+
+	var start_index = get_absolute_index(from_line, from_col)
+	var end_index = get_absolute_index(to_line, to_col)
+	if end_index < start_index:
+		var tmp = start_index
+		start_index = end_index
+		end_index = tmp
+		
+	var total = 0
+	for i in range(text_data.size()):
+		var row = text_data[i]
+		var t = row.get("type", "text")
+		var length = 0
+		
+		if t == "text":
+			length = row.get("text", "").length()
+		elif t == "img":
+			length = 1
+		else:
+			length = 0
+		
+		var row_start = total
+		var row_end = total + length
+		
+		if row_end >= start_index + 1 and row_start <= end_index - 1:
+			row.scroll_speed = scroll_speed
+		
+		total += length
+		
+	update_display()
+
 
 func _on_text_changed():
 	if syncing_backend or syncing_frontend:
@@ -193,7 +236,7 @@ func add_text_data(txt2add: String, caret_index: int):
 	
 	if row_index == -1:
 		for ch in txt2add:
-			text_data.append({ "type": "text", "text": ch, "color": Picker.get_pick_color()})
+			text_data.append({ "type": "text", "text": ch, "color": Picker.get_pick_color(), "scroll_speed": scroll_speed})
 		return
 	
 	var row = text_data[row_index]
@@ -207,7 +250,7 @@ func add_text_data(txt2add: String, caret_index: int):
 			insert_index = row_index
 			
 	for ch in txt2add:
-		text_data.insert(insert_index, { "type": "text", "text": ch, "color": Picker.get_pick_color()})
+		text_data.insert(insert_index, { "type": "text", "text": ch, "color": Picker.get_pick_color(), "scroll_speed": scroll_speed})
 		insert_index += 1
 	
 
@@ -290,7 +333,7 @@ func update_display():
 	
 	$"..".updateHUD()
 	
-	#print(text_data)
+	print(text_data)
 
 func update_backend(caret_wrap: bool = false):
 	syncing_frontend = true
@@ -395,7 +438,7 @@ func paste_from_clipboard():
 	if check != "":
 		print("Converting clipboard string...")
 		for a in range(check.length()):
-			internal_clipboard.append({ "type": "text", "text": check[a], "color": Picker.get_pick_color()})
+			internal_clipboard.append({ "type": "text", "text": check[a], "color": Picker.get_pick_color(), "scroll_speed": scroll_speed})
 	
 	if internal_clipboard.size() == 0:
 		return

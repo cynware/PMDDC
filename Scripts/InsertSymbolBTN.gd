@@ -17,11 +17,13 @@ func onPressed() -> void:
 	print(width)
 	symbolSize = width
 	
+	var scroll_speed = $"../../WYSIWYG".scroll_speed
+	
 	var prefix_edit = $"../../PrefixEdit"
 	if prefix_edit.has_focus():
 		$"../..".onPrefixEditChanged("[img=" + str(symbolSize) + "]"  + texture_normal.resource_path + "[/img] ")
 		$"../../PrefixEdit".text = "[img=" + str(symbolSize) + "]"  + texture_normal.resource_path + "[/img] "
 	else:
-		$"../../WYSIWYG".text_data.append({"type": "img", "src": texture_normal.resource_path, "size": symbolSize})
+		$"../../WYSIWYG".text_data.append({"type": "img", "src": texture_normal.resource_path, "size": symbolSize, "scroll_speed": scroll_speed})
 		$"../../WYSIWYG".update_display()
 		$"../../WYSIWYG".update_backend()
