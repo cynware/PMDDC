@@ -1,4 +1,4 @@
-[gd_scene load_steps=407 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=410 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -132,6 +132,7 @@
 [ext_resource type="Texture2D" uid="uid://fyku5sd4svm" path="res://PmdSkins/ExplorersOfSky/Female/icon.png" id="75_uxeqa"]
 [ext_resource type="Texture2D" uid="uid://xegltla38itc" path="res://Assets/Images/default_bgs/8.png" id="76_08xig"]
 [ext_resource type="Texture2D" uid="uid://dokenoaellcdy" path="res://PmdSkins/ExplorersOfSky/NonBinary/box.png" id="76_60ftn"]
+[ext_resource type="Texture2D" uid="uid://ddlykvxw5lvyf" path="res://Assets/Images/arrow_blank_dont_delete.png" id="76_yi84w"]
 [ext_resource type="Texture2D" uid="uid://du5q2pe6h3pup" path="res://PmdSkins/ExplorersOfSky/NonBinary/icon.png" id="77_a3swu"]
 [ext_resource type="Texture2D" uid="uid://8t0k32ah2xny" path="res://Assets/Images/default_bgs/9.png" id="77_gy0v1"]
 [ext_resource type="Texture2D" uid="uid://dkxh0q7po4ye7" path="res://Assets/Images/default_bgs/10.png" id="78_vjvw3"]
@@ -1424,6 +1425,8 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="GDScript" id="GDScript_pa5ix"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_76j7g"]
 atlas = ExtResource("14_i3641")
 region = Rect2(0, 0, 69, 23)
@@ -1697,6 +1700,13 @@ animations = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
 shader = ExtResource("6_q7upt")
 shader_parameter/lod = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ryfqc"]
+frames = 2
+frame_0/texture = ExtResource("67_uwkq2")
+frame_0/duration = 0.27
+frame_1/texture = ExtResource("76_yi84w")
+frame_1/duration = 0.27
 
 [sub_resource type="ImageTexture" id="ImageTexture_qmomk"]
 
@@ -2207,6 +2217,7 @@ text = "Lopunny: Oh! Wigglytuff, darling! It's
 been a long time, sweetie! [img=10]res://Assets/Images/symbols/heart.png[/img]"
 scroll_active = false
 autowrap_mode = 1
+script = SubResource("GDScript_pa5ix")
 
 [node name="Text2" type="RichTextLabel" parent="PMD_Main/Textbox"]
 offset_left = -108.0
@@ -2223,6 +2234,7 @@ text = "Lopunny: Oh! Wigglytuff, darling! It's
 been a long time, sweetie! [img=10]res://Assets/Images/symbols/heart.png[/img]"
 scroll_active = false
 autowrap_mode = 1
+script = SubResource("GDScript_pa5ix")
 
 [node name="TextArrow" type="TextureRect" parent="PMD_Main/Textbox"]
 visible = false
@@ -2687,6 +2699,7 @@ edit_alpha = false
 metadata/_edit_use_anchors_ = true
 
 [node name="SecretDoof" type="Control" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/InsertColour"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -17.381
@@ -3244,6 +3257,18 @@ offset_top = 48.0
 offset_right = 71.0
 offset_bottom = 58.0
 texture_normal = ExtResource("67_uwkq2")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
+[node name="UI_Arrow2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 75.9999
+offset_top = 48.0
+offset_right = 80.9999
+offset_bottom = 58.0
+texture_normal = SubResource("AnimatedTexture_ryfqc")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("11_ouwkk")

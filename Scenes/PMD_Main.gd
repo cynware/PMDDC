@@ -29,6 +29,7 @@ func _on_play_btn_pressed():
 		length = text_display_1.get_total_character_count()
 		text_display_1.visible_characters = 0
 	$"../PlayBTN".disabled = true
+	$"../PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG".syncing_frontend = true
 	
 	text_display_2.visible_characters = text_display_1.visible_characters
 	for i in length:
@@ -43,7 +44,11 @@ func _on_play_btn_pressed():
 				scroll_speed = 2.0 / 60.0
 			3:
 				scroll_speed = 1.0 / 60.0
+		text_display_2.visible_characters = text_display_1.visible_characters
 		await get_tree().create_timer(scroll_speed).timeout
 		if text_display_1.visible_characters == text_display_1.get_total_character_count():
 			text_display_1.visible_characters = -1
 			$"../PlayBTN".disabled = false
+			text_display_2.visible_characters = text_display_1.visible_characters
+			await get_tree().create_timer(0.3).timeout
+			$"../PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG".syncing_frontend = false
