@@ -5220,6 +5220,7 @@ text = "[center]By golly! Would you like to download all portraits from [img]res
 The size of the download is:"
 
 [node name="YesBTN" type="Button" parent="DownloadScreen/InfoBorder/InfoDisplay" groups=["UI_BUTTONS"]]
+layout_mode = 0
 offset_left = 50.0
 offset_top = 29.667
 offset_right = 124.0
