@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cskegma3a265l"
-path="res://.godot/imported/bidoof.png-70871f8879c7ce5c4482cfc51ce2c47a.ctex"
+uid="uid://rg6o3hstn3w2"
+path="res://.godot/imported/NOTICE.png-149abb3507ef78fa0cc190eacf5739ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/bidoof.png"
-dest_files=["res://.godot/imported/bidoof.png-70871f8879c7ce5c4482cfc51ce2c47a.ctex"]
+source_file="res://Assets/Images/NOTICE.png"
+dest_files=["res://.godot/imported/NOTICE.png-149abb3507ef78fa0cc190eacf5739ef.ctex"]
 
 [params]
 

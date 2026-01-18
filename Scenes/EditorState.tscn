@@ -162,7 +162,7 @@
 [ext_resource type="Texture2D" uid="uid://cx55ktdybwk0c" path="res://Assets/Images/default_bgs/beach_cavemouth_preview.png" id="109_g1b0j"]
 [ext_resource type="Texture2D" uid="uid://crhkr2e5s8u7c" path="res://Assets/Images/default_bgs/sharpedo_bluff.png" id="110_cshex"]
 [ext_resource type="Texture2D" uid="uid://djc3j6snxlaoc" path="res://Assets/Images/default_bgs/time_travel_preview.png" id="111_oh623"]
-[ext_resource type="Texture2D" uid="uid://d3lihkq3n7wa4" path="res://Assets/Images/Error_Shocked.png" id="112_opyju"]
+[ext_resource type="Texture2D" uid="uid://dsh4jwnupd1nw" path="res://Assets/Images/Error_Shocked.png" id="112_opyju"]
 [ext_resource type="Texture2D" uid="uid://bd381xgme446w" path="res://Assets/Images/PMDCollab_pressed.png" id="112_y1oxe"]
 [ext_resource type="Script" path="res://Scripts/NoticeManager.gd" id="113_cordu"]
 [ext_resource type="Texture2D" uid="uid://bg6i4ox514e3q" path="res://Assets/Images/save.png" id="113_v4soi"]
@@ -175,7 +175,7 @@
 [ext_resource type="Texture2D" uid="uid://idc1p6ikqgi7" path="res://Assets/Images/progressbar_over.png" id="118_t7tk3"]
 [ext_resource type="Texture2D" uid="uid://bigq7k8pjdu14" path="res://Assets/Images/progressbar_progress.png" id="119_tsut3"]
 [ext_resource type="Script" path="res://Scripts/PmdCollabHandler.gd" id="133_0wtcu"]
-[ext_resource type="Texture2D" uid="uid://cskegma3a265l" path="res://Assets/Images/bidoof.png" id="176_ych8s"]
+[ext_resource type="Texture2D" uid="uid://rg6o3hstn3w2" path="res://Assets/Images/NOTICE.png" id="176_xqdw4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s71i0"]
 atlas = ExtResource("8_rl3y6")
@@ -4991,6 +4991,7 @@ text = "v0.0.0"
 horizontal_alignment = 2
 
 [node name="SOUND" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -5215,8 +5216,8 @@ theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_constants/shadow_outline_size = 1
 bbcode_enabled = true
-text = "[center]By golly! Would you like to download all portraits from [img]res://Assets/Images/PMDCollab.png[/img] [color=f8f800]PMDCollab[/color]?
-[color=9c9c9c](You can still use PMDDC while the download is going, yup yup!)[/color]
+text = "[center]Oh, Hi! Would you like to download all portraits from [img]res://Assets/Images/PMDCollab.png[/img] [color=f8f800]PMDCollab[/color]?
+[color=9c9c9c](You can still use PMDDC while the download is going, hehe!)[/color]
 The size of the download is:"
 
 [node name="YesBTN" type="Button" parent="DownloadScreen/InfoBorder/InfoDisplay" groups=["UI_BUTTONS"]]
@@ -5291,7 +5292,7 @@ offset_left = 4.0
 offset_top = 4.33334
 offset_right = 44.0
 offset_bottom = 44.3333
-texture = ExtResource("176_ych8s")
+texture = ExtResource("176_xqdw4")
 
 [connection signal="file_selected" from="SCREENSHOT MANAGER/SaveWindow" to="SCREENSHOT MANAGER" method="_on_save_window_file_selected"]
 [connection signal="button_down" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_button_button_down"]
