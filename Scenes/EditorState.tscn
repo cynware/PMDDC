@@ -1,4 +1,4 @@
-[gd_scene load_steps=403 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=404 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -175,6 +175,7 @@
 [ext_resource type="Texture2D" uid="uid://idc1p6ikqgi7" path="res://Assets/Images/progressbar_over.png" id="118_t7tk3"]
 [ext_resource type="Texture2D" uid="uid://bigq7k8pjdu14" path="res://Assets/Images/progressbar_progress.png" id="119_tsut3"]
 [ext_resource type="Script" path="res://Scripts/PmdCollabHandler.gd" id="133_0wtcu"]
+[ext_resource type="Texture2D" uid="uid://cn02erddyygqs" path="res://Assets/Images/Error_Shocked_2.png" id="174_do2fn"]
 [ext_resource type="Texture2D" uid="uid://rg6o3hstn3w2" path="res://Assets/Images/NOTICE.png" id="176_xqdw4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s71i0"]
@@ -2443,6 +2444,7 @@ offset_bottom = 101.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogueTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("textboxText", "textboxText2")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -3638,7 +3640,6 @@ theme = ExtResource("106_82bab")
 text = "Unown Keys"
 
 [node name="PortraitTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -5024,6 +5025,7 @@ itchButton = NodePath("InfoBorder/InfoDisplay/DownloadItch")
 closeButton = NodePath("InfoBorder/InfoDisplay/CloseBTN")
 normalCloseButtonPosition = Vector2(91, 83)
 updateAvailableCloseButtonPosition = Vector2(158, 83)
+PortraitNotice = Array[Texture2D]([ExtResource("112_opyju"), ExtResource("174_do2fn")])
 
 [node name="Dark" type="ColorRect" parent="NoticeScreen"]
 layout_mode = 1
@@ -5144,7 +5146,7 @@ offset_right = 44.0
 offset_bottom = 44.3333
 texture = ExtResource("112_opyju")
 
-[node name="DownloadScreen" type="Control" parent="." node_paths=PackedStringArray("infoText", "gitButton", "itchButton", "closeButton")]
+[node name="DownloadScreen" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 8
@@ -5158,13 +5160,6 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("113_cordu")
-infoText = NodePath("../NoticeScreen/InfoBorder/InfoDisplay/InfoText")
-gitButton = NodePath("../NoticeScreen/InfoBorder/InfoDisplay/DownloadGithub")
-itchButton = NodePath("../NoticeScreen/InfoBorder/InfoDisplay/DownloadItch")
-closeButton = NodePath("../NoticeScreen/InfoBorder/InfoDisplay/CloseBTN")
-normalCloseButtonPosition = Vector2(91, 83)
-updateAvailableCloseButtonPosition = Vector2(158, 83)
 
 [node name="Dark" type="ColorRect" parent="DownloadScreen"]
 layout_mode = 1

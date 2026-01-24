@@ -56,7 +56,8 @@ var placeholdersplashes = [
 	"- Removed Missingno.",
 	"Originally made for Rats N' Ribbons!",
 	"Partially powered by a beaver and a dream!",
-	"The sky had a Pokémon!"
+	"The sky had a Pokémon!",
+	"Check out Perish Song, too!"
 ]
 
 func _ready():
