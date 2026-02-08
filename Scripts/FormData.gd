@@ -12,8 +12,6 @@ static func from_json(form_json: Dictionary) -> FormData:
 	var p_files = form_json.get("portrait_files", {})
 	if typeof(p_files) == TYPE_DICTIONARY:
 		for emotion in p_files.keys():
-
-			if p_files[emotion]: 
-				f.emotions.append(emotion)
+			f.emotions.append(emotion)
 				
 	return f

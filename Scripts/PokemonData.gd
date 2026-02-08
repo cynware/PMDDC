@@ -29,31 +29,32 @@ func _parse_subgroups(subgroups: Dictionary, parent_name: String, parent_path: S
 		if typeof(data) != TYPE_DICTIONARY: continue
 		
 		var raw_name = data.get("name", "")
-		var current_name = raw_name
-		var current_path = parent_path
+		var current_path = parent_path.path_join(key) if parent_path != "" else key
 		
+		var current_name = parent_name
 		if raw_name != "":
-			if parent_path != "":
-				current_path = parent_path.path_join(raw_name)
+			if current_name != "" and current_name != "Normal":
+				current_name += " " + raw_name
 			else:
-				current_path = raw_name
+				current_name = raw_name
 		
-		if parent_name != "":
-			if raw_name != "":
-				current_name = parent_name + " " + raw_name
-			else:
-				current_name = parent_name
-		else:
-			if raw_name == "":
-				current_name = "Normal" 
-				
+		if current_name == "":
+			current_name = "Normal"
+
 		var p_files = data.get("portrait_files", {})
 		if typeof(p_files) == TYPE_DICTIONARY and not p_files.is_empty():
 			var f = FormData.from_json(data)
-			f.name = current_name
-			f.relative_path = current_path
-			
-			result_forms[current_name] = f
+			if not f.emotions.is_empty():
+				f.name = current_name
+				f.relative_path = current_path
+				
+				var final_name = current_name
+				var counter = 2
+				while result_forms.has(final_name):
+					final_name = current_name + " (" + str(counter) + ")"
+					counter += 1
+				
+				result_forms[final_name] = f
 			
 		var nested = data.get("subgroups", {})
 		if typeof(nested) == TYPE_DICTIONARY:

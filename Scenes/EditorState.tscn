@@ -3704,7 +3704,7 @@ offset_top = 1.25
 offset_right = 16.6667
 offset_bottom = 16.25
 
-[node name="LoadPortraitBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" groups=["UI_BUTTONS"]]
+[node name="LoadCollabPortraitBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 19.0
@@ -3716,7 +3716,7 @@ text = "PMDCOLLAB REPOSITORY  "
 icon = ExtResource("106_kesd2")
 alignment = 2
 
-[node name="PMDColl_DownloadBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadPortraitBTN"]
+[node name="PMDColl_DownloadBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadCollabPortraitBTN"]
 layout_mode = 0
 offset_left = 17.0
 offset_top = 3.0
@@ -3725,7 +3725,19 @@ offset_bottom = 14.0
 texture_normal = ExtResource("88_swepr")
 texture_pressed = ExtResource("89_8t3bs")
 
-[node name="LoadPortraitBTN2" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" groups=["UI_BUTTONS"]]
+[node name="Download_Bar" type="TextureProgressBar" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadCollabPortraitBTN"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 4.0
+offset_right = 156.0
+offset_bottom = 12.0
+rounded = true
+nine_patch_stretch = true
+texture_under = ExtResource("117_garwa")
+texture_over = ExtResource("118_t7tk3")
+texture_progress = ExtResource("119_tsut3")
+
+[node name="LoadLocalPortraitBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 40.0
@@ -3760,20 +3772,7 @@ theme = ExtResource("106_82bab")
 text = "Flip"
 alignment = 1
 
-[node name="Download_Bar" type="TextureProgressBar" parent="PMD_Debug/DebugTab/Tabs/PortraitTab"]
-layout_mode = 0
-offset_left = 47.0
-offset_top = 23.0
-offset_right = 161.0
-offset_bottom = 31.0
-rounded = true
-nine_patch_stretch = true
-texture_under = ExtResource("117_garwa")
-texture_over = ExtResource("118_t7tk3")
-texture_progress = ExtResource("119_tsut3")
-
 [node name="CollabPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332
@@ -3838,8 +3837,10 @@ scale = Vector2(0.8, 0.8)
 tooltip_text = "The selected emotion you want to load from PMDCollab."
 theme = ExtResource("106_82bab")
 alignment = 1
+text_overrun_behavior = 3
 item_count = 20
 selected = 0
+fit_to_longest_item = false
 popup/item_0/text = "Normal"
 popup/item_0/id = 0
 popup/item_1/text = "Angry"
@@ -3892,13 +3893,15 @@ scale = Vector2(0.8, 0.8)
 tooltip_text = "The Pokémon's form."
 theme = ExtResource("106_82bab")
 alignment = 1
+text_overrun_behavior = 3
 item_count = 1
 selected = 0
+fit_to_longest_item = false
 popup/item_0/text = "FORM HERE"
 popup/item_0/id = 0
 script = ExtResource("30_e868e")
 
-[node name="Portrait_COLLABBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
+[node name="LoadCollabPortrait" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 65.3333
@@ -5147,6 +5150,7 @@ offset_bottom = 44.3333
 texture = ExtResource("112_opyju")
 
 [node name="DownloadScreen" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -5240,34 +5244,6 @@ theme = ExtResource("106_82bab")
 text = "No, thanks! "
 icon = ExtResource("34_ofqea")
 
-[node name="DownloadGithub" type="Button" parent="DownloadScreen/InfoBorder/InfoDisplay" groups=["UI_BUTTONS"]]
-visible = false
-layout_mode = 0
-offset_left = 89.0
-offset_top = 82.3333
-offset_right = 180.0
-offset_bottom = 102.333
-scale = Vector2(0.7, 0.7)
-pivot_offset = Vector2(25.8892, 10.7289)
-focus_mode = 0
-theme = ExtResource("5_qi2yv")
-text = "GET ON GITHUB"
-icon = ExtResource("114_kf8gs")
-
-[node name="DownloadItch" type="Button" parent="DownloadScreen/InfoBorder/InfoDisplay" groups=["UI_BUTTONS"]]
-visible = false
-layout_mode = 0
-offset_left = 19.0
-offset_top = 82.6667
-offset_right = 111.0
-offset_bottom = 102.667
-scale = Vector2(0.7, 0.7)
-pivot_offset = Vector2(25.8892, 10.7289)
-focus_mode = 0
-theme = ExtResource("5_qi2yv")
-text = "GET ON ITCH.IO"
-icon = ExtResource("115_5mbxs")
-
 [node name="InfoPortraitBorder" type="TextureRect" parent="DownloadScreen/InfoBorder"]
 layout_mode = 1
 anchors_preset = 5
@@ -5280,7 +5256,7 @@ offset_bottom = -5.33334
 grow_horizontal = 2
 texture = ExtResource("21_a8dco")
 
-[node name="ErrorPortrait" type="TextureRect" parent="DownloadScreen/InfoBorder/InfoPortraitBorder"]
+[node name="InfoPortrait" type="TextureRect" parent="DownloadScreen/InfoBorder/InfoPortraitBorder"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.33334
@@ -5353,14 +5329,14 @@ texture = ExtResource("176_xqdw4")
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowClose"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/UnownModeToggleBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_unown_mode_toggle_pressed"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PORTRAITALIGNMENT" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_alignment_selected"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadPortraitBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="onCollabPortraitWindowOpen"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadPortraitBTN/PMDColl_DownloadBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_pmd_coll_download_btn_pressed"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadPortraitBTN2" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="onLocalPortraitWindowOpen"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadCollabPortraitBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="onCollabPortraitWindowOpen"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadCollabPortraitBTN/PMDColl_DownloadBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_pmd_coll_download_btn_pressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadLocalPortraitBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="onLocalPortraitWindowOpen"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitHide" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_portrait_hide_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitFlip" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="on_portrait_flip"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/DexNum" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="OnDexNumChanged"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/Emotion_Collab" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="_on_emotion_collab_item_selected"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/Portrait_COLLABBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="loadIconCollab"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/LoadCollabPortrait" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="loadIconCollab"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/CollabBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="_on_collab_btn_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/FolderBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="openCustomIconFolder"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/RefreshBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="OnRefresh"]
@@ -5413,5 +5389,3 @@ texture = ExtResource("176_xqdw4")
 [connection signal="pressed" from="NoticeScreen/InfoBorder/InfoDisplay/DownloadItch" to="NoticeScreen" method="OpenItchioPage"]
 [connection signal="pressed" from="DownloadScreen/InfoBorder/InfoDisplay/YesBTN" to="DownloadScreen" method="CloseNotice"]
 [connection signal="pressed" from="DownloadScreen/InfoBorder/InfoDisplay/CloseBTN" to="DownloadScreen" method="CloseNotice"]
-[connection signal="pressed" from="DownloadScreen/InfoBorder/InfoDisplay/DownloadGithub" to="DownloadScreen" method="OpenGithubReleasesPage"]
-[connection signal="pressed" from="DownloadScreen/InfoBorder/InfoDisplay/DownloadItch" to="DownloadScreen" method="OpenItchioPage"]

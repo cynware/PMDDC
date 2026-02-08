@@ -25,8 +25,12 @@ func onCollabPortraitWindowClose():
 	$"../PortraitTab/CollabPorWindow".visible = false;
 	SoundEffectManager.PlayAccept();
 func onCollabPortraitWindowOpen():
-	$"../PortraitTab/CollabPorWindow".visible = true;
-	SoundEffectManager.PlayCancel();
+	if PmdCollabDownloader.is_installed():
+		$"../PortraitTab/CollabPorWindow".visible = true;
+		SoundEffectManager.PlayCancel();
+	else:
+		$"../../../../DownloadScreen".visible = true;
+		SoundEffectManager.PlayAccept();
 
 	
 func onBoxSkinWindowClose():
