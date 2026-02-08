@@ -5147,7 +5147,6 @@ offset_bottom = 44.3333
 texture = ExtResource("112_opyju")
 
 [node name="DownloadScreen" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
