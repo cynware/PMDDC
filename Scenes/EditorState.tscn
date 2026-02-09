@@ -1,4 +1,4 @@
-[gd_scene load_steps=404 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=403 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -165,7 +165,6 @@
 [ext_resource type="Texture2D" uid="uid://dsh4jwnupd1nw" path="res://Assets/Images/Error_Shocked.png" id="112_opyju"]
 [ext_resource type="Texture2D" uid="uid://bd381xgme446w" path="res://Assets/Images/PMDCollab_pressed.png" id="112_y1oxe"]
 [ext_resource type="Script" path="res://Scripts/NoticeManager.gd" id="113_cordu"]
-[ext_resource type="Texture2D" uid="uid://bg6i4ox514e3q" path="res://Assets/Images/save.png" id="113_v4soi"]
 [ext_resource type="Texture2D" uid="uid://dxocs5ttthrk7" path="res://Assets/Images/LogoGithub.png" id="114_kf8gs"]
 [ext_resource type="Texture2D" uid="uid://w83ibpmub3h6" path="res://Assets/Images/LogoItch.png" id="115_5mbxs"]
 [ext_resource type="Texture2D" uid="uid://cvl8t10uahj03" path="res://Assets/Images/default_bgs/skies_cliffs.png" id="115_f5fc1"]
@@ -3820,9 +3819,9 @@ offset_bottom = 20.3333
 [node name="DexNum" type="LineEdit" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow"]
 layout_mode = 0
 offset_left = 5.0
-offset_top = 29.0
+offset_top = 34.3333
 offset_right = 154.0
-offset_bottom = 49.0
+offset_bottom = 54.3333
 scale = Vector2(0.8, 0.8)
 theme = ExtResource("5_qi2yv")
 placeholder_text = "Pokédex# or Pokémon Name"
@@ -3830,9 +3829,9 @@ placeholder_text = "Pokédex# or Pokémon Name"
 [node name="Emotion_Collab" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 5.0
-offset_top = 47.0
+offset_top = 52.3333
 offset_right = 105.0
-offset_bottom = 67.0
+offset_bottom = 72.3333
 scale = Vector2(0.8, 0.8)
 tooltip_text = "The selected emotion you want to load from PMDCollab."
 theme = ExtResource("106_82bab")
@@ -3886,9 +3885,9 @@ script = ExtResource("30_e868e")
 [node name="Form_Collab" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 91.0
-offset_top = 47.0
+offset_top = 52.3333
 offset_right = 191.0
-offset_bottom = 67.0
+offset_bottom = 72.3333
 scale = Vector2(0.8, 0.8)
 tooltip_text = "The Pokémon's form."
 theme = ExtResource("106_82bab")
@@ -3900,17 +3899,6 @@ fit_to_longest_item = false
 popup/item_0/text = "FORM HERE"
 popup/item_0/id = 0
 script = ExtResource("30_e868e")
-
-[node name="LoadCollabPortrait" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 65.3333
-offset_right = 212.0
-offset_bottom = 80.3333
-scale = Vector2(0.8, 0.8)
-focus_mode = 0
-theme = ExtResource("106_82bab")
-text = "LOAD"
 
 [node name="CollabBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -3972,14 +3960,14 @@ icon = ExtResource("94_od227")
 [node name="Button" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 125.0
-offset_top = 29.3333
+offset_top = 34.3333
 offset_right = 182.0
-offset_bottom = 49.3333
+offset_bottom = 54.3333
 scale = Vector2(0.8, 0.8)
-tooltip_text = "Exports all of the named Pokémon's Portraits to your local directory."
+tooltip_text = "Brings you to the selected Pokémon's directory."
 theme = ExtResource("106_82bab")
-text = "SAVE"
-icon = ExtResource("113_v4soi")
+text = "LOAD"
+icon = ExtResource("35_at0t2")
 
 [node name="LocalPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" node_paths=PackedStringArray("icon", "localFolderDropdownLocal", "localEmotionDropdownLocal", "errorIcon")]
 visible = false
@@ -5336,7 +5324,6 @@ texture = ExtResource("176_xqdw4")
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitFlip" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="on_portrait_flip"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/DexNum" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="OnDexNumChanged"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/Emotion_Collab" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="_on_emotion_collab_item_selected"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/LoadCollabPortrait" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="loadIconCollab"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/CollabBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="_on_collab_btn_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/FolderBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="openCustomIconFolder"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/RefreshBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="OnRefresh"]
