@@ -74,6 +74,12 @@ func populate_collab_options(play_sound: bool = true):
 	emotion_dropdown.clear()
 	form_dropdown.clear()
 	
+	var flip_toggle = get_node_or_null("../PortraitFlip")
+	if flip_toggle:
+		flip_toggle.button_pressed = false
+	if portrait_icon:
+		portrait_icon.scale.x = 1
+	
 	if !pokedex.has(id): return
 
 	var pkmn = pokedex[id]
@@ -100,7 +106,8 @@ func update_emotion_options(play_sound: bool = true):
 	if pkmn.forms.has(current_form):
 		var form_data: FormData = pkmn.forms[current_form]
 		for emotion in form_data.emotions:
-			emotion_dropdown.add_item(emotion)
+			if not emotion.ends_with("^"):
+				emotion_dropdown.add_item(emotion)
 			
 	if emotion_dropdown.item_count > 0:
 		emotion_dropdown.selected = 0
@@ -127,8 +134,17 @@ func loadIconCollab(play_sound: bool = true):
 	var base_path = "user://PMDCollab/portrait/" + id + "/"
 	if relative_path != "":
 		base_path = base_path.path_join(relative_path) + "/"
-		
+	
+	var flip_toggle = get_node_or_null("../PortraitFlip")
+	var is_flipped = flip_toggle.button_pressed if flip_toggle else false
+	
 	var file_path = base_path + emotion + ".png"
+	var flipped_file_path = base_path + emotion + "^.png"
+	var use_flipped_variant = false
+	
+	if is_flipped and FileAccess.file_exists(flipped_file_path):
+		file_path = flipped_file_path
+		use_flipped_variant = true
 	
 	if FileAccess.file_exists(file_path):
 		var image = Image.new()
@@ -142,6 +158,11 @@ func loadIconCollab(play_sound: bool = true):
 			var texture = ImageTexture.create_from_image(image)
 			if portrait_icon: 
 				portrait_icon.texture = texture
+				# If we used the ^ variant se the scale is 1. Otherwise use scale -1 if flipped cuz there aint a counterpart
+				if is_flipped and not use_flipped_variant:
+					portrait_icon.scale.x = -1
+				else:
+					portrait_icon.scale.x = 1
 				update_alignment_preview()
 		else:
 			if error_icon: error_icon.visible = true

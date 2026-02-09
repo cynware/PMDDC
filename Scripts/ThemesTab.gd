@@ -49,6 +49,10 @@ func on_portrait_flip():
 	else:
 		$"../../../../PMD_Main/Portrait/Icon".scale.x = 1;
 		SoundEffectManager.PlayCheckboxOff()
+	
+	var collab_window = get_node_or_null("../PortraitTab/CollabPorWindow")
+	if collab_window and collab_window.visible:
+		collab_window.loadIconCollab(false)
 		
 
 func _on_custom_background_btn_pressed():
