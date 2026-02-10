@@ -43,16 +43,29 @@ func onBoxSkinWindowOpen():
 	SoundEffectManager.PlayAccept();
 
 func on_portrait_flip():
+	var icon_node = $"../../../../PMD_Main/Portrait/Icon"
+	
 	if $PortraitFlip.button_pressed:
-		$"../../../../PMD_Main/Portrait/Icon".scale.x = -1;
+		icon_node.scale.x = -1;
 		SoundEffectManager.PlayCheckboxOn()
 	else:
-		$"../../../../PMD_Main/Portrait/Icon".scale.x = 1;
+		icon_node.scale.x = 1;
 		SoundEffectManager.PlayCheckboxOff()
 	
-	var collab_window = get_node_or_null("../PortraitTab/CollabPorWindow")
-	if collab_window and collab_window.visible:
-		collab_window.loadIconCollab(false)
+	var source = icon_node.get_meta("last_source", "")
+	
+	if source == "collab":
+		var collab_window = get_node_or_null("CollabPorWindow")
+		if not collab_window:
+			collab_window = get_node_or_null("../PortraitTab/CollabPorWindow")
+		if collab_window:
+			collab_window.loadIconCollab(false)
+	elif source == "local":
+		var local_window = get_node_or_null("LocalPorWindow")
+		if not local_window:
+			local_window = get_node_or_null("../PortraitTab/LocalPorWindow")
+		if local_window:
+			local_window.loadIconLocal()
 		
 
 func _on_custom_background_btn_pressed():

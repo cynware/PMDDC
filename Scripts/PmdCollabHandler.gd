@@ -158,11 +158,16 @@ func loadIconCollab(play_sound: bool = true):
 			var texture = ImageTexture.create_from_image(image)
 			if portrait_icon: 
 				portrait_icon.texture = texture
-				# If we used the ^ variant se the scale is 1. Otherwise use scale -1 if flipped cuz there aint a counterpart
-				if is_flipped and not use_flipped_variant:
-					portrait_icon.scale.x = -1
+				portrait_icon.set_meta("last_source", "collab")
+				
+				if is_flipped:
+					if use_flipped_variant:
+						portrait_icon.scale.x = 1
+					else:
+						portrait_icon.scale.x = -1
 				else:
 					portrait_icon.scale.x = 1
+					
 				update_alignment_preview()
 		else:
 			if error_icon: error_icon.visible = true

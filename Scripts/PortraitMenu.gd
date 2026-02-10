@@ -61,6 +61,9 @@ func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 		return;
 		
 	for i in portraits.size():
+		if portraits[i].get_basename().ends_with("^"):
+			continue
+			
 		var img := Image.new()
 		var error = img.load("user://Portraits/" + localFolderDropdownLocal.text + "/" + portraits[i])
 
@@ -75,21 +78,34 @@ func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 			img.resize(20, 20, Image.INTERPOLATE_NEAREST);
 			var portraitTexture := ImageTexture.create_from_image(img);
 			emotions.append(portraits[i])
-			localEmotionDropdownLocal.add_icon_item(portraitTexture, portraits[i].get_basename(), i);
+			localEmotionDropdownLocal.add_icon_item(portraitTexture, portraits[i].get_basename(), emotions.size() - 1);
 		else:
 			errorIcon.visible = true;
 			
 	print(emotions)
 		
 func loadIconLocal():
-	var imagepath = "user://Portraits/" + localFolderDropdownLocal.text + "/"+ emotions[localEmotionDropdownLocal.get_selected_id()];
+	var basename = emotions[localEmotionDropdownLocal.get_selected_id()].get_basename()
+	var extension = emotions[localEmotionDropdownLocal.get_selected_id()].get_extension()
+	var base_path = "user://Portraits/" + localFolderDropdownLocal.text + "/"
 	
-	if(!FileAccess.file_exists(imagepath)):
+	var flip_toggle = get_node_or_null("../PortraitFlip")
+	var is_flipped = flip_toggle.button_pressed if flip_toggle else false
+	
+	var file_path = base_path + basename + "." + extension
+	var flipped_file_path = base_path + basename + "^." + extension
+	var use_flipped_variant = false
+	
+	if is_flipped and FileAccess.file_exists(flipped_file_path):
+		file_path = flipped_file_path
+		use_flipped_variant = true
+		
+	if(!FileAccess.file_exists(file_path)):
 		return;
 		
-	var image = Image.load_from_file(imagepath)
+	var image = Image.load_from_file(file_path)
 	
-	if image.load(imagepath) == OK:
+	if image.load(file_path) == OK:
 		errorIcon.visible = false;
 		
 		if image.get_width() > 40 or image.get_height() > 40:
@@ -97,6 +113,13 @@ func loadIconLocal():
 
 		var texture = ImageTexture.create_from_image(image)
 		icon.texture = texture
+		icon.set_meta("last_source", "local")
+		
+		if is_flipped and not use_flipped_variant:
+			icon.scale.x = -1
+		else:
+			icon.scale.x = 1
+			
 		icon_texture_changed()
 	else:
 		errorIcon.visible = true;
