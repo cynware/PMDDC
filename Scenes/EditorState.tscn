@@ -3726,9 +3726,9 @@ texture_pressed = ExtResource("89_8t3bs")
 
 [node name="Download_Bar" type="TextureProgressBar" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadCollabPortraitBTN"]
 layout_mode = 0
-offset_left = 42.0
+offset_left = 39.3333
 offset_top = 4.0
-offset_right = 156.0
+offset_right = 153.333
 offset_bottom = 12.0
 rounded = true
 nine_patch_stretch = true
@@ -3772,6 +3772,7 @@ text = "Flip"
 alignment = 1
 
 [node name="CollabPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332
@@ -3936,14 +3937,13 @@ file_mode = 3
 access = 2
 use_native_dialog = true
 
-[node name="RefreshBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
-layout_mode = 0
-offset_left = 142.667
+[node name="PMDColl_DownloadBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow"]
+offset_left = 143.667
 offset_top = 3.0
 offset_right = 154.667
 offset_bottom = 14.0
-texture_normal = ExtResource("60_j7wfn")
-texture_pressed = ExtResource("61_f1ugg")
+texture_normal = ExtResource("88_swepr")
+texture_pressed = ExtResource("89_8t3bs")
 
 [node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -3966,8 +3966,9 @@ offset_bottom = 54.3333
 scale = Vector2(0.8, 0.8)
 tooltip_text = "Brings you to the selected Pokémon's directory."
 theme = ExtResource("106_82bab")
-text = "LOAD"
+text = "OPEN"
 icon = ExtResource("35_at0t2")
+icon_alignment = 2
 
 [node name="LocalPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" node_paths=PackedStringArray("icon", "localFolderDropdownLocal", "localEmotionDropdownLocal", "errorIcon")]
 visible = false
@@ -4625,7 +4626,6 @@ frame = 4
 frame_progress = 0.869618
 
 [node name="SettingsMenu" type="Control" parent="Settings" node_paths=PackedStringArray("arrowLeft", "arrowRight")]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -9.0
@@ -4982,6 +4982,16 @@ theme_override_colors/font_color = Color(1, 1, 1, 0.345098)
 text = "v0.0.0"
 horizontal_alignment = 2
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings/SettingsMenu"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 383.0
+offset_bottom = 45.0
+scale = Vector2(2, 2)
+bbcode_enabled = true
+text = "[center]~ Writing's A Mystery
+(NoOneDoesStuff)[/center]"
+
 [node name="SOUND" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -5326,7 +5336,7 @@ texture = ExtResource("176_xqdw4")
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/Emotion_Collab" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="_on_emotion_collab_item_selected"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/CollabBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="_on_collab_btn_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/FolderBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="openCustomIconFolder"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/RefreshBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="OnRefresh"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/PMDColl_DownloadBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_pmd_coll_download_btn_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="onCollabPortraitWindowClose"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LocalPorWindow/Emotion_LocalDir" to="PMD_Debug/DebugTab/Tabs/PortraitTab/LocalPorWindow" method="OnFolderSelectedChanged"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LocalPorWindow/Emotion_LocalEmotion" to="PMD_Debug/DebugTab/Tabs/PortraitTab/LocalPorWindow" method="OnEmotionSelected"]
