@@ -10,6 +10,7 @@ extends Control
 var pokedex: Dictionary = {}
 var allowedDexNumCharacters = "0123456789"
 var downloader: PmdCollabDownloader
+var current_resolved_id: String = ""
 
 const DOWNLOAD_SCREEN_BASE_TEXT = "[center]Oh, Hi! Would you like to download all portraits from [img]res://Assets/Images/PMDCollab.png[/img] [color=f8f800]PMDCollab[/color]?\n[color=9c9c9c](You can still use PMDDC while the download is going, hehe!)[/color]\nThe size of the download is: "
 
@@ -58,18 +59,21 @@ func load_tracker_data():
 				print("PmdCollabHandler: Loaded " + str(pokedex.size()) + " entries.")
 
 func OnDexNumChanged(new_text):
-	var caret_pos = dex_num_input.caret_column 
-	var filtered_text = ""
-	for char in new_text:
-		if char in allowedDexNumCharacters:
-			filtered_text += char
-	dex_num_input.text = filtered_text;
-	dex_num_input.caret_column = caret_pos;
-	
 	populate_collab_options(false)
 
 func populate_collab_options(play_sound: bool = true):
-	var id = "%04d" % int(dex_num_input.text)
+	var input = dex_num_input.text.strip_edges()
+	current_resolved_id = ""
+	
+	if input.is_valid_int():
+		current_resolved_id = "%04d" % input.to_int()
+	
+	if current_resolved_id == "" or !pokedex.has(current_resolved_id):
+		var search_name = input.to_lower()
+		for p_id in pokedex:
+			if pokedex[p_id].name.to_lower() == search_name:
+				current_resolved_id = p_id
+				break
 	
 	emotion_dropdown.clear()
 	form_dropdown.clear()
@@ -80,9 +84,9 @@ func populate_collab_options(play_sound: bool = true):
 	if portrait_icon:
 		portrait_icon.scale.x = 1
 	
-	if !pokedex.has(id): return
+	if current_resolved_id == "" or !pokedex.has(current_resolved_id): return
 
-	var pkmn = pokedex[id]
+	var pkmn = pokedex[current_resolved_id]
 	
 	for form_key in pkmn.forms.keys():
 		form_dropdown.add_item(str(form_key))
@@ -93,10 +97,9 @@ func populate_collab_options(play_sound: bool = true):
 	update_emotion_options(play_sound)
 
 func update_emotion_options(play_sound: bool = true):
-	var id = "%04d" % int(dex_num_input.text)
-	if !pokedex.has(id): return
+	if current_resolved_id == "" or !pokedex.has(current_resolved_id): return
 	
-	var pkmn = pokedex[id]
+	var pkmn = pokedex[current_resolved_id]
 	var current_form = "Normal"
 	if form_dropdown.item_count > 0:
 		current_form = form_dropdown.text
@@ -117,14 +120,15 @@ func loadIconCollab(play_sound: bool = true):
 	if play_sound:
 		SoundEffectManager.PlaySavePreset()
 	
-	var id = "%04d" % int(dex_num_input.text)
+	if current_resolved_id == "" or !pokedex.has(current_resolved_id): return
+	var id = current_resolved_id
+	
 	if emotion_dropdown.item_count == 0: return
 	var emotion = emotion_dropdown.text
 	var current_form = "Normal"
 	if form_dropdown.item_count > 0:
 		current_form = form_dropdown.text
 		
-	if !pokedex.has(id): return
 	var pkmn = pokedex[id]
 	
 	var relative_path = ""
