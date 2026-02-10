@@ -6,6 +6,7 @@ extends Control
 @onready var error_icon = $"../../../../../PMD_Main/Portrait/ERRORICON"
 @onready var portrait_icon = $"../../../../../PMD_Main/Portrait/Icon"
 @onready var alignment_preview = $"../PORTRAITALIGNMENT/Alignment_Preview"
+@onready var open_folder_btn = $OpenCurrentFolder
 
 var pokedex: Dictionary = {}
 var allowedDexNumCharacters = "0123456789"
@@ -42,9 +43,14 @@ func _ready():
 		pass
 	if form_dropdown:
 		form_dropdown.item_selected.connect(_on_form_collab_item_selected)
+	
+	if open_folder_btn:
+		open_folder_btn.pressed.connect(_on_open_current_folder_pressed)
 		
 	if pokedex.size() > 0 and dex_num_input and dex_num_input.text != "":
 		populate_collab_options()
+	
+	update_open_folder_button()
 
 func load_tracker_data():
 	var path = "user://PMDCollab/tracker.json"
@@ -84,6 +90,8 @@ func populate_collab_options(play_sound: bool = true):
 	if portrait_icon:
 		portrait_icon.scale.x = 1
 	
+	update_open_folder_button()
+	
 	if current_resolved_id == "" or !pokedex.has(current_resolved_id): return
 
 	var pkmn = pokedex[current_resolved_id]
@@ -97,6 +105,7 @@ func populate_collab_options(play_sound: bool = true):
 	update_emotion_options(play_sound)
 
 func update_emotion_options(play_sound: bool = true):
+	update_open_folder_button()
 	if current_resolved_id == "" or !pokedex.has(current_resolved_id): return
 	
 	var pkmn = pokedex[current_resolved_id]
@@ -108,9 +117,26 @@ func update_emotion_options(play_sound: bool = true):
 	
 	if pkmn.forms.has(current_form):
 		var form_data: FormData = pkmn.forms[current_form]
+		var relative_path = form_data.relative_path
+		var base_path = "user://PMDCollab/portrait/" + current_resolved_id + "/"
+		if relative_path != "":
+			base_path = base_path.path_join(relative_path) + "/"
+			
+		var item_idx = 0
 		for emotion in form_data.emotions:
 			if not emotion.ends_with("^"):
-				emotion_dropdown.add_item(emotion)
+				var file_path = base_path + emotion + ".png"
+				if FileAccess.file_exists(file_path):
+					var img = Image.new()
+					if img.load(file_path) == OK:
+						img.resize(20, 20, Image.INTERPOLATE_NEAREST)
+						var tex = ImageTexture.create_from_image(img)
+						emotion_dropdown.add_icon_item(tex, emotion, item_idx)
+						item_idx += 1
+						continue
+				
+				emotion_dropdown.add_item(emotion, item_idx)
+				item_idx += 1
 			
 	if emotion_dropdown.item_count > 0:
 		emotion_dropdown.selected = 0
@@ -209,6 +235,47 @@ func _on_refresh_btn_pressed():
 func openCustomIconFolder():
 	OS.shell_open(ProjectSettings.globalize_path("user://PMDCollab/portrait"))
 	SoundEffectManager.PlayFolder()
+
+func update_open_folder_button():
+	if !open_folder_btn: return
+	
+	if current_resolved_id == "" or !pokedex.has(current_resolved_id):
+		open_folder_btn.disabled = true
+		return
+		
+	var pkmn = pokedex[current_resolved_id]
+	var current_form = "Normal"
+	if form_dropdown.item_count > 0:
+		current_form = form_dropdown.text
+	
+	var relative_path = ""
+	if pkmn.forms.has(current_form):
+		relative_path = pkmn.forms[current_form].relative_path
+	
+	var base_path = "user://PMDCollab/portrait/" + current_resolved_id + "/"
+	if relative_path != "":
+		base_path = base_path.path_join(relative_path) + "/"
+		
+	open_folder_btn.disabled = !DirAccess.dir_exists_absolute(base_path)
+
+func _on_open_current_folder_pressed():
+	if current_resolved_id == "" or !pokedex.has(current_resolved_id): return
+	var pkmn = pokedex[current_resolved_id]
+	var current_form = "Normal"
+	if form_dropdown.item_count > 0:
+		current_form = form_dropdown.text
+	
+	var relative_path = ""
+	if pkmn.forms.has(current_form):
+		relative_path = pkmn.forms[current_form].relative_path
+	
+	var base_path = "user://PMDCollab/portrait/" + current_resolved_id + "/"
+	if relative_path != "":
+		base_path = base_path.path_join(relative_path) + "/"
+	
+	if DirAccess.dir_exists_absolute(base_path):
+		OS.shell_open(ProjectSettings.globalize_path(base_path))
+		SoundEffectManager.PlayFolder()
 
 func _on_download_screen_visibility_changed():
 	var download_screen = get_node("../../../../../DownloadScreen")

@@ -3772,7 +3772,6 @@ text = "Flip"
 alignment = 1
 
 [node name="CollabPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332
@@ -3938,6 +3937,7 @@ access = 2
 use_native_dialog = true
 
 [node name="PMDColl_DownloadBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow"]
+layout_mode = 0
 offset_left = 143.667
 offset_top = 3.0
 offset_right = 154.667
@@ -3957,7 +3957,7 @@ theme = ExtResource("106_82bab")
 text = "CLOSE "
 icon = ExtResource("94_od227")
 
-[node name="Button" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
+[node name="OpenCurrentFolder" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 125.0
 offset_top = 34.3333
@@ -4626,6 +4626,7 @@ frame = 4
 frame_progress = 0.869618
 
 [node name="SettingsMenu" type="Control" parent="Settings" node_paths=PackedStringArray("arrowLeft", "arrowRight")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -9.0
@@ -4662,6 +4663,7 @@ offset_top = 4.0
 offset_right = 124.0
 offset_bottom = 129.0
 color = Color(0.12549, 0.12549, 0.12549, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="WindowSizeHeader" type="Label" parent="Settings/SettingsMenu/SettingsPanel/Page1"]
 layout_mode = 0
