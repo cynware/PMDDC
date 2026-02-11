@@ -1,4 +1,4 @@
-[gd_scene load_steps=403 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=407 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -120,7 +120,9 @@
 [ext_resource type="Texture2D" uid="uid://dfdvy16n57pw2" path="res://Assets/Images/default_bgs/2.png" id="70_hnink"]
 [ext_resource type="Texture2D" uid="uid://wcn4prjuv4cm" path="res://Assets/Images/default_bgs/3.png" id="71_ujchj"]
 [ext_resource type="Texture2D" uid="uid://bqao3n63d7nj7" path="res://Assets/Images/default_bgs/4.png" id="72_4mucd"]
+[ext_resource type="Texture2D" uid="uid://dbmnd30rndf3b" path="res://Assets/Images/symbols/note1.png" id="72_pmr35"]
 [ext_resource type="Texture2D" uid="uid://c8xdjqki6gmgo" path="res://Assets/Images/default_bgs/5.png" id="73_4fxy3"]
+[ext_resource type="Texture2D" uid="uid://dpgvcflyk54qu" path="res://Assets/Images/symbols/note2.png" id="73_i8g7w"]
 [ext_resource type="Texture2D" uid="uid://blnbx8qbd5fl6" path="res://Assets/Images/speaker_3.png" id="73_xf746"]
 [ext_resource type="Texture2D" uid="uid://v3tk0jxwtxlr" path="res://PmdSkins/ExplorersOfSky/Female/box.png" id="74_oh7sq"]
 [ext_resource type="Texture2D" uid="uid://rs08c4ommupi" path="res://Assets/Images/default_bgs/6.png" id="74_vut51"]
@@ -174,6 +176,7 @@
 [ext_resource type="Texture2D" uid="uid://idc1p6ikqgi7" path="res://Assets/Images/progressbar_over.png" id="118_t7tk3"]
 [ext_resource type="Texture2D" uid="uid://bigq7k8pjdu14" path="res://Assets/Images/progressbar_progress.png" id="119_tsut3"]
 [ext_resource type="Script" path="res://Scripts/PmdCollabHandler.gd" id="133_0wtcu"]
+[ext_resource type="Script" path="res://Scenes/MusicManager.gd" id="172_ep38c"]
 [ext_resource type="Texture2D" uid="uid://cn02erddyygqs" path="res://Assets/Images/Error_Shocked_2.png" id="174_do2fn"]
 [ext_resource type="Texture2D" uid="uid://rg6o3hstn3w2" path="res://Assets/Images/NOTICE.png" id="176_xqdw4"]
 
@@ -1693,6 +1696,13 @@ animations = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75fvv"]
 shader = ExtResource("6_q7upt")
 shader_parameter/lod = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_lqy4g"]
+frames = 2
+frame_0/texture = ExtResource("72_pmr35")
+frame_0/duration = 0.27
+frame_1/texture = ExtResource("73_i8g7w")
+frame_1/duration = 0.27
 
 [sub_resource type="ImageTexture" id="ImageTexture_qmomk"]
 
@@ -3214,6 +3224,22 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
+[node name="MusicNote" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 75.6667
+offset_top = -49.6667
+offset_right = 84.6667
+offset_bottom = -39.6667
+grow_vertical = 0
+texture_normal = SubResource("AnimatedTexture_lqy4g")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_ouwkk")
+textEdit = NodePath("../../TextboxEdit")
+
 [node name="Smirk" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 114.0
@@ -3819,9 +3845,9 @@ offset_bottom = 20.3333
 [node name="DexNum" type="LineEdit" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow"]
 layout_mode = 0
 offset_left = 5.0
-offset_top = 34.3333
+offset_top = 24.3333
 offset_right = 154.0
-offset_bottom = 54.3333
+offset_bottom = 44.3333
 scale = Vector2(0.8, 0.8)
 theme = ExtResource("5_qi2yv")
 placeholder_text = "Pokédex# or Pokémon Name"
@@ -3829,14 +3855,14 @@ placeholder_text = "Pokédex# or Pokémon Name"
 [node name="Emotion_Collab" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 5.0
-offset_top = 52.3333
+offset_top = 42.3333
 offset_right = 105.0
-offset_bottom = 72.3333
+offset_bottom = 64.3333
 scale = Vector2(0.8, 0.8)
 tooltip_text = "The selected emotion you want to load from PMDCollab."
 theme = ExtResource("106_82bab")
 alignment = 1
-text_overrun_behavior = 3
+clip_text = true
 item_count = 20
 selected = 0
 fit_to_longest_item = false
@@ -3885,9 +3911,9 @@ script = ExtResource("30_e868e")
 [node name="Form_Collab" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 91.0
-offset_top = 52.3333
+offset_top = 42.3333
 offset_right = 191.0
-offset_bottom = 72.3333
+offset_bottom = 64.3333
 scale = Vector2(0.8, 0.8)
 tooltip_text = "The Pokémon's form."
 theme = ExtResource("106_82bab")
@@ -3948,9 +3974,9 @@ texture_pressed = ExtResource("89_8t3bs")
 [node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 68.0
-offset_top = 84.0
-offset_right = 119.0
-offset_bottom = 99.0
+offset_top = 84.3333
+offset_right = 122.0
+offset_bottom = 99.3333
 scale = Vector2(0.7, 0.7)
 focus_mode = 0
 theme = ExtResource("106_82bab")
@@ -3960,15 +3986,30 @@ icon = ExtResource("94_od227")
 [node name="OpenCurrentFolder" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 125.0
-offset_top = 34.3333
+offset_top = 24.3333
 offset_right = 182.0
-offset_bottom = 54.3333
+offset_bottom = 44.3333
 scale = Vector2(0.8, 0.8)
 tooltip_text = "Brings you to the selected Pokémon's directory."
 theme = ExtResource("106_82bab")
 text = "OPEN"
 icon = ExtResource("35_at0t2")
 icon_alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 63.3333
+offset_right = 241.0
+offset_bottom = 90.3334
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+bbcode_enabled = true
+text = "[center]SPRITE CREDIT:[color=f8f800]
+Guess what, Cynware... CHICKEN BUTT."
 
 [node name="LocalPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" node_paths=PackedStringArray("icon", "localFolderDropdownLocal", "localEmotionDropdownLocal", "errorIcon")]
 visible = false
@@ -4984,24 +5025,30 @@ theme_override_colors/font_color = Color(1, 1, 1, 0.345098)
 text = "v0.0.0"
 horizontal_alignment = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Settings/SettingsMenu"]
+[node name="MUSICLABEL" type="RichTextLabel" parent="Settings/SettingsMenu"]
 layout_mode = 0
 offset_top = 19.0
 offset_right = 383.0
 offset_bottom = 45.0
 scale = Vector2(2, 2)
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
 bbcode_enabled = true
-text = "[center]~ Writing's A Mystery
+text = "[center][img=12]res://Scenes/EditorState.tscn::AnimatedTexture_lqy4g[/img] - Writing's A Mystery
 (NoOneDoesStuff)[/center]"
+meta_underlined = false
 
-[node name="SOUND" type="Control" parent="."]
+[node name="SOUND" type="Control" parent="." node_paths=PackedStringArray("MusicLabel")]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("172_ep38c")
+MusicLabel = NodePath("../Settings/SettingsMenu/MUSICLABEL")
 
-[node name="MUSIC" type="AudioStreamPlayer" parent="SOUND"]
+[node name="WRITINGSAMYSTERY" type="AudioStreamPlayer" parent="SOUND"]
 stream = ExtResource("106_mwxem")
 volume_db = -20.937
 autoplay = true
@@ -5383,6 +5430,7 @@ texture = ExtResource("176_xqdw4")
 [connection signal="pressed" from="Settings/SettingsMenu/CloseBTN" to="Settings" method="_on_close_btn_pressed"]
 [connection signal="pressed" from="Settings/SettingsMenu/SettingsLeftNav" to="Settings/SettingsMenu" method="on_left_pressed"]
 [connection signal="pressed" from="Settings/SettingsMenu/SettingsRightNav" to="Settings/SettingsMenu" method="on_right_pressed"]
+[connection signal="meta_clicked" from="Settings/SettingsMenu/MUSICLABEL" to="SOUND" method="_on_musiclabel_meta_clicked"]
 [connection signal="pressed" from="NoticeScreen/InfoBorder/InfoDisplay/CloseBTN" to="NoticeScreen" method="CloseNotice"]
 [connection signal="pressed" from="NoticeScreen/InfoBorder/InfoDisplay/DownloadGithub" to="NoticeScreen" method="OpenGithubReleasesPage"]
 [connection signal="pressed" from="NoticeScreen/InfoBorder/InfoDisplay/DownloadItch" to="NoticeScreen" method="OpenItchioPage"]
