@@ -84,6 +84,7 @@ func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 			errorIcon.visible = true;
 			
 	print(emotions)
+	localEmotionDropdownLocal.icon = null
 		
 func loadIconLocal():
 	var basename = emotions[localEmotionDropdownLocal.get_selected_id()].get_basename()
