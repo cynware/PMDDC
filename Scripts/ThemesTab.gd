@@ -59,7 +59,7 @@ func on_portrait_flip():
 		if not collab_window:
 			collab_window = get_node_or_null("../PortraitTab/CollabPorWindow")
 		if collab_window:
-			collab_window.loadIconCollab(false)
+			collab_window.update_emotion_options(false, true)
 	elif source == "local":
 		var local_window = get_node_or_null("LocalPorWindow")
 		if not local_window:

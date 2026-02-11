@@ -96,7 +96,13 @@ func populate_collab_options(play_sound: bool = true):
 
 	var pkmn = pokedex[current_resolved_id]
 	
-	for form_key in pkmn.forms.keys():
+	var forms = pkmn.forms.keys()
+	forms.sort()
+	if forms.has("Normal"):
+		forms.erase("Normal")
+		forms.push_front("Normal")
+
+	for form_key in forms:
 		form_dropdown.add_item(str(form_key))
 	
 	if form_dropdown.item_count > 0:
@@ -104,7 +110,7 @@ func populate_collab_options(play_sound: bool = true):
 	
 	update_emotion_options(play_sound)
 
-func update_emotion_options(play_sound: bool = true):
+func update_emotion_options(play_sound: bool = true, preserve_selection: bool = false):
 	update_open_folder_button()
 	if current_resolved_id == "" or !pokedex.has(current_resolved_id): return
 	
@@ -113,6 +119,10 @@ func update_emotion_options(play_sound: bool = true):
 	if form_dropdown.item_count > 0:
 		current_form = form_dropdown.text
 	
+	var flip_toggle = get_node_or_null("../PortraitFlip")
+	var is_flipped = flip_toggle.button_pressed if flip_toggle else false
+	
+	var old_text = emotion_dropdown.get_item_text(emotion_dropdown.selected) if emotion_dropdown.selected >= 0 else ""
 	emotion_dropdown.clear()
 	
 	if pkmn.forms.has(current_form):
@@ -122,25 +132,43 @@ func update_emotion_options(play_sound: bool = true):
 		if relative_path != "":
 			base_path = base_path.path_join(relative_path) + "/"
 			
-		var item_idx = 0
+		var emotions_to_show = []
 		for emotion in form_data.emotions:
 			if not emotion.ends_with("^"):
-				var file_path = base_path + emotion + ".png"
-				if FileAccess.file_exists(file_path):
-					var img = Image.new()
-					if img.load(file_path) == OK:
-						img.resize(20, 20, Image.INTERPOLATE_NEAREST)
-						var tex = ImageTexture.create_from_image(img)
-						emotion_dropdown.add_icon_item(tex, emotion, item_idx)
-						item_idx += 1
-						continue
-				
-				emotion_dropdown.add_item(emotion, item_idx)
-				item_idx += 1
+				emotions_to_show.append(emotion)
+		
+		emotions_to_show.sort()
+		if emotions_to_show.has("Normal"):
+			emotions_to_show.erase("Normal")
+			emotions_to_show.push_front("Normal")
+			
+		var item_idx = 0
+		for emotion in emotions_to_show:
+			var file_path = base_path + emotion + ".png"
+			if FileAccess.file_exists(file_path):
+				var img = Image.new()
+				if img.load(file_path) == OK:
+					img.resize(20, 20, Image.INTERPOLATE_NEAREST)
+					var tex = ImageTexture.create_from_image(img)
+					emotion_dropdown.add_icon_item(tex, emotion, item_idx)
+					item_idx += 1
+					continue
+			
+			emotion_dropdown.add_item(emotion, item_idx)
+			item_idx += 1
 			
 	if emotion_dropdown.item_count > 0:
-		emotion_dropdown.selected = 0
+		if preserve_selection:
+			# Try to preserve selection by text if indices shifted
+			for i in range(emotion_dropdown.item_count):
+				if emotion_dropdown.get_item_text(i) == old_text:
+					emotion_dropdown.selected = i
+					break
+		else:
+			emotion_dropdown.selected = 0
 		loadIconCollab(play_sound)
+	
+	emotion_dropdown.icon = null
 
 func loadIconCollab(play_sound: bool = true):
 	if play_sound:
@@ -218,6 +246,7 @@ func update_alignment_preview():
 func _on_emotion_collab_item_selected(index):
 	SoundEffectManager.PlayChooseDropdown()
 	loadIconCollab()
+	emotion_dropdown.icon = null
 
 func _on_form_collab_item_selected(index):
 	SoundEffectManager.PlayChooseDropdown()

@@ -53,6 +53,7 @@ func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 				else:
 					errorIcon.visible = true;
 		
+	localFolderDropdownLocal.icon = null
 	if localFolderDropdownLocal.item_count == 0: return
 
 	var portraits = DirAccess.get_files_at("user://Portraits/" + localFolderDropdownLocal.text + "/");
@@ -83,6 +84,7 @@ func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 			errorIcon.visible = true;
 			
 	print(emotions)
+	localEmotionDropdownLocal.icon = null
 		
 func loadIconLocal():
 	var basename = emotions[localEmotionDropdownLocal.get_selected_id()].get_basename()
@@ -114,6 +116,7 @@ func loadIconLocal():
 		var texture = ImageTexture.create_from_image(image)
 		icon.texture = texture
 		icon.set_meta("last_source", "local")
+		localEmotionDropdownLocal.icon = null
 		
 		if is_flipped and not use_flipped_variant:
 			icon.scale.x = -1
