@@ -97,7 +97,6 @@
 [ext_resource type="Script" path="res://Scripts/InsertUnicodeBTN.gd" id="44_cmomk"]
 [ext_resource type="Texture2D" uid="uid://0iqgooliert0" path="res://Assets/Images/right_align.png" id="44_jo553"]
 [ext_resource type="Texture2D" uid="uid://c6cqe3x1rbhu4" path="res://Assets/Images/Template/Sad.png" id="44_ot21h"]
-[ext_resource type="Script" path="res://Scripts/UnownTyper.gd" id="44_re0y6"]
 [ext_resource type="Texture2D" uid="uid://bewad4ai343at" path="res://Assets/Images/Template/Shouting.png" id="45_c04ku"]
 [ext_resource type="Texture2D" uid="uid://5t1n7mrmrkpi" path="res://Assets/Images/Template/Sigh.png" id="46_lfj07"]
 [ext_resource type="Texture2D" uid="uid://1qskq0wfvhc1" path="res://Assets/Images/Template/Special0.png" id="47_vwl7f"]
@@ -1704,6 +1703,8 @@ frame_0/duration = 0.27
 frame_1/texture = ExtResource("73_i8g7w")
 frame_1/duration = 0.27
 
+[sub_resource type="GDScript" id="GDScript_lugwd"]
+
 [sub_resource type="ImageTexture" id="ImageTexture_qmomk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ahui5"]
@@ -2453,7 +2454,6 @@ offset_bottom = 101.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogueTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("textboxText", "textboxText2")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -3409,11 +3409,10 @@ text = "CLOSE "
 icon = ExtResource("94_od227")
 
 [node name="UnicodeWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
-script = ExtResource("44_re0y6")
+script = SubResource("GDScript_lugwd")
 
 [node name="Blur" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow"]
 material = SubResource("ShaderMaterial_75fvv")
@@ -3657,7 +3656,7 @@ uri = "https://www.dafont.com/wonder-mail.charmap"
 
 [node name="UnownModeToggleBTN" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 98.0003
+offset_left = 95.0002
 offset_top = 2.0
 offset_right = 173.0
 offset_bottom = 20.0
@@ -3665,6 +3664,7 @@ theme = ExtResource("106_82bab")
 text = "Unown Keys"
 
 [node name="PortraitTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -3798,6 +3798,7 @@ text = "Flip"
 alignment = 1
 
 [node name="CollabPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332
@@ -3974,7 +3975,6 @@ text = "[center]SPRITE CREDIT:[color=f8f800]
 Guess what, Cynware... CHICKEN BUTT."
 
 [node name="LocalPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" node_paths=PackedStringArray("icon", "localFolderDropdownLocal", "localEmotionDropdownLocal", "errorIcon")]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332
@@ -5290,7 +5290,7 @@ texture = ExtResource("176_xqdw4")
 [connection signal="button_down" from="PMD_Debug/DialogueTAB_BTN/DialogueTAB_BTN2" to="PMD_Debug/DialogueTAB_BTN/DialogueTAB_BTN2" method="_on_button_down"]
 [connection signal="button_up" from="PMD_Debug/DialogueTAB_BTN/DialogueTAB_BTN2" to="PMD_Debug/DialogueTAB_BTN/DialogueTAB_BTN2" method="_on_button_up"]
 [connection signal="pressed" from="PMD_Debug/DialogueTAB_BTN/DialogueTAB_BTN2" to="PMD_Debug" method="dialogue_tab_pressed"]
-[connection signal="gui_input" from="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG/Backend_Editor" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_textbox_edit_gui_input"]
+[connection signal="gui_input" from="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG/Backend_Editor" to="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG" method="_on_textbox_edit_gui_input"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG/Backend_Editor" to="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG" method="_on_text_changed"]
 [connection signal="gui_input" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_textbox_edit_gui_input"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
@@ -5336,7 +5336,7 @@ texture = ExtResource("176_xqdw4")
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/InfinityBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/InfinityBTN" method="OnUnicodePressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/TripleDotBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/TripleDotBTN" method="OnUnicodePressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowClose"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/UnownModeToggleBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_unown_mode_toggle_pressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/UnownModeToggleBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG" method="_on_unown_mode_toggle_pressed"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PORTRAITALIGNMENT" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_alignment_selected"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadCollabPortraitBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="onCollabPortraitWindowOpen"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadCollabPortraitBTN/PMDColl_DownloadBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_pmd_coll_download_btn_pressed"]
@@ -5379,8 +5379,8 @@ texture = ExtResource("176_xqdw4")
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page2/ExportResolutionMultiplier" to="SCREENSHOT MANAGER" method="_on_export_resolution_multiplier_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page2/TransparentBackground" to="SCREENSHOT MANAGER" method="_on_transparent_background_toggled"]
-[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
+[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_Slider" to="Settings/SettingsMenu" method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_SBOX" to="Settings/SettingsMenu" method="_on_master_sbox_value_changed"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC" to="Settings/SettingsMenu" method="on_mute_music"]

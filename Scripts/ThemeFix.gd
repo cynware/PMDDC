@@ -4,9 +4,9 @@ extends OptionButton
 # Godot i swear to god
 # XX$$X$&&X:...............;....::.....;.:$&&$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 # X&&:.......&:.&:;:&.&.$:.&+;.$;;$....x.......:&&Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-# :..........&x$:.$Xx;;xx..x.x$:::.x...+...........&&xxxxxxxxxxxxxxxxxxxxxxxxxxxx++++++xxxxxxxxxxXXXxx
+# :.................godot..........................&&xxxxxxxxxxxxxxxxxxxxxxxxxxxx++++++xxxxxxxxxxXXXxx
 # ..........................:...................x...&&xxxxxxxxxxxxxxxxxxxxxx+xx++++++++++xxxxxXXXxxxxx
-# ..&;::&:x:&.&::X::;&.$...:x:+.;;..&..&:+.;;&.:X..:&$xxxxxxxxxxxxxxxXxxxXxxxx++++++++++++xxXXX$XXxxxx
+# ..&;::&:x:&....I swear to god........&:+.;;&.:X..:&$xxxxxxxxxxxxxxxXxxxXxxxx++++++++++++xxXXX$XXxxxx
 # &x:x+..;.;...x;.:x:+.:....;.:x:...:;:&.:x:.:x::;&&XXXXXXXXXXXXXXXxXxxxxxxXX++++++++++$x++xXXX$$XXXXX
 # XX$&&x.....................................+&&$XXXXXXXXXXXXXXXXXXxxXXXXXXX++++++++x++++++xXXXX$$$$$$
 # XX$$$$X$$&&&&x;:.................::.......$&XXX$X$$$X$$$X$$XX$$XXxxXXX;::::::x::::::::;+++XXXXXXX$$X
