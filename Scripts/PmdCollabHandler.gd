@@ -103,10 +103,39 @@ func populate_collab_options(play_sound: bool = true):
 		forms.push_front("Normal")
 
 	for form_key in forms:
-		form_dropdown.add_item(str(form_key))
+		var form_data: FormData = pkmn.forms[form_key]
+		var relative_path = form_data.relative_path
+		var form_base_path = "user://PMDCollab/portrait/" + current_resolved_id + "/"
+		if relative_path != "":
+			form_base_path = form_base_path.path_join(relative_path) + "/"
+		
+		var icon_tex: Texture2D = null
+		var normal_path = form_base_path + "Normal.png"
+		
+		if FileAccess.file_exists(normal_path):
+			var img = Image.new()
+			if img.load(normal_path) == OK:
+				img.resize(20, 20, Image.INTERPOLATE_NEAREST)
+				icon_tex = ImageTexture.create_from_image(img)
+		
+		if icon_tex == null:
+			var files = DirAccess.get_files_at(form_base_path)
+			for file in files:
+				if file.ends_with(".png") and not file.get_basename().ends_with("^"):
+					var img = Image.new()
+					if img.load(form_base_path + file) == OK:
+						img.resize(20, 20, Image.INTERPOLATE_NEAREST)
+						icon_tex = ImageTexture.create_from_image(img)
+						break
+		
+		if icon_tex:
+			form_dropdown.add_icon_item(icon_tex, str(form_key))
+		else:
+			form_dropdown.add_item(str(form_key))
 	
 	if form_dropdown.item_count > 0:
 		form_dropdown.selected = 0
+		set_dropdown_icon_resized(form_dropdown, 0)
 	
 	update_emotion_options(play_sound)
 
@@ -168,7 +197,8 @@ func update_emotion_options(play_sound: bool = true, preserve_selection: bool = 
 			emotion_dropdown.selected = 0
 		loadIconCollab(play_sound)
 	
-	emotion_dropdown.icon = null
+	if emotion_dropdown.selected >= 0:
+		set_dropdown_icon_resized(emotion_dropdown, emotion_dropdown.selected)
 
 func loadIconCollab(play_sound: bool = true):
 	if play_sound:
@@ -246,11 +276,22 @@ func update_alignment_preview():
 func _on_emotion_collab_item_selected(index):
 	SoundEffectManager.PlayChooseDropdown()
 	loadIconCollab()
-	emotion_dropdown.icon = null
+	set_dropdown_icon_resized(emotion_dropdown, index)
 
 func _on_form_collab_item_selected(index):
 	SoundEffectManager.PlayChooseDropdown()
+	set_dropdown_icon_resized(form_dropdown, index)
 	update_emotion_options()
+
+func set_dropdown_icon_resized(dropdown: OptionButton, index: int):
+	if index < 0: return
+	var full_icon = dropdown.get_item_icon(index)
+	if full_icon:
+		var img = full_icon.get_image()
+		img.resize(16, 16, Image.INTERPOLATE_NEAREST)
+		dropdown.icon = ImageTexture.create_from_image(img)
+	else:
+		dropdown.icon = null
 
 func _on_collab_btn_pressed():
 	OS.shell_open("https://sprites.pmdcollab.org/")

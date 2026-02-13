@@ -27,7 +27,6 @@ func CheckAndCreatePortraitFolder():
 func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 	emotions.clear()
 	localEmotionDropdownLocal.clear()
-	localEmotionDropdownLocal.icon = null;
 	icon.texture = null;
 	
 	if(refreshFolderDropdown):
@@ -53,7 +52,9 @@ func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 				else:
 					errorIcon.visible = true;
 		
-	localFolderDropdownLocal.icon = null
+	if localFolderDropdownLocal.selected >= 0:
+		set_dropdown_icon_resized(localFolderDropdownLocal, localFolderDropdownLocal.selected)
+
 	if localFolderDropdownLocal.item_count == 0: return
 
 	var portraits = DirAccess.get_files_at("user://Portraits/" + localFolderDropdownLocal.text + "/");
@@ -84,7 +85,8 @@ func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 			errorIcon.visible = true;
 			
 	print(emotions)
-	localEmotionDropdownLocal.icon = null
+	if localEmotionDropdownLocal.selected >= 0:
+		set_dropdown_icon_resized(localEmotionDropdownLocal, localEmotionDropdownLocal.selected)
 		
 func loadIconLocal():
 	var basename = emotions[localEmotionDropdownLocal.get_selected_id()].get_basename()
@@ -116,7 +118,6 @@ func loadIconLocal():
 		var texture = ImageTexture.create_from_image(image)
 		icon.texture = texture
 		icon.set_meta("last_source", "local")
-		localEmotionDropdownLocal.icon = null
 		
 		if is_flipped and not use_flipped_variant:
 			icon.scale.x = -1
@@ -143,6 +144,7 @@ func openCustomIconFolder():
 func OnFolderSelectedChanged(index):
 	SoundEffectManager.PlayChooseDropdown()
 	RetrievePortraitsInDirectory(false)
+	set_dropdown_icon_resized(localFolderDropdownLocal, index)
 
 func OnRefresh():
 	RetrievePortraitsInDirectory()
@@ -151,6 +153,17 @@ func OnRefresh():
 func OnEmotionSelected(index):
 	SoundEffectManager.PlayChooseDropdown()	
 	loadIconLocal()
+	set_dropdown_icon_resized(localEmotionDropdownLocal, index)
+
+func set_dropdown_icon_resized(dropdown: OptionButton, index: int):
+	if index < 0: return
+	var full_icon = dropdown.get_item_icon(index)
+	if full_icon:
+		var img = full_icon.get_image()
+		img.resize(16, 16, Image.INTERPOLATE_NEAREST)
+		dropdown.icon = ImageTexture.create_from_image(img)
+	else:
+		dropdown.icon = null
 
 func _input(event):
 	if(Input.is_action_just_pressed("BACK") and visible):
