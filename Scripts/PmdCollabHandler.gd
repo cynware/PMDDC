@@ -7,6 +7,8 @@ extends Control
 @onready var portrait_icon = $"../../../../../PMD_Main/Portrait/Icon"
 @onready var alignment_preview = $"../PORTRAITALIGNMENT/Alignment_Preview"
 @onready var open_folder_btn = $OpenCurrentFolder
+@onready var download_btn_collab_window = $PMDColl_DownloadBTN
+@onready var download_btn_main_tab = get_node_or_null("../LoadCollabPortraitBTN/PMDColl_DownloadBTN")
 
 @export var notice_screen: Control
 
@@ -462,6 +464,12 @@ func _on_open_current_folder_pressed():
 		OS.shell_open(ProjectSettings.globalize_path(base_path))
 		SoundEffectManager.PlayFolder()
 
+func _set_download_buttons_disabled(disabled: bool):
+	if download_btn_collab_window:
+		download_btn_collab_window.disabled = disabled
+	if download_btn_main_tab:
+		download_btn_main_tab.disabled = disabled
+
 func _on_download_screen_visibility_changed():
 	var download_screen = get_node("../../../../../DownloadScreen")
 	if download_screen.visible:
@@ -479,6 +487,7 @@ func _on_download_yes_pressed():
 	var download_screen = get_node("../../../../../DownloadScreen")
 	if download_screen.visible:
 		download_screen.visible = false
+		_set_download_buttons_disabled(true)
 		var bar = get_node_or_null("../LoadCollabPortraitBTN/Download_Bar")
 		if bar:
 			bar.visible = true
@@ -492,6 +501,7 @@ func _on_download_percent(value):
 		bar.value = value
 
 func _on_download_completed(success):
+	_set_download_buttons_disabled(false)
 	if success:
 		print("PMDCollab Download Completed Successfully!")
 		var bar = get_node_or_null("../LoadCollabPortraitBTN/Download_Bar")

@@ -90,15 +90,25 @@ func _threaded_extract():
 		return
 	else:
 		print("Fast extraction failed (Code: " + str(exit_code) + "). Output: " + str(output))
+		if !FileAccess.file_exists(local_zip_path):
+			print("CRITICAL: Zip file disappeared after tar failure!")
+		else:
+			var f = FileAccess.open(local_zip_path, FileAccess.READ)
+			if f:
+				print("Zip file exists, size: ", f.get_length())
+				f.close()
+			else:
+				print("Zip file exists but cannot be opened by FileAccess.")
+		
 		print("Falling back to internal ZIPReader...")
-
 		_extract_fallback()
 
 func _extract_fallback():
 	var reader = ZIPReader.new()
-	var err = reader.open(local_zip_path)
+	var global_zip = ProjectSettings.globalize_path(local_zip_path)
+	var err = reader.open(global_zip)
 	if err != OK:
-		print("Failed to open zip")
+		print("Failed to open zip. Error code: ", err)
 		if FileAccess.file_exists(local_zip_path):
 			DirAccess.remove_absolute(local_zip_path)
 		call_deferred("emit_signal", "download_completed", false)
