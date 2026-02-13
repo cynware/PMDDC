@@ -43,6 +43,8 @@ func start_download():
 	var error = current_http_request.request(zip_url)
 	if error != OK:
 		print("Error starting download")
+		if FileAccess.file_exists(local_zip_path):
+			DirAccess.remove_absolute(local_zip_path)
 		emit_signal("download_completed", false)
 		current_http_request.queue_free()
 		current_http_request = null
@@ -52,6 +54,8 @@ func _on_download_completed(result, response_code, headers, body, http_request):
 	http_request.queue_free()
 	if result != HTTPRequest.RESULT_SUCCESS or response_code != 200:
 		print("Download failed. Code: ", response_code)
+		if FileAccess.file_exists(local_zip_path):
+			DirAccess.remove_absolute(local_zip_path)
 		emit_signal("download_completed", false)
 		return
 		
@@ -95,6 +99,8 @@ func _extract_fallback():
 	var err = reader.open(local_zip_path)
 	if err != OK:
 		print("Failed to open zip")
+		if FileAccess.file_exists(local_zip_path):
+			DirAccess.remove_absolute(local_zip_path)
 		call_deferred("emit_signal", "download_completed", false)
 		return
 		

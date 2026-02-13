@@ -8,6 +8,8 @@ extends Control
 @onready var alignment_preview = $"../PORTRAITALIGNMENT/Alignment_Preview"
 @onready var open_folder_btn = $OpenCurrentFolder
 
+@export var notice_screen: Control
+
 var pokedex: Dictionary = {}
 var allowedDexNumCharacters = "0123456789"
 var downloader: PmdCollabDownloader
@@ -163,6 +165,14 @@ func populate_collab_options(play_sound: bool = true):
 
 	var pkmn = pokedex[current_resolved_id]
 	
+	# Verify directory exists locally
+	var check_path = "user://PMDCollab/portrait/" + current_resolved_id + "/"
+	if !DirAccess.dir_exists_absolute(check_path):
+		if notice_screen:
+			var errorText = "Whoo-hoops! You have to put your CD back in your computer!\n\nCould not find the portrait directory for " + pkmn.name + " (" + current_resolved_id + ").\n\nIt seems some files are missing from your PMDCollab folder. Please try refreshing or re-downloading."
+			notice_screen.ShowNoticeScreen(errorText);
+		return
+
 	var forms = pkmn.forms.keys()
 	forms.sort()
 	if forms.has("Normal"):
@@ -186,14 +196,15 @@ func populate_collab_options(play_sound: bool = true):
 				icon_tex = ImageTexture.create_from_image(img)
 		
 		if icon_tex == null:
-			var files = DirAccess.get_files_at(form_base_path)
-			for file in files:
-				if file.ends_with(".png") and not file.get_basename().ends_with("^"):
-					var img = Image.new()
-					if img.load(form_base_path + file) == OK:
-						img.resize(20, 20, Image.INTERPOLATE_NEAREST)
-						icon_tex = ImageTexture.create_from_image(img)
-						break
+			if DirAccess.dir_exists_absolute(form_base_path):
+				var files = DirAccess.get_files_at(form_base_path)
+				for file in files:
+					if file.ends_with(".png") and not file.get_basename().ends_with("^"):
+						var img = Image.new()
+						if img.load(form_base_path + file) == OK:
+							img.resize(20, 20, Image.INTERPOLATE_NEAREST)
+							icon_tex = ImageTexture.create_from_image(img)
+							break
 		
 		if icon_tex:
 			form_dropdown.add_icon_item(icon_tex, str(form_key))
@@ -355,9 +366,16 @@ func loadIconCollab(play_sound: bool = true):
 					credits_label.text = display_text
 		else:
 			if error_icon: error_icon.visible = true
+			if notice_screen:
+				var errorText = "Whoo-hoops! You have to put your CD back in your computer!\n\nFailed to load the portrait image: " + file_path.get_file() + "\n\nThe file might be corrupted."
+				notice_screen.ShowNoticeScreen(errorText);
 			push_error("Failed to load image: " + file_path)
 	else:
 		if error_icon: error_icon.visible = true
+		if notice_screen:
+			var pkmn_name = pokedex[id].name
+			var errorText = "Whoo-hoops! You have to put your CD back in your computer!\n\nCould not find the portrait file for " + pkmn_name + " (" + emotion + ").\n\nMake sure the portrait database is fully downloaded."
+			notice_screen.ShowNoticeScreen(errorText);
 		print("File not found: " + file_path)
 
 func update_alignment_preview():
@@ -483,3 +501,9 @@ func _on_download_completed(success):
 		populate_collab_options()
 	else:
 		print("PMDCollab Download Failed.")
+		var bar = get_node_or_null("../LoadCollabPortraitBTN/Download_Bar")
+		if bar: bar.visible = false
+		
+		if notice_screen:
+			var errorText = "Whoo-hoops! You have to put your CD back in your computer!\n\nFailed to download or extract the PMDCollab portrait database. :(\n\nPlease check your internet connection and storage space, then try again."
+			notice_screen.ShowNoticeScreen(errorText);
