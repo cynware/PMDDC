@@ -3959,7 +3959,7 @@ text = "OPEN"
 icon = ExtResource("35_at0t2")
 icon_alignment = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow"]
+[node name="SpriteCredits" type="RichTextLabel" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 63.3333
@@ -3971,8 +3971,8 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 bbcode_enabled = true
-text = "[center]SPRITE CREDIT:[color=f8f800]
-Guess what, Cynware... CHICKEN BUTT."
+meta_underlined = false
+hint_underlined = false
 
 [node name="LocalPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" node_paths=PackedStringArray("icon", "localFolderDropdownLocal", "localEmotionDropdownLocal", "errorIcon")]
 visible = false
@@ -4974,6 +4974,7 @@ offset_top = 118.0
 offset_right = 473.0
 offset_bottom = 129.0
 scale = Vector2(3, 3)
+focus_mode = 0
 texture_normal = ExtResource("67_uwkq2")
 
 [node name="BuildNum" type="Label" parent="Settings/SettingsMenu"]
@@ -5380,8 +5381,8 @@ texture = ExtResource("176_xqdw4")
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page2/ExportResolutionMultiplier" to="SCREENSHOT MANAGER" method="_on_export_resolution_multiplier_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page2/TransparentBackground" to="SCREENSHOT MANAGER" method="_on_transparent_background_toggled"]
-[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
+[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_Slider" to="Settings/SettingsMenu" method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_SBOX" to="Settings/SettingsMenu" method="_on_master_sbox_value_changed"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MUSIC" to="Settings/SettingsMenu" method="on_mute_music"]

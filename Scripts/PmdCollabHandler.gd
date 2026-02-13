@@ -12,6 +12,8 @@ var pokedex: Dictionary = {}
 var allowedDexNumCharacters = "0123456789"
 var downloader: PmdCollabDownloader
 var current_resolved_id: String = ""
+var portrait_credits: Dictionary = {}
+var artist_urls: Dictionary = {}
 
 const DOWNLOAD_SCREEN_BASE_TEXT = "[center]Oh, Hi! Would you like to download all portraits from [img]res://Assets/Images/PMDCollab.png[/img] [color=f8f800]PMDCollab[/color]?\n[color=9c9c9c](You can still use PMDDC while the download is going, hehe!)[/color]\nThe size of the download is: "
 
@@ -31,17 +33,24 @@ func _ready():
 		var close_btn = download_screen.get_node_or_null("InfoBorder/InfoDisplay/CloseBTN")
 		if close_btn: close_btn.pressed.connect(func(): download_screen.visible = false)
 	
+	var credits_label = get_node_or_null("SpriteCredits")
+	if credits_label:
+		credits_label.meta_clicked.connect(func(meta): OS.shell_open(str(meta)))
+		credits_label.focus_mode = Control.FOCUS_NONE
+	
 	var bar = get_node_or_null("../LoadCollabPortraitBTN/Download_Bar")
 	if bar: bar.visible = false
 	
 	if PmdCollabDownloader.is_installed():
 		load_tracker_data()
+		load_credits_data()
 	
 	if dex_num_input:
 		pass
 	if emotion_dropdown:
-		pass
+		emotion_dropdown.add_theme_constant_override("icon_max_width", 16)
 	if form_dropdown:
+		form_dropdown.add_theme_constant_override("icon_max_width", 16)
 		form_dropdown.item_selected.connect(_on_form_collab_item_selected)
 	
 	if open_folder_btn:
@@ -51,6 +60,64 @@ func _ready():
 		populate_collab_options()
 	
 	update_open_folder_button()
+
+func load_credits_data():
+	var path = "user://PMDCollab/spritebot_credits.txt"
+	if not FileAccess.file_exists(path):
+		return
+		
+	var file = FileAccess.open(path, FileAccess.READ)
+	if not file:
+		return
+		
+	portrait_credits.clear()
+	artist_urls.clear()
+	var current_artist = ""
+	var in_portrait_section = false
+	
+	while not file.eof_reached():
+		var line = file.get_line()
+		var trimmed = line.strip_edges()
+		
+		if trimmed == "": continue
+		
+		if not line.begins_with("\t") and not line.begins_with(" "):
+			var contact_split = line.split("Contact:", false)
+			var name_part = contact_split[0]
+			if name_part.contains("Discord:"):
+				name_part = name_part.split("Discord:")[0]
+			current_artist = name_part.strip_edges()
+			
+			if contact_split.size() > 1:
+				artist_urls[current_artist] = contact_split[1].strip_edges()
+			
+			in_portrait_section = false
+			continue
+			
+		if trimmed == "Portrait:":
+			in_portrait_section = true
+			continue
+		elif trimmed == "Sprite:":
+			in_portrait_section = false
+			continue
+			
+		if in_portrait_section and line.begins_with("\t\t"):
+			var portrait_name = trimmed.split(":")[0].strip_edges()
+			_add_portrait_credit(portrait_name, current_artist)
+			var alt_name = portrait_name.replace(" ", "_")
+			if alt_name != portrait_name:
+				_add_portrait_credit(alt_name, current_artist)
+			
+			var parts = portrait_name.split(" ")
+			if parts.size() > 1:
+				var underscored = parts[0] + "_" + parts[1]
+				_add_portrait_credit(underscored, current_artist)
+
+func _add_portrait_credit(p_name: String, artist: String):
+	if not portrait_credits.has(p_name):
+		portrait_credits[p_name] = []
+	if not artist in portrait_credits[p_name]:
+		portrait_credits[p_name].append(artist)
 
 func load_tracker_data():
 	var path = "user://PMDCollab/tracker.json"
@@ -188,7 +255,6 @@ func update_emotion_options(play_sound: bool = true, preserve_selection: bool = 
 			
 	if emotion_dropdown.item_count > 0:
 		if preserve_selection:
-			# Try to preserve selection by text if indices shifted
 			for i in range(emotion_dropdown.item_count):
 				if emotion_dropdown.get_item_text(i) == old_text:
 					emotion_dropdown.selected = i
@@ -203,6 +269,10 @@ func update_emotion_options(play_sound: bool = true, preserve_selection: bool = 
 func loadIconCollab(play_sound: bool = true):
 	if play_sound:
 		SoundEffectManager.PlaySavePreset()
+	
+	var credits_label = get_node_or_null("SpriteCredits")
+	if credits_label:
+		credits_label.text = ""
 	
 	if current_resolved_id == "" or !pokedex.has(current_resolved_id): return
 	var id = current_resolved_id
@@ -257,6 +327,32 @@ func loadIconCollab(play_sound: bool = true):
 					portrait_icon.scale.x = 1
 					
 				update_alignment_preview()
+			
+			if credits_label:
+				var pkmn_name = pokedex[id].name
+				var lookup_name = pkmn_name
+				if current_form != "Normal":
+					lookup_name = pkmn_name + " " + current_form
+				
+				var artists = portrait_credits.get(lookup_name, [])
+				if artists.is_empty():
+					artists = portrait_credits.get(lookup_name.replace(" ", "_"), [])
+				
+				if artists.is_empty():
+					credits_label.text = "[center]SPRITE SET CREDIT:[color=f8f800]\nUnknown"
+				else:
+					var display_text = "[center]SPRITE SET CREDIT:[color=f8f800]\n"
+					for i in range(artists.size()):
+						var artist_name = artists[i]
+						var url = artist_urls.get(artist_name, "")
+						if url != "":
+							display_text += "[url=" + url + "]" + artist_name + "[/url]"
+						else:
+							display_text += artist_name
+						
+						if i < artists.size() - 1:
+							display_text += ", "
+					credits_label.text = display_text
 		else:
 			if error_icon: error_icon.visible = true
 			push_error("Failed to load image: " + file_path)
@@ -299,6 +395,7 @@ func _on_collab_btn_pressed():
 func _on_refresh_btn_pressed():
 	if PmdCollabDownloader.is_installed():
 		load_tracker_data()
+		load_credits_data()
 		populate_collab_options()
 		SoundEffectManager.PlayRefresh()
 	
@@ -382,6 +479,7 @@ func _on_download_completed(success):
 		var bar = get_node_or_null("../LoadCollabPortraitBTN/Download_Bar")
 		if bar: bar.visible = false
 		load_tracker_data()
+		load_credits_data()
 		populate_collab_options()
 	else:
 		print("PMDCollab Download Failed.")
