@@ -34,25 +34,22 @@ func start_download():
 	emit_signal("download_progress", "Starting download...")
 	print("Starting download from: " + zip_url)
 	
+	if is_instance_valid(current_http_request):
+		current_http_request.cancel_request()
+		current_http_request.queue_free()
+
 	current_http_request = HTTPRequest.new()
 	add_child(current_http_request)
 	current_http_request.request_completed.connect(self._on_download_completed.bind(current_http_request))
 	current_http_request.download_file = local_zip_path
 	
-	var error = current_http_request.request(zip_url)
-	if error != OK:
-		print("Error starting download")
-		if FileAccess.file_exists(local_zip_path):
-			DirAccess.remove_absolute(local_zip_path)
-		emit_signal("download_completed", false)
-		current_http_request.queue_free()
-		current_http_request = null
+	current_http_request.call_deferred("request", zip_url)
 
 func _on_download_completed(result, response_code, headers, body, http_request):
 	current_http_request = null
 	http_request.queue_free()
 	if result != HTTPRequest.RESULT_SUCCESS or response_code != 200:
-		print("Download failed. Code: ", response_code)
+		print("Download failed. Result: " + str(result) + ", Code: " + str(response_code))
 		if FileAccess.file_exists(local_zip_path):
 			DirAccess.remove_absolute(local_zip_path)
 		emit_signal("download_completed", false)
