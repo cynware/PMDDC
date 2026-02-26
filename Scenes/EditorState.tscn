@@ -3799,6 +3799,7 @@ text = "Flip"
 alignment = 1
 
 [node name="CollabPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332
