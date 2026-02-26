@@ -1,4 +1,4 @@
-[gd_scene load_steps=407 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=409 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -157,7 +157,6 @@
 [ext_resource type="Theme" uid="uid://dsc1ij8moovpg" path="res://Assets/Themes/PMDButton.tres" id="106_82bab"]
 [ext_resource type="Texture2D" uid="uid://jy67laiu7kn" path="res://Assets/Images/PMDCollab.png" id="106_kesd2"]
 [ext_resource type="Texture2D" uid="uid://c5ckj4meoegdn" path="res://Assets/Images/default_bgs/FootprintRunes.png" id="106_l13p0"]
-[ext_resource type="AudioStream" uid="uid://djs0qxywnom4b" path="res://Assets/Sounds/Writing's A Mystery.wav" id="106_mwxem"]
 [ext_resource type="Texture2D" uid="uid://davlvqytoh330" path="res://Assets/Images/Local.png" id="107_cgcba"]
 [ext_resource type="Texture2D" uid="uid://bberd777e0olj" path="res://Assets/Images/default_bgs/beach_sunset_preview.png" id="107_ftcy0"]
 [ext_resource type="Texture2D" uid="uid://cx55ktdybwk0c" path="res://Assets/Images/default_bgs/beach_cavemouth_preview.png" id="109_g1b0j"]
@@ -178,6 +177,8 @@
 [ext_resource type="Script" path="res://Scenes/MusicManager.gd" id="172_ep38c"]
 [ext_resource type="Texture2D" uid="uid://cn02erddyygqs" path="res://Assets/Images/Error_Shocked_2.png" id="174_do2fn"]
 [ext_resource type="Texture2D" uid="uid://rg6o3hstn3w2" path="res://Assets/Images/NOTICE.png" id="176_xqdw4"]
+[ext_resource type="Script" path="res://Scenes/DownloadScreen.gd" id="178_jbic7"]
+[ext_resource type="Texture2D" uid="uid://coa5buummlqts" path="res://Assets/Images/NOTICE_2.png" id="180_rmfv8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s71i0"]
 atlas = ExtResource("8_rl3y6")
@@ -1801,6 +1802,8 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_43upc"]
 
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_3tcer"]
+
 [node name="EditorState" type="Node2D"]
 
 [node name="SCREENSHOT MANAGER" type="Node" parent="." node_paths=PackedStringArray("transparentBackgroundToggle", "resolutionMultiplierDropdown", "background", "debugMenu", "settingsButton", "saveButton")]
@@ -2454,7 +2457,6 @@ offset_bottom = 101.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogueTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("textboxText", "textboxText2")]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -3666,6 +3668,7 @@ theme = ExtResource("106_82bab")
 text = "Unown Keys"
 
 [node name="PortraitTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("portrait", "textbox")]
+visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -3799,6 +3802,7 @@ text = "Flip"
 alignment = 1
 
 [node name="CollabPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -0.333332
@@ -5004,7 +5008,6 @@ text = "[center][img=12]res://Scenes/EditorState.tscn::AnimatedTexture_lqy4g[/im
 meta_underlined = false
 
 [node name="SOUND" type="Control" parent="." node_paths=PackedStringArray("MusicLabel")]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -5012,10 +5015,9 @@ offset_bottom = 40.0
 script = ExtResource("172_ep38c")
 MusicLabel = NodePath("../Settings/SettingsMenu/MUSICLABEL")
 
-[node name="WRITINGSAMYSTERY" type="AudioStreamPlayer" parent="SOUND"]
-stream = ExtResource("106_mwxem")
-volume_db = -20.937
-autoplay = true
+[node name="OST" type="AudioStreamPlayer" parent="SOUND"]
+stream = SubResource("AudioStreamWAV_3tcer")
+volume_db = -80.0
 bus = &"Music"
 
 [node name="NoticeScreen" type="Control" parent="." node_paths=PackedStringArray("infoText", "gitButton", "itchButton", "closeButton")]
@@ -5174,6 +5176,8 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("178_jbic7")
+PortraitNotice = Array[Texture2D]([ExtResource("176_xqdw4"), ExtResource("180_rmfv8")])
 
 [node name="Dark" type="ColorRect" parent="DownloadScreen"]
 layout_mode = 1
@@ -5395,6 +5399,7 @@ texture = ExtResource("176_xqdw4")
 [connection signal="pressed" from="Settings/SettingsMenu/SettingsLeftNav" to="Settings/SettingsMenu" method="on_left_pressed"]
 [connection signal="pressed" from="Settings/SettingsMenu/SettingsRightNav" to="Settings/SettingsMenu" method="on_right_pressed"]
 [connection signal="meta_clicked" from="Settings/SettingsMenu/MUSICLABEL" to="SOUND" method="_on_musiclabel_meta_clicked"]
+[connection signal="finished" from="SOUND/OST" to="SOUND" method="_on_ost_finished"]
 [connection signal="pressed" from="NoticeScreen/InfoBorder/InfoDisplay/CloseBTN" to="NoticeScreen" method="CloseNotice"]
 [connection signal="pressed" from="NoticeScreen/InfoBorder/InfoDisplay/DownloadGithub" to="NoticeScreen" method="OpenGithubReleasesPage"]
 [connection signal="pressed" from="NoticeScreen/InfoBorder/InfoDisplay/DownloadItch" to="NoticeScreen" method="OpenItchioPage"]
