@@ -77,3 +77,4 @@ func _on_save_pressed():
 	takeTransparentScreenshot();
 	$"../Save/SaveSprite".play("saver")
 	SoundEffectManager.PlaySavePreset()
+

@@ -186,3 +186,4 @@ func _on_pmd_coll_download_btn_pressed():
 	SoundEffectManager.PlayFolder()
 	
 	$"../../../../DownloadScreen".visible = true
+	$"../../../../DownloadScreen".randomicon()
