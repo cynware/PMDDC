@@ -4612,7 +4612,7 @@ tooltip_text = "You can also press \"CTRL + S\" or \"F12\" to save."
 theme = ExtResource("5_qi2yv")
 
 [node name="SaveSprite" type="AnimatedSprite2D" parent="Save"]
-position = Vector2(36, 36)
+position = Vector2(44, 36)
 sprite_frames = SubResource("SpriteFrames_lwd0f")
 animation = &"saver"
 
@@ -4624,7 +4624,6 @@ offset_bottom = 81.0
 tooltip_text = "Opens the settings menu."
 theme = ExtResource("5_qi2yv")
 script = ExtResource("60_isgay")
-metadata/_edit_use_anchors_ = true
 
 [node name="GearSprite" type="AnimatedSprite2D" parent="Settings"]
 position = Vector2(36, 36)

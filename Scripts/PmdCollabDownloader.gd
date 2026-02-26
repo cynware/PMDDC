@@ -26,7 +26,6 @@ func _process(_delta):
 				var percent = (float(downloaded) / total) * 100.0
 				emit_signal("download_percent", percent * 0.8)
 			else:
-				# If total is unknown, we just show some progress based on a rough estimate (e.g. 100MB)
 				var estimate = 100 * 1024 * 1024 
 				var percent = min((float(downloaded) / estimate) * 80.0, 75.0)
 				emit_signal("download_percent", percent)
@@ -69,7 +68,6 @@ func _threaded_extract():
 	var global_zip_path = ProjectSettings.globalize_path(local_zip_path)
 	var global_extract_path = ProjectSettings.globalize_path(extract_path)
 	
-	# Ensure extraction dir exists
 	if !DirAccess.dir_exists_absolute(extract_path):
 		DirAccess.make_dir_recursive_absolute(extract_path)
 	
@@ -82,7 +80,6 @@ func _threaded_extract():
 	
 	if exit_code == 0:
 		print("Fast extraction successful!")
-		# Clean up zip
 		DirAccess.remove_absolute(local_zip_path)
 		print("Extraction complete")
 		call_deferred("emit_signal", "download_percent", 100.0)
