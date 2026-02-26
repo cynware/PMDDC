@@ -14,20 +14,18 @@ extends Control
 
 var pokedex: Dictionary = {}
 var allowedDexNumCharacters = "0123456789"
-var downloader: PmdCollabDownloader
 var current_resolved_id: String = ""
 var portrait_credits: Dictionary = {}
 var artist_urls: Dictionary = {}
 
 const DOWNLOAD_SCREEN_BASE_TEXT = "[center]Oh, Hi! Would you like to download all portraits from [img]res://Assets/Images/PMDCollab.png[/img] [color=f8f800]PMDCollab[/color]?\n[color=9c9c9c](You can still use PMDDC while the download is going, hehe!)[/color]\nThe size of the download is: "
+const METADATA_URL = "https://raw.githubusercontent.com/cynware/PMDDC-Data/refs/heads/main/pmdcollabmeta.txt"
+
+# Signal to indicate when metadata size has been fetched or failed
+signal metadata_size_fetched(size_text: String)
 
 func _ready():
-	downloader = PmdCollabDownloader.new()
-	add_child(downloader)
-	
-	downloader.download_percent.connect(_on_download_percent)
-	downloader.size_fetched.connect(_on_size_fetched)
-	downloader.download_completed.connect(_on_download_completed)
+	self.connect("metadata_size_fetched", Callable(self, "_on_metadata_size_fetched"))
 	
 	var download_screen = get_node_or_null("../../../../../DownloadScreen")
 	if download_screen:
@@ -42,10 +40,7 @@ func _ready():
 		credits_label.meta_clicked.connect(func(meta): OS.shell_open(str(meta)))
 		credits_label.focus_mode = Control.FOCUS_NONE
 	
-	var bar = get_node_or_null("../LoadCollabPortraitBTN/Download_Bar")
-	if bar: bar.visible = false
-	
-	if PmdCollabDownloader.is_installed():
+	if is_collab_installed():
 		load_tracker_data()
 		load_credits_data()
 	
@@ -64,6 +59,9 @@ func _ready():
 		populate_collab_options()
 	
 	update_open_folder_button()
+
+func is_collab_installed() -> bool:
+	return FileAccess.file_exists("user://PMDCollab/tracker.json")
 
 func load_credits_data():
 	var path = "user://PMDCollab/spritebot_credits.txt"
@@ -376,7 +374,7 @@ func loadIconCollab(play_sound: bool = true):
 		if error_icon: error_icon.visible = true
 		if notice_screen:
 			var pkmn_name = pokedex[id].name
-			var errorText = "Whoo-hoops! You have to put your CD back in your computer!\n\nCould not find the portrait file for " + pkmn_name + " (" + emotion + ").\n\nMake sure the portrait database is fully downloaded."
+			var errorText = "Whoo-hoops! You have to put your CD back in your computer!\n\nCould not find the portrait file for " + pkmn.name + " (" + emotion + ").\n\nMake sure the portrait database is fully downloaded."
 			notice_screen.ShowNoticeScreen(errorText);
 		print("File not found: " + file_path)
 
@@ -413,7 +411,7 @@ func _on_collab_btn_pressed():
 	OS.shell_open("https://sprites.pmdcollab.org/")
 
 func _on_refresh_btn_pressed():
-	if PmdCollabDownloader.is_installed():
+	if is_collab_installed():
 		load_tracker_data()
 		load_credits_data()
 		populate_collab_options()
@@ -464,56 +462,58 @@ func _on_open_current_folder_pressed():
 		OS.shell_open(ProjectSettings.globalize_path(base_path))
 		SoundEffectManager.PlayFolder()
 
-func _set_download_buttons_disabled(disabled: bool):
-	if download_btn_collab_window:
-		download_btn_collab_window.disabled = disabled
-	if download_btn_main_tab:
-		download_btn_main_tab.disabled = disabled
+func fetch_metadata_size():
+	var http_request = HTTPRequest.new()
+	add_child(http_request)
+	
+	http_request.request_completed.connect(
+		func(result, response_code, headers, body):
+			var fetched_size_text = "Unknown" 
+			
+			if result == HTTPRequest.RESULT_SUCCESS and response_code == 200:
+				var text_content = body.get_string_from_utf8()
+				var lines = text_content.split("\n")
+				for line in lines:
+					var trimmed_line = line.strip_edges()
+					
+					if trimmed_line.begins_with("Total Size:") or trimmed_line.begins_with("Size:"):
+						var parts = trimmed_line.split(":", false)
+						if parts.size() > 1:
+							fetched_size_text = parts[1].strip_edges()
+							break 
+					elif fetched_size_text == "Unknown" and (trimmed_line.contains("MB") or trimmed_line.contains("GB")):
+						fetched_size_text = trimmed_line
+						break
+			else:
+				print("Failed to fetch metadata from ", METADATA_URL, ". Request Result: ", result, ", Response Code: ", response_code)
+			
+			emit_signal("metadata_size_fetched", fetched_size_text)
+			http_request.queue_free()
+	)
+	
+	var error = http_request.request(METADATA_URL)
+	if error != OK:
+		print("Error starting metadata request: ", error)
+		emit_signal("metadata_size_fetched", "Unknown")
+		http_request.queue_free()
 
 func _on_download_screen_visibility_changed():
-	var download_screen = get_node("../../../../../DownloadScreen")
-	if download_screen.visible:
+	var download_screen = get_node_or_null("../../../../../DownloadScreen")
+	if download_screen and download_screen.visible:
 		var info_text = get_node_or_null("../../../../../DownloadScreen/InfoBorder/InfoDisplay/InfoText")
 		if info_text:
 			info_text.text = DOWNLOAD_SCREEN_BASE_TEXT + "..."
-		downloader.fetch_size()
+			fetch_metadata_size()
 
-func _on_size_fetched(size_text):
+func _on_metadata_size_fetched(size_text: String):
 	var info_text = get_node_or_null("../../../../../DownloadScreen/InfoBorder/InfoDisplay/InfoText")
 	if info_text:
 		info_text.text = DOWNLOAD_SCREEN_BASE_TEXT + "[color=f8f800]" + size_text + "[/color]"
 
 func _on_download_yes_pressed():
-	var download_screen = get_node("../../../../../DownloadScreen")
-	if download_screen.visible:
+	var download_screen = get_node_or_null("../../../../../DownloadScreen")
+	if download_screen and download_screen.visible:
 		download_screen.visible = false
-		_set_download_buttons_disabled(true)
-		var bar = get_node_or_null("../LoadCollabPortraitBTN/Download_Bar")
-		if bar:
-			bar.visible = true
-			bar.value = 0
-		downloader.start_download()
-
-func _on_download_percent(value):
-	var bar = get_node_or_null("../LoadCollabPortraitBTN/Download_Bar")
-	if bar:
-		bar.visible = true
-		bar.value = value
-
-func _on_download_completed(success):
-	_set_download_buttons_disabled(false)
-	if success:
-		print("PMDCollab Download Completed Successfully!")
-		var bar = get_node_or_null("../LoadCollabPortraitBTN/Download_Bar")
-		if bar: bar.visible = false
-		load_tracker_data()
-		load_credits_data()
-		populate_collab_options()
-	else:
-		print("PMDCollab Download Failed.")
-		var bar = get_node_or_null("../LoadCollabPortraitBTN/Download_Bar")
-		if bar: bar.visible = false
 		
-		if notice_screen:
-			var errorText = "Whoo-hoops! You have to put your CD back in your computer!\n\nFailed to download or extract the PMDCollab portrait database. :(\n\nPlease check your internet connection and storage space, then try again."
-			notice_screen.ShowNoticeScreen(errorText);
+		
+		print("Download button pressed, but download functionality may have changed.")
