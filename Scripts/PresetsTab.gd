@@ -101,7 +101,7 @@ func SaveCurrentStateAsPreset():
 	preset.lastSource = portrait.get_node("Icon").get_meta("last_source", "local")
 	
 	if preset.lastSource == "collab":
-		preset.collabDexId = collabPortraitMenu.get_node("DexNum").text
+		preset.collabDexId = collabPortraitMenu.current_resolved_id
 		preset.collabForm = collabPortraitMenu.get_node("Form_Collab").text
 		preset.collabEmotion = collabPortraitMenu.get_node("Emotion_Collab").text
 	else:

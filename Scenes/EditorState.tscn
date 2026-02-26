@@ -4495,7 +4495,7 @@ scale = Vector2(1.25, 1.25)
 theme = ExtResource("5_qi2yv")
 texture_normal = ExtResource("34_tw0f3")
 
-[node name="PresetsTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("noticeScreen", "presetDropdown", "presetNameField", "dialogTab", "skinWindow", "portraitMenu", "localFolderDropdownLocal", "localEmotionDropdownLocal", "hidePortraitToggle", "flipPortraitButton", "portrait")]
+[node name="PresetsTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("noticeScreen", "presetDropdown", "presetNameField", "dialogTab", "skinWindow", "portraitMenu", "collabPortraitMenu", "localFolderDropdownLocal", "localEmotionDropdownLocal", "hidePortraitToggle", "flipPortraitButton", "portrait")]
 visible = false
 anchors_preset = 0
 offset_right = 176.0
@@ -4507,6 +4507,7 @@ presetNameField = NodePath("PresetName")
 dialogTab = NodePath("../DialogueTab")
 skinWindow = NodePath("../ThemesTab/BoxSkinWindow")
 portraitMenu = NodePath("../PortraitTab/LocalPorWindow")
+collabPortraitMenu = NodePath("../PortraitTab/CollabPorWindow")
 localFolderDropdownLocal = NodePath("../PortraitTab/LocalPorWindow/Emotion_LocalDir")
 localEmotionDropdownLocal = NodePath("../PortraitTab/LocalPorWindow/Emotion_LocalEmotion")
 hidePortraitToggle = NodePath("../PortraitTab/PortraitHide")
