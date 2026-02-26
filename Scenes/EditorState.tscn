@@ -3745,7 +3745,7 @@ text = "PMDCOLLAB REPOSITORY  "
 icon = ExtResource("106_kesd2")
 alignment = 2
 
-[node name="PMDColl_DownloadBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadCollabPortraitBTN"]
+[node name="PMDColl_DownloadBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadCollabPortraitBTN" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 17.0
 offset_top = 3.0
@@ -3929,7 +3929,7 @@ file_mode = 3
 access = 2
 use_native_dialog = true
 
-[node name="PMDColl_DownloadBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow"]
+[node name="PMDColl_DownloadBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 143.667
 offset_top = 3.0
