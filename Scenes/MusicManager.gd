@@ -41,7 +41,7 @@ func _on_ost_finished():
 			fadepoint = 153
 		1: # Revision
 			$OST.stream = load("res://Assets/Sounds/OST_PARTWAYS.wav")
-			AudioURL = "[url=https://soundcloud.com/parpmd2/partways-pick-your-part/s-Q4zrdWLPeLY] - Write Your Part![/url]"
+			AudioURL = "[url=https://soundcloud.com/parpmd2/write-your-part] - Write Your Part![/url]"
 			CreditURL = "[url=https://soundcloud.com/parpmd2/tracks][color=f8f800](Partways)[/color][/url]"
 			MusicLabel.text = "[center][img=12]res://Scenes/EditorState.tscn::AnimatedTexture_lqy4g[/img]" + AudioURL + "\n" + CreditURL + "[/center]"
 			fadepoint = 113
