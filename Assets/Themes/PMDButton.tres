@@ -16,6 +16,7 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xii81"]
 content_margin_left = 4.0
 content_margin_top = 1.0
+content_margin_right = 4.0
 texture = ExtResource("3_rfsii")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
@@ -26,6 +27,7 @@ axis_stretch_horizontal = 1
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xu5x0"]
 content_margin_left = 4.0
 content_margin_top = 1.0
+content_margin_right = 4.0
 texture = ExtResource("3_rfsii")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
@@ -36,6 +38,7 @@ axis_stretch_horizontal = 1
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6e408"]
 content_margin_left = 4.0
 content_margin_top = 1.0
+content_margin_right = 4.0
 texture = ExtResource("1_jtluw")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
@@ -46,6 +49,7 @@ axis_stretch_horizontal = 1
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x058d"]
 content_margin_left = 4.0
 content_margin_top = 1.0
+content_margin_right = 4.0
 texture = ExtResource("1_k2t4e")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
@@ -56,6 +60,7 @@ axis_stretch_horizontal = 1
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cql2m"]
 content_margin_left = 4.0
 content_margin_top = 1.0
+content_margin_right = 4.0
 texture = ExtResource("3_rfsii")
 texture_margin_left = 1.0
 texture_margin_top = 1.0

@@ -21,8 +21,8 @@ var colorSwatches:Array[Color] = [
 	Color(Color.WHITE),
 	Color("F8F800"),
 	Color("0098F8"),
-	Color(0, 152, 248, 1),
-	Color(0, 255, 0, 1)
+	Color("00ffff"),
+	Color("00ff00")
 ]
 
 func _ready():

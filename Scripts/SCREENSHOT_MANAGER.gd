@@ -4,6 +4,7 @@ extends Node
 @onready var saveWindow:FileDialog = $SaveWindow;
 
 @export var transparentBackgroundToggle:CheckBox;
+@export var export_cropbox:CheckBox;
 @export var resolutionMultiplierDropdown:OptionButton;
 
 # so we can hide them for the screenshot
@@ -21,7 +22,8 @@ func _ready():
 	DisplayServer.window_set_min_size(Vector2(256, 192));
 	
 	resolutionMultiplierDropdown.selected = Preferences.export_ResolutionMultiplier;
-	transparentBackgroundToggle.button_pressed = Preferences.export_transparentBackground
+	transparentBackgroundToggle.button_pressed = Preferences.export_transparentBackground;
+	export_cropbox.button_pressed = Preferences.export_cropbox
 	
 func _process(delta):
 	#if Input.is_action_just_pressed("ResetWindowSize"):
@@ -44,8 +46,16 @@ func takeTransparentScreenshot():
 	await RenderingServer.frame_post_draw
 	
 	var img = viewport.get_texture().get_image()
+	
 	var markiplier := int(resolutionMultiplierDropdown.selected)+1;
-	img.resize(256 * markiplier, 192 * markiplier, Image.INTERPOLATE_NEAREST)
+	
+	if $"../Settings/SettingsMenu/SettingsPanel/Page2/CropBoxToggle".button_pressed == true:
+		var rect = get_node_rect($"../PMD_Main/Textbox")
+		img = img.get_region(rect)
+		img.resize((img.get_width() / 3) * markiplier, (img.get_height() / 3) * markiplier, Image.INTERPOLATE_NEAREST)
+	else:
+		img.resize(256 * markiplier, 192 * markiplier, Image.INTERPOLATE_NEAREST)
+		
 	capture = img;
 	
 	background.visible = true;
@@ -72,8 +82,15 @@ func _on_export_resolution_multiplier_item_selected(index):
 func _on_transparent_background_toggled(toggled_on):
 	Preferences.export_transparentBackground = toggled_on;
 
+func _on_box_crop_toggled(toggled_on):
+	Preferences.export_cropbox = toggled_on;
 
 func _on_save_pressed():
 	takeTransparentScreenshot();
 	$"../Save/SaveSprite".play("saver")
 	SoundEffectManager.PlaySavePreset()
+	
+func get_node_rect(node: Node2D) -> Rect2:
+	var global_pos = $"../PMD_Main/Textbox".get_global_transform_with_canvas().origin
+	var tex_size = $"../PMD_Main/Textbox".texture.get_size() * 3
+	return Rect2(global_pos - tex_size * 0.5, tex_size)

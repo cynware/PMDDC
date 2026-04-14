@@ -1,13 +1,18 @@
 class_name Preset extends Resource
 
 @export var prefix:String;
+@export var prefixEnabled:bool;
 @export var prefixColor:String;
 @export var text:String;
 
 @export var skinName:String;
 @export var skinGender:int; # 1 = male, 2 = female, 3 = non-binary
 
-@export var pmdCollabPortraitURL:String;
+@export var lastSource:String; # "collab" or "local"
+
+@export var collabDexId:String;
+@export var collabForm:String;
+@export var collabEmotion:String;
 
 @export var customPortraitName:String;
 @export var customPortraitEmotion:String;

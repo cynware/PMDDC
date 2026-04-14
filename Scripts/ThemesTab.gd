@@ -25,8 +25,12 @@ func onCollabPortraitWindowClose():
 	$"../PortraitTab/CollabPorWindow".visible = false;
 	SoundEffectManager.PlayAccept();
 func onCollabPortraitWindowOpen():
-	$"../PortraitTab/CollabPorWindow".visible = true;
-	SoundEffectManager.PlayCancel();
+	if PmdCollabDownloader.is_installed():
+		$"../PortraitTab/CollabPorWindow".visible = true;
+		SoundEffectManager.PlayCancel();
+	else:
+		$"../../../../DownloadScreen".visible = true;
+		SoundEffectManager.PlayAccept();
 
 	
 func onBoxSkinWindowClose():
@@ -39,12 +43,29 @@ func onBoxSkinWindowOpen():
 	SoundEffectManager.PlayAccept();
 
 func on_portrait_flip():
+	var icon_node = $"../../../../PMD_Main/Portrait/Icon"
+	
 	if $PortraitFlip.button_pressed:
-		$"../../../../PMD_Main/Portrait/Icon".scale.x = -1;
+		icon_node.scale.x = -1;
 		SoundEffectManager.PlayCheckboxOn()
 	else:
-		$"../../../../PMD_Main/Portrait/Icon".scale.x = 1;
+		icon_node.scale.x = 1;
 		SoundEffectManager.PlayCheckboxOff()
+	
+	var source = icon_node.get_meta("last_source", "")
+	
+	if source == "collab":
+		var collab_window = get_node_or_null("CollabPorWindow")
+		if not collab_window:
+			collab_window = get_node_or_null("../PortraitTab/CollabPorWindow")
+		if collab_window:
+			collab_window.update_emotion_options(false, true)
+	elif source == "local":
+		var local_window = get_node_or_null("LocalPorWindow")
+		if not local_window:
+			local_window = get_node_or_null("../PortraitTab/LocalPorWindow")
+		if local_window:
+			local_window.loadIconLocal()
 		
 
 func _on_custom_background_btn_pressed():
@@ -163,4 +184,6 @@ func _on_textbox_hidden(toggled_on):
 
 func _on_pmd_coll_download_btn_pressed():
 	SoundEffectManager.PlayFolder()
+	
 	$"../../../../DownloadScreen".visible = true
+	$"../../../../DownloadScreen".randomicon()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=410 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=409 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -100,8 +100,6 @@
 [ext_resource type="Script" path="res://Scripts/InsertUnicodeBTN.gd" id="44_cmomk"]
 [ext_resource type="Texture2D" uid="uid://0iqgooliert0" path="res://Assets/Images/right_align.png" id="44_jo553"]
 [ext_resource type="Texture2D" uid="uid://c6cqe3x1rbhu4" path="res://Assets/Images/Template/Sad.png" id="44_ot21h"]
-[ext_resource type="Script" path="res://Scripts/UnownTyper.gd" id="44_re0y6"]
-[ext_resource type="Texture2D" uid="uid://ccus4wkjrmxyy" path="res://Assets/Images/spd_3.png" id="45_64a3n"]
 [ext_resource type="Texture2D" uid="uid://bewad4ai343at" path="res://Assets/Images/Template/Shouting.png" id="45_c04ku"]
 [ext_resource type="Texture2D" uid="uid://5t1n7mrmrkpi" path="res://Assets/Images/Template/Sigh.png" id="46_lfj07"]
 [ext_resource type="Texture2D" uid="uid://1qskq0wfvhc1" path="res://Assets/Images/Template/Special0.png" id="47_vwl7f"]
@@ -124,7 +122,9 @@
 [ext_resource type="Texture2D" uid="uid://dfdvy16n57pw2" path="res://Assets/Images/default_bgs/2.png" id="70_hnink"]
 [ext_resource type="Texture2D" uid="uid://wcn4prjuv4cm" path="res://Assets/Images/default_bgs/3.png" id="71_ujchj"]
 [ext_resource type="Texture2D" uid="uid://bqao3n63d7nj7" path="res://Assets/Images/default_bgs/4.png" id="72_4mucd"]
+[ext_resource type="Texture2D" uid="uid://dbmnd30rndf3b" path="res://Assets/Images/symbols/note1.png" id="72_pmr35"]
 [ext_resource type="Texture2D" uid="uid://c8xdjqki6gmgo" path="res://Assets/Images/default_bgs/5.png" id="73_4fxy3"]
+[ext_resource type="Texture2D" uid="uid://dpgvcflyk54qu" path="res://Assets/Images/symbols/note2.png" id="73_i8g7w"]
 [ext_resource type="Texture2D" uid="uid://blnbx8qbd5fl6" path="res://Assets/Images/speaker_3.png" id="73_xf746"]
 [ext_resource type="Texture2D" uid="uid://v3tk0jxwtxlr" path="res://PmdSkins/ExplorersOfSky/Female/box.png" id="74_oh7sq"]
 [ext_resource type="Texture2D" uid="uid://rs08c4ommupi" path="res://Assets/Images/default_bgs/6.png" id="74_vut51"]
@@ -161,16 +161,14 @@
 [ext_resource type="Theme" uid="uid://dsc1ij8moovpg" path="res://Assets/Themes/PMDButton.tres" id="106_82bab"]
 [ext_resource type="Texture2D" uid="uid://jy67laiu7kn" path="res://Assets/Images/PMDCollab.png" id="106_kesd2"]
 [ext_resource type="Texture2D" uid="uid://c5ckj4meoegdn" path="res://Assets/Images/default_bgs/FootprintRunes.png" id="106_l13p0"]
-[ext_resource type="AudioStream" uid="uid://djs0qxywnom4b" path="res://Assets/Sounds/Writing's A Mystery.wav" id="106_mwxem"]
 [ext_resource type="Texture2D" uid="uid://davlvqytoh330" path="res://Assets/Images/Local.png" id="107_cgcba"]
 [ext_resource type="Texture2D" uid="uid://bberd777e0olj" path="res://Assets/Images/default_bgs/beach_sunset_preview.png" id="107_ftcy0"]
 [ext_resource type="Texture2D" uid="uid://cx55ktdybwk0c" path="res://Assets/Images/default_bgs/beach_cavemouth_preview.png" id="109_g1b0j"]
 [ext_resource type="Texture2D" uid="uid://crhkr2e5s8u7c" path="res://Assets/Images/default_bgs/sharpedo_bluff.png" id="110_cshex"]
 [ext_resource type="Texture2D" uid="uid://djc3j6snxlaoc" path="res://Assets/Images/default_bgs/time_travel_preview.png" id="111_oh623"]
-[ext_resource type="Texture2D" uid="uid://d3lihkq3n7wa4" path="res://Assets/Images/Error_Shocked.png" id="112_opyju"]
+[ext_resource type="Texture2D" uid="uid://dsh4jwnupd1nw" path="res://Assets/Images/Error_Shocked.png" id="112_opyju"]
 [ext_resource type="Texture2D" uid="uid://bd381xgme446w" path="res://Assets/Images/PMDCollab_pressed.png" id="112_y1oxe"]
 [ext_resource type="Script" path="res://Scripts/NoticeManager.gd" id="113_cordu"]
-[ext_resource type="Texture2D" uid="uid://bg6i4ox514e3q" path="res://Assets/Images/save.png" id="113_v4soi"]
 [ext_resource type="Texture2D" uid="uid://dxocs5ttthrk7" path="res://Assets/Images/LogoGithub.png" id="114_kf8gs"]
 [ext_resource type="Texture2D" uid="uid://w83ibpmub3h6" path="res://Assets/Images/LogoItch.png" id="115_5mbxs"]
 [ext_resource type="Texture2D" uid="uid://cvl8t10uahj03" path="res://Assets/Images/default_bgs/skies_cliffs.png" id="115_f5fc1"]
@@ -180,7 +178,11 @@
 [ext_resource type="Texture2D" uid="uid://idc1p6ikqgi7" path="res://Assets/Images/progressbar_over.png" id="118_t7tk3"]
 [ext_resource type="Texture2D" uid="uid://bigq7k8pjdu14" path="res://Assets/Images/progressbar_progress.png" id="119_tsut3"]
 [ext_resource type="Script" path="res://Scripts/PmdCollabHandler.gd" id="133_0wtcu"]
-[ext_resource type="Texture2D" uid="uid://cskegma3a265l" path="res://Assets/Images/bidoof.png" id="176_ych8s"]
+[ext_resource type="Script" path="res://Scenes/MusicManager.gd" id="172_ep38c"]
+[ext_resource type="Texture2D" uid="uid://cn02erddyygqs" path="res://Assets/Images/Error_Shocked_2.png" id="174_do2fn"]
+[ext_resource type="Texture2D" uid="uid://rg6o3hstn3w2" path="res://Assets/Images/NOTICE.png" id="176_xqdw4"]
+[ext_resource type="Script" path="res://Scenes/DownloadScreen.gd" id="178_jbic7"]
+[ext_resource type="Texture2D" uid="uid://coa5buummlqts" path="res://Assets/Images/NOTICE_2.png" id="180_rmfv8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s71i0"]
 atlas = ExtResource("8_rl3y6")
@@ -1701,12 +1703,14 @@ animations = [{
 shader = ExtResource("6_q7upt")
 shader_parameter/lod = 1.0
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_ryfqc"]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_lqy4g"]
 frames = 2
-frame_0/texture = ExtResource("67_uwkq2")
+frame_0/texture = ExtResource("72_pmr35")
 frame_0/duration = 0.27
-frame_1/texture = ExtResource("76_yi84w")
+frame_1/texture = ExtResource("73_i8g7w")
 frame_1/duration = 0.27
+
+[sub_resource type="GDScript" id="GDScript_lugwd"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_qmomk"]
 
@@ -1804,11 +1808,14 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_43upc"]
 
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_3tcer"]
+
 [node name="EditorState" type="Node2D"]
 
-[node name="SCREENSHOT MANAGER" type="Node" parent="." node_paths=PackedStringArray("transparentBackgroundToggle", "resolutionMultiplierDropdown", "background", "debugMenu", "settingsButton", "saveButton")]
+[node name="SCREENSHOT MANAGER" type="Node" parent="." node_paths=PackedStringArray("transparentBackgroundToggle", "export_cropbox", "resolutionMultiplierDropdown", "background", "debugMenu", "settingsButton", "saveButton")]
 script = ExtResource("1_8ny4k")
 transparentBackgroundToggle = NodePath("../Settings/SettingsMenu/SettingsPanel/Page2/TransparentBackground")
+export_cropbox = NodePath("../Settings/SettingsMenu/SettingsPanel/Page2/CropBoxToggle")
 resolutionMultiplierDropdown = NodePath("../Settings/SettingsMenu/SettingsPanel/Page2/ExportResolutionMultiplier")
 background = NodePath("../BgColour")
 debugMenu = NodePath("../PMD_Debug")
@@ -2594,7 +2601,6 @@ popup/item_2/text = "Medium"
 popup/item_2/icon = ExtResource("44_35v56")
 popup/item_2/id = 1
 popup/item_3/text = "Vanilla"
-popup/item_3/icon = ExtResource("45_64a3n")
 popup/item_3/id = 2
 script = ExtResource("30_e868e")
 
@@ -3262,13 +3268,17 @@ stretch_mode = 0
 script = ExtResource("11_ouwkk")
 textEdit = NodePath("../../TextboxEdit")
 
-[node name="UI_Arrow2" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
-layout_mode = 0
-offset_left = 75.9999
-offset_top = 48.0
-offset_right = 80.9999
-offset_bottom = 58.0
-texture_normal = SubResource("AnimatedTexture_ryfqc")
+[node name="MusicNote" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/SymbolWindow" node_paths=PackedStringArray("textEdit") groups=["UI_BUTTONS"]]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 75.6667
+offset_top = -49.6667
+offset_right = 84.6667
+offset_bottom = -39.6667
+grow_vertical = 0
+texture_normal = SubResource("AnimatedTexture_lqy4g")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("11_ouwkk")
@@ -3447,7 +3457,7 @@ visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
-script = ExtResource("44_re0y6")
+script = SubResource("GDScript_lugwd")
 
 [node name="Blur" type="ColorRect" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow"]
 material = SubResource("ShaderMaterial_75fvv")
@@ -3691,7 +3701,7 @@ uri = "https://www.dafont.com/wonder-mail.charmap"
 
 [node name="UnownModeToggleBTN" type="CheckBox" parent="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 98.0003
+offset_left = 95.0002
 offset_top = 2.0
 offset_right = 173.0
 offset_bottom = 20.0
@@ -3764,7 +3774,7 @@ offset_top = 1.25
 offset_right = 16.6667
 offset_bottom = 16.25
 
-[node name="LoadPortraitBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" groups=["UI_BUTTONS"]]
+[node name="LoadCollabPortraitBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 19.0
@@ -3776,7 +3786,7 @@ text = "PMDCOLLAB REPOSITORY  "
 icon = ExtResource("106_kesd2")
 alignment = 2
 
-[node name="PMDColl_DownloadBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadPortraitBTN"]
+[node name="PMDColl_DownloadBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadCollabPortraitBTN" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 17.0
 offset_top = 3.0
@@ -3785,7 +3795,19 @@ offset_bottom = 14.0
 texture_normal = ExtResource("88_swepr")
 texture_pressed = ExtResource("89_8t3bs")
 
-[node name="LoadPortraitBTN2" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" groups=["UI_BUTTONS"]]
+[node name="Download_Bar" type="TextureProgressBar" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadCollabPortraitBTN"]
+layout_mode = 0
+offset_left = 39.3333
+offset_top = 4.0
+offset_right = 153.333
+offset_bottom = 12.0
+rounded = true
+nine_patch_stretch = true
+texture_under = ExtResource("117_garwa")
+texture_over = ExtResource("118_t7tk3")
+texture_progress = ExtResource("119_tsut3")
+
+[node name="LoadLocalPortraitBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 40.0
@@ -3819,18 +3841,6 @@ scale = Vector2(0.75, 0.75)
 theme = ExtResource("106_82bab")
 text = "Flip"
 alignment = 1
-
-[node name="Download_Bar" type="TextureProgressBar" parent="PMD_Debug/DebugTab/Tabs/PortraitTab"]
-layout_mode = 0
-offset_left = 47.0
-offset_top = 23.0
-offset_right = 161.0
-offset_bottom = 31.0
-rounded = true
-nine_patch_stretch = true
-texture_under = ExtResource("117_garwa")
-texture_over = ExtResource("118_t7tk3")
-texture_progress = ExtResource("119_tsut3")
 
 [node name="CollabPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab"]
 visible = false
@@ -3881,9 +3891,9 @@ offset_bottom = 20.3333
 [node name="DexNum" type="LineEdit" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow"]
 layout_mode = 0
 offset_left = 5.0
-offset_top = 29.0
+offset_top = 24.3333
 offset_right = 154.0
-offset_bottom = 49.0
+offset_bottom = 44.3333
 scale = Vector2(0.8, 0.8)
 theme = ExtResource("5_qi2yv")
 placeholder_text = "Pokédex# or Pokémon Name"
@@ -3891,83 +3901,38 @@ placeholder_text = "Pokédex# or Pokémon Name"
 [node name="Emotion_Collab" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 5.0
-offset_top = 47.0
+offset_top = 42.3333
 offset_right = 105.0
-offset_bottom = 67.0
+offset_bottom = 63.3333
 scale = Vector2(0.8, 0.8)
 tooltip_text = "The selected emotion you want to load from PMDCollab."
 theme = ExtResource("106_82bab")
 alignment = 1
-item_count = 20
+text_overrun_behavior = 3
+item_count = 1
 selected = 0
+fit_to_longest_item = false
 popup/item_0/text = "Normal"
 popup/item_0/id = 0
-popup/item_1/text = "Angry"
-popup/item_1/id = 1
-popup/item_2/text = "Crying"
-popup/item_2/id = 2
-popup/item_3/text = "Determined"
-popup/item_3/id = 3
-popup/item_4/text = "Dizzy"
-popup/item_4/id = 4
-popup/item_5/text = "Happy"
-popup/item_5/id = 5
-popup/item_6/text = "Inspired"
-popup/item_6/id = 6
-popup/item_7/text = "Joyous"
-popup/item_7/id = 7
-popup/item_8/text = "Pain"
-popup/item_8/id = 8
-popup/item_9/text = "Sad"
-popup/item_9/id = 9
-popup/item_10/text = "Shouting"
-popup/item_10/id = 10
-popup/item_11/text = "Sigh"
-popup/item_11/id = 11
-popup/item_12/text = "Special0"
-popup/item_12/id = 12
-popup/item_13/text = "Special1"
-popup/item_13/id = 13
-popup/item_14/text = "Special2"
-popup/item_14/id = 14
-popup/item_15/text = "Special3"
-popup/item_15/id = 15
-popup/item_16/text = "Stunned"
-popup/item_16/id = 16
-popup/item_17/text = "Surprised"
-popup/item_17/id = 17
-popup/item_18/text = "Teary-Eyed"
-popup/item_18/id = 18
-popup/item_19/text = "Worried"
-popup/item_19/id = 19
 script = ExtResource("30_e868e")
 
 [node name="Form_Collab" type="OptionButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 91.0
-offset_top = 47.0
+offset_top = 42.3333
 offset_right = 191.0
-offset_bottom = 67.0
+offset_bottom = 63.3333
 scale = Vector2(0.8, 0.8)
 tooltip_text = "The Pokémon's form."
 theme = ExtResource("106_82bab")
 alignment = 1
+text_overrun_behavior = 3
 item_count = 1
 selected = 0
+fit_to_longest_item = false
 popup/item_0/text = "FORM HERE"
 popup/item_0/id = 0
 script = ExtResource("30_e868e")
-
-[node name="Portrait_COLLABBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 65.3333
-offset_right = 212.0
-offset_bottom = 80.3333
-scale = Vector2(0.8, 0.8)
-focus_mode = 0
-theme = ExtResource("106_82bab")
-text = "LOAD"
 
 [node name="CollabBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
@@ -4005,38 +3970,54 @@ file_mode = 3
 access = 2
 use_native_dialog = true
 
-[node name="RefreshBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
+[node name="PMDColl_DownloadBTN" type="TextureButton" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
-offset_left = 142.667
+offset_left = 143.667
 offset_top = 3.0
 offset_right = 154.667
 offset_bottom = 14.0
-texture_normal = ExtResource("60_j7wfn")
-texture_pressed = ExtResource("61_f1ugg")
+texture_normal = ExtResource("88_swepr")
+texture_pressed = ExtResource("89_8t3bs")
 
 [node name="CloseBTN" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 68.0
-offset_top = 84.0
-offset_right = 119.0
-offset_bottom = 99.0
+offset_top = 84.3333
+offset_right = 122.0
+offset_bottom = 99.3333
 scale = Vector2(0.7, 0.7)
 focus_mode = 0
 theme = ExtResource("106_82bab")
 text = "CLOSE "
 icon = ExtResource("94_od227")
 
-[node name="Button" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
+[node name="OpenCurrentFolder" type="Button" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" groups=["UI_BUTTONS"]]
 layout_mode = 0
 offset_left = 125.0
-offset_top = 29.3333
+offset_top = 24.3333
 offset_right = 182.0
-offset_bottom = 49.3333
+offset_bottom = 44.3333
 scale = Vector2(0.8, 0.8)
-tooltip_text = "Exports all of the named Pokémon's Portraits to your local directory."
+tooltip_text = "Brings you to the selected Pokémon's directory."
 theme = ExtResource("106_82bab")
-text = "SAVE"
-icon = ExtResource("113_v4soi")
+text = "OPEN"
+icon = ExtResource("35_at0t2")
+icon_alignment = 2
+
+[node name="SpriteCredits" type="RichTextLabel" parent="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 63.3333
+offset_right = 241.0
+offset_bottom = 90.3334
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+bbcode_enabled = true
+meta_underlined = false
+hint_underlined = false
 
 [node name="LocalPorWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/PortraitTab" node_paths=PackedStringArray("icon", "localFolderDropdownLocal", "localEmotionDropdownLocal", "errorIcon")]
 visible = false
@@ -4555,7 +4536,7 @@ scale = Vector2(1.25, 1.25)
 theme = ExtResource("5_qi2yv")
 texture_normal = ExtResource("34_tw0f3")
 
-[node name="PresetsTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("noticeScreen", "presetDropdown", "presetNameField", "dialogTab", "skinWindow", "portraitMenu", "localFolderDropdownLocal", "localEmotionDropdownLocal", "hidePortraitToggle", "flipPortraitButton", "portrait")]
+[node name="PresetsTab" type="Control" parent="PMD_Debug/DebugTab/Tabs" node_paths=PackedStringArray("noticeScreen", "presetDropdown", "presetNameField", "dialogTab", "skinWindow", "portraitMenu", "collabPortraitMenu", "localFolderDropdownLocal", "localEmotionDropdownLocal", "hidePortraitToggle", "flipPortraitButton", "portrait")]
 visible = false
 anchors_preset = 0
 offset_right = 176.0
@@ -4567,6 +4548,7 @@ presetNameField = NodePath("PresetName")
 dialogTab = NodePath("../DialogueTab")
 skinWindow = NodePath("../ThemesTab/BoxSkinWindow")
 portraitMenu = NodePath("../PortraitTab/LocalPorWindow")
+collabPortraitMenu = NodePath("../PortraitTab/CollabPorWindow")
 localFolderDropdownLocal = NodePath("../PortraitTab/LocalPorWindow/Emotion_LocalDir")
 localEmotionDropdownLocal = NodePath("../PortraitTab/LocalPorWindow/Emotion_LocalEmotion")
 hidePortraitToggle = NodePath("../PortraitTab/PortraitHide")
@@ -4697,7 +4679,6 @@ offset_bottom = 81.0
 tooltip_text = "Opens the settings menu."
 theme = ExtResource("5_qi2yv")
 script = ExtResource("60_isgay")
-metadata/_edit_use_anchors_ = true
 
 [node name="GearSprite" type="AnimatedSprite2D" parent="Settings"]
 position = Vector2(36, 36)
@@ -4744,6 +4725,7 @@ offset_top = 4.0
 offset_right = 124.0
 offset_bottom = 129.0
 color = Color(0.12549, 0.12549, 0.12549, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="WindowSizeHeader" type="Label" parent="Settings/SettingsMenu/SettingsPanel/Page1"]
 layout_mode = 0
@@ -4866,6 +4848,21 @@ theme = ExtResource("106_82bab")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_43upc")
 button_pressed = true
 text = "Transparent Background "
+flat = true
+alignment = 1
+icon_alignment = 1
+
+[node name="CropBoxToggle" type="CheckBox" parent="Settings/SettingsMenu/SettingsPanel/Page2" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 8.33334
+offset_top = 71.0
+offset_right = 146.333
+offset_bottom = 93.0
+scale = Vector2(0.76, 0.76)
+tooltip_text = "Enabling this will crop your export to just be the PMD Dialogue Box. This will exclude the Portrait and Background from the export."
+theme = ExtResource("106_82bab")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_43upc")
+text = "Crop to Dialogue Box"
 flat = true
 alignment = 1
 icon_alignment = 1
@@ -5050,6 +5047,7 @@ offset_top = 118.0
 offset_right = 473.0
 offset_bottom = 129.0
 scale = Vector2(3, 3)
+focus_mode = 0
 texture_normal = ExtResource("67_uwkq2")
 
 [node name="BuildNum" type="Label" parent="Settings/SettingsMenu"]
@@ -5064,16 +5062,31 @@ theme_override_colors/font_color = Color(1, 1, 1, 0.345098)
 text = "v0.0.0"
 horizontal_alignment = 2
 
-[node name="SOUND" type="Control" parent="."]
+[node name="MUSICLABEL" type="RichTextLabel" parent="Settings/SettingsMenu"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 383.0
+offset_bottom = 45.0
+scale = Vector2(2, 2)
+theme = ExtResource("5_qi2yv")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+bbcode_enabled = true
+text = "[center][img=12]res://Scenes/EditorState.tscn::AnimatedTexture_lqy4g[/img] - Writing's A Mystery
+(NoOneDoesStuff)[/center]"
+meta_underlined = false
+
+[node name="SOUND" type="Control" parent="." node_paths=PackedStringArray("MusicLabel")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("172_ep38c")
+MusicLabel = NodePath("../Settings/SettingsMenu/MUSICLABEL")
 
-[node name="MUSIC" type="AudioStreamPlayer" parent="SOUND"]
-stream = ExtResource("106_mwxem")
-volume_db = -20.937
-autoplay = true
+[node name="OST" type="AudioStreamPlayer" parent="SOUND"]
+stream = SubResource("AudioStreamWAV_3tcer")
+volume_db = -80.0
 bus = &"Music"
 
 [node name="NoticeScreen" type="Control" parent="." node_paths=PackedStringArray("infoText", "gitButton", "itchButton", "closeButton")]
@@ -5097,6 +5110,7 @@ itchButton = NodePath("InfoBorder/InfoDisplay/DownloadItch")
 closeButton = NodePath("InfoBorder/InfoDisplay/CloseBTN")
 normalCloseButtonPosition = Vector2(91, 83)
 updateAvailableCloseButtonPosition = Vector2(158, 83)
+PortraitNotice = Array[Texture2D]([ExtResource("112_opyju"), ExtResource("174_do2fn")])
 
 [node name="Dark" type="ColorRect" parent="NoticeScreen"]
 layout_mode = 1
@@ -5217,7 +5231,7 @@ offset_right = 44.0
 offset_bottom = 44.3333
 texture = ExtResource("112_opyju")
 
-[node name="DownloadScreen" type="Control" parent="." node_paths=PackedStringArray("infoText", "gitButton", "itchButton", "closeButton")]
+[node name="DownloadScreen" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 8
@@ -5231,13 +5245,8 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("113_cordu")
-infoText = NodePath("../NoticeScreen/InfoBorder/InfoDisplay/InfoText")
-gitButton = NodePath("../NoticeScreen/InfoBorder/InfoDisplay/DownloadGithub")
-itchButton = NodePath("../NoticeScreen/InfoBorder/InfoDisplay/DownloadItch")
-closeButton = NodePath("../NoticeScreen/InfoBorder/InfoDisplay/CloseBTN")
-normalCloseButtonPosition = Vector2(91, 83)
-updateAvailableCloseButtonPosition = Vector2(158, 83)
+script = ExtResource("178_jbic7")
+PortraitNotice = Array[Texture2D]([ExtResource("176_xqdw4"), ExtResource("180_rmfv8")])
 
 [node name="Dark" type="ColorRect" parent="DownloadScreen"]
 layout_mode = 1
@@ -5289,8 +5298,8 @@ theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_constants/shadow_outline_size = 1
 bbcode_enabled = true
-text = "[center]By golly! Would you like to download all portraits from [img]res://Assets/Images/PMDCollab.png[/img] [color=f8f800]PMDCollab[/color]?
-[color=9c9c9c](You can still use PMDDC while the download is going, yup yup!)[/color]
+text = "[center]Oh, Hi! Would you like to download all portraits from [img]res://Assets/Images/PMDCollab.png[/img] [color=f8f800]PMDCollab[/color]?
+[color=9c9c9c](You can still use PMDDC while the download is going, hehe!)[/color]
 The size of the download is:"
 
 [node name="YesBTN" type="Button" parent="DownloadScreen/InfoBorder/InfoDisplay" groups=["UI_BUTTONS"]]
@@ -5319,34 +5328,6 @@ theme = ExtResource("106_82bab")
 text = "No, thanks! "
 icon = ExtResource("34_ofqea")
 
-[node name="DownloadGithub" type="Button" parent="DownloadScreen/InfoBorder/InfoDisplay" groups=["UI_BUTTONS"]]
-visible = false
-layout_mode = 0
-offset_left = 89.0
-offset_top = 82.3333
-offset_right = 180.0
-offset_bottom = 102.333
-scale = Vector2(0.7, 0.7)
-pivot_offset = Vector2(25.8892, 10.7289)
-focus_mode = 0
-theme = ExtResource("5_qi2yv")
-text = "GET ON GITHUB"
-icon = ExtResource("114_kf8gs")
-
-[node name="DownloadItch" type="Button" parent="DownloadScreen/InfoBorder/InfoDisplay" groups=["UI_BUTTONS"]]
-visible = false
-layout_mode = 0
-offset_left = 19.0
-offset_top = 82.6667
-offset_right = 111.0
-offset_bottom = 102.667
-scale = Vector2(0.7, 0.7)
-pivot_offset = Vector2(25.8892, 10.7289)
-focus_mode = 0
-theme = ExtResource("5_qi2yv")
-text = "GET ON ITCH.IO"
-icon = ExtResource("115_5mbxs")
-
 [node name="InfoPortraitBorder" type="TextureRect" parent="DownloadScreen/InfoBorder"]
 layout_mode = 1
 anchors_preset = 5
@@ -5359,13 +5340,13 @@ offset_bottom = -5.33334
 grow_horizontal = 2
 texture = ExtResource("21_a8dco")
 
-[node name="ErrorPortrait" type="TextureRect" parent="DownloadScreen/InfoBorder/InfoPortraitBorder"]
+[node name="InfoPortrait" type="TextureRect" parent="DownloadScreen/InfoBorder/InfoPortraitBorder"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.33334
 offset_right = 44.0
 offset_bottom = 44.3333
-texture = ExtResource("176_ych8s")
+texture = ExtResource("176_xqdw4")
 
 [connection signal="file_selected" from="SCREENSHOT MANAGER/SaveWindow" to="SCREENSHOT MANAGER" method="_on_save_window_file_selected"]
 [connection signal="button_down" from="PMD_Main/Portrait/PortraitHoverButton" to="PMD_Main/Portrait" method="_on_button_button_down"]
@@ -5384,7 +5365,7 @@ texture = ExtResource("176_ych8s")
 [connection signal="button_down" from="PMD_Debug/DialogueTAB_BTN/DialogueTAB_BTN2" to="PMD_Debug/DialogueTAB_BTN/DialogueTAB_BTN2" method="_on_button_down"]
 [connection signal="button_up" from="PMD_Debug/DialogueTAB_BTN/DialogueTAB_BTN2" to="PMD_Debug/DialogueTAB_BTN/DialogueTAB_BTN2" method="_on_button_up"]
 [connection signal="pressed" from="PMD_Debug/DialogueTAB_BTN/DialogueTAB_BTN2" to="PMD_Debug" method="dialogue_tab_pressed"]
-[connection signal="gui_input" from="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG/Backend_Editor" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_textbox_edit_gui_input"]
+[connection signal="gui_input" from="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG/Backend_Editor" to="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG" method="_on_textbox_edit_gui_input"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG/Backend_Editor" to="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG" method="_on_text_changed"]
 [connection signal="gui_input" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_textbox_edit_gui_input"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/TextboxEdit" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onTextboxEditChanged"]
@@ -5431,19 +5412,18 @@ texture = ExtResource("176_ych8s")
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/InfinityBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/InfinityBTN" method="OnUnicodePressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/TripleDotBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/TripleDotBTN" method="OnUnicodePressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab" method="onSymbolWindowClose"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/UnownModeToggleBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow" method="_on_unown_mode_toggle_pressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/DialogueTab/UnicodeWindow/UnownModeToggleBTN" to="PMD_Debug/DebugTab/Tabs/DialogueTab/WYSIWYG" method="_on_unown_mode_toggle_pressed"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PORTRAITALIGNMENT" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_alignment_selected"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadPortraitBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="onCollabPortraitWindowOpen"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadPortraitBTN/PMDColl_DownloadBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_pmd_coll_download_btn_pressed"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadPortraitBTN2" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="onLocalPortraitWindowOpen"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadCollabPortraitBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="onCollabPortraitWindowOpen"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadCollabPortraitBTN/PMDColl_DownloadBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_pmd_coll_download_btn_pressed"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LoadLocalPortraitBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="onLocalPortraitWindowOpen"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitHide" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_portrait_hide_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/PortraitFlip" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="on_portrait_flip"]
 [connection signal="text_changed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/DexNum" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="OnDexNumChanged"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/Emotion_Collab" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="_on_emotion_collab_item_selected"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/Portrait_COLLABBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="loadIconCollab"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/CollabBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="_on_collab_btn_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/FolderBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="openCustomIconFolder"]
-[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/RefreshBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow" method="OnRefresh"]
+[connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/PMDColl_DownloadBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="_on_pmd_coll_download_btn_pressed"]
 [connection signal="pressed" from="PMD_Debug/DebugTab/Tabs/PortraitTab/CollabPorWindow/CloseBTN" to="PMD_Debug/DebugTab/Tabs/PortraitTab" method="onCollabPortraitWindowClose"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LocalPorWindow/Emotion_LocalDir" to="PMD_Debug/DebugTab/Tabs/PortraitTab/LocalPorWindow" method="OnFolderSelectedChanged"]
 [connection signal="item_selected" from="PMD_Debug/DebugTab/Tabs/PortraitTab/LocalPorWindow/Emotion_LocalEmotion" to="PMD_Debug/DebugTab/Tabs/PortraitTab/LocalPorWindow" method="OnEmotionSelected"]
@@ -5476,6 +5456,7 @@ texture = ExtResource("176_ych8s")
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page2/ExportResolutionMultiplier" to="SCREENSHOT MANAGER" method="_on_export_resolution_multiplier_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page2/TransparentBackground" to="SCREENSHOT MANAGER" method="_on_transparent_background_toggled"]
+[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page2/CropBoxToggle" to="SCREENSHOT MANAGER" method="_on_box_crop_toggled"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_Slider" to="Settings/SettingsMenu" method="_on_master_slider_value_changed"]
@@ -5489,10 +5470,10 @@ texture = ExtResource("176_ych8s")
 [connection signal="pressed" from="Settings/SettingsMenu/CloseBTN" to="Settings" method="_on_close_btn_pressed"]
 [connection signal="pressed" from="Settings/SettingsMenu/SettingsLeftNav" to="Settings/SettingsMenu" method="on_left_pressed"]
 [connection signal="pressed" from="Settings/SettingsMenu/SettingsRightNav" to="Settings/SettingsMenu" method="on_right_pressed"]
+[connection signal="meta_clicked" from="Settings/SettingsMenu/MUSICLABEL" to="SOUND" method="_on_musiclabel_meta_clicked"]
+[connection signal="finished" from="SOUND/OST" to="SOUND" method="_on_ost_finished"]
 [connection signal="pressed" from="NoticeScreen/InfoBorder/InfoDisplay/CloseBTN" to="NoticeScreen" method="CloseNotice"]
 [connection signal="pressed" from="NoticeScreen/InfoBorder/InfoDisplay/DownloadGithub" to="NoticeScreen" method="OpenGithubReleasesPage"]
 [connection signal="pressed" from="NoticeScreen/InfoBorder/InfoDisplay/DownloadItch" to="NoticeScreen" method="OpenItchioPage"]
 [connection signal="pressed" from="DownloadScreen/InfoBorder/InfoDisplay/YesBTN" to="DownloadScreen" method="CloseNotice"]
 [connection signal="pressed" from="DownloadScreen/InfoBorder/InfoDisplay/CloseBTN" to="DownloadScreen" method="CloseNotice"]
-[connection signal="pressed" from="DownloadScreen/InfoBorder/InfoDisplay/DownloadGithub" to="DownloadScreen" method="OpenGithubReleasesPage"]
-[connection signal="pressed" from="DownloadScreen/InfoBorder/InfoDisplay/DownloadItch" to="DownloadScreen" method="OpenItchioPage"]

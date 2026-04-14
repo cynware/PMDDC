@@ -7,19 +7,11 @@ extends Control
 @export var localEmotionDropdownLocal:OptionButton;
 @export var errorIcon:Sprite2D;
 
-var curPmdCollabURL = "";
-
-var pmdCollabJsonMirror = "https://raw.githubusercontent.com/cynware/PMDDC-Data/refs/heads/main/pmdcollabmirror.txt";
-var pmdCollabJson:String;
-
 var emotions = []
 
 func _ready():
 	CheckAndCreatePortraitFolder()
 	RetrievePortraitsInDirectory()
-	
-	# get_window().connect("focus_entered", self, "RetrievePortraitsInDirectory");
-	#get_window().connect("focus_entered",  RetrievePortraitsInDirectory)
 	
 func CheckAndCreatePortraitFolder():
 	if (!DirAccess.dir_exists_absolute("user://Portraits")):
@@ -35,7 +27,6 @@ func CheckAndCreatePortraitFolder():
 func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 	emotions.clear()
 	localEmotionDropdownLocal.clear()
-	localEmotionDropdownLocal.icon = null;
 	icon.texture = null;
 	
 	if(refreshFolderDropdown):
@@ -43,29 +34,38 @@ func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 		for dir in DirAccess.get_directories_at("user://Portraits/"):
 			var img := Image.new()
 			var localportraits = DirAccess.get_files_at("user://Portraits/" + dir + "/")
-			var error = img.load("user://Portraits/" + dir + "/" + localportraits[0])
+			
+			if localportraits.size() > 0:
+				var error = img.load("user://Portraits/" + dir + "/" + localportraits[0])
 
-			if error == OK:
-				errorIcon.visible = false;
-				
-				if(icon.texture == null):
-					img.resize(40, 40, Image.INTERPOLATE_NEAREST);
-					icon.texture = ImageTexture.create_from_image(img);
-					icon_texture_changed()
+				if error == OK:
+					errorIcon.visible = false;
 					
-				img.resize(20, 20, Image.INTERPOLATE_NEAREST);
-				var portraitTexture := ImageTexture.create_from_image(img);
-				localFolderDropdownLocal.add_icon_item(portraitTexture, dir, 0);
-			else:
-				errorIcon.visible = true;
+					if(icon.texture == null):
+						img.resize(40, 40, Image.INTERPOLATE_NEAREST);
+						icon.texture = ImageTexture.create_from_image(img);
+						icon_texture_changed()
+						
+					img.resize(20, 20, Image.INTERPOLATE_NEAREST);
+					var portraitTexture := ImageTexture.create_from_image(img);
+					localFolderDropdownLocal.add_icon_item(portraitTexture, dir, 0);
+				else:
+					errorIcon.visible = true;
 		
+	if localFolderDropdownLocal.selected >= 0:
+		set_dropdown_icon_resized(localFolderDropdownLocal, localFolderDropdownLocal.selected)
+
+	if localFolderDropdownLocal.item_count == 0: return
+
 	var portraits = DirAccess.get_files_at("user://Portraits/" + localFolderDropdownLocal.text + "/");
-	#print(portraits);
 	
 	if(!DirAccess.dir_exists_absolute("user://Portraits/" + localFolderDropdownLocal.text)):
 		return;
 		
 	for i in portraits.size():
+		if portraits[i].get_basename().ends_with("^"):
+			continue
+			
 		var img := Image.new()
 		var error = img.load("user://Portraits/" + localFolderDropdownLocal.text + "/" + portraits[i])
 
@@ -80,22 +80,36 @@ func RetrievePortraitsInDirectory(refreshFolderDropdown = true):
 			img.resize(20, 20, Image.INTERPOLATE_NEAREST);
 			var portraitTexture := ImageTexture.create_from_image(img);
 			emotions.append(portraits[i])
-			localEmotionDropdownLocal.add_icon_item(portraitTexture, portraits[i].get_basename(), i);
+			localEmotionDropdownLocal.add_icon_item(portraitTexture, portraits[i].get_basename(), emotions.size() - 1);
 		else:
 			errorIcon.visible = true;
 			
 	print(emotions)
+	if localEmotionDropdownLocal.selected >= 0:
+		set_dropdown_icon_resized(localEmotionDropdownLocal, localEmotionDropdownLocal.selected)
 		
 func loadIconLocal():
-	curPmdCollabURL = "";
-	var imagepath = "user://Portraits/" + localFolderDropdownLocal.text + "/"+ emotions[localEmotionDropdownLocal.get_selected_id()];
+	var basename = emotions[localEmotionDropdownLocal.get_selected_id()].get_basename()
+	var extension = emotions[localEmotionDropdownLocal.get_selected_id()].get_extension()
+	var base_path = "user://Portraits/" + localFolderDropdownLocal.text + "/"
 	
-	if(!FileAccess.file_exists(imagepath)):
+	var flip_toggle = get_node_or_null("../PortraitFlip")
+	var is_flipped = flip_toggle.button_pressed if flip_toggle else false
+	
+	var file_path = base_path + basename + "." + extension
+	var flipped_file_path = base_path + basename + "^." + extension
+	var use_flipped_variant = false
+	
+	if is_flipped and FileAccess.file_exists(flipped_file_path):
+		file_path = flipped_file_path
+		use_flipped_variant = true
+		
+	if(!FileAccess.file_exists(file_path)):
 		return;
 		
-	var image = Image.load_from_file(imagepath)
+	var image = Image.load_from_file(file_path)
 	
-	if image.load(imagepath) == OK:
+	if image.load(file_path) == OK:
 		errorIcon.visible = false;
 		
 		if image.get_width() > 40 or image.get_height() > 40:
@@ -103,49 +117,16 @@ func loadIconLocal():
 
 		var texture = ImageTexture.create_from_image(image)
 		icon.texture = texture
+		icon.set_meta("last_source", "local")
+		
+		if is_flipped and not use_flipped_variant:
+			icon.scale.x = -1
+		else:
+			icon.scale.x = 1
+			
 		icon_texture_changed()
 	else:
 		errorIcon.visible = true;
-		
-func loadIconCollab():
-	# Shiny Check
-	SoundEffectManager.PlaySavePreset()
-		
-	# Perform the HTTP request. The URL below returns a PNG image as of writing.
-	var formattedPokemonNumber = "%04d" % int($DexNum.text)
-	var formattedURL = "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/"+ formattedPokemonNumber + "/" + $Emotion_Collab.text + ".png"
-	loadIconCollabFromURL(formattedURL)
-# Called when the HTTP request is completed.
-
-func loadIconCollabFromURL(URL:String):
-	# Create an HTTP request node and connect its completion signal.
-	errorIcon.visible = false;
-	
-	curPmdCollabURL = URL;
-	var http_request = HTTPRequest.new()
-	add_child(http_request)
-	http_request.request_completed.connect(self._http_request_completed)
-
-	# Perform the HTTP request. The URL below returns a PNG image as of writing.
-	var error = http_request.request(URL)
-	if error != OK:
-		errorIcon.visible = true;
-		push_error("An error occurred in the HTTP request.")
-	
-func _http_request_completed(result, response_code, headers, body):
-	if result != HTTPRequest.RESULT_SUCCESS:
-		push_error("Image couldn't be downloaded. Try a different image.")
-
-	var image = Image.new()
-	var error = image.load_png_from_buffer(body)
-	if error != OK:
-		errorIcon.visible = true;
-		
-		push_error("Couldn't load the image.")
-
-	var texture = ImageTexture.create_from_image(image)
-	icon.texture = texture
-	icon_texture_changed()
 
 func icon_texture_changed():
 	if(icon.texture == null):
@@ -163,6 +144,7 @@ func openCustomIconFolder():
 func OnFolderSelectedChanged(index):
 	SoundEffectManager.PlayChooseDropdown()
 	RetrievePortraitsInDirectory(false)
+	set_dropdown_icon_resized(localFolderDropdownLocal, index)
 
 func OnRefresh():
 	RetrievePortraitsInDirectory()
@@ -171,34 +153,19 @@ func OnRefresh():
 func OnEmotionSelected(index):
 	SoundEffectManager.PlayChooseDropdown()	
 	loadIconLocal()
+	set_dropdown_icon_resized(localEmotionDropdownLocal, index)
 
-var allowedDexNumCharacters = "0123456789";
-
-func OnDexNumChanged(new_text):
-	var caret_pos = $DexNum.caret_column 
-	var filtered_text = ""
-	for char in new_text:
-		if char in allowedDexNumCharacters:
-			filtered_text += char
-	$DexNum.text = filtered_text;
-	$DexNum.caret_column = caret_pos;
-
-func _on_shiny_check_toggled(toggled_on):
-	if(toggled_on):
-		SoundEffectManager.PlayCheckboxOn()
+func set_dropdown_icon_resized(dropdown: OptionButton, index: int):
+	if index < 0: return
+	var full_icon = dropdown.get_item_icon(index)
+	if full_icon:
+		var img = full_icon.get_image()
+		img.resize(16, 16, Image.INTERPOLATE_NEAREST)
+		dropdown.icon = ImageTexture.create_from_image(img)
 	else:
-		SoundEffectManager.PlayCheckboxOff()
-		
-func _on_emotion_collab_item_selected(index):
-	SoundEffectManager.PlayChooseDropdown()
-	
+		dropdown.icon = null
+
 func _input(event):
 	if(Input.is_action_just_pressed("BACK") and visible):
 		visible = false;
 		SoundEffectManager.PlayCancel()
-
-func _on_collab_btn_pressed():
-	OS.shell_open("https://sprites.pmdcollab.org/")
-	var sound_player = SoundEffectManager.get_child(7)
-	sound_player.pitch_scale = randf_range(0.95, 1.05)
-	sound_player.play()
