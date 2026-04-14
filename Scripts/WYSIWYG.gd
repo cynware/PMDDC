@@ -363,7 +363,7 @@ func update_display():
 	
 	$"..".updateHUD()
 	
-	print(text_data)
+	#print(text_data)
 
 func update_backend(caret_wrap: bool = false):
 	syncing_frontend = true

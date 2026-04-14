@@ -1,4 +1,4 @@
-[gd_scene load_steps=409 format=3 uid="uid://ldwxr8o7du7"]
+[gd_scene load_steps=416 format=3 uid="uid://ldwxr8o7du7"]
 
 [ext_resource type="Script" path="res://Scripts/Cursor.gd" id="1_3o4bd"]
 [ext_resource type="Script" path="res://Scripts/SCREENSHOT_MANAGER.gd" id="1_8ny4k"]
@@ -102,6 +102,7 @@
 [ext_resource type="Texture2D" uid="uid://c6cqe3x1rbhu4" path="res://Assets/Images/Template/Sad.png" id="44_ot21h"]
 [ext_resource type="Texture2D" uid="uid://bewad4ai343at" path="res://Assets/Images/Template/Shouting.png" id="45_c04ku"]
 [ext_resource type="Texture2D" uid="uid://5t1n7mrmrkpi" path="res://Assets/Images/Template/Sigh.png" id="46_lfj07"]
+[ext_resource type="Texture2D" uid="uid://ccus4wkjrmxyy" path="res://Assets/Images/spd_3.png" id="46_ql6ks"]
 [ext_resource type="Texture2D" uid="uid://1qskq0wfvhc1" path="res://Assets/Images/Template/Special0.png" id="47_vwl7f"]
 [ext_resource type="Texture2D" uid="uid://cngfdx66y708a" path="res://Assets/Images/Template/Special1.png" id="48_gt2bu"]
 [ext_resource type="Texture2D" uid="uid://doqy0rnforfr3" path="res://Assets/Images/Template/Special2.png" id="49_d1k3h"]
@@ -132,7 +133,7 @@
 [ext_resource type="Texture2D" uid="uid://fyku5sd4svm" path="res://PmdSkins/ExplorersOfSky/Female/icon.png" id="75_uxeqa"]
 [ext_resource type="Texture2D" uid="uid://xegltla38itc" path="res://Assets/Images/default_bgs/8.png" id="76_08xig"]
 [ext_resource type="Texture2D" uid="uid://dokenoaellcdy" path="res://PmdSkins/ExplorersOfSky/NonBinary/box.png" id="76_60ftn"]
-[ext_resource type="Texture2D" uid="uid://ddlykvxw5lvyf" path="res://Assets/Images/arrow_blank_dont_delete.png" id="76_yi84w"]
+[ext_resource type="Texture2D" uid="uid://ddlykvxw5lvyf" path="res://Assets/Images/arrow_blank_dont_delete.png" id="76_dit3w"]
 [ext_resource type="Texture2D" uid="uid://du5q2pe6h3pup" path="res://PmdSkins/ExplorersOfSky/NonBinary/icon.png" id="77_a3swu"]
 [ext_resource type="Texture2D" uid="uid://8t0k32ah2xny" path="res://Assets/Images/default_bgs/9.png" id="77_gy0v1"]
 [ext_resource type="Texture2D" uid="uid://dkxh0q7po4ye7" path="res://Assets/Images/default_bgs/10.png" id="78_vjvw3"]
@@ -1703,6 +1704,13 @@ animations = [{
 shader = ExtResource("6_q7upt")
 shader_parameter/lod = 1.0
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_1n0cv"]
+frames = 2
+frame_0/texture = ExtResource("67_uwkq2")
+frame_0/duration = 0.27
+frame_1/texture = ExtResource("76_dit3w")
+frame_1/duration = 0.27
+
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_lqy4g"]
 frames = 2
 frame_0/texture = ExtResource("72_pmr35")
@@ -2601,6 +2609,7 @@ popup/item_2/text = "Medium"
 popup/item_2/icon = ExtResource("44_35v56")
 popup/item_2/id = 1
 popup/item_3/text = "Vanilla"
+popup/item_3/icon = ExtResource("46_ql6ks")
 popup/item_3/id = 2
 script = ExtResource("30_e868e")
 
@@ -3025,7 +3034,6 @@ text = "Highlight"
 alignment = 1
 
 [node name="SymbolWindow" type="Control" parent="PMD_Debug/DebugTab/Tabs/DialogueTab"]
-visible = false
 anchors_preset = 0
 offset_right = 176.0
 offset_bottom = 97.0
@@ -3262,7 +3270,7 @@ offset_left = 66.0
 offset_top = 48.0
 offset_right = 71.0
 offset_bottom = 58.0
-texture_normal = ExtResource("67_uwkq2")
+texture_normal = SubResource("AnimatedTexture_1n0cv")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("11_ouwkk")
