@@ -2,6 +2,7 @@ extends Node
 
 var export_ResolutionMultiplier:int;
 var export_transparentBackground:bool;
+var export_cropbox:bool;
 
 var audio_masterVolume:float = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"));
 var audio_musicVolume:float = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"));
@@ -15,6 +16,7 @@ func SavePreferences():
 	var prefs := {
 		"export_ResolutionMultiplier": export_ResolutionMultiplier,
 		"export_transparentBackground": export_transparentBackground,
+		"export_cropbox": export_cropbox,
 		"audio_masterVolume": audio_masterVolume,
 		"audio_musicVolume": audio_musicVolume,
 		"audio_sfxVolume": audio_sfxVolume
@@ -42,6 +44,8 @@ func GetAndUpdatePreferencesFromFile() -> Dictionary:
 		
 		export_ResolutionMultiplier = prefDictionary["export_ResolutionMultiplier"]
 		export_transparentBackground = prefDictionary["export_transparentBackground"]
+		if prefDictionary.has("export_cropbox"):
+			export_cropbox = prefDictionary["export_cropbox"]
 		
 		audio_masterVolume = prefDictionary["audio_masterVolume"]
 		audio_musicVolume = prefDictionary["audio_musicVolume"]

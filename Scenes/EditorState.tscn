@@ -1806,9 +1806,10 @@ animations = [{
 
 [node name="EditorState" type="Node2D"]
 
-[node name="SCREENSHOT MANAGER" type="Node" parent="." node_paths=PackedStringArray("transparentBackgroundToggle", "resolutionMultiplierDropdown", "background", "debugMenu", "settingsButton", "saveButton")]
+[node name="SCREENSHOT MANAGER" type="Node" parent="." node_paths=PackedStringArray("transparentBackgroundToggle", "export_cropbox", "resolutionMultiplierDropdown", "background", "debugMenu", "settingsButton", "saveButton")]
 script = ExtResource("1_8ny4k")
 transparentBackgroundToggle = NodePath("../Settings/SettingsMenu/SettingsPanel/Page2/TransparentBackground")
+export_cropbox = NodePath("../Settings/SettingsMenu/SettingsPanel/Page2/CropBoxToggle")
 resolutionMultiplierDropdown = NodePath("../Settings/SettingsMenu/SettingsPanel/Page2/ExportResolutionMultiplier")
 background = NodePath("../BgColour")
 debugMenu = NodePath("../PMD_Debug")
@@ -4798,6 +4799,21 @@ flat = true
 alignment = 1
 icon_alignment = 1
 
+[node name="CropBoxToggle" type="CheckBox" parent="Settings/SettingsMenu/SettingsPanel/Page2" groups=["UI_BUTTONS"]]
+layout_mode = 0
+offset_left = 8.33334
+offset_top = 71.0
+offset_right = 146.333
+offset_bottom = 93.0
+scale = Vector2(0.76, 0.76)
+tooltip_text = "Enabling this will crop your export to just be the PMD Dialogue Box. This will exclude the Portrait and Background from the export."
+theme = ExtResource("106_82bab")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_43upc")
+text = "Crop to Dialogue Box"
+flat = true
+alignment = 1
+icon_alignment = 1
+
 [node name="Page3" type="ColorRect" parent="Settings/SettingsMenu/SettingsPanel"]
 visible = false
 layout_mode = 0
@@ -5385,6 +5401,7 @@ texture = ExtResource("176_xqdw4")
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page1/FullscreenButt" to="Settings/SettingsMenu" method="_on_fullscreen_butt_toggled"]
 [connection signal="item_selected" from="Settings/SettingsMenu/SettingsPanel/Page2/ExportResolutionMultiplier" to="SCREENSHOT MANAGER" method="_on_export_resolution_multiplier_item_selected"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page2/TransparentBackground" to="SCREENSHOT MANAGER" method="_on_transparent_background_toggled"]
+[connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page2/CropBoxToggle" to="SCREENSHOT MANAGER" method="_on_box_crop_toggled"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_mute_master"]
 [connection signal="toggled" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER" to="Settings/SettingsMenu" method="on_unmute_master"]
 [connection signal="value_changed" from="Settings/SettingsMenu/SettingsPanel/Page3/Vol_MASTER/Master_Slider" to="Settings/SettingsMenu" method="_on_master_slider_value_changed"]
